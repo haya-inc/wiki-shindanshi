@@ -1,4 +1,19 @@
 {
   "title": "参照資料",
-  "pages": ["index", "exam-guide"]
+  "description": "制度・索引・付録",
+  "icon": "Library",
+  "root": true,
+  "pages": [
+    "index",
+    "---制度確認---",
+    "exam-guide",
+    "---逆引き---",
+    "second-stage-question-index",
+    "past-question-theme-index",
+    "yearly-question-trends",
+    "---横断付録---",
+    "important-terms-glossary",
+    "important-formulas",
+    "study-time-model"
+  ]
 }

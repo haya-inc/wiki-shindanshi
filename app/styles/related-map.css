@@ -1,0 +1,201 @@
+.wiki-related-map {
+  margin-top: 2.75rem;
+  border: 1px solid var(--line);
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 22%),
+    var(--surface-strong);
+  box-shadow: var(--shadow-card);
+  padding: 1.4rem;
+}
+
+.dark .wiki-related-map {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%),
+    var(--surface-strong);
+}
+
+.wiki-related-map-kicker {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+}
+
+.wiki-related-map-meta {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.46);
+  padding: 0.3rem 0.7rem;
+}
+
+.dark .wiki-related-map-meta {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.wiki-related-map-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.46);
+  padding: 0.55rem 0.8rem;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.wiki-related-map-chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--line-strong);
+  background: var(--color-fd-accent);
+}
+
+.dark .wiki-related-map-chip {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.wiki-related-map-graph {
+  position: relative;
+  height: 34rem;
+  margin-top: 1.75rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(circle at top, rgba(31, 106, 87, 0.1), transparent 45%),
+    radial-gradient(circle at bottom, rgba(154, 106, 32, 0.12), transparent 38%),
+    rgba(255, 255, 255, 0.34);
+}
+
+.dark .wiki-related-map-graph {
+  background:
+    radial-gradient(circle at top, rgba(143, 208, 185, 0.1), transparent 45%),
+    radial-gradient(circle at bottom, rgba(215, 175, 113, 0.12), transparent 38%),
+    rgba(255, 255, 255, 0.02);
+}
+
+.wiki-related-map-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wiki-related-map-line {
+  stroke-width: 0.7;
+  stroke-linecap: round;
+  opacity: 0.82;
+}
+
+.wiki-related-map-line--both {
+  stroke: rgba(31, 106, 87, 0.52);
+}
+
+.wiki-related-map-line--outgoing {
+  stroke: rgba(154, 106, 32, 0.46);
+}
+
+.wiki-related-map-line--incoming {
+  stroke: rgba(24, 33, 29, 0.28);
+}
+
+.dark .wiki-related-map-line--both {
+  stroke: rgba(143, 208, 185, 0.62);
+}
+
+.dark .wiki-related-map-line--outgoing {
+  stroke: rgba(215, 175, 113, 0.5);
+}
+
+.dark .wiki-related-map-line--incoming {
+  stroke: rgba(210, 222, 214, 0.3);
+}
+
+.wiki-related-map-center,
+.wiki-related-map-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: min(11rem, 28vw);
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  background: rgba(255, 252, 246, 0.9);
+  box-shadow: var(--shadow-card);
+  padding: 0.9rem;
+  text-decoration: none;
+}
+
+.dark .wiki-related-map-center,
+.dark .wiki-related-map-node {
+  background: rgba(17, 25, 21, 0.92);
+}
+
+.wiki-related-map-center {
+  left: 50%;
+  top: 50%;
+  width: min(13rem, 32vw);
+  z-index: 2;
+}
+
+.wiki-related-map-center-title,
+.wiki-related-map-node-title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--foreground);
+}
+
+.wiki-related-map-node-relation {
+  font-size: 0.76rem;
+  color: var(--muted-text);
+}
+
+.wiki-related-map-node {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.wiki-related-map-node:hover {
+  transform: translate(-50%, calc(-50% - 2px));
+  border-color: var(--line-strong);
+}
+
+.wiki-related-map-node--both {
+  border-color: rgba(31, 106, 87, 0.3);
+}
+
+.wiki-related-map-node--outgoing {
+  border-color: rgba(154, 106, 32, 0.26);
+}
+
+.wiki-related-map-node--incoming {
+  border-color: rgba(24, 33, 29, 0.18);
+}
+
+.dark .wiki-related-map-node--both {
+  border-color: rgba(143, 208, 185, 0.34);
+}
+
+.dark .wiki-related-map-node--outgoing {
+  border-color: rgba(215, 175, 113, 0.3);
+}
+
+.dark .wiki-related-map-node--incoming {
+  border-color: rgba(210, 222, 214, 0.16);
+}

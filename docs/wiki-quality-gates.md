@@ -1,6 +1,6 @@
 # wiki 品質ゲート
 
-更新日: 2026-03-26
+更新日: 2026-03-28
 
 ## 目的
 
@@ -32,7 +32,15 @@
 
 - 更新系ページは `docs/wiki-freshness-registry.json` に載せる
 - 鮮度確認は `pnpm check:wiki` で行う
+- `pnpm check:wiki` には主要な保守スクリプトの回帰テストも含める
 - 一次情報リンクの到達確認は `pnpm check:wiki-links` で行う
 - 公開時の検証は `pnpm lint` と `pnpm build` を最低ラインにする
 - `pnpm lint` には `pnpm check:wiki` を含め、鮮度切れを見落としにくくする
 - `G5` のうち本文側の確認は `pnpm check:wiki`、ビルド確認は `pnpm build` で担保する
+
+## 自動チェックの補足
+
+- `scripts/check-wiki-maintenance.mjs` は `鮮度台帳の整合`、`進捗トラッカーの達成ゲート確認`、`更新系ページの台帳漏れ検出` の 3 段で確認する
+- `scripts/check-maintenance-scripts.test.mjs` は `check-doc-links` と `check-wiki-maintenance` の重要ロジックを固定し、保守変更の破損を先に見つける
+- `G2` の日付付き見出しは、固定日付ではなく `## YYYY-MM-DD 時点での読み方` の形式で自動判定する
+- 継続改善の現在回と次の候補は `docs/maintenance-iteration-tracker.md` を見る

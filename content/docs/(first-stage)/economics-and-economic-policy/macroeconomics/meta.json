@@ -1,0 +1,20 @@
+{
+  "title": "マクロ経済学",
+  "description": "国民所得から政策効果、国際マクロまでを整理する章",
+  "collapsible": false,
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "---知識---",
+    "knowledge-national-income-and-indicators",
+    "knowledge-consumption-and-investment-theory",
+    "knowledge-is-lm-and-policies",
+    "knowledge-ad-as-and-international-macro",
+    "knowledge-history-of-macroeconomic-thought",
+    "---出題---",
+    "exam-policy-and-graph-patterns",
+    "---演習と要点---",
+    "practice-basic-check",
+    "summary"
+  ]
+}

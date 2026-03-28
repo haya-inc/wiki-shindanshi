@@ -1,8 +1,10 @@
 # 初期化戦略メモ
 
-更新日: 2026-03-26
+更新日: 2026-03-28
 
 このリポジトリでは、初期化の判断を次の順序で行います。
+
+この文書は `新規初期化の順番` に絞ったメモです。現行 repo の保守運用や検証入口は `README.md`、`docs/agent-handoff.md`、`docs/maintenance-iteration-tracker.md` を優先します。
 
 ## 1. まず公式の scaffold を使う
 

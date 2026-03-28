@@ -1,0 +1,134 @@
+---
+title: 生産管理 オペレーション
+description: JIT、日程計画、設備管理、物流、改善活動を整理する
+---
+
+生産管理 オペレーションは、`現場を実際に回す段階` を扱う章ハブです。JIT、日程計画、設備管理、購買外注のように、日々の運用を安定させる論点を、どこで詰まるかの観点で整理します。
+
+<Callout title="学習の進め方">
+  まず `JIT`、次に `スケジューリング`、そのうえで `ラインバランシング` を固めます。後半で `設備管理`、`物流`、`改善活動` を足します。
+</Callout>
+
+## このページの役割
+
+現場運用の論点を、`流れ`、`工程`、`設備`、`物流`、`改善` に分けて読むための章ページです。
+
+## ページマップ
+
+<Cards>
+  <Card title="JITとかんばん方式" href="/docs/operations-management/knowledge-jit-and-kanban">
+    引っ張る管理、かんばん、7つのムダ、標準作業をまとめて整理します。
+  </Card>
+  <Card
+    title="スケジューリングとラインバランシング"
+    href="/docs/operations-management/knowledge-scheduling-and-line-balancing"
+  >
+    PERT/CPM、ジョンソン法、ボトルネック、編成効率を整理します。
+  </Card>
+  <Card
+    title="設備管理と生産性向上"
+    href="/docs/operations-management/knowledge-equipment-management-and-productivity"
+  >
+    TPM、OEE、MTBF、MTTR、生産性改善を、止まりにくさと効率で整理します。
+  </Card>
+  <Card title="購買・外注管理" href="/docs/operations-management/knowledge-purchasing-and-outsourcing-management">
+    調達、外注、QCD、供給安定の観点を、内製か委託かの判断に結び付けます。
+  </Card>
+</Cards>
+
+## 最優先で固める論点
+
+### JIT とかんばん方式
+
+JIT は、必要なものを必要なときに必要なだけ流す考え方です。`かんばん方式`、`7つのムダ`、`標準作業` はまとめて整理すると理解しやすくなります。
+
+### スケジューリング
+
+`PERT/CPM`、`ジョンソン法`、`ガントチャート` は頻出です。計算そのものより、`どの順序で進めると全体が早く終わるか` を考える論点だと捉えると崩れにくくなります。
+
+### ラインバランシング
+
+サイクルタイム、工程編成、ライン編成効率は、生産の流れを止めないための指標です。`どこにボトルネックがあるか` を見る視点が重要です。
+
+### 設備管理
+
+TPM、OEE、MTBF、MTTR、可用率は、設備を安定稼働させるための論点です。故障を減らすのか、復旧を早くするのか、総合効率を上げるのかを区別します。
+
+## 次に固める論点
+
+### 物流管理
+
+物流の機能、物流センター、クロスドッキング、共同配送、3PL は、物の流れをどう効率化するかを見る論点です。生産と販売をつなぐ視点で読むと理解しやすくなります。
+
+### 物流情報システム
+
+バーコード、RFID、EDI、EOS、POS は、現場を見える化し、補充や連携を支える仕組みです。略語だけでなく、`誰が何のために使うか` で押さえます。
+
+### 改善活動
+
+ポカヨケ、フェールセーフ、継続的改善、原価低減は、現場改善の基礎です。改善の狙いが `ミス防止` なのか、`安全確保` なのか、`効率化` なのかを分けます。
+
+## 典型的なつまずき
+
+- JIT と MRP の考え方を混同する
+- PERT/CPM を計算手順だけで覚えて、意味を失う
+- ラインバランシングと設備効率の指標を一緒にしてしまう
+- MTBF、MTTR、可用率の違いが曖昧
+- 物流情報システムの略語を、用途と結び付けられない
+
+## 問題を解くときの観点
+
+- いま詰まっているのは `流れ` か、`設備` か、`情報` か
+- 早くしたいのか、止めたくないのか、ミスを減らしたいのか
+- ボトルネックは工程なのか、設備なのか、在庫なのか
+- その指標は `現場のどこ` を見るためのものか
+
+## まずどの順で読むか
+
+<Steps>
+  <Step>
+    ### JITとスケジューリングから始める
+
+    [JITとかんばん方式](/docs/operations-management/knowledge-jit-and-kanban) と [スケジューリングとラインバランシング](/docs/operations-management/knowledge-scheduling-and-line-balancing) で、流れの基本を固めます。
+  </Step>
+  <Step>
+    ### 設備管理へ広げる
+
+    [設備管理と生産性向上](/docs/operations-management/knowledge-equipment-management-and-productivity) で、止まりにくさと効率の見方を足します。
+  </Step>
+  <Step>
+    ### 調達と改善へつなぐ
+
+    [購買・外注管理](/docs/operations-management/knowledge-purchasing-and-outsourcing-management) を通して、現場運用を外部連携まで広げます。
+  </Step>
+</Steps>
+
+## 近年の出題の寄り方
+
+| 区分 | 出やすい型 | 特に重く見たい論点 |
+| --- | --- | --- |
+| `R3〜R5` で繰り返し出る型 | PERT/CPM、発注方式、物流管理、改善手法 | クリティカルパス、EOQ、ECRS、物流用語の比較 |
+| `R6〜R7` で比重が高い型 | TPM、OEE、MTBF / MTTR、ジョンソン法、設備と情報の連動 | 指標計算、保全分類、ボトルネック工程の見つけ方 |
+
+## よくある誤答パターン
+
+| 誤答パターン | 起こりやすい原因 | 解く前の確認 |
+| --- | --- | --- |
+| JIT と MRP を対立語としてしか覚えていない | 引っ張る管理か押し出す管理かが曖昧 | `必要なときに流す` のか `計画で展開する` のかを見る |
+| MTBF、MTTR、可用率を混同する | 故障間隔と復旧時間の意味を分けていない | `壊れにくさ` と `直しやすさ` を別に見る |
+| PERT/CPM を計算だけで処理して意味を失う | 工程全体の流れを見ていない | 最短工期と余裕時間を言葉で確認する |
+| 物流情報システムの略語を用途と結び付けられない | 略語暗記で止まっている | `誰が何のために使うか` を一度日本語にする |
+
+## 第2次試験とのつながり
+
+- [事例Ⅲ 生産・技術](/docs/second-stage/case-3-production-and-technology): 生産性向上、ボトルネック解消、標準化、設備保全の助言につながる
+- [店舗・販売管理](/docs/operations-management/store-and-sales-management): 物流や情報システムは販売側ともつながる
+
+## 次に読むとよいページ
+
+- [JITとかんばん方式](/docs/operations-management/knowledge-jit-and-kanban)
+- [スケジューリングとラインバランシング](/docs/operations-management/knowledge-scheduling-and-line-balancing)
+- [設備管理と生産性向上](/docs/operations-management/knowledge-equipment-management-and-productivity)
+- [購買・外注管理](/docs/operations-management/knowledge-purchasing-and-outsourcing-management)
+- [店舗・販売管理](/docs/operations-management/store-and-sales-management)
+- [事例Ⅲ 生産・技術](/docs/second-stage/case-3-production-and-technology)

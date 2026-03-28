@@ -1,0 +1,28 @@
+{
+  "title": "中小企業経営・中小企業政策",
+  "description": "白書・統計・施策",
+  "icon": "Landmark",
+  "root": true,
+  "pages": [
+    "index",
+    "sme-management",
+    "knowledge-sme-definition-and-size-criteria",
+    "knowledge-sme-economic-role-and-statistics",
+    "knowledge-sme-management-issues",
+    "knowledge-sme-industry-trends",
+    "knowledge-industrial-clusters",
+    "knowledge-startup-and-closure-rates",
+    "knowledge-sme-white-paper-reading",
+    "sme-policy",
+    "policy-framework-and-basic-laws",
+    "policy-management-support",
+    "policy-financial-support",
+    "policy-major-subsidies",
+    "policy-startup-support",
+    "policy-business-succession-and-ma-support",
+    "policy-overseas-expansion-support",
+    "policy-fair-trade-and-small-business-support",
+    "policy-human-resources-and-employment-support",
+    "policy-bcp-and-disaster-recovery-support"
+  ]
+}

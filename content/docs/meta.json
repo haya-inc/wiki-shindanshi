@@ -1,4 +1,15 @@
 {
   "title": "中小企業診断士 wiki",
-  "pages": ["index", "reference", "first-stage", "second-stage"]
+  "pages": [
+    "index",
+    "./(first-stage)/economics-and-economic-policy",
+    "./(first-stage)/finance-and-accounting",
+    "./(first-stage)/business-management-theory",
+    "./(first-stage)/operations-management",
+    "./(first-stage)/business-law",
+    "./(first-stage)/management-information-systems",
+    "./(first-stage)/sme-management-and-policy",
+    "second-stage",
+    "reference"
+  ]
 }

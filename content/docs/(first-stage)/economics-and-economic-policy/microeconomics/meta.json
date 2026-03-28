@@ -1,0 +1,20 @@
+{
+  "title": "ミクロ経済学",
+  "description": "需要と供給からゲーム理論、国際貿易理論までを段階的に学ぶ章",
+  "collapsible": false,
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "---知識---",
+    "knowledge-market-mechanism",
+    "knowledge-consumer-and-firm",
+    "knowledge-market-structure-and-failure",
+    "knowledge-game-theory",
+    "knowledge-international-trade",
+    "---出題---",
+    "exam-graph-and-comparison-patterns",
+    "---演習と要点---",
+    "practice-basic-check",
+    "summary"
+  ]
+}

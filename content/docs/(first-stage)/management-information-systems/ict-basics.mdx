@@ -1,0 +1,110 @@
+---
+title: 情報通信技術の基礎
+description: コンピュータ、DB、ネットワーク、セキュリティ、AI を整理する
+---
+
+情報通信技術の基礎は、`IT 用語の土台` を作る章です。章ページ 1 枚で読み流すより、`計算機`、`DB`、`ネットワーク`、`Web とクラウド`、`セキュリティ`、`AI` に分けて戻れる方が、問題文のテーマに応じて迷いにくくなります。
+
+<Callout title="この章の使い方">
+  まず `何の領域を問う問題か` を切り、そのあとで対応する知識ノードへ入ります。最後に [経営情報管理](/docs/management-information-systems/information-management) や [情報セキュリティガイドラインと関連法規](/docs/management-information-systems/security-guidelines-and-related-laws) へ広げます。
+</Callout>
+
+## このページの役割
+
+このページは、`情報通信技術の基礎` を読む順番と戻り先を決める章ハブです。各知識ノードの役割を確認し、何を先に固めるべきかを切り分けます。
+
+## まず読むノード
+
+<Cards>
+  <Card title="知識ノード コンピュータの基礎" href="/docs/management-information-systems/knowledge-computer-basics">
+    CPU、メモリ、補助記憶装置、OS、ミドルウェア、処理形態を整理します。
+  </Card>
+  <Card title="知識ノード データベースとSQL" href="/docs/management-information-systems/knowledge-database-and-sql">
+    RDB、主キー / 外部キー、正規化、SQL、トランザクションを整理します。
+  </Card>
+  <Card title="知識ノード 通信ネットワーク" href="/docs/management-information-systems/knowledge-network-basics">
+    OSI 参照モデル、TCP/IP、IPアドレス、DNS、LAN / WAN を整理します。
+  </Card>
+  <Card title="知識ノード Webテクノロジーとクラウド" href="/docs/management-information-systems/knowledge-web-and-cloud">
+    HTTP / HTTPS、API、Web サービス、SaaS / PaaS / IaaS を整理します。
+  </Card>
+  <Card title="知識ノード 情報セキュリティの基礎" href="/docs/management-information-systems/knowledge-information-security-basics">
+    CIA、暗号、ハッシュ、電子署名、認証、マルウェア、VPN を整理します。
+  </Card>
+  <Card title="知識ノード AI・機械学習の基礎" href="/docs/management-information-systems/knowledge-ai-and-machine-learning-basics">
+    AI、機械学習、生成AI、IoT、ビッグデータの位置づけを整理します。
+  </Card>
+</Cards>
+
+## 読む順番
+
+<Steps>
+  <Step>
+    ### 計算機と DB を固める
+
+    [知識ノード コンピュータの基礎](/docs/management-information-systems/knowledge-computer-basics) と [知識ノード データベースとSQL](/docs/management-information-systems/knowledge-database-and-sql) で、装置、ソフトウェア、表構造、SQL の土台を固めます。
+  </Step>
+  <Step>
+    ### ネットワークと Web をつなぐ
+
+    [知識ノード 通信ネットワーク](/docs/management-information-systems/knowledge-network-basics) と [知識ノード Webテクノロジーとクラウド](/docs/management-information-systems/knowledge-web-and-cloud) を続けて読み、`つなぐ仕組み` と `使う仕組み` を分けます。
+  </Step>
+  <Step>
+    ### セキュリティと AI を位置付ける
+
+    [知識ノード 情報セキュリティの基礎](/docs/management-information-systems/knowledge-information-security-basics) で守り方を固め、そのあとで [知識ノード AI・機械学習の基礎](/docs/management-information-systems/knowledge-ai-and-machine-learning-basics) を読み、最近の論点を基礎の上に置きます。
+  </Step>
+  <Step>
+    ### 更新論点と実務運用へ広げる
+
+    法規やガイドラインの更新は [情報セキュリティガイドラインと関連法規](/docs/management-information-systems/security-guidelines-and-related-laws) で確認し、企業実務へのつながりは [経営情報管理](/docs/management-information-systems/information-management) へ広げます。
+  </Step>
+</Steps>
+
+## 試験で差がつく観点
+
+- `ハードウェア / ソフトウェア / OS / ミドルウェア` を階層で説明できるか
+- `表の関係` を追って SQL を読めるか
+- `TCP/IP`、`DNS`、`HTTP/HTTPS` を、役割の違いで切り分けられるか
+- `暗号化 / ハッシュ / 電子署名 / 認証` を、守る対象と目的で分けられるか
+- `SaaS / PaaS / IaaS` や `AI / 機械学習 / 生成AI` を語感ではなく用途で比較できるか
+
+## 2026-03-27 時点の最新確認メモ
+
+- IPA の `情報セキュリティ10大脅威 2026` は `2026-01-29` 公開、`2026-03-12` 更新で、組織向け脅威に `AIの利用をめぐるサイバーリスク` が初選出されています。
+- 総務省・経済産業省の `AI事業者ガイドライン` は `2025-03-28` 付の `第1.1版` が確認でき、AI 開発者、提供者、利用者の観点が整理されています。
+- IPA の `中小企業の情報セキュリティ対策ガイドライン` は `2026-03-27` 最終更新で `第4.0版` が公開されています。
+- これらは更新論点ですが、試験対策としては `DB`、`ネットワーク`、`セキュリティ基礎` を落とさないことが先です。
+
+## 典型的なつまずき
+
+- 用語を 1 枚の章ページで読み流し、どこへ戻ればよいか決められない
+- SQL を文法暗記だけで覚えて、表の関係を追えない
+- TCP/IP や DNS を、何のための仕組みか説明できない
+- 暗号化、ハッシュ、電子署名、認証の役割が混ざる
+- SaaS、PaaS、IaaS や生成AIを、語感だけで覚えてしまう
+
+## 問題を解くときの観点
+
+- 問われているのは `計算機`、`DB`、`通信`、`Web/クラウド`、`防御`、`AI` のどれか
+- その用語は `何をする技術か`、`どこで使う技術か`
+- セキュリティなら、守る対象と対策が対応しているか
+- 新しい用語でも、結局は既存の基礎論点のどこに乗るかを見極める
+
+## 次に読むとよいページ
+
+- [知識ノード コンピュータの基礎](/docs/management-information-systems/knowledge-computer-basics)
+- [知識ノード データベースとSQL](/docs/management-information-systems/knowledge-database-and-sql)
+- [知識ノード 通信ネットワーク](/docs/management-information-systems/knowledge-network-basics)
+- [知識ノード Webテクノロジーとクラウド](/docs/management-information-systems/knowledge-web-and-cloud)
+- [知識ノード 情報セキュリティの基礎](/docs/management-information-systems/knowledge-information-security-basics)
+- [知識ノード AI・機械学習の基礎](/docs/management-information-systems/knowledge-ai-and-machine-learning-basics)
+- [経営情報管理](/docs/management-information-systems/information-management)
+- [情報セキュリティガイドラインと関連法規](/docs/management-information-systems/security-guidelines-and-related-laws)
+- [民法と取引関連法](/docs/business-law/civil-and-transaction-law)
+
+## 参照した主な一次情報
+
+- [IPA: 情報セキュリティ10大脅威 2026](https://www.ipa.go.jp/security/10threats/10threats2026.html)
+- [METI: AI事業者ガイドライン（第1.1版）](https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/pdf/20250328_1.pdf)
+- [IPA: 中小企業の情報セキュリティ対策ガイドライン](https://www.ipa.go.jp/security/guide/sme/about.html)

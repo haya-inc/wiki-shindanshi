@@ -1,9 +1,36 @@
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const registryPath = path.join(root, "docs/wiki-freshness-registry.json");
 const progressTrackerPath = path.join(root, "docs/wiki-progress-tracker.md");
+
+const gateHeadingPatterns = {
+  G1: [
+    /##\s+このページの役割/u,
+    /##\s+この事例の位置づけ/u,
+    /##\s+この科目の位置づけ/u,
+    /##\s+全体像/u,
+    /##\s+このページの前提/u,
+  ],
+  G2: [
+    /##\s+学習のポイント/u,
+    /##\s+学習メモ/u,
+    /##\s+学習の優先順位/u,
+    /##\s+現時点で重視していること/u,
+    /##\s+\d{4}-\d{2}-\d{2}\s+時点での読み方/u,
+  ],
+  G3: [
+    /##\s+典型的なつまずき/u,
+    /##\s+問題を解くときの観点/u,
+    /##\s+頻出の設問パターン/u,
+    /##\s+解答順の考え方/u,
+    /##\s+このページの次の拡張方針/u,
+    /##\s+試験の構造/u,
+    /##\s+登録までの流れ/u,
+  ],
+};
 
 function parseDateString(value) {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
@@ -61,7 +88,7 @@ function toPosix(filePath) {
   return filePath.split(path.sep).join("/");
 }
 
-function parseClaimedGates(value) {
+export function parseClaimedGates(value) {
   const compact = value.replace(/\s+/g, "");
 
   if (/^G1-G5$/u.test(compact)) {
@@ -75,21 +102,21 @@ function parseClaimedGates(value) {
   return compact.split(",").filter(Boolean);
 }
 
-function routeToDocPath(route) {
+function buildDocPathCandidates(route) {
   const slug = route.replace(/^\/docs\/?/u, "");
   const basePath = slug === "" ? "content/docs" : path.join("content/docs", slug);
-  const directPath = path.join(root, `${basePath}.mdx`);
-  const indexPath = path.join(root, basePath, "index.mdx");
+  const groupedBasePath = slug === "" ? null : path.join("content/docs", "(first-stage)", slug);
 
-  if (fs.existsSync(directPath)) {
-    return directPath;
-  }
+  return [
+    path.join(root, `${basePath}.mdx`),
+    path.join(root, basePath, "index.mdx"),
+    groupedBasePath ? path.join(root, `${groupedBasePath}.mdx`) : null,
+    groupedBasePath ? path.join(root, groupedBasePath, "index.mdx") : null,
+  ].filter(Boolean);
+}
 
-  if (fs.existsSync(indexPath)) {
-    return indexPath;
-  }
-
-  return null;
+function routeToDocPath(route) {
+  return buildDocPathCandidates(route).find((candidate) => fs.existsSync(candidate)) ?? null;
 }
 
 function extractTrackedPages() {
@@ -146,44 +173,26 @@ function extractTrackedPages() {
   return trackedPages;
 }
 
-function detectActualGates(content, hasFreshnessEntry) {
+function hasAnyPattern(content, patterns) {
+  return patterns.some((pattern) => pattern.test(content));
+}
+
+export function detectActualGates(content, hasFreshnessEntry) {
   const actual = new Set();
   const hasInternalLink = /\]\(\/docs\/[^)]+\)/u.test(content);
   const hasExternalLink = /\]\(https:\/\/[^)]+\)/u.test(content);
   const hasDateMarker = /\b20\d{2}-\d{2}-\d{2}\b/u.test(content) || /令和\d+年度/u.test(content);
-  const g1Patterns = [
-    /##\s+このページの役割/u,
-    /##\s+この事例の位置づけ/u,
-    /##\s+この科目の位置づけ/u,
-    /##\s+全体像/u,
-    /##\s+このページの前提/u,
-  ];
-  const g2Patterns = [
-    /##\s+学習のポイント/u,
-    /##\s+学習メモ/u,
-    /##\s+学習の優先順位/u,
-    /##\s+現時点で重視していること/u,
-    /##\s+2026-03-26 時点での読み方/u,
-  ];
-  const g3Patterns = [
-    /##\s+典型的なつまずき/u,
-    /##\s+問題を解くときの観点/u,
-    /##\s+頻出の設問パターン/u,
-    /##\s+解答順の考え方/u,
-    /##\s+このページの次の拡張方針/u,
-    /##\s+試験の構造/u,
-    /##\s+登録までの流れ/u,
-  ];
 
-  if (g1Patterns.some((pattern) => pattern.test(content))) {
+  if (hasAnyPattern(content, gateHeadingPatterns.G1)) {
     actual.add("G1");
   }
 
-  if (g2Patterns.some((pattern) => pattern.test(content))) {
+  // 更新参照ページの見出しは毎回日付が変わるため、固定日付ではなく形式で判定する。
+  if (hasAnyPattern(content, gateHeadingPatterns.G2)) {
     actual.add("G2");
   }
 
-  if (g3Patterns.some((pattern) => pattern.test(content)) || /^\|.+\|$/mu.test(content)) {
+  if (hasAnyPattern(content, gateHeadingPatterns.G3) || /^\|.+\|$/mu.test(content)) {
     actual.add("G3");
   }
 
@@ -200,121 +209,164 @@ function detectActualGates(content, hasFreshnessEntry) {
   return actual;
 }
 
-const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
-const today = parseDateString(formatDate(new Date(), registry.timezone ?? "Asia/Tokyo"));
-const freshnessEntries = new Map(
-  registry.entries.map((entry) => [entry.docPath, entry])
-);
-
-const errors = [];
-const warnings = [];
-const results = [];
-
-for (const entry of registry.entries) {
-  const docPath = path.join(root, entry.docPath);
-
-  if (!fs.existsSync(docPath)) {
-    errors.push(`ファイルが見つかりません: ${entry.docPath}`);
-    continue;
-  }
-
-  if (!Number.isInteger(entry.reviewWindowDays) || entry.reviewWindowDays <= 0) {
-    errors.push(`reviewWindowDays が不正です: ${entry.route}`);
-    continue;
-  }
-
-  if (!Array.isArray(entry.sourceUrls) || entry.sourceUrls.length === 0) {
-    errors.push(`一次情報 URL が未設定です: ${entry.route}`);
-    continue;
-  }
-
-  const content = fs.readFileSync(docPath, "utf8");
-  const reviewedAt = parseDateString(entry.lastReviewedAt);
-  const staleOn = addDays(reviewedAt, entry.reviewWindowDays);
-  const daysLeft = diffDays(today, staleOn);
-
-  for (const sourceUrl of entry.sourceUrls) {
-    if (!content.includes(sourceUrl)) {
-      errors.push(`本文に一次情報 URL が見つかりません: ${entry.route} -> ${sourceUrl}`);
-    }
-  }
-
-  if (today > staleOn) {
-    errors.push(
-      `鮮度確認の期限切れです: ${entry.route} 最終確認 ${entry.lastReviewedAt} / 期限 ${formatDate(staleOn, registry.timezone)}`
-    );
-    continue;
-  }
-
-  if (daysLeft <= 14) {
-    warnings.push(
-      `鮮度確認の期限が近いです: ${entry.route} 最終確認 ${entry.lastReviewedAt} / 期限 ${formatDate(staleOn, registry.timezone)}`
-    );
-  }
-
-  results.push(
-    `OK ${entry.route} 最終確認 ${entry.lastReviewedAt} / 次回確認期限 ${formatDate(staleOn, registry.timezone)}`
+function loadFreshnessRegistry() {
+  const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
+  const timeZone = registry.timezone ?? "Asia/Tokyo";
+  const today = parseDateString(formatDate(new Date(), timeZone));
+  const freshnessEntries = new Map(
+    registry.entries.map((entry) => [entry.docPath, entry])
   );
+
+  return { registry, freshnessEntries, today, timeZone };
 }
 
-const trackedPages = extractTrackedPages();
+// 鮮度台帳そのものの整合と期限切れを確認する。
+function validateFreshnessEntries(registry, today, timeZone) {
+  const errors = [];
+  const warnings = [];
+  const results = [];
 
-for (const trackedPage of trackedPages) {
-  const resolvedPath = routeToDocPath(trackedPage.route);
+  for (const entry of registry.entries) {
+    const docPath = path.join(root, entry.docPath);
 
-  if (!resolvedPath) {
-    errors.push(`進捗トラッカーの公開導線に対応するファイルが見つかりません: ${trackedPage.route}`);
-    continue;
+    if (!fs.existsSync(docPath)) {
+      errors.push(`ファイルが見つかりません: ${entry.docPath}`);
+      continue;
+    }
+
+    if (!Number.isInteger(entry.reviewWindowDays) || entry.reviewWindowDays <= 0) {
+      errors.push(`reviewWindowDays が不正です: ${entry.route}`);
+      continue;
+    }
+
+    if (!Array.isArray(entry.sourceUrls) || entry.sourceUrls.length === 0) {
+      errors.push(`一次情報 URL が未設定です: ${entry.route}`);
+      continue;
+    }
+
+    const content = fs.readFileSync(docPath, "utf8");
+    const reviewedAt = parseDateString(entry.lastReviewedAt);
+    const staleOn = addDays(reviewedAt, entry.reviewWindowDays);
+    const daysLeft = diffDays(today, staleOn);
+
+    for (const sourceUrl of entry.sourceUrls) {
+      if (!content.includes(sourceUrl)) {
+        errors.push(`本文に一次情報 URL が見つかりません: ${entry.route} -> ${sourceUrl}`);
+      }
+    }
+
+    if (today > staleOn) {
+      errors.push(
+        `鮮度確認の期限切れです: ${entry.route} 最終確認 ${entry.lastReviewedAt} / 期限 ${formatDate(staleOn, timeZone)}`
+      );
+      continue;
+    }
+
+    if (daysLeft <= 14) {
+      warnings.push(
+        `鮮度確認の期限が近いです: ${entry.route} 最終確認 ${entry.lastReviewedAt} / 期限 ${formatDate(staleOn, timeZone)}`
+      );
+    }
+
+    results.push(
+      `OK ${entry.route} 最終確認 ${entry.lastReviewedAt} / 次回確認期限 ${formatDate(staleOn, timeZone)}`
+    );
   }
 
-  const relativeDocPath = toPosix(path.relative(root, resolvedPath));
-  const content = fs.readFileSync(resolvedPath, "utf8");
-  const freshnessEntry = freshnessEntries.get(relativeDocPath);
-  const actualGates = detectActualGates(content, Boolean(freshnessEntry));
-  const claimedGates = parseClaimedGates(trackedPage.claimedGates);
+  return { errors, warnings, results };
+}
 
-  for (const gate of claimedGates) {
-    if (!actualGates.has(gate)) {
-      errors.push(`達成ゲートの根拠が本文から確認できません: ${trackedPage.route} -> ${gate}`);
+// 進捗トラッカーの申告が本文の実態とずれていないか確認する。
+function validateTrackedPages(trackedPages, freshnessEntries) {
+  const errors = [];
+
+  for (const trackedPage of trackedPages) {
+    const resolvedPath = routeToDocPath(trackedPage.route);
+
+    if (!resolvedPath) {
+      errors.push(`進捗トラッカーの公開導線に対応するファイルが見つかりません: ${trackedPage.route}`);
+      continue;
+    }
+
+    const relativeDocPath = toPosix(path.relative(root, resolvedPath));
+    const content = fs.readFileSync(resolvedPath, "utf8");
+    const freshnessEntry = freshnessEntries.get(relativeDocPath);
+    const actualGates = detectActualGates(content, Boolean(freshnessEntry));
+    const claimedGates = parseClaimedGates(trackedPage.claimedGates);
+
+    for (const gate of claimedGates) {
+      if (!actualGates.has(gate)) {
+        errors.push(`達成ゲートの根拠が本文から確認できません: ${trackedPage.route} -> ${gate}`);
+      }
+    }
+
+    if (trackedPage.topicType === "更新論点" && trackedPage.status === "公開済み" && !actualGates.has("G6")) {
+      errors.push(`更新論点の公開済みページに G6 が不足しています: ${trackedPage.route}`);
     }
   }
 
-  if (trackedPage.topicType === "更新論点" && trackedPage.status === "公開済み" && !actualGates.has("G6")) {
-    errors.push(`更新論点の公開済みページに G6 が不足しています: ${trackedPage.route}`);
+  return errors;
+}
+
+function collectDocFiles() {
+  return walkFiles(path.join(root, "content/docs"))
+    .filter((filePath) => filePath.endsWith(".mdx"))
+    .map((filePath) => ({
+      absolutePath: filePath,
+      relativePath: toPosix(path.relative(root, filePath)),
+      content: fs.readFileSync(filePath, "utf8"),
+    }));
+}
+
+// 日付や最新確認メモを含むページが、鮮度台帳から漏れていないか確認する。
+function validateUpdateProneDocs(freshnessEntries) {
+  const errors = [];
+
+  for (const docFile of collectDocFiles()) {
+    const looksUpdateProne =
+      /最新確認メモ/u.test(docFile.content) ||
+      /更新確認メモ/u.test(docFile.content) ||
+      /\b20\d{2}-\d{2}-\d{2}\b/u.test(docFile.content) ||
+      /令和\d+年度/u.test(docFile.content);
+
+    if (looksUpdateProne && !freshnessEntries.has(docFile.relativePath)) {
+      errors.push(`更新系ページが鮮度台帳に未登録です: ${docFile.relativePath}`);
+    }
+  }
+
+  return errors;
+}
+
+function printLines(lines, writer) {
+  for (const line of lines) {
+    writer(line);
   }
 }
 
-const docFiles = walkFiles(path.join(root, "content/docs"))
-  .filter((filePath) => filePath.endsWith(".mdx"))
-  .map((filePath) => ({
-    absolutePath: filePath,
-    relativePath: toPosix(path.relative(root, filePath)),
-    content: fs.readFileSync(filePath, "utf8"),
-  }));
+export function main() {
+  const { registry, freshnessEntries, today, timeZone } = loadFreshnessRegistry();
+  const freshnessValidation = validateFreshnessEntries(
+    registry,
+    today,
+    timeZone
+  );
+  const trackedPageErrors = validateTrackedPages(extractTrackedPages(), freshnessEntries);
+  const updateProneErrors = validateUpdateProneDocs(freshnessEntries);
+  const errors = [
+    ...freshnessValidation.errors,
+    ...trackedPageErrors,
+    ...updateProneErrors,
+  ];
 
-for (const docFile of docFiles) {
-  const looksUpdateProne =
-    /最新確認メモ/u.test(docFile.content) ||
-    /更新確認メモ/u.test(docFile.content) ||
-    /\b20\d{2}-\d{2}-\d{2}\b/u.test(docFile.content) ||
-    /令和\d+年度/u.test(docFile.content);
+  printLines(freshnessValidation.results, console.log);
+  printLines(freshnessValidation.warnings, console.warn);
 
-  if (looksUpdateProne && !freshnessEntries.has(docFile.relativePath)) {
-    errors.push(`更新系ページが鮮度台帳に未登録です: ${docFile.relativePath}`);
+  if (errors.length > 0) {
+    printLines(errors, console.error);
+    process.exit(1);
   }
 }
 
-for (const line of results) {
-  console.log(line);
-}
-
-for (const line of warnings) {
-  console.warn(line);
-}
-
-if (errors.length > 0) {
-  for (const line of errors) {
-    console.error(line);
-  }
-  process.exit(1);
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main();
 }

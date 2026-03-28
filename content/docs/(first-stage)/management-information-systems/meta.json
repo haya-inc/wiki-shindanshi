@@ -1,0 +1,26 @@
+{
+  "title": "経営情報システム",
+  "description": "IT・情報・セキュリティ",
+  "icon": "Computer",
+  "root": true,
+  "pages": [
+    "index",
+    "---情報通信技術の基礎---",
+    "ict-basics",
+    "knowledge-computer-basics",
+    "knowledge-database-and-sql",
+    "knowledge-network-basics",
+    "knowledge-web-and-cloud",
+    "knowledge-information-security-basics",
+    "knowledge-ai-and-machine-learning-basics",
+    "---経営情報管理---",
+    "information-management",
+    "knowledge-it-strategy-and-dx",
+    "knowledge-systems-development-methods",
+    "knowledge-project-management",
+    "knowledge-it-operations-and-audit",
+    "knowledge-outsourcing-and-decision-support",
+    "knowledge-statistics-basics",
+    "security-guidelines-and-related-laws"
+  ]
+}

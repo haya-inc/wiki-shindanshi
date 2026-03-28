@@ -1,0 +1,198 @@
+{
+  "main": {
+    "id": "5b43879e4731b35e",
+    "type": "split",
+    "children": [
+      {
+        "id": "598a8ccf325e9dc0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d434aa684cb1e4fa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/wiki-coverage-registry.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "wiki-coverage-registry"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9cf95a1089ec5ea1",
+    "type": "split",
+    "children": [
+      {
+        "id": "10a8ecacaa10492a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2ff50c171d726045",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "ファイルエクスプローラ"
+            }
+          },
+          {
+            "id": "52414c3cd2e71df3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "検索"
+            }
+          },
+          {
+            "id": "a62ff9241d0e650a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "ブックマーク"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9cc2e404480dc3c3",
+    "type": "split",
+    "children": [
+      {
+        "id": "f903c99abbf88419",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4390cfd9991380dd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/wiki-coverage-registry.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "wiki-coverage-registryへのバックリンク"
+            }
+          },
+          {
+            "id": "2862fb74bb6c89c3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/wiki-coverage-registry.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "wiki-coverage-registryからのアウトゴーイングリンク"
+            }
+          },
+          {
+            "id": "3e6d83990a948492",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "タグ"
+            }
+          },
+          {
+            "id": "8e1c5a0334509ac8",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "すべてのプロパティ"
+            }
+          },
+          {
+            "id": "f63c94394a0b7468",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/wiki-coverage-registry.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "wiki-coverage-registryのアウトライン"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:クイックスイッチャーを開く": false,
+      "graph:グラフビューを開く": false,
+      "canvas:新規キャンバスを作成": false,
+      "daily-notes:今日のデイリーノートを開く": false,
+      "templates:テンプレートを挿入": false,
+      "command-palette:コマンドパレットを開く": false,
+      "bases:新規ベースを作成": false
+    }
+  },
+  "active": "d434aa684cb1e4fa",
+  "lastOpenFiles": [
+    "test-results",
+    "docs/wiki-progress-tracker.md",
+    "docs/wiki-quality-gates.md",
+    "docs/wiki-review-log.md",
+    "docs/wiki-ui-patterns.md",
+    "docs/wiki-coverage-registry.md",
+    "docs/wiki-completeness-roadmap.md",
+    "docs/pnpm-nextjs-fumadocs-vercel-best-practices.md",
+    "docs/initialization-strategy.md"
+  ]
+}

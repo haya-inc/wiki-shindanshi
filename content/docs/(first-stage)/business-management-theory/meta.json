@@ -1,0 +1,31 @@
+{
+  "title": "企業経営理論",
+  "description": "戦略・組織・顧客",
+  "icon": "Briefcase",
+  "root": true,
+  "pages": [
+    "index",
+    "---戦略---",
+    "management-strategy",
+    "knowledge-strategic-planning-and-swot",
+    "knowledge-corporate-and-growth-strategy",
+    "knowledge-competitive-and-resource-strategy",
+    "knowledge-innovation-international-and-digital-strategy",
+    "knowledge-csr-esg-and-governance",
+    "---組織---",
+    "organization-theory",
+    "knowledge-barnard-and-simon",
+    "knowledge-organizational-structure-and-design",
+    "knowledge-motivation-theories",
+    "knowledge-leadership-theories",
+    "knowledge-human-resource-management",
+    "knowledge-organizational-culture-and-change",
+    "---マーケティング---",
+    "marketing",
+    "knowledge-stp-and-4p",
+    "knowledge-marketing-research-and-consumer-behavior",
+    "knowledge-product-and-price-strategy",
+    "knowledge-channel-and-promotion-strategy",
+    "knowledge-service-marketing-and-crm"
+  ]
+}

@@ -1,0 +1,204 @@
+---
+title: 重要公式・計算式一覧
+description: 頻出の計算式を、意味と戻り先を含めて整理する
+---
+
+## このページの役割
+
+<Callout title="このページの役割">
+  このページは、`何を求める式か` を短く確認するための付録です。公式集だけで完結させず、各式が使われる
+  `元ページ` と `典型的な出題場面` に戻るための入口として使います。
+</Callout>
+
+## 学習のポイント
+
+- まず `式の形` より `何を求める式か` を先に言えるようにする
+- 次に `単位`、`分母 / 分子`、`符号` の取り違えを防ぐ
+- 事例Ⅳは `公式` と `時間配分` を分けずに覚える
+
+## 計算を始める前のチェック
+
+| 確認項目 | 先に見ること | 典型的に崩れる式 |
+| --- | --- | --- |
+| `何を求めるか` | `価値額`、`効率`、`収益性`、`在庫量` のどれか | `NPV`、`PI`、`ROA` |
+| `単位` | `円`、`%`、`個数`、`売上高` のどれか | `損益分岐点売上高`、`EOQ` |
+| `分母 / 分子` | `資本基準` か `売上基準` か、`変化率どうし` か | `ROA`、`価格弾力性` |
+| `税効果と符号` | `1 - 税率` の掛け先、控除項目の向き | `WACC`、`FCF` |
+| `最終年度回収` | `残存価値`、`運転資本回収` を足したか | `NPV`、`FCF` |
+
+## 略語から引く
+
+| 略語 | 何を見る式か | まず戻るページ |
+| --- | --- | --- |
+| `BEP` | 損益分岐点。利益がゼロになる売上や数量 | [損益分岐点分析](/docs/finance-and-accounting/management-analysis-cvp-and-break-even) |
+| `ROA` | 総資本収益性 | [収益性分析](/docs/finance-and-accounting/management-analysis-profitability) |
+| `ROE` | 自己資本収益性 | [収益性分析](/docs/finance-and-accounting/management-analysis-profitability) |
+| `FCF` | 投資後に企業が自由に使える現金 | [キャッシュ・フロー管理](/docs/finance-and-accounting/profit-and-cash-management-cash-flow-and-fcf) |
+| `NPV` | 投資案の価値額 | [事例Ⅳ NPV と投資意思決定](/docs/second-stage/case-4-npv-and-investment-decision) |
+| `PI` | 投下資本あたりの効率 | [収益性指数法](/docs/finance-and-accounting/finance-profitability-index) |
+| `WACC` | 資本コストの加重平均 | [ファイナンス](/docs/finance-and-accounting/finance) |
+| `EOQ` | 在庫費用を最小にする発注量 | [生産管理 プランニング](/docs/operations-management/production-planning) |
+
+## 問題文の言い換えから引く
+
+| 問題文での言い方 | 先に引く式 | まず戻るページ |
+| --- | --- | --- |
+| `採算が取れる最低売上` | `損益分岐点売上高` | [損益分岐点分析](/docs/finance-and-accounting/management-analysis-cvp-and-break-even) |
+| `本業で生む現金` | `営業CF` | [事例Ⅳ CF と運転資本](/docs/second-stage/case-4-cash-flow-and-working-capital) |
+| `投資後に手元へ残る現金` | `FCF` | [キャッシュ・フロー管理](/docs/finance-and-accounting/profit-and-cash-management-cash-flow-and-fcf) |
+| `投資案の価値額` | `NPV` | [事例Ⅳ NPV と投資意思決定](/docs/second-stage/case-4-npv-and-investment-decision) |
+| `投下資本あたりの効率` | `PI` | [収益性指数法](/docs/finance-and-accounting/finance-profitability-index) |
+| `在庫費用を最小にする発注量` | `EOQ` | [生産管理 プランニング](/docs/operations-management/production-planning) |
+| `物価変動込みの国内総生産の水準` | `GDPデフレーター` | [マクロ経済学](/docs/economics-and-economic-policy/macroeconomics) |
+
+## 経済学・経済政策
+
+| 公式・計算式 | 何を求めるか | 典型的な出題場面 | まず戻るページ |
+| --- | --- | --- | --- |
+| `価格弾力性 = 需要量の変化率 / 価格の変化率` | 価格変化に対する需要反応 | 弾力性と売上高の関係 | [ミクロ経済学](/docs/economics-and-economic-policy/microeconomics) |
+| `GDPデフレーター = 名目GDP / 実質GDP × 100` | 物価変動を含む産出物価水準 | 物価指数の比較 | [マクロ経済学](/docs/economics-and-economic-policy/macroeconomics) |
+| `乗数 = 1 / (1 - 限界消費性向)` | 財政支出増の波及効果 | 乗数、IS シフト | [マクロ経済学](/docs/economics-and-economic-policy/macroeconomics) |
+
+### 式の形を先に固定する
+
+$$
+E_p = \frac{\Delta Q / Q}{\Delta P / P}
+$$
+
+価格弾力性は、`価格が 1% 変化したとき需要量が何% 動くか` を見る式です。符号そのものより、`絶対値が 1 を超えるか` と `売上高がどう動くか` を先に確認します。
+
+$$
+\text{GDPデフレーター} = \frac{\text{名目GDP}}{\text{実質GDP}} \times 100
+$$
+
+`GDPデフレーター` は国内総生産全体にかかる物価変動を見る指標です。`CPI` と同じ物価指数として扱わず、`何を分母にしているか` を分けます。
+
+$$
+\text{乗数} = \frac{1}{1-c}
+$$
+
+`c` は `限界消費性向` です。財政支出の波及効果を聞かれたら、`消費に回る割合が高いほど乗数が大きくなる` と一緒に思い出します。
+
+## 財務・会計
+
+| 公式・計算式 | 何を求めるか | 典型的な出題場面 | まず戻るページ |
+| --- | --- | --- | --- |
+| `損益分岐点売上高 = 固定費 / 限界利益率` | 利益がゼロになる売上高 | CVP、安全余裕率 | [損益分岐点分析](/docs/finance-and-accounting/management-analysis-cvp-and-break-even) |
+| `ROA = 売上高営業利益率 × 総資本回転率` | 総資本に対する収益性 | 経営分析、事例Ⅳ | [収益性分析](/docs/finance-and-accounting/management-analysis-profitability) |
+| `FCF = 税引後営業利益 + 減価償却費 - 設備投資 - 運転資本増加` | 企業が自由に使える現金 | 企業価値、投資評価 | [キャッシュ・フロー管理](/docs/finance-and-accounting/profit-and-cash-management-cash-flow-and-fcf) |
+| `NPV = 各年の現在価値合計 - 初期投資` | 投資案の価値 | 投資意思決定、事例Ⅳ | [ファイナンス](/docs/finance-and-accounting/finance) |
+| `WACC = 負債コスト × (1 - 税率) × 負債比率 + 株主資本コスト × 自己資本比率` | 資本コストの加重平均 | 企業価値、投資判断 | [ファイナンス](/docs/finance-and-accounting/finance) |
+
+### 事例Ⅳで崩しやすい式
+
+$$
+\text{WACC} = k_d (1-t)\frac{D}{D+E} + k_e \frac{E}{D+E}
+$$
+
+`負債コスト` にだけ `1 - 税率` がかかる形を先に固定します。`税引後負債コスト` と `資本構成比率` を別々に処理すると、符号や掛け先を崩しにくくなります。
+
+$$
+\text{NPV} = \sum_{t=1}^{n} \frac{CF_t}{(1+r)^t} - I_0
+$$
+
+`NPV` は、各年の `CF` を割り引いてから `初期投資` を引く式です。`割り引く` と `最後に引く` を同じ段で処理する癖をつけると、途中で回収項目を落としにくくなります。
+
+$$
+\text{FCF} = \text{NOPAT} + \text{減価償却費} - \text{設備投資} - \Delta \text{運転資本}
+$$
+
+`営業CF` と混ざりやすいときは、`設備投資` と `運転資本増加` を控除するところまで入っているかで見分けます。
+
+## 運営管理と店舗管理
+
+| 公式・計算式 | 何を求めるか | 典型的な出題場面 | まず戻るページ |
+| --- | --- | --- | --- |
+| `EOQ = √(2DS / H)` | 経済的発注量 | 在庫管理 | [生産管理 プランニング](/docs/operations-management/production-planning) |
+| `安全在庫 = 安全係数 × 需要の標準偏差 × √調達期間` | 需要変動に備える在庫 | 在庫管理、サービス水準 | [生産管理 プランニング](/docs/operations-management/production-planning) |
+| `交差比率 = 粗利益率 × 商品回転率` | 売場の投資効率 | 販売管理指標 | [店舗・販売管理](/docs/operations-management/store-and-sales-management) |
+
+## 事例Ⅳで繰り返す式
+
+| 公式・計算式 | 何を求めるか | 典型的な出題場面 | まず戻るページ |
+| --- | --- | --- | --- |
+| `営業CF = 税引後利益 + 非資金費用 ± 運転資本増減` | 本業で稼いだ現金 | CF、資金繰り | [事例Ⅳ CF と運転資本](/docs/second-stage/case-4-cash-flow-and-working-capital) |
+| `期待値 = Σ(各ケースの値 × 発生確率)` | 不確実性込みの平均値 | デシジョンツリー | [事例Ⅳ NPV と投資意思決定](/docs/second-stage/case-4-npv-and-investment-decision) |
+| `安全余裕率 = (実際売上高 - 損益分岐点売上高) / 実際売上高` | 赤字までの余裕 | CVP、利益計画 | [事例Ⅳ CVP と利益計画](/docs/second-stage/case-4-cvp-and-profit-planning) |
+
+## 何を求めたいかから引く
+
+| 求めたいもの | 最初に見る式 | 見分けるポイント | まず戻るページ |
+| --- | --- | --- | --- |
+| `黒字ライン` | `損益分岐点売上高` | 売上高で聞くか、数量で聞くかを先に切る | [損益分岐点分析](/docs/finance-and-accounting/management-analysis-cvp-and-break-even) |
+| `投資案の価値` | `NPV` | 金額の大きさで比較するか、効率で比較するか | [事例Ⅳ NPV と投資意思決定](/docs/second-stage/case-4-npv-and-investment-decision) |
+| `投資効率` | `PI` | 資本制約があるか、相互排他かを先に見る | [収益性指数法](/docs/finance-and-accounting/finance-profitability-index) |
+| `企業が自由に使える現金` | `FCF` | 設備投資と運転資本増減まで含むか | [キャッシュ・フロー管理](/docs/finance-and-accounting/profit-and-cash-management-cash-flow-and-fcf) |
+| `在庫の最適量` | `EOQ` | 発注費と保管費のバランスを見る式か | [生産管理 プランニング](/docs/operations-management/production-planning) |
+| `需要変動への備え` | `安全在庫` | 欠品防止のための在庫か、発注ロットか | [生産管理 プランニング](/docs/operations-management/production-planning) |
+
+## 誤用パターンから引く
+
+| ありがちな誤り | 直す観点 | まず戻るページ |
+| --- | --- | --- |
+| `損益分岐点売上高` に `固定費 / 限界利益` をそのまま使う | `限界利益率` を使う式か、`数量` を使う式かを先に分ける | [損益分岐点分析](/docs/finance-and-accounting/management-analysis-cvp-and-break-even) |
+| `営業CF` に `設備投資` を混ぜる | `営業CF` は本業、`FCF` は投資控除後と役割を分ける | [事例Ⅳ CF と運転資本](/docs/second-stage/case-4-cash-flow-and-working-capital) |
+| `WACC` を税引前負債コストで計算する | 負債コストには `1 - 税率` を掛ける | [ファイナンス](/docs/finance-and-accounting/finance) |
+| `NPV` で最終年度の回収を落とす | `残存価値`、`運転資本回収`、`撤退価値` を最後に足す | [事例Ⅳ NPV と投資意思決定](/docs/second-stage/case-4-npv-and-investment-decision) |
+| `PI` が高い案を相互排他的でもそのまま選ぶ | `PI` は効率、`NPV` は価値額と役割を分ける | [収益性指数法](/docs/finance-and-accounting/finance-profitability-index) |
+| `ROA` と `ROE` の分母を逆にする | `ROA` は総資本、`ROE` は自己資本で確認する | [収益性分析](/docs/finance-and-accounting/management-analysis-profitability) |
+| `GDPデフレーター` と `CPI` を同じ物価指数として扱う | 対象範囲が `国内総生産全体` か `家計消費` かを分ける | [マクロ経済学](/docs/economics-and-economic-policy/macroeconomics) |
+
+## 混同しやすい式
+
+| 組み合わせ | どこが違うか | まず戻るページ |
+| --- | --- | --- |
+| `営業CF` と `FCF` | `営業CF` は本業の現金、`FCF` は投資控除後の自由現金 | [事例Ⅳ CF と運転資本](/docs/second-stage/case-4-cash-flow-and-working-capital) |
+| `ROA` と `ROE` | `ROA` は総資本基準、`ROE` は自己資本基準 | [収益性分析](/docs/finance-and-accounting/management-analysis-profitability) |
+| `NPV` と `PI` | `NPV` は価値の絶対額、`PI` は投下額あたり効率 | [事例Ⅳ NPV と投資意思決定](/docs/second-stage/case-4-npv-and-investment-decision) |
+| `GDPデフレーター` と `CPI` | `GDPデフレーター` は国内総生産全体、`CPI` は消費者物価 | [マクロ経済学](/docs/economics-and-economic-policy/macroeconomics) |
+| `損益分岐点売上高` と `損益分岐点販売数量` | `売上高` で問うのか、`数量` で問うのかが違う | [損益分岐点分析](/docs/finance-and-accounting/management-analysis-cvp-and-break-even) |
+| `売上高営業利益率` と `ROA` | `売上高営業利益率` は利益率、`ROA` は資本効率まで含めた指標 | [収益性分析](/docs/finance-and-accounting/management-analysis-profitability) |
+
+## 単位・符号・最終年度回収の確認欄
+
+| 確認項目 | 見るポイント | 引っかかりやすい式 |
+| --- | --- | --- |
+| `売上高ベースか数量ベースか` | `固定費 / 限界利益率` なのか `固定費 / 単位当たり限界利益` なのかを分ける | 損益分岐点売上高、損益分岐点販売数量 |
+| `税引前か税引後か` | `負債コスト` にだけ `1 - 税率` がかかっているかを見る | WACC、NOPAT、FCF |
+| `増加は控除か加算か` | `運転資本増加` は現金流出、`減少` は現金流入と捉える | 営業CF、FCF、NPV |
+| `最終年度の回収を入れたか` | 残存価値、売却価値、運転資本回収を最後に足す | NPV、デシジョンツリー |
+| `年利か月利か` | 期間と割引率の単位をそろえる | NPV、現在価値計算 |
+| `割合か実額か` | 指標の比較なのか、金額の比較なのかを混ぜない | ROA、ROE、PI、NPV |
+
+## 式で迷ったとき
+
+<Accordions type="single">
+  <Accordion title="何を求める式か分からなくなったときはどうするか">
+    まず `公式・計算式` の形ではなく、`何を求めるか` の列を見て、利益、効率、価値、物価のどれを問う式かを先に切ります。そのあとで元ページに戻り、どの設問場面で使うかを確認します。
+  </Accordion>
+  <Accordion title="似た式が混ざったときはどこで分けるか">
+    `営業CF と FCF`、`NPV と PI`、`ROA と ROE` のように役割が近い式は、分母や控除対象より先に `何の判断に使う式か` で分けます。迷ったまま代入を始めないことが先です。
+  </Accordion>
+  <Accordion title="公式集を見たあと、どこへ戻るべきか">
+    公式集で確認したあとは、そのまま暗記を増やすより、対応する章ページか事例Ⅳのページへ戻ります。このページは計算の本体ではなく、戻り先を決めるための付録として使います。
+  </Accordion>
+</Accordions>
+
+## 典型的なつまずき
+
+- `何を求める式か` を決めずに代入を始める
+- 略語だけ見て、`価値額` か `効率` かを切らずに式を選ぶ
+- 数量ベースと売上高ベースを混ぜる
+- 符号、税効果、最終年度回収を落とす
+- 公式集だけ見て、元の解法ページへ戻らない
+
+## 次に読むとよいページ
+
+- [第2次試験 設問索引](/docs/reference/second-stage-question-index)
+- [重要用語集](/docs/reference/important-terms-glossary)
+- [学習時間モデル](/docs/reference/study-time-model)
+- [事例Ⅳの設問型](/docs/second-stage/case-4-question-patterns)
+- [ファイナンス](/docs/finance-and-accounting/finance)
+- [収益性分析](/docs/finance-and-accounting/management-analysis-profitability)
+- [損益分岐点分析](/docs/finance-and-accounting/management-analysis-cvp-and-break-even)
+- [キャッシュ・フロー管理](/docs/finance-and-accounting/profit-and-cash-management-cash-flow-and-fcf)

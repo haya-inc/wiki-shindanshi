@@ -1,8 +1,10 @@
 # pnpm / Next.js / Fumadocs / Vercel 最新ベストプラクティス
 
-更新日: 2026-03-26
+更新日: 2026-03-28
 
 この文書は、`pnpm + Next.js + Fumadocs` で Web アプリを構築し、`Vercel` に載せるための現時点の推奨構成を整理したものです。新規構築を前提にしており、古い方法はできるだけ避けます。
+
+この文書は `新規構築時の参考` に限って使います。現行 repo の具体的な運用、検証、継続改善の入口は `README.md`、`docs/agent-handoff.md`、`docs/maintenance-iteration-tracker.md` を正とします。
 
 ## 結論
 

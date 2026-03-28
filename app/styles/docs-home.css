@@ -1,0 +1,327 @@
+.wiki-home-body {
+  display: grid;
+  gap: 1.65rem;
+}
+
+.wiki-home-card,
+.wiki-home-principle,
+.wiki-home-roadmap-card,
+.wiki-home-graph-card {
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.wiki-home-hero {
+  display: grid;
+  gap: 1.2rem;
+  position: relative;
+  overflow: visible;
+  padding: 0 0 0.2rem;
+}
+
+.wiki-home-hero::before,
+.wiki-home-hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.wiki-home-hero::before {
+  inset: auto auto -4rem -2rem;
+  width: 14rem;
+  height: 14rem;
+  background: rgba(154, 106, 32, 0.14);
+  filter: blur(8px);
+}
+
+.wiki-home-hero::after {
+  top: -3rem;
+  right: -1rem;
+  width: 16rem;
+  height: 16rem;
+  background: rgba(31, 106, 87, 0.16);
+  filter: blur(14px);
+}
+
+@media (min-width: 1024px) {
+  .wiki-home-hero {
+    grid-template-columns: minmax(0, 1.8fr) minmax(18rem, 0.8fr);
+    align-items: start;
+  }
+}
+
+.wiki-home-copy,
+.wiki-home-panel,
+.wiki-home-graph-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.wiki-home-eyebrow,
+.wiki-home-card-kicker,
+.wiki-home-panel-label {
+  margin: 0;
+  color: var(--accent-strong);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.wiki-home-title {
+  margin: 0.3rem 0 0;
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.wiki-home-lead {
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  color: var(--muted-text);
+  font-size: clamp(1.02rem, 0.98rem + 0.22vw, 1.14rem);
+  line-height: 1.78;
+}
+
+.wiki-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.35rem;
+}
+
+.wiki-home-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.wiki-home-actions a:hover {
+  transform: translateY(-1px);
+}
+
+.wiki-home-primary {
+  background: var(--color-fd-primary);
+  color: var(--color-fd-primary-foreground);
+}
+
+#nd-page .prose .wiki-home-actions .wiki-home-primary,
+#nd-page .prose .wiki-home-actions .wiki-home-primary:visited,
+#nd-page .prose .wiki-home-actions .wiki-home-primary:hover {
+  color: var(--color-fd-primary-foreground);
+}
+
+.wiki-home-secondary {
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--foreground);
+}
+
+#nd-page .prose .wiki-home-actions .wiki-home-secondary,
+#nd-page .prose .wiki-home-actions .wiki-home-secondary:visited,
+#nd-page .prose .wiki-home-actions .wiki-home-secondary:hover {
+  color: var(--foreground);
+}
+
+.dark .wiki-home-secondary {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.wiki-home-panel {
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.52);
+  padding: 1rem 1rem 1.05rem;
+}
+
+.dark .wiki-home-panel {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.wiki-home-steps {
+  margin: 0.7rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.wiki-home-steps li + li {
+  margin-top: 0.45rem;
+}
+
+.wiki-home-steps--compact {
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.wiki-home-panel-note {
+  margin: 0.8rem 0 0;
+  color: var(--muted-text);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.wiki-home-grid,
+.wiki-home-principles,
+.wiki-home-roadmap {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.wiki-home-section {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.wiki-home-section-head {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.wiki-home-section-title {
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.38rem, 1.22rem + 0.52vw, 1.78rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.wiki-home-section-copy {
+  margin: 0;
+  max-width: 48rem;
+  color: var(--muted-text);
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .wiki-home-grid,
+  .wiki-home-principles,
+  .wiki-home-roadmap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .wiki-home-roadmap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .wiki-home-panel {
+    max-width: 18rem;
+    justify-self: end;
+  }
+
+  .wiki-home-roadmap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.wiki-home-card,
+.wiki-home-principle,
+.wiki-home-roadmap-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border-radius: 1.4rem;
+  padding: 1.15rem;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+  box-shadow: 0 10px 22px rgba(24, 33, 29, 0.06);
+}
+
+.wiki-home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(24, 33, 29, 0.08);
+  border-color: var(--line-strong);
+}
+
+.wiki-home-card-title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.22rem;
+  line-height: 1.3;
+}
+
+.wiki-home-card-copy,
+.wiki-home-principle-copy,
+.wiki-home-roadmap-card ul {
+  margin: 0;
+  color: var(--muted-text);
+}
+
+.wiki-home-card-link {
+  margin-top: auto;
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+.wiki-home-principle h3,
+.wiki-home-roadmap-card h3 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.wiki-home-roadmap-card li + li {
+  margin-top: 0.45rem;
+}
+
+.wiki-home-roadmap-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.wiki-home-graph-card {
+  display: grid;
+  gap: 0.85rem;
+  grid-column: 1 / -1;
+  border-radius: 1.6rem;
+  padding: 1rem;
+  box-shadow: 0 14px 28px rgba(24, 33, 29, 0.07);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 26%),
+    var(--surface-strong);
+}
+
+.dark .wiki-home-graph-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 28%),
+    var(--surface-strong);
+}
+
+.wiki-home-graph-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+}
+
+.wiki-home-graph-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.42);
+  padding: 0.35rem 0.7rem;
+  color: var(--accent-strong);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.dark .wiki-home-graph-chip {
+  background: rgba(255, 255, 255, 0.05);
+}

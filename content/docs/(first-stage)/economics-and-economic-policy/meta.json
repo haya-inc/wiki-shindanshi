@@ -1,0 +1,7 @@
+{
+  "title": "経済学・経済政策",
+  "description": "ミクロ・マクロ・政策",
+  "icon": "ChartColumn",
+  "root": true,
+  "pages": ["index", "microeconomics", "macroeconomics"]
+}

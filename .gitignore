@@ -12,9 +12,12 @@
 
 # testing
 /coverage
+/test-results/
 
 # next.js
 /.next/
+/.next-check/
+/.next-playwright/
 /out/
 /.source/
 
@@ -25,6 +28,7 @@
 .DS_Store
 *.pem
 /_book/
+/data/docs-feedback.jsonl
 
 # debug
 npm-debug.log*

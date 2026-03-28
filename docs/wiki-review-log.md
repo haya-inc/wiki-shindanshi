@@ -1,6 +1,6 @@
 # wiki レビュー記録
 
-更新日: 2026-03-26
+更新日: 2026-03-28
 
 ## 記録の見方
 
@@ -49,7 +49,7 @@
 
 - 対象: 進捗トラッカー、レビュー記録、`経済学・経済政策` ページ
 - 成果: coverage 管理と振り返りの仕組みを追加し、経済学ページを学習の優先順位まで読める形へ前進させた
-- 検証: `pnpm lint`、`pnpm build`、`/docs/first-stage/economics-and-economic-policy` と `/docs/reference/exam-guide` の表示、`configErrors: []`、`sessionErrors: []`
+- 検証: `pnpm lint`、`pnpm build`、`/docs/economics-and-economic-policy` と `/docs/reference/exam-guide` の表示、`configErrors: []`、`sessionErrors: []`
 - 学び: 科目トップでも、重要論点、学習順、典型的なつまずきを置くだけで、単なる目次以上の価値が出る
 - 前回比: 改善
 - 根拠: 以前は科目名と章名の一覧が中心だったが、今回は学習上の使い方と優先順位まで公開面で示せている
@@ -162,3 +162,932 @@
 - 前回比: 改善
 - 根拠: これまでは URL 文字列の残存確認しかできなかったが、今回はリンク切れ、登録漏れ、ゲート自己申告のズレまで機械的に洗えるようになった
 - 次に修正すべきこと: `check:wiki-links` の結果を運用に組み込み、警告が多いドメインの扱いをルール化する
+
+## 2026-03-27-01 ミクロ経済学の 4 層構成への昇格
+
+- 対象: `ミクロ経済学` の章構成、進捗トラッカー、戦略文書
+- 成果: `ミクロ経済学` を `章ハブ`、`知識ノード`、`出題ノード`、`演習ノード`、`要約` に分割し、章 coverage だけでなく論点ノード coverage を追える形へ進めた
+- 品質ゲート: 追加したミクロ経済学の各ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/economics-and-economic-policy/microeconomics` と `/docs/economics-and-economic-policy/microeconomics/practice-basic-check` の表示確認、`configErrors: []`、`sessionErrors: []`
+- 鮮度確認: 安定論点のため鮮度台帳の追加対象外
+- 学び: `説明ページ` を厚くするだけでは `問題が解ける wiki` にはなりにくい。章ハブの下に `知識`、`出題`、`演習`、`要約` を分けると、読む導線と解く導線を同時に育てやすい
+- 前回比: 改善
+- 根拠: 以前は `ミクロ経済学` が 1 ページの概説だったが、今回は論点ノード単位で役割を分け、進捗管理もその粒度に合わせられた
+- 次に修正すべきこと: `マクロ経済学` に同じ 4 層構成を横展開し、過去問テーマ索引の土台を作る
+
+## 2026-03-27-02 マクロ経済学の 4 層構成への昇格
+
+- 対象: `マクロ経済学` の章構成、進捗トラッカー
+- 成果: `マクロ経済学` を `章ハブ`、`知識ノード`、`出題ノード`、`演習ノード`、`要約` に分割し、`国民所得計算`、`IS-LM`、`AD-AS と国際マクロ` を分けて読める形にした
+- 品質ゲート: 追加したマクロ経済学の各ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/economics-and-economic-policy/macroeconomics` と `/docs/economics-and-economic-policy/macroeconomics/practice-basic-check` の表示確認、`configErrors: []`、`sessionErrors: []`
+- 鮮度確認: 安定論点のため鮮度台帳の追加対象外
+- 学び: マクロ経済学は、章を `指標`、`市場と政策`、`物価と国際` に分けると、`何を測る話か` と `どこが動く話か` を混同しにくい
+- 前回比: 改善
+- 根拠: 以前は `マクロ経済学` が 1 ページの概説だったが、今回は政策論点と指標論点を分離し、演習と要約まで同じ粒度で持てるようになった
+- 次に修正すべきこと: `過去問テーマ索引` を追加し、ミクロとマクロのテーマ逆引きを始める
+
+## 2026-03-27-03 過去問テーマ索引の初版追加
+
+- 対象: `参照資料`、`ミクロ経済学`、`マクロ経済学`
+- 成果: `過去問テーマ索引` を追加し、まずは `経済学・経済政策` の `ミクロ` と `マクロ` について、テーマから `章ハブ`、`知識ノード`、`出題ノード`、`演習ノード` を逆引きできる形にした
+- 品質ゲート: 索引ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/reference/past-question-theme-index` の表示確認、`configErrors: []`、`sessionErrors: []`
+- 鮮度確認: 安定論点のため鮮度台帳の追加対象外
+- 学び: 索引は全科目を一気に作るより、`飛び先が十分に育った科目` から小さく始める方が質を保ちやすい
+- 前回比: 改善
+- 根拠: これで `章ページを読む` だけでなく、`過去問テーマから逆引きする` 導線が初めて公開面に入り、ミクロとマクロの 4 層構成が実際に索引から使える状態になった
+- 次に修正すべきこと: `財務・会計` と `企業経営理論` にも同じ型で索引を広げる
+
+## 2026-03-27-04 過去問テーマ索引の対象科目拡張
+
+- 対象: `過去問テーマ索引`、`財務・会計`、`企業経営理論`
+- 成果: `過去問テーマ索引` に `財務・会計` と `企業経営理論` を追加し、既存の章ページを起点に、頻出テーマから科目ページや関連ページを逆引きできるようにした
+- 品質ゲート: 索引ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/reference/past-question-theme-index` の表示確認、`configErrors: []`、`sessionErrors: []`
+- 鮮度確認: 安定論点のため鮮度台帳の追加対象外
+- 学び: 章がまだ `4 層構成` でなくても、ページ自体が十分に育っていれば、`最初に読むページ` と `補助で読むページ` を分けるだけで索引の実用性を上げられる
+- 前回比: 改善
+- 根拠: 以前は経済学だけだったが、今回は計算科目とフレームワーク科目まで逆引き対象を広げ、公開面での索引の汎用性を上げられた
+- 次に修正すべきこと: `運営管理`、`経営情報システム`、`第2次試験` の索引を追加し、1次と2次の往復導線を強める
+
+## 2026-03-27-05 過去問テーマ索引の 1次 / 2次 横断化
+
+- 対象: `過去問テーマ索引`、`運営管理`、`経営情報システム`、`第2次試験`
+- 成果: `過去問テーマ索引` に `運営管理`、`経営情報システム`、`第2次試験` を追加し、`第2次試験` では `設問テーマ → 事例ページ → 対応する1次知識` の逆引きができるようにした
+- 品質ゲート: 索引ページと関連導線の更新は安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点のため鮮度台帳の追加対象外
+- 学び: 2次試験を索引化するときは、1次のような `論点名` ではなく、`設問テーマ` と `対応する1次知識` を同時に見せた方が、学習の往復導線として強い
+- 前回比: 改善
+- 根拠: これで索引が `経済学`、`財務・会計`、`企業経営理論` に加え、`運営管理`、`経営情報システム`、`第2次試験` まで広がり、1次から2次までを同じ入口でたどれる状態になった
+- 次に修正すべきこと: `経営法務`、`中小企業経営・政策` を索引へ追加し、2次試験側は年度別の出題傾向まで細分化する
+
+## 2026-03-27-06 索引の更新系科目拡張と年度軸ページの追加
+
+- 対象: `過去問テーマ索引`、`年度別出題傾向`、`経営法務`、`中小企業経営・中小企業政策`、`第2次試験`
+- 成果: `過去問テーマ索引` に `経営法務` と `中小企業経営・中小企業政策` を追加し、`年度別出題傾向` ページを新設した。あわせて、関連ハブから `索引` と `年度軸` へ戻れる導線を追加した
+- 品質ゲート: `過去問テーマ索引` と `年度別出題傾向` は安定論点ページとして `G1-G5`。更新論点ハブは既存の `G1-G6` を維持
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`、`/docs/reference/yearly-question-trends` と `/docs/reference/past-question-theme-index` の表示確認、`configErrors: []`、`sessionErrors: []`
+- 鮮度確認: `年度別出題傾向` を鮮度台帳へ追加し、`2026-03-27` 時点で試験情報、1次試験案内、2次試験案内、中小企業白書への参照を本文に残した
+- 学び: 年度軸のページは、`毎年の問題を並べること` より、`繰り返し出るテーマ` と `直近で比重が上がるテーマ` を分け、科目ページへ戻す導線を強くする方が実用性が高い
+- 前回比: 改善
+- 根拠: これで索引が、`安定論点の科目` だけでなく `更新論点の科目` まで広がり、さらに `論点軸` と `年度軸` の両方から wiki を使える状態になった
+- 次に修正すべきこと: `財務・会計`、`運営管理`、`第2次試験` の各ページに、年度差が見える比較表を逆流させる
+
+## 2026-03-27-07 年度軸の比較表を主要ハブへ逆流
+
+- 対象: `財務・会計`、`運営管理`、`第2次試験` のハブと概要ページ
+- 成果: `年度別出題傾向` で作った比較軸を、`財務・会計`、`運営管理`、`第2次試験`、`2次試験の概要と解答プロセス` に短い比較表として戻した
+- 品質ゲート: `財務・会計` と `運営管理` は安定論点ページとして `G1-G5`、`2次試験の概要` は更新論点ページとして `G1-G6`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`、`/docs/finance-and-accounting`、`/docs/operations-management`、`/docs/second-stage/overview` の表示確認、`configErrors: []`、`sessionErrors: []`
+- 鮮度確認: `財務・会計` と `運営管理` を鮮度台帳へ追加し、`2026-03-27` 時点で公式試験情報と `令和7年度第1次試験案内` への参照を本文に残した
+- 学び: 横断ページで有効だった比較軸は、着地ページにも `短い表` で戻した方が強い。参照資料だけに閉じると、検索やサイドバーから直接着地した時の価値が落ちる
+- 前回比: 改善
+- 根拠: これで `財務・会計`、`運営管理`、`第2次試験` は、参照ページを経由しなくても `何が繰り返し出て、何が直近で重いか` を各ハブ上で判断できるようになった
+- 次に修正すべきこと: 次回は `事例Ⅰ〜Ⅳ` と `原価計算`、`経営分析`、`生産管理` の個別ページへ、年度差と誤答パターンの比較表を広げる
+
+## 2026-03-27-08 個別ページへ年度差と誤答パターンを追加
+
+- 対象: `原価計算`、`経営分析`、`生産管理 プランニング`、`生産管理 オペレーション`、`事例Ⅰ`、`事例Ⅱ`、`事例Ⅲ`、`事例Ⅳ`
+- 成果: 個別ページに `近年の出題の寄り方` または `年度別に見るときの軸` と、`よくある誤答パターン` または `よくある失点パターン` を追加し、直近の重心と崩れやすい点を同じページで確認できるようにした
+- 品質ゲート: 追加対象は安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`、`/docs/finance-and-accounting/cost-accounting`、`/docs/operations-management/production-planning`、`/docs/second-stage/case-1-organization-and-hr`、`/docs/second-stage/case-4-finance-and-accounting` の表示確認、`configErrors: []`、`sessionErrors: []`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 個別ページでは、`何が最近出やすいか` だけを示しても弱い。`どこで崩れやすいか` を表で並べると、読む前の優先順位付けと解く直前の最終確認の両方に使える
+- 前回比: 改善
+- 根拠: 以前は年度差の比較がハブや横断ページに寄っていたが、今回は個別ページにまで降ろしたことで、検索から直接着地しても `優先論点` と `失点防止` を同時に判断できるようになった
+- 次に修正すべきこと: `原価計算` と `経営分析` では演習ノード、`事例Ⅰ〜Ⅳ` では助言テンプレートや設問型別の比較表を追加する
+
+## 2026-03-27-09 財務・会計へ演習ノードを追加
+
+- 対象: `財務・会計`、`原価計算`、`経営分析`、`事例Ⅳ`、`過去問テーマ索引`
+- 成果: `原価計算` と `経営分析` に `演習ノード 基本確認問題` を追加し、科目ハブ、個別ページ、`事例Ⅳ`、`過去問テーマ索引` から演習ページへ戻れる導線を作った
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `フラット構成の科目` でも、まず演習ノードを別ページで足せば `読むページ` と `解くページ` の往復を先に作れる。構造変更を待たずに `解ける wiki` へ近づける
+- 前回比: 改善
+- 根拠: 以前の `財務・会計` は説明ページ中心だったが、今回は索引から直接 `確認ページ` へ飛べるようになり、学習者が `本文 → 演習 → 本文` を最短で往復できるようになった
+- 次に修正すべきこと: `原価計算` は勘定連絡と差異分析の応用、`経営分析` は指標選定理由と事例Ⅳ型の記述接続を追加する
+
+## 2026-03-27-10 財務・会計の演習ノードを応用段階へ拡張
+
+- 対象: `原価計算 演習ノード 基本確認問題`、`経営分析 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `原価計算` には `勘定連絡`、`差異分析`、`全部原価計算と直接原価計算の利益差` の応用問題を追加し、`経営分析` には `指標選定理由`、`ROAの読み取り`、`事例Ⅳ型の短文記述` を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 演習ノードは `基本確認` だけだとまだ弱い。`数値を追う応用問題` と `1文で説明する練習` を同じページに置くと、1次の計算力と2次の説明力を自然につなげやすい
+- 前回比: 改善
+- 根拠: 以前の演習ノードは用語確認が中心だったが、今回は `手順を追う` と `説明する` を追加したことで、解ける状態の確認が一段深くなった
+- 次に修正すべきこと: `原価計算` では仕損・減損と配合差異、`経営分析` では CVP、CF、株式指標まで演習範囲を広げる
+
+## 2026-03-27-11 経営分析演習を第2問以降へ接続
+
+- 対象: `経営分析 演習ノード 基本確認問題`、`過去問テーマ索引`、戦略、進捗トラッカー
+- 成果: `CVP`、`営業 CF の間接法`、`EPS / PER / PBR` の接続問題を追加し、`利益とキャッシュ・フロー` と `株式指標` の確認導線を演習ノードへ寄せた
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 経営分析の演習は第1問の指標選定だけで止めると弱い。第2問以降で出る `CVP`、`CF`、`株式指標` までつなぐと、`分析結果から次の設問へ移る感覚` を育てやすい
+- 前回比: 改善
+- 根拠: 以前のページは第1問型の確認が中心だったが、今回は `分析` と `計算 / 読み取り` の接続までカバーし、事例Ⅳの連続した思考に寄せられた
+- 次に修正すべきこと: `利益と資金の管理` と `ファイナンス` に個別の演習ノードを作り、`NPV / WACC / FCF` の計算手順を独立に鍛えられるようにする
+
+## 2026-03-27-12 利益と資金の管理 / ファイナンスの演習ノードを追加
+
+- 対象: `利益と資金の管理`、`ファイナンス`、`事例Ⅳ`、`過去問テーマ索引`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理 演習ノード 基本確認問題` と `ファイナンス 演習ノード 基本確認問題` を追加し、`利益 / 現金 / FCF / CFの符号パターン` と `CAPM / WACC / NPV / IRR / 企業価値評価` をそれぞれ独立に確認できるようにした
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 後半計算論点は `経営分析` に集約しすぎると復習単位が大きくなりすぎる。章ごとに演習ノードを切ると、`CFだけ解く`、`NPVだけ解く` という使い方がしやすくなる
+- 前回比: 改善
+- 根拠: 以前は後半論点の確認先が本文中心だったが、今回は `利益と資金の管理` と `ファイナンス` にも `読むページ → 解くページ` の往復を作り、事例Ⅳへ向かう導線をさらに細かくできた
+- 次に修正すべきこと: `利益と資金の管理` では運転資本と予算実績差異、`ファイナンス` では継続価値と相互排他的投資案の比較を応用問題として足す
+
+## 2026-03-27-13 利益と資金の管理 / ファイナンスの演習を応用段階へ拡張
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `運転資本` と `予算実績差異` の応用問題を追加し、`ファイナンス` には `継続価値` と `相互排他的投資案の時間差比較` の応用問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 後半計算論点は、`式を解く` だけでなく `数値の意味を読む` ところまで同じ問題でつないだ方が強い。`運転資本が重い`、`継続価値の前提が効く` といった判断まで書かせると、1次と2次の橋渡しがしやすくなる
+- 前回比: 改善
+- 根拠: 以前の演習ページは基本式の確認が中心だったが、今回は `現金負担の増減` や `企業価値の比較判断` まで一歩踏み込み、実戦での使い方に近づけられた
+- 次に修正すべきこと: `利益と資金の管理` では固定資産売却や法人税等を含む複合 CF 問題、`ファイナンス` では CAPM から WACC、継続価値、企業価値までを一連でつなぐ総合問題を追加する
+
+## 2026-03-27-14 利益と資金の管理 / ファイナンスに総合問題を追加
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `固定資産売却益`、`法人税等支払額`、`投資 CF` をまとめて扱う複合 CF 問題を追加し、`ファイナンス` には `CAPM`、`WACC`、`継続価値`、`企業価値` を 1 本でつなぐ総合問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 後半計算論点は、最後に `1 本のケース` へまとめると定着しやすい。`営業 CF` と `投資 CF` の切り分けや、`CAPM` から `企業価値` までの接続は、単問を並べるだけより総合問題 1 本の方が実戦に近い
+- 前回比: 改善
+- 根拠: 以前は応用論点が個別問題として並んでいたが、今回は `複数論点をまたいで解く` 段階まで進み、計算結果をどこで使うかまで見えやすくなった
+- 次に修正すべきこと: `利益と資金の管理` では運転資本回転日数と資金繰り改善策、`ファイナンス` では資本制約下の投資判断と IRR の罠を比べるケース問題を追加する
+
+## 2026-03-27-15 計算結果から改善策と投資案選択へ接続
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `運転資本回転日数` から `在庫圧縮` と `回収早期化` を選ぶケース問題を追加し、`ファイナンス` には `資本制約` の下で `NPV` と `IRR` がずれる場面を比較するケース問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 計算問題の次は `何を優先するか` を言わせた方が強い。`回転日数が長いから在庫を削る`、`IRRが高くてもNPV合計で組み合わせを選ぶ` といった判断を入れると、数字の意味が定着しやすい
+- 前回比: 改善
+- 根拠: 以前は総合計算までだったが、今回は `結果を経営判断へ変換する` 段階まで進められたため、実戦での使い道がさらに明確になった
+- 次に修正すべきこと: `利益と資金の管理` では CFの符号パターンから再建局面と成長局面を見分けるケース問題、`ファイナンス` では PIや回収期間法とNPVのズレを比較するケース問題を追加する
+
+## 2026-03-27-16 CFの符号パターンと投資評価指標の使い分けを比較ケースで補強
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `再建局面 / 成長局面 / 成熟局面` を CF の符号パターンから読み分けるケース問題を追加し、`ファイナンス` には `PI`、`回収期間法`、`NPV` の判断がずれるケース問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 演習ノードでは、`この指標は何を見るものか` がずれる場面を同じケースで比較した方が強い。`CFの符号から企業局面を読む`、`PIや回収期間法よりNPVを優先する条件を区別する` といった使い分けは、単問より比較問題で定着しやすい
+- 前回比: 改善
+- 根拠: 以前は計算や判断を 1 つずつ確認していたが、今回は `複数の見方が並ぶ場面でどれを優先するか` まで示せたため、誤用を防ぐ力が一段上がった
+- 次に修正すべきこと: `利益と資金の管理` では固定資産更新投資と成長投資の違いを CF で読むケース問題、`ファイナンス` では割引率の変化で投資案順位が逆転するケース問題を追加する
+
+## 2026-03-27-17 投資CFの意味と割引率前提の違いまで読ませる
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `更新投資 / 成長投資` を `減価償却費`、`財務 CF`、`売上計画` と合わせて読むケース問題を追加し、`ファイナンス` には割引率 `5%` と `15%` で投資案順位が逆転するケース問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `投資 CF がマイナス`、`NPV が大きい` といった単独の見え方だけでは弱い。`何の投資か`、`どの割引率前提か` を同じ問題で比べると、数字の意味と前提条件を一緒に覚えやすい
+- 前回比: 改善
+- 根拠: 以前は `どの指標を優先するか` まで示していたが、今回はさらに `同じ見た目の数字でも背景や前提で結論が変わる` ところまで踏み込めたため、誤読防止の質が上がった
+- 次に修正すべきこと: `利益と資金の管理` では運転資本悪化と成長投資が同時に起きる複合 CF ケース、`ファイナンス` では IRR の複数解や NPV プロファイルで評価基準の限界を示す問題を追加する
+
+## 2026-03-27-18 成長と利益の見え方、IRRの見え方の限界まで明示する
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `運転資本悪化` と `成長投資` が同時に起きる複合 CF ケースを追加し、`ファイナンス` には `IRR` が複数解になりやすい `非正常 CF` と `NPVプロファイル` の意味を確認するケース問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `売上が伸びた`、`IRRが出た` といった一見分かりやすい数字ほど危ない。`現金は増えたか`、`IRRは一意か` まで同じ問題で確認すると、指標の使える範囲と限界を一緒に覚えやすい
+- 前回比: 改善
+- 根拠: 以前は前提の違いで結論が変わることを示していたが、今回はさらに `指標そのものが壊れる場面` まで扱えたため、誤用防止の深さが増した
+- 次に修正すべきこと: `利益と資金の管理` では月次ベースで運転資本先行と設備投資負担を追うケース、`ファイナンス` では税引後CFや残存価値を含むNPVプロファイル比較問題を追加する
+
+## 2026-03-27-19 年次の合計だけでなく、月次の資金詰まりと最終回収まで読む
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `4月 / 5月` の月次比較で `運転資本先行` と `設備投資負担` が重なるケースを追加し、`ファイナンス` には `税引後営業 CF` と `税引後残存価値` を含めた `NPV` 比較問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 年次の `利益` や `NPV` が正しくても、`どの月で資金が詰まるか` と `最終年度で何を回収するか` を落とすと実戦では弱い。月次の運転資本と、最終年度の `残存価値` を同じ演習単位で押さえると、数字の読み方が一段安定する
+- 前回比: 改善
+- 根拠: 以前は `成長投資` や `IRR の限界` を示していたが、今回はさらに `月次の資金ショート` と `残存価値の見落とし` という実務寄りの落とし穴まで扱えたため、答案で落としやすい論点を一段深く埋められた
+- 次に修正すべきこと: `利益と資金の管理` では税効果と借入返済予定を含む月次資金繰り表、`ファイナンス` では法人税、減価償却、運転資本、撤退価値をまとめた設備投資総合問題を追加する
+
+## 2026-03-27-20 月次資金繰りと設備投資の全体像を 1 本で解かせる
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `法人税等の支払` と `借入元本返済` を含む月次資金繰り表を追加し、`ファイナンス` には `設備取得`、`減価償却`、`法人税`、`追加運転資本`、`税引後残存価値` を 1 本でつなぐ設備投資総合問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `利益は黒字`、`営業 CF は合っている` だけではまだ弱い。月次では `納税` と `借入返済` まで見ないと資金ショートを読み違えやすく、設備投資では `取得`、`運用`、`撤退` を分けて覚えると `NPV` がずれやすい
+- 前回比: 改善
+- 根拠: 以前は月次の運転資本と最終回収を個別に補強していたが、今回はさらに `税金` と `返済予定`、`設備投資の全体フロー` まで 1 問で結び直したため、答案で抜けやすい現金流出をより実戦的に埋められた
+- 次に修正すべきこと: `利益と資金の管理` では季節変動、賞与、納税、借入返済を含む 3 か月資金繰り表、`ファイナンス` では感度分析と更新投資差額を含む設備投資比較問題を追加する
+
+## 2026-03-27-21 売上の山ではなく資金流出の山を読み、更新投資は差額で比べる
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `季節変動`、`賞与`、`納税`、`借入返済` を含む 3 か月資金繰り表を追加し、`ファイナンス` には `更新投資差額` と `弱気 / 基準 / 強気` の感度分析を含む設備投資比較問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `売上が多い月` と `現金が潤沢な月` は一致しません。資金繰りは `流出の山` を見ないと外しやすく、更新投資は `新設備の総額` ではなく `差額営業 CF` と `旧設備の機会価値` を見ないと判断を誤りやすいです
+- 前回比: 改善
+- 根拠: 以前は月次資金繰りと設備投資総合問題を単独で補強していたが、今回はさらに `季節変動の中での短期借入判断` と `基準ケースが反転する感度分析` まで追加し、意思決定に近い演習へ進められた
+- 次に修正すべきこと: `利益と資金の管理` では改善策比較の資金繰り問題、`ファイナンス` では `WACC`、`差額営業 CF`、`残存価値` を動かす三軸感度分析を追加する
+
+## 2026-03-27-22 改善策の質と感度の壊れ方を切り分ける
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `売掛回収サイト短縮`、`在庫圧縮`、`短期借入` を比べる改善策比較問題を追加し、`ファイナンス` には `WACC`、`差額営業 CF`、`残存価値` を一軸ずつ動かす三軸感度分析を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `現金が足りるか` だけを見ると、`営業改善で直した` のか `借入で先送りした` のかを見誤ります。また感度分析は `悪化した` だけでは弱く、`どの前提が最も判断を壊すか` を一軸ずつ切り分けた方が判断の弱点を説明しやすいです
+- 前回比: 改善
+- 根拠: 以前は `資金流出が集中する月` と `更新投資差額` を見せていたが、今回はさらに `改善策の質の違い` と `感度の主因` を同じページ内で比較できるようにしたため、計算結果から意思決定へつなぐ力が一段強くなった
+- 次に修正すべきこと: `利益と資金の管理` では予算実績差異と月次資金繰りをつなぐ問題、`ファイナンス` では資本制約下で差額CFと採択順位がどう変わるかを比較する問題を追加する
+
+## 2026-03-27-23 予実差異を現金へ落とし、資本制約下では組み合わせで選ぶ
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `予算営業利益`、`実績営業利益`、`営業 CF`、`月末現金` を一連で追い、改善策の副作用まで比べる問題を追加し、`ファイナンス` には `資本制約下` で `NPV`、`PI`、採択組み合わせを比べる問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `予算未達` は利益差だけ見ても不十分で、`月末現金` に落として初めて痛みが見えます。また `一番 NPV が大きい案` でも、`資本制約` が入ると最適とは限らず、`組み合わせ` と `PI` を見ないと採択を外しやすいです
+- 前回比: 改善
+- 根拠: 以前は改善策の質や感度の主因を切り分けていたが、今回はさらに `予算差異 → 現金不足 → 施策の副作用` と `個別 NPV → 予算制約下の組み合わせ最適化` をつなげられたため、試験で問われやすい判断の流れに一段近づいた
+- 次に修正すべきこと: `利益と資金の管理` では売上条件、回収条件、在庫政策を同時に変えた翌月シミュレーション、`ファイナンス` では複数年度にまたがる更新投資案と撤退オプションの比較を追加する
+
+## 2026-03-27-24 条件変更は翌月まで追い、更新投資は途中撤退で切り直す
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `販売条件`、`回収条件`、`在庫政策` を同時に変える翌月シミュレーションを追加し、`ファイナンス` には `2年目末` で `継続` と `撤退` を比較する更新投資問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `利益が高い案` と `現金が残る案` はしばしば一致しません。また更新投資は `0年の採択` だけでなく、`途中で見通しが崩れた時にどう切り直すか` まで入れると、試験で問われる意思決定に近づきます
+- 前回比: 改善
+- 根拠: 以前は `予実差異` と `資本制約` を扱っていたが、今回はさらに `翌月の条件変更シミュレーション` と `途中撤退の判断点` を入れたため、計算結果を時系列の意思決定へ接続する力をより直接鍛えられる構成になった
+- 次に修正すべきこと: `利益と資金の管理` では `CCC短縮策` と `翌月利益の副作用` を同時に比べるケース、`ファイナンス` では `更新延期` と `即時更新` を `撤退オプション込み` で比べる問題を追加する
+
+## 2026-03-27-25 CCC短縮の副作用と延期オプションの価値を同じ物差しで比べる
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `CCC短縮日数`、`今月末現金`、`翌月営業利益悪化` を同時に比べる問題を追加し、`ファイナンス` には `即時更新案` と `1年延期案` を `撤退 / 見送り` オプション込みの `期待 NPV` で比べる問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `CCC改善` は短縮日数だけで選ぶと危険で、翌月利益の傷みまで同時に見ないと意思決定を誤りやすいです。また `延期オプション` は抽象的に覚えるより、`期待 NPV` で `即時更新案` と並べると価値がはっきり見えます
+- 前回比: 改善
+- 根拠: 前回は `翌月シミュレーション` と `途中撤退` を個別に補強していたが、今回はさらに `CCC短縮の質` と `延期オプションの期待値` まで数値で比較できるようにしたため、資金繰りと投資判断の両方で `どれを選ぶか` の基準が一段明確になった
+- 次に修正すべきこと: `利益と資金の管理` では所要運転資金と `CCC` を月次資金繰り表へつなぐ問題、`ファイナンス` では期待値付きデシジョンツリーと `NPV` を一体で解く更新投資問題を追加する
+
+## 2026-03-27-26 日数と期待値を、月末現金と枝の選択まで落とし込む
+
+- 対象: `利益と資金の管理 演習ノード 基本確認問題`、`ファイナンス 演習ノード 基本確認問題`、戦略、進捗トラッカー
+- 成果: `利益と資金の管理` には `所要運転資金`、`CCC`、`営業 CF`、`月末現金` を 1 本でつなぐ問題を追加し、`ファイナンス` には `末端 NPV`、`枝ごとの実行 / 見送り`、`期待 NPV` を右から左にたどるデシジョンツリー問題を追加した
+- 品質ゲート: 追加した演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `日数` や `確率` は、それだけでは答練の知識で終わりやすいです。`CCC` は `月末現金` まで、`期待値` は `その枝で投資するかしないか` まで落として初めて、実戦で使える判断になります
+- 前回比: 改善
+- 根拠: 前回は `CCC短縮の副作用` と `延期オプションの期待値` を比べていたが、今回はさらに `所要運転資金の増加が営業 CF と手元現金へどう効くか`、`デシジョンツリーを右から左へ戻りながら意思決定する手順` まで 1 問で固定できたため、計算と判断の結びつきが一段強くなった
+- 次に修正すべきこと: `利益と資金の管理` では経常収支比率と短期借入依存度を含む月次資金繰り問題、`ファイナンス` では調査費と撤退価値を含む多段デシジョンツリー問題を追加する
+
+## 2026-03-27-27 完全網羅へ向けた細目台帳を固定する
+
+- 対象: `wiki 完全網羅ロードマップ`、`wiki coverage 台帳`、戦略
+- 成果: `_book` の確定目次を基準にした [wiki coverage 台帳](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md) を追加し、各細目を `独立ノードあり`、`章ページ+演習あり`、`章ページで対応`、`章内に一部含む`、`未対応` の 5 段階で見える化した。あわせて、[中小企業診断士 wiki 戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) にこの台帳を基準にする運用を明記した
+- 品質ゲート: 運用文書のため `G1-G6` の直接対象外。ただし今後の `公開済み` 判定を細目単位で補助する基盤として使う
+- 検証: `_book/_作成メモ/目次_確定版.md` と `content/docs` を突き合わせ、`rg` で独立着地が怪しい論点を確認した
+- 鮮度確認: 更新系ページの鮮度確認ルール自体は変更せず、台帳側は `coverage` 管理に専念する
+- 学び: `公開済み` の章が増えても、細目単位で見ると `章ページ止まり` と `未対応` がまだ残ります。完全網羅へ進むには、章 coverage ではなく `細目 coverage` を基準にしないと優先順位がぶれます
+- 前回比: 改善
+- 根拠: 以前は `どの章があるか` と `どのページがあるか` は追えていたが、今回はさらに `ゲーム理論`、`国際貿易理論`、`主要経済理論の系譜`、`人材・雇用支援施策` のような細目レベルで不足箇所を指摘できるようになったため、次の追加が明確になった
+- 次に修正すべきこと: `ミクロ経済学` の `ゲーム理論` と `国際貿易理論` を独立ノード化し、あわせて `第2次試験` の `与件読み` と `設問解釈` を独立ページへ分ける
+
+## 2026-03-27-28 台帳で見えた穴を、独立ノードとして実際に埋める
+
+- 対象: `ミクロ経済学`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`
+- 成果: `ゲーム理論` と `国際貿易理論` を [知識ノード ゲーム理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/economics-and-economic-policy/microeconomics/knowledge-game-theory.mdx) と [知識ノード 国際貿易理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/economics-and-economic-policy/microeconomics/knowledge-international-trade.mdx) として独立追加し、章ハブ、演習ノード、要点整理、索引、進捗トラッカー、coverage 台帳を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した演習 / 要約ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/economics-and-economic-policy/microeconomics`、`/knowledge-game-theory`、`/knowledge-international-trade` の表示確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 台帳は `穴を見つける` だけでなく、`次にどこを切り出すと章の完成度が上がるか` を決める道具として機能します。特に `章内に一部含む` 論点は、独立ページへ切り出すだけで索引と演習の価値まで一緒に上がります
+- 前回比: 改善
+- 根拠: 前回は `ミクロ経済学` の後半論点が `章内に一部含む` 状態だったが、今回は 2 つとも独立ノード化し、索引と演習にも接続したため、`細目 coverage` と `解答までの導線` の両方が一段進んだ
+- 次に修正すべきこと: `第22章 2次試験の概要と解答プロセス` を `与件読み`、`設問解釈`、`論理的記述` に分けるか、`第2章 マクロ経済学` の `消費理論と投資理論`、`主要経済理論の系譜` を独立着地させる
+
+## 2026-03-27-29 理論が埋もれる章は、比較軸ごとに独立ノードへ分ける
+
+- 対象: `マクロ経済学`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
+- 成果: `消費理論と投資理論` を [知識ノード 消費理論と投資理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/economics-and-economic-policy/macroeconomics/knowledge-consumption-and-investment-theory.mdx)、`主要経済理論の系譜` を [知識ノード 主要経済理論の系譜](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/economics-and-economic-policy/macroeconomics/knowledge-history-of-macroeconomic-thought.mdx) として独立追加し、章ハブ、演習ノード、要点整理、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した演習 / 要約ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/economics-and-economic-policy/macroeconomics`、`/knowledge-consumption-and-investment-theory`、`/knowledge-history-of-macroeconomic-thought` の表示確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 後半理論を 1 つの統合ページに入れたままだと、`理論の違い` が読み手にも索引にも残りません。`比較軸が複数ある理論` は独立ノードへ切り出すだけで、章ハブ、演習、要約、索引まで一緒に整理しやすくなります
+- 前回比: 改善
+- 根拠: 前回は `マクロ経済学` の `2.3` と `2.10` が coverage 台帳上 `未対応` だったが、今回は 2 つとも独立着地し、演習と要約にも接続したため、`細目 coverage` と `理論比較のしやすさ` の両方が一段進んだ
+- 次に修正すべきこと: `第22章 2次試験の概要と解答プロセス` を `与件読み`、`設問解釈`、`論理的記述` に分けるか、`財務・会計` の `収益性指数法`、`効率的市場仮説`、`マルチプル法` を独立着地させる
+
+## 2026-03-27-30 2次試験の共通プロセスは、段階ごとに戻れる形へ分ける
+
+- 対象: `第2次試験`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
+- 成果: `与件文の読み方`、`設問解釈と答案構成`、`論理的記述の技術` を独立ノードとして追加し、[2次試験の概要と解答プロセス](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/overview.mdx) は第22章のハブへ寄せた。あわせて `第2次試験` トップ、索引、進捗トラッカー、coverage 台帳、戦略を更新した
+- 品質ゲート: 新規知識ノードは安定論点ページとして `G1-G5`、`2次試験の概要と解答プロセス` は更新論点ページとして `G1-G6`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/second-stage/overview`、`/docs/second-stage/reading-case-materials`、`/docs/second-stage/interpreting-questions-and-structuring-answers`、`/docs/second-stage/logical-writing-techniques` の表示確認
+- 鮮度確認: `2次試験の概要と解答プロセス` は既存の更新運用を継続し、新規 3 ページは安定論点ページのため鮮度台帳の追加対象外
+- 学び: 第2次試験の共通論点は、1 ページで抱えると `どこへ戻ればよいか` が曖昧になります。`与件読み`、`設問解釈`、`記述` の段階で分けると、各事例ページや索引から戻る導線が明確になります
+- 前回比: 改善
+- 根拠: 前回は第22章の `22.2`、`22.3`、`22.4` が coverage 台帳上 `章ページで対応` または `未対応` だったが、今回は 3 つとも独立着地し、トップページと索引にも接続したため、`細目 coverage` と `2次試験の共通プロセスの再利用性` が一段進んだ
+- 次に修正すべきこと: `財務・会計` の `収益性指数法`、`効率的市場仮説`、`マルチプル法` を独立着地させるか、`事例Ⅰ〜Ⅳ` の設問型ページと答案骨子ページへ進む
+
+## 2026-03-27-31 後半計算論点は、比較法ごとに独立ノードへ出す
+
+- 対象: `財務・会計`、`事例Ⅳ`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
+- 成果: `収益性指数法` を [知識ノード 収益性指数法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/finance-profitability-index.mdx)、`効率的市場仮説` を [知識ノード 効率的市場仮説](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/finance-efficient-market-hypothesis.mdx)、`マルチプル法` を [知識ノード マルチプル法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/finance-multiples-valuation.mdx) として追加し、`ファイナンス` 章、科目ハブ、演習ノード、事例Ⅳ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した章ハブ / 演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/finance-and-accounting/finance`、`/docs/finance-and-accounting/finance-profitability-index`、`/docs/finance-and-accounting/finance-efficient-market-hypothesis`、`/docs/finance-and-accounting/finance-multiples-valuation` の表示確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `ファイナンス` の後半論点は、章ページの一節のままだと検索でも索引でも弱いです。`投資効率`、`証券市場の情報反映`、`相対評価` のように比較法ごとへ切り出すと、1次と事例Ⅳの両方から戻りやすくなります
+- 前回比: 改善
+- 根拠: 前回は第8章の `8.2`、`8.3`、`8.4` が coverage 台帳上 `章ページ+演習あり` だったが、今回は 3 つとも独立着地し、演習ノードと事例Ⅳにも接続したため、`細目 coverage` と `解答導線` の両方が一段進んだ
+- 次に修正すべきこと: `MM理論`、`配当政策`、`デリバティブ` を独立着地させるか、`事例Ⅰ〜Ⅳ` の設問型ページと答案骨子ページへ進む
+
+## 2026-03-27-32 前提条件で結論が変わる理論も、ヘッジ手段の比較も独立で置く
+
+- 対象: `財務・会計`、`事例Ⅳ`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
+- 成果: `MM理論と配当政策` を [知識ノード MM理論と配当政策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/finance-mm-and-dividend-policy.mdx)、`デリバティブ` を [知識ノード デリバティブとリスク管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/finance-derivatives-risk-management.mdx) として追加し、`ファイナンス` 章、科目ハブ、演習ノード、事例Ⅳ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した章ハブ / 演習ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/finance-and-accounting/finance`、`/docs/finance-and-accounting/finance-mm-and-dividend-policy`、`/docs/finance-and-accounting/finance-derivatives-risk-management` の表示確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `負債を増やすほどよいのか`、`配当を増やすほどよいのか`、`どのヘッジ手段を選ぶか` は、いずれも前提条件を切らないと誤答しやすい論点です。章ページの一節に埋めるより、`前提で結論が変わる理論` と `手段を選ぶ比較論点` を独立ノードへ出した方が、索引と演習をつなぎやすくなります
+- 前回比: 改善
+- 根拠: 前回は第8章の `8.1` と `8.5` が coverage 台帳上 `章ページ+演習あり` または `章ページで対応` だったが、今回は 2 つとも独立着地し、演習ノードと索引にも接続したため、`細目 coverage` と `後半理論の読み分けやすさ` の両方が一段進んだ
+- 次に修正すべきこと: `企業経営理論` の `CSR・ESG`、`バーナード / サイモン` を独立着地させるか、`事例Ⅰ〜Ⅳ` の設問型ページと答案骨子ページへ進む
+
+## 2026-03-27-33 理論家名や近年概念で埋もれる論点も、比較軸ごとに独立で置く
+
+- 対象: `企業経営理論`、`事例Ⅰ`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
+- 成果: `CSR・ESGとコーポレートガバナンス` を [知識ノード CSR・ESGとコーポレートガバナンス](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-csr-esg-and-governance.mdx)、`バーナードとサイモン` を [知識ノード バーナードとサイモン](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-barnard-and-simon.mdx) として追加し、科目ハブ、章ページ、事例Ⅰ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した章ハブ / 章ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/business-management-theory/knowledge-csr-esg-and-governance`、`/docs/business-management-theory/knowledge-barnard-and-simon`、`/docs/second-stage/case-1-organization-and-hr` の表示確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `CSR・ESG` のような近年概念や `バーナード / サイモン` のような理論家名は、章ページの一節だと `何を比べる論点か` が残りにくいです。独立ノードへ出すと、索引から戻る先と、事例Ⅰへつながる比較軸の両方を固定しやすくなります
+- 前回比: 改善
+- 根拠: 前回は第9章の `9.8` と第10章の `10.2` が coverage 台帳上 `章ページで対応` だったが、今回は 2 つとも独立着地し、章ハブと事例Ⅰにも接続したため、`細目 coverage` と `理論比較のしやすさ` の両方が一段進んだ
+- 次に修正すべきこと: `経営情報システム` の `統計学の基礎`、`情報セキュリティガイドライン` を独立着地させるか、`第2次試験` の事例別ページを `設問型` と `答案骨子` へ分ける
+
+## 2026-03-27-34 安定論点の統計と、更新論点のセキュリティ指針は分けて置く
+
+- 対象: `経営情報システム`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
+- 成果: `統計学の基礎` を [知識ノード 統計学の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-statistics-basics.mdx)、`情報セキュリティガイドラインと関連法規` を [更新ノード 情報セキュリティガイドラインと関連法規](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/security-guidelines-and-related-laws.mdx) として追加し、科目ハブ、`情報通信技術の基礎`、`経営情報管理`、索引、進捗トラッカー、coverage 台帳、戦略、鮮度台帳を同時に更新した
+- 品質ゲート: `統計学の基礎` は安定論点ページとして `G1-G5`、`情報セキュリティガイドラインと関連法規` は更新論点ページとして `G1-G6`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`、`/docs/management-information-systems/knowledge-statistics-basics`、`/docs/management-information-systems/security-guidelines-and-related-laws`、`/docs/management-information-systems/information-management` の表示確認
+- 鮮度確認: `情報セキュリティガイドラインと関連法規` を鮮度台帳へ登録し、`サイバーセキュリティ経営ガイドライン Ver 3.0`、`中小企業の情報セキュリティ対策ガイドライン 第4.0版`、`内部不正防止ガイドライン 第5版`、`情報セキュリティ10大脅威 2026` を `2026-03-27` 時点で確認した。あわせて `AI事業者ガイドライン` は `第1.1版` へ更新した
+- 学び: `統計学` は読み方の型を固定する安定論点で、`情報セキュリティガイドライン` は一次情報追随が必要な更新論点です。この 2 つを同じページへ混ぜると、更新のたびに安定論点まで触ることになります。役割を分ける方が継続的に改善しやすいです
+- 前回比: 改善
+- 根拠: 前回は第19章の `19.6` と `19.7` が coverage 台帳上 `章ページで対応` だったが、今回は 2 つとも独立着地し、うち `19.7` は鮮度台帳まで接続したため、`細目 coverage` と `更新運用のしやすさ` の両方が一段進んだ
+- 次に修正すべきこと: `第2次試験` の事例別ページを `設問型` と `答案骨子` へ分けるか、`中小企業政策` の `人材・雇用支援`、`海外展開支援` を独立着地させる
+
+## 2026-03-27-35 第2次試験はハブ、設問型、答案骨子の3点へ分ける
+
+- 対象: `第2次試験`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略、`docs ui smoke test`
+- 成果: [事例Ⅰの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-question-patterns.mdx)、[事例Ⅰの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-answer-frameworks.mdx)、[事例Ⅱの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-2-question-patterns.mdx)、[事例Ⅱの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-2-answer-frameworks.mdx)、[事例Ⅲの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-3-question-patterns.mdx)、[事例Ⅲの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-3-answer-frameworks.mdx)、[事例Ⅳの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-4-question-patterns.mdx)、[事例Ⅳの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-4-answer-frameworks.mdx) を追加し、事例ハブ、`第2次試験` トップ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した。あわせて [docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts) に第2次の新規ページを smoke test として追加した
+- 品質ゲート: 新規ページと更新した事例ハブは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/second-stage/case-'`、`/docs/second-stage/case-1-question-patterns`、`/docs/second-stage/case-1-answer-frameworks`、`/docs/second-stage/case-4-question-patterns`、`/docs/second-stage/case-4-answer-frameworks` の表示確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 第2次試験は 1 つの事例ページに `何が問われるか` と `どう書くか` を同時に詰め込むと、読む順と戻り先が曖昧になります。`設問型` と `答案骨子` を分けると、索引から `何を問う問題か` を見て戻る導線と、実際に文章へ落とす導線が分かれ、学習者が迷いにくくなります
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第23章から第26章の細目が `章ページで対応` だったが、今回は `設問型` と `答案骨子` の独立ページができ、台帳上の主要細目を `独立ノードあり` へ上げられたため、`細目 coverage` と `第2次の戻り先の明確さ` の両方が一段進んだ
+- 次に修正すべきこと: `中小企業政策` の `人材・雇用支援`、`海外展開支援` を独立着地させるか、`事例Ⅳ` の `経営分析`、`CVP`、`CF`、`NPV` を個別ページへ分ける
+
+## 2026-03-27-36 更新論点は制度名ではなく支援の流れで独立着地させる
+
+- 対象: `中小企業政策`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略、鮮度台帳、`docs ui smoke test`
+- 成果: [更新ノード 人材・雇用支援施策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-human-resources-and-employment-support.mdx) と [更新ノード 海外展開支援](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-overseas-expansion-support.mdx) を追加し、`中小企業政策`、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、鮮度台帳を同時に更新した。あわせて [docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts) に 2 ページを smoke test として追加した
+- 品質ゲート: 新規更新ノードと更新した章ハブ / 章ページは更新論点ページとして `G1-G6`
+- 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/sme-management-and-policy/'`、`/docs/sme-management-and-policy/policy-human-resources-and-employment-support`、`/docs/sme-management-and-policy/policy-overseas-expansion-support`、`/docs/sme-management-and-policy/sme-policy` の表示確認
+- 鮮度確認: 2 つの更新ノードと `中小企業政策` / 科目ハブを鮮度台帳へ反映し、`人材確保等支援助成金`、`中小企業大学校`、`新規輸出1万者支援プログラム`、`JETRO 輸出・海外展開支援`、`海外販路開拓支援` を `2026-03-27` 時点で確認した
+- 学び: 更新論点を制度名の列挙で足すだけだと、翌年に制度名や担当機関の表現が少し変わっただけで本文が古く見えます。`人材支援は助成 / 研修 / 伴走`、`海外展開は入口相談 / 伴走 / 金融・保険` のように流れで独立ノード化すると、最新情報への差し替え範囲を小さく保てます
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第21章の `21.7` と `21.9` が `未対応` だったが、今回は 2 つとも独立着地し、鮮度台帳と smoke test まで接続したため、`細目 coverage`、`更新運用`、`回帰確認` の 3 点が同時に前進した
+- 次に修正すべきこと: `第2次試験` の `事例Ⅳ` を `経営分析`、`CVP`、`CF`、`NPV` の個別ページへ分けるか、`付録A` と `付録B` の骨組みを `reference` 配下へ作る
+
+## 2026-03-27-37 事例Ⅳは計算族ごとに戻り先を分ける
+
+- 対象: `第2次試験`、`事例Ⅳ`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略、`docs ui smoke test`
+- 成果: [事例Ⅳ 経営分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-4-management-analysis.mdx)、[事例Ⅳ CVP と利益計画](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-4-cvp-and-profit-planning.mdx)、[事例Ⅳ CF と運転資本](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-4-cash-flow-and-working-capital.mdx)、[事例Ⅳ NPV と投資意思決定](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-4-npv-and-investment-decision.mdx) を追加し、事例Ⅳハブ、設問型、答案骨子、第2次試験トップ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した。あわせて [docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts) に 4 ページを smoke test として追加した
+- 品質ゲート: 新規ページと更新した事例Ⅳページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/second-stage/case-4-'`、`/docs/second-stage/case-4-finance-and-accounting`、`/docs/second-stage/case-4-management-analysis`、`/docs/second-stage/case-4-cvp-and-profit-planning`、`/docs/second-stage/case-4-cash-flow-and-working-capital`、`/docs/second-stage/case-4-npv-and-investment-decision` の表示確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `事例Ⅳ` は `設問型` と `答案骨子` だけだと、実際にどこで詰まったかを戻り先へ落としにくいです。`経営分析`、`CVP`、`CF`、`NPV` の 4 つに分けると、1次の演習ノードとの往復が明確になり、`何が弱いか` を切り分けやすくなります
+- 前回比: 改善
+- 根拠: 前回は第26章の `26.2` と `26.3` が coverage 台帳上 `答案骨子` へ寄っていたが、今回は 4 つの個別ページができ、索引と smoke test まで接続したため、`細目 coverage`、`解法導線`、`回帰確認` の 3 点が同時に前進した
+- 次に修正すべきこと: `付録A` と `付録B` の骨組みを `reference` 配下へ作るか、`事例Ⅳ` の個別ページへ例題と誤答例を追加する
+
+## 2026-03-27-38 事例Ⅳの個別ページは例題と誤答例まで置いて初めて使いやすくなる
+
+- 対象: `事例Ⅳ` の個別ページ、進捗トラッカー、戦略
+- 成果: `事例Ⅳ 経営分析`、`CVP と利益計画`、`CF と運転資本`、`NPV と投資意思決定` に `典型例題`、`誤答例と直し方`、`年度差の見方` を追加し、進捗トラッカーと戦略を同時に更新した
+- 品質ゲート: 更新した 4 ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/second-stage/case-4-'`、`/docs/second-stage/case-4-management-analysis`、`/docs/second-stage/case-4-cvp-and-profit-planning`、`/docs/second-stage/case-4-cash-flow-and-working-capital`、`/docs/second-stage/case-4-npv-and-investment-decision` の表示確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `解き方の表` だけだと、学習者は `分かったが解けない` 状態に残りやすいです。`例題` で処理順を具体化し、`誤答例` でつまずきどころを見せ、`年度差` で近年の重い論点を短く添えると、1 ページの実用性が大きく上がります
+- 前回比: 改善
+- 根拠: 前回は 4 ページの戻り先ができた段階だったが、今回は各ページで `型`、`例題`、`誤答例`、`年度差` が揃い、読むためのページから実際に解くためのページへ一段進んだ
+- 次に修正すべきこと: `付録A` と `付録B` の骨組みを `reference` 配下へ作るか、`事例Ⅳ` の個別ページに年度別の小問例を追加する
+
+## 2026-03-27-39 付録は列挙より比較表の方が実戦で効く
+
+- 対象: `重要用語集`、`重要公式・計算式一覧`、`経済学・経済政策`、`財務・会計`、`第2次試験`、進捗トラッカー、戦略
+- 成果: [重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx) に `混同しやすい用語` を追加し、[重要公式・計算式一覧](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-formulas.mdx) に `混同しやすい式` と `WACC` を追加した。あわせて [経済学・経済政策ハブ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/economics-and-economic-policy/index.mdx)、[財務・会計ハブ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/index.mdx)、[第2次試験トップ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/index.mdx) から付録へ戻る導線を追加し、進捗トラッカーと戦略を更新した
+- 品質ゲート: 更新した付録ページと章ハブは安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/reference/important-terms-glossary`、`/docs/reference/important-formulas`、`/docs/finance-and-accounting`、`/docs/second-stage` の表示確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 付録は定義や式を並べるだけだと `辞書` にはなっても `誤答防止ツール` にはなりにくいです。`どこを混同しやすいか` を比較で見せると、本文へ戻る前の確認ページとして機能しやすくなります
+- 前回比: 改善
+- 根拠: 前回は付録ページ単体の存在が中心だったが、今回は `混同しやすい比較表` と `主要ハブからの逆流導線` が加わり、横断付録としての実用性が一段上がった
+- 次に修正すべきこと: `事例Ⅰ〜Ⅲ` の設問型と答案骨子にも例題、誤答例、年度差を広げるか、`重要用語集` を科目別索引付きへ拡張する
+
+## 2026-03-27-40 付録は科目からも誤りからも引けると使いやすい
+
+- 対象: `重要用語集`、`重要公式・計算式一覧`、`参照資料` トップ、進捗トラッカー、戦略
+- 成果: [重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx) に `科目別索引` と `用語から戻る順番` を追加し、[重要公式・計算式一覧](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-formulas.mdx) に `誤用パターンから引く` を追加した。あわせて [参照資料トップ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/index.mdx) の横断付録の説明、[進捗トラッカー](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を更新した
+- 品質ゲート: 更新した付録ページと参照資料トップは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test tests/docs-ui.spec.ts --grep 'desktop /docs/reference$|desktop /docs/reference/important-terms-glossary$|desktop /docs/reference/important-formulas$|desktop /docs/reference/study-time-model$|desktop /docs/finance-and-accounting$|desktop /docs/economics-and-economic-policy$|desktop /docs/second-stage$|reference page exposes complementary and article landmarks|reference copy keeps readable contrast in light and dark'`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: 付録は `一覧` として置くだけだと、知っている人には便利でも、迷っている人には戻り先がまだ曖昧です。`どの科目で迷っているか` と `どの誤りを直したいか` の 2 方向から引けるようにすると、本文へ戻る導線がかなり短くなります
+- 前回比: 改善
+- 根拠: 前回は `比較表` によって付録の実用性が上がった段階だったが、今回は `科目別索引` と `誤用パターン逆引き` が追加され、`どこから探し始めればよいか` まで明示できるようになったため、横断付録としての使い勝手がさらに一段上がった
+- 次に修正すべきこと: `事例Ⅰ〜Ⅲ` の設問型と答案骨子へ `例題`、`誤答例`、`年度差` を広げるか、`重要用語集` に略語と類義語の索引を足す
+
+## 2026-03-27-41 事例Ⅰ〜Ⅲも型だけでなく例題と誤答例まで置く
+
+- 対象: `事例Ⅰ`、`事例Ⅱ`、`事例Ⅲ` の設問型 / 答案骨子、進捗トラッカー、戦略
+- 成果: [事例Ⅰの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-question-patterns.mdx)、[事例Ⅰの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-answer-frameworks.mdx)、[事例Ⅱの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-2-question-patterns.mdx)、[事例Ⅱの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-2-answer-frameworks.mdx)、[事例Ⅲの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-3-question-patterns.mdx)、[事例Ⅲの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-3-answer-frameworks.mdx) に `典型例題`、`誤答例と直し方`、`年度差の見方` を追加し、進捗トラッカーと戦略も同時に更新した
+- 品質ゲート: 更新した 6 ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/second-stage/case-1-question-patterns$|desktop /docs/second-stage/case-1-answer-frameworks$|desktop /docs/second-stage/case-2-question-patterns$|desktop /docs/second-stage/case-2-answer-frameworks$|desktop /docs/second-stage/case-3-question-patterns$|desktop /docs/second-stage/case-3-answer-frameworks$'`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `設問型` と `答案骨子` は、型の説明だけだと理解した気になりやすいです。`例題` で見抜き方を固定し、`誤答例` で他事例へのズレを見せ、`年度差` で近年の重心を短く示すと、学習者が実際の設問で迷いにくくなります
+- 前回比: 改善
+- 根拠: 前回は事例Ⅳだけが `型`、`例題`、`誤答例`、`年度差` を持っていたが、今回は事例Ⅰ〜Ⅲにも同じ構成を広げたため、第2次試験の主要ページ群の粒度が揃い、戻り先としての一貫性が上がった
+- 次に修正すべきこと: `事例Ⅰ〜Ⅲ` に年度別の小問例を追加するか、`重要用語集` に略語と類義語の索引を足す
+
+## 2026-03-27-42 財務の前半基礎は後半演習の戻り先として先に切る
+
+- 対象: `簿記の基礎`、`企業会計の基礎`、`財務・会計ハブ`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
+- 成果: [知識ノード 5分類と仕訳](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/bookkeeping-basics-account-categories-and-journal-entries.mdx)、[知識ノード 決算整理仕訳](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/bookkeeping-basics-adjusting-entries.mdx)、[知識ノード 帳簿組織と伝票](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/bookkeeping-basics-ledgers-and-vouchers.mdx)、[知識ノード 財務諸表と5段階利益](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/corporate-accounting-financial-statements-and-five-profits.mdx)、[知識ノード 資産会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/corporate-accounting-assets-accounting.mdx)、[知識ノード 負債・純資産会計と税効果会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/corporate-accounting-liabilities-equity-and-tax-effect.mdx)、[知識ノード 企業会計原則と連結会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/corporate-accounting-principles-and-consolidation.mdx) を追加し、章ハブ、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/finance-and-accounting/bookkeeping-basics-account-categories-and-journal-entries$|desktop /docs/finance-and-accounting/bookkeeping-basics-adjusting-entries$|desktop /docs/finance-and-accounting/bookkeeping-basics-ledgers-and-vouchers$|desktop /docs/finance-and-accounting/corporate-accounting-financial-statements-and-five-profits$|desktop /docs/finance-and-accounting/corporate-accounting-assets-accounting$|desktop /docs/finance-and-accounting/corporate-accounting-liabilities-equity-and-tax-effect$|desktop /docs/finance-and-accounting/corporate-accounting-principles-and-consolidation$'`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `簿記` と `企業会計` は導入章に見えても、後半論点の戻り先として何度も使います。ここを章ページ止まりのままにすると、`どこへ戻るか` が曖昧なままです。前半基礎を先に独立ノード化すると、`原価計算`、`経営分析`、`CF`、`事例Ⅳ` まで戻り先が一段強くなります
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第3章が 3 細目すべて `章ページで対応`、第4章が 5 細目すべて `章ページで対応` だったが、今回は 8 細目すべて独立ノードありへ上がり、科目ハブと索引からの戻り先も明確になったため、`細目 coverage` と `後半論点の戻り先の強さ` が同時に前進した
+- 次に修正すべきこと: `経営戦略論` と `マーケティング論` を論点ノード化するか、`簿記` と `企業会計` に確認問題を追加する
+
+## 2026-03-27-43 理論科目は分析対象と考える順番で戻り先を作る
+
+- 対象: `経営戦略論`、`マーケティング論`、`企業経営理論ハブ`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
+- 成果: [知識ノード 経営計画とSWOT](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-strategic-planning-and-swot.mdx)、[知識ノード 全社戦略と成長戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-corporate-and-growth-strategy.mdx)、[知識ノード 競争戦略と経営資源戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-competitive-and-resource-strategy.mdx)、[知識ノード イノベーション・国際経営・デジタル戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-innovation-international-and-digital-strategy.mdx)、[知識ノード STPと4P](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-stp-and-4p.mdx)、[知識ノード マーケティングリサーチと消費者行動](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-marketing-research-and-consumer-behavior.mdx)、[知識ノード 製品戦略と価格戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-product-and-price-strategy.mdx)、[知識ノード チャネル戦略とプロモーション戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-channel-and-promotion-strategy.mdx)、[知識ノード サービスマーケティングとCRM](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-service-marketing-and-crm.mdx) を追加し、章ハブ、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/business-management-theory/knowledge-'`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `経営戦略論` と `マーケティング論` は、用語単位で細かく切りすぎるより、まず `分析対象` と `考える順番` の単位で戻り先を作る方が、試験でも第2次でも使いやすいです。`5フォース / VRIO` や `STP / 4P / CRM` を同じページへ置くのではなく、`何を見ている理論か` と `どの順で使うか` で分けると、迷いが減ります
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第9章が `9.1` から `9.7` と `9.9` まで章ページ止まり、第11章が `11.1` から `11.8` まで章ページ止まりだったが、今回は 17 細目すべて独立ノードありへ上がり、章ハブと索引からの戻り先も揃ったため、`細目 coverage`、`戻り先の強さ`、`検索性` が同時に前進した
+- 次に修正すべきこと: `運営管理` の細目を独立ノードへ広げるか、`経営戦略論` と `マーケティング論` に比較問題や確認問題を追加する
+
+## 2026-03-27-44 現場科目は流れの止まり方ごとに戻り先を作る
+
+- 対象: `運営管理`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
+- 成果: [知識ノード 生産方式と計画統制](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-production-systems-and-planning-control.mdx)、[知識ノード 工場レイアウトと流れ設計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-factory-layout-and-flow-design.mdx)、[知識ノード 資材・在庫管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-materials-and-inventory-management.mdx)、[知識ノード 品質管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-quality-management.mdx)、[知識ノード IEとVE](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-ie-and-ve.mdx)、[知識ノード JITとかんばん方式](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-jit-and-kanban.mdx)、[知識ノード スケジューリングとラインバランシング](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-scheduling-and-line-balancing.mdx)、[知識ノード 設備管理と生産性向上](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-equipment-management-and-productivity.mdx)、[知識ノード 購買・外注管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-purchasing-and-outsourcing-management.mdx)、[知識ノード 店舗立地と商圏分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-store-location-and-trading-area.mdx)、[知識ノード 店舗レイアウトとマーチャンダイジング](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-store-layout-and-merchandising.mdx)、[知識ノード 販売管理指標・物流・流通情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems.mdx) を追加し、章ハブ、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/operations-management/knowledge-'`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `運営管理` は、用語の種類で切るより `どこで流れが止まるか` で戻り先を作る方が使いやすいです。`生産方式`、`在庫`、`品質`、`設備`、`店舗` のどこに問題があるかを先に分けると、第1次の設問でも第2次の事例でも迷いにくくなります
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第12章から第14章の 18 細目がすべて章ページ止まりだったが、今回は 18 細目すべて独立ノードありへ上がり、章ハブと索引からの戻り先も揃ったため、`細目 coverage`、`検索性`、`事例連動のしやすさ` が同時に前進した
+- 次に修正すべきこと: `会社法` と `知的財産権` を細目ごとに独立着地させるか、`運営管理` の新規ノードへ比較問題と確認問題を追加する
+
+## 2026-03-27-45 法務科目は比較軸が見える単位で独立ノード化する
+
+- 対象: `会社法`、`知的財産権`、`経営法務` の章ハブ、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
+- 成果: [知識ノード 会社類型と設立手続](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-company-types-and-incorporation.mdx)、[知識ノード 株式と株主](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-shares-and-shareholders.mdx)、[知識ノード 機関設計と株主総会決議](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-corporate-organs-and-shareholder-meetings.mdx)、[知識ノード 資金調達・配当・計算書類](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-fundraising-dividends-and-financial-statements.mdx)、[知識ノード 組織再編と事業譲渡](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-corporate-reorganization-and-business-transfer.mdx)、[知識ノード 倒産法制](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-insolvency-and-corporate-rehabilitation.mdx)、[知識ノード 知的財産権の体系と存続期間](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-ip-framework-and-terms.mdx)、[知識ノード 特許法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-patent-law.mdx)、[知識ノード 実用新案法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-utility-model-law.mdx)、[知識ノード 意匠法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-design-law.mdx)、[知識ノード 商標法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-trademark-law.mdx)、[知識ノード 著作権法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-copyright-law.mdx)、[知識ノード 不正競争防止法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-unfair-competition-prevention-law.mdx)、[知識ノード 知的財産権の活用と国際的保護](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-ip-strategy-and-international-protection.mdx) を追加し、[会社法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/company-law.mdx)、[知的財産権](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/intellectual-property.mdx)、[meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した章ハブは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`pnpm build`、新規 14 ルートの dev server HTML 確認
+- 鮮度確認: 更新日付きの制度メモは既存の章ハブに集約し、新規知識ノードは安定論点として鮮度台帳の追加対象外
+- 学び: 法務科目は `会社法`、`知財法` と大きく置くだけでは、近い制度の違いを説明しにくいです。`権利主体`、`手続`、`効果` の比較軸で独立ノードを切ると、制度の名前より `どこが違うか` が先に見えるため、設問で混同しにくくなります
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第15章 6 細目と第16章 8 細目がすべて章ページ止まりだったが、今回は 14 細目すべて独立ノードありへ上がり、章ハブと索引からの戻り先も揃ったため、`細目 coverage` と `比較しやすさ` が同時に前進した
+- 次に修正すべきこと: `民法と取引関連法` を同じ粒度で独立ノード化するか、`会社法` と `知的財産権` の新規ノードへ比較問題を追加する
+
+## 2026-03-27-46 組織論は理論家名ではなく5層の戻り先で整理する
+
+- 対象: `組織論`、`企業経営理論` ハブ、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
+- 成果: [知識ノード 組織構造と組織設計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-organizational-structure-and-design.mdx)、[知識ノード モチベーション理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-motivation-theories.mdx)、[知識ノード リーダーシップ論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-leadership-theories.mdx)、[知識ノード 人的資源管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-human-resource-management.mdx)、[知識ノード 組織文化と組織変革](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/knowledge-organizational-culture-and-change.mdx) を追加し、[組織論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/organization-theory.mdx)、[企業経営理論ハブ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/index.mdx)、[meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-management-theory/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規知識ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test tests/docs-ui.spec.ts --grep 'desktop /docs/business-management-theory/knowledge-(organizational-structure-and-design|motivation-theories|leadership-theories|human-resource-management|organizational-culture-and-change)$'`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `組織論` は理論家名で覚え始めると、`組織構造の課題`、`人の動機`、`リーダーの行動`、`人事制度`、`文化変革` が同じ層に見えてしまいます。先に `5層の戻り先` を作ると、設問がどのレイヤーを問っているかを切り分けやすくなり、`事例Ⅰ` でも論点ズレを起こしにくくなります
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第10章の `10.1`、`10.3`、`10.4`、`10.5`、`10.6` が章ページ止まりだったが、今回は 5 細目すべて独立ノードありへ上がり、章ハブと索引からの戻り先も揃ったため、`細目 coverage` と `設問レイヤーの判別しやすさ` が同時に前進した
+- 次に修正すべきこと: `民法と取引関連法` を同じ粒度で独立ノード化するか、`組織論` の新規ノードへ比較問題と事例Ⅰ型の例題を追加する
+
+## 2026-03-27-47 民法系は一般ルールと特別法を分けて独立ノード化する
+
+- 対象: `民法と取引関連法`、`経営法務` ハブ、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、鮮度台帳、戦略、`docs ui smoke test`
+- 成果: [知識ノード 契約・債権・物権・担保](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-contracts-obligations-and-security.mdx)、[知識ノード 時効と保証](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-prescription-and-guarantee.mdx)、[知識ノード 相続](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-inheritance.mdx)、[知識ノード 独占禁止法と取引適正化](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-antimonopoly-and-trade-regulation.mdx)、[知識ノード 消費者保護関連法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-consumer-protection-laws.mdx)、[知識ノード 個人情報保護法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-personal-information-protection.mdx)、[知識ノード 労働関連法規の概要](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-labor-laws-overview.mdx)、[知識ノード 資本市場関連法規](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-capital-market-laws.mdx)、[知識ノード 英文契約書の基本用語](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-english-contract-terms.mdx) を追加し、[民法と取引関連法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/civil-and-transaction-law.mdx)、[経営法務](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/index.mdx)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、進捗トラッカー、coverage 台帳、鮮度台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 章ハブは更新論点ページとして `G1-G6`、新規知識ノードは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test tests/docs-ui.spec.ts --grep 'desktop /docs/business-law/knowledge-(contracts-obligations-and-security|prescription-and-guarantee|inheritance|antimonopoly-and-trade-regulation|consumer-protection-laws|personal-information-protection|labor-laws-overview|capital-market-laws|english-contract-terms)$'`
+- 鮮度確認: [経営法務](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/index.mdx) と [民法と取引関連法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/civil-and-transaction-law.mdx) は `2026-03-27` 時点で、個人情報保護委員会の `通則編` ページ、公正取引委員会の `取適法・振興法` 特設サイト、消費者庁の `消費者契約法`、`特定商取引法`、`ステルスマーケティング` の各ページを確認した
+- 学び: `民法と取引関連法` は、`民法の一般ルール` と `特別法の上乗せ規制` を同じページで説明すると、受験者が `どこまでが一般ルールか` を見失いやすいです。先に `契約・時効・保証・相続` を固め、その後に `独禁法 / 取適法`、`消費者法制`、`個人情報保護法` を置くと、問題文で何が問われているかをかなり切り分けやすくなります
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第17章の 9 細目すべてが章ページ止まりだったが、今回は 9 細目すべて独立ノードありへ上がり、章ハブ、索引、進捗管理、鮮度管理まで同じ粒度で揃ったため、`細目 coverage` と `更新論点の整理しやすさ` が同時に前進した
+- 次に修正すべきこと: `情報通信技術の基礎` を独立ノード化するか、`第2次試験` の事例Ⅰ〜Ⅲへ年度別小問例を追加する
+
+## 2026-03-28-01 経営情報システムは ICT 基礎を論点ごとの戻り先へ分解する
+
+- 対象: `経営情報システム`、`情報通信技術の基礎`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略、`docs ui smoke test`
+- 成果: [情報通信技術の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/ict-basics.mdx) を章ハブとして組み直し、[知識ノード コンピュータの基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-computer-basics.mdx)、[知識ノード データベースとSQL](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-database-and-sql.mdx)、[知識ノード 通信ネットワーク](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-network-basics.mdx)、[知識ノード Webテクノロジーとクラウド](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-web-and-cloud.mdx)、[知識ノード 情報セキュリティの基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-information-security-basics.mdx)、[知識ノード AI・機械学習の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md)、[tests/docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts) を同期し、coverage 件数を `独立130 / 章ページ+演習11 / 章ページ23` に更新した
+- 品質ゲート: 新規知識ノードと更新した章ハブは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint` は repo 全体の既存リンク監査で失敗、`NEXT_DIST_DIR=.next-check pnpm build` は成功、`pnpm exec playwright test tests/docs-ui.spec.ts --grep 'desktop /docs/management-information-systems/knowledge-(computer-basics|database-and-sql|network-basics|web-and-cloud|information-security-basics|ai-and-machine-learning-basics)$'` は 6 件通過
+- 鮮度確認: 新規知識ノードは安定論点ページのため鮮度台帳の追加対象外。更新情報は既存の [情報通信技術の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/ict-basics.mdx) と [情報セキュリティガイドラインと関連法規](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/security-guidelines-and-related-laws.mdx) に寄せた
+- 学び: `経営情報システム` は、章ハブに基礎技術を並べるだけだと `CPU` と `DB` と `ネットワーク` が同じ層に見えてしまいます。まず `技術のまとまりごとの戻り先` を作ると、過去問テーマ索引、章ハブ、後続の `経営情報管理` を同じ粒度でつなげやすくなります
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第18章の `18.1` から `18.6` まで 6 細目すべてが `章ページで対応` だったが、今回は 6 細目すべて独立ノードありへ上がり、章ハブ、索引、進捗管理、戦略、smoke test まで同じ粒度で揃ったため、`細目 coverage` と `戻り先の強さ` が同時に前進した
+- 次に修正すべきこと: `経営情報管理` を `IT戦略 / 開発 / 運用 / 外部資源 / 意思決定支援` に分けて独立ノード化するか、`中小企業経営・政策` の章ページ止まり細目を先に崩す
+
+## 2026-03-28-02 デザインシステムは基準トークンを 1 つに寄せる
+
+- 対象: `app/globals.css`、`components/ui/button.tsx`、`package.json`、`docs/wiki-ui-patterns.md`
+- 成果: [app/globals.css](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/app/globals.css) で配色トークンの基準を `--color-fd-*` に寄せ、独自変数はレイアウトと装飾用の別名へ整理した。[components/ui/button.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/ui/button.tsx) で `buttonVariants` を `color` と `size` だけの小さな関数へ縮め、未使用だった `variant` 互換層と `ButtonProps` を削除した。[package.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/package.json) から直接使っていない `class-variance-authority` を外し、[docs/wiki-ui-patterns.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-ui-patterns.md) に運用ルールを追記した
+- 品質ゲート: docs UI の共通スタイル変更として `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、代表 docs ルートの headless browser 確認を行う
+- 検証: `pnpm lint` は既存の docs リンク不整合で失敗、`NEXT_DIST_DIR=.next-check pnpm build` は成功、`pnpm exec playwright test tests/docs-ui.spec.ts --grep 'desktop /docs$|desktop /docs/business-law$|keyboard focus stays visible on docs home|AI に質問パネルを開ける|reference copy keeps readable contrast in light and dark'` は 5 件通過
+- 学び: デザインシステムは、部品数よりも `どのトークンが正なのか` と `どの引数名が正なのか` が曖昧になると急に読みづらくなります。今回の規模なら、Fumadocs の配色トークンを正とし、ページ用の別名と小さな補助関数だけを置く形が最も追いやすいです
+- 前回比: 改善
+- 根拠: 配色の基準が `生値を 2 系統で持つ状態` から `Fumadocs の配色トークン + レイアウト別名` へ寄り、ボタン API も `variant / color` の二重定義から `color` だけへ縮んだため、変更時に読む場所と直す場所が減った
+- 次に修正すべきこと: `app/globals.css` がさらに肥大化するなら、`docs 共通`、`home 専用`、`related map 専用` の 3 つへ分割する
+
+## 2026-03-28-03 デザインシステムの正を呼び出し側へ漏らさない
+
+- 対象: `components/ui/button.tsx`、`components/ai/search.tsx`、`components/feedback/client.tsx`、`app/docs/layout.tsx`、`app/page.tsx`、`app/globals.css`、`app/styles/docs-home.css`、`app/styles/related-map.css`、`docs/wiki-ui-patterns.md`
+- 成果: [components/ui/button.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/ui/button.tsx) の `size` を `xs`、`sm`、`md`、`icon*` に整理し、丸みと余白を共通化した。[components/ai/search.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/ai/search.tsx)、[components/feedback/client.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/feedback/client.tsx)、[app/docs/layout.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/app/docs/layout.tsx) の手書きボタン差分を減らし、[app/page.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/app/page.tsx) の配色を `--color-fd-*` 系へ合わせた。[app/globals.css](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/app/globals.css) から docs home と related map の専用スタイルを切り出し、[app/styles/docs-home.css](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/app/styles/docs-home.css) と [app/styles/related-map.css](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/app/styles/related-map.css) に責務を分けた
+- 学び: デザインシステムは抽象を増やしすぎるより、`どこまでが共通でどこからがページ固有か` を曖昧にしない方が効きます。今回の規模では、ボタンの見た目差分は `size` に寄せ、ページ専用スタイルは CSS ファイル単位で分けるのが一番追いやすいです
+- 前回比: 改善
+- 根拠: 変更前は共通ボタンを呼び出し側で `rounded-*` や `px-*` で補強しており、`app/globals.css` も home と related map を抱え込んでいた。変更後はボタンの見た目差分を `buttonVariants` に寄せ、専用スタイルも分割したため、見た目変更時に読む入口が減った
+- 次に修正すべきこと: `feedback` と `graph` でもカードや入力欄の繰り返しが増えるなら、ボタンと同じく `共通 class を 1 つ持つだけ` の薄い部品へ寄せる
+
+## 2026-03-28-03 Fumadocs の補助機能を公開導線へ寄せる
+
+- 対象: `app/layout.tsx`、`source.config.ts`、`lib/source.ts`、`参照資料`、`経済学・経済政策`
+- 成果: `Banner` を全体告知に使い、`remark-math + rehype-katex` で数式表示を有効化し、`icon` と `defaultOpen/collapsible` でサイドバーの識別性を上げ、`include` で制度確認の注意文を共通化した
+- 品質ゲート: 既存ページの役割を崩さず、更新論点ページは `G1-G6`、安定論点ページは `G1-G5` を維持
+- 検証: `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、`/docs`、`/docs/reference/exam-guide`、`/docs/reference/important-formulas` の表示確認
+- 鮮度確認: [受験ガイド](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/exam-guide.mdx) と [年度別出題傾向](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/yearly-question-trends.mdx) は、共有の注意ブロックから `確認日` と一次情報への戻りを明示した
+- 学び: Fumadocs の機能は、コンポーネント数を増やすためではなく、`更新注意の再掲`、`数式の視認性`、`カテゴリの識別` のような読者の迷いどころへ直接当てた方が効果が出やすい
+- 前回比: 改善
+- 根拠: 以前は Fumadocs の中核機能が中心だったが、今回は `告知`、`数式表現`、`サイドバー導線`、`再利用ブロック` まで広げられ、公開面の使い勝手が一段上がった
+- 次に修正すべきこと: `財務・会計` と `経済学` の他ページにも数式表現を広げ、必要になった時点で `Search tag filter` と `async` の導入可否を再評価する
+
+## 2026-03-28-04 wiki の見出しは本文密度を優先して一段詰める
+
+- 対象: `app/globals.css`、`docs/wiki-ui-patterns.md`、`docs/wiki-review-log.md`
+- 成果: docs ページの `h1` を担う `.wiki-page-title` と本文内の `h2` / `h3` / accordion 見出しのサイズと余白を一段詰め、見出し階層を維持したまま 1 画面あたりの情報量を上げた。あわせて UI 方針書へ `h1` と節見出しを大きくしすぎない運用ルールを追記した
+- 品質ゲート: 共通スタイル変更として `pnpm lint` と docs ルート確認を行い、既存の構造や分岐は増やさない
+- 検証: `pnpm lint`、`http://localhost:3000/docs` と `http://localhost:3000/docs/second-stage/reading-case-materials` の確認を試行
+- 鮮度確認: 見た目の調整のみのため鮮度台帳の追加対象外
+- 学び: wiki は `見出しが強いこと` より `本文へ早く入れること` の方が価値になりやすいです。階層差はサイズ差だけでなく、罫線、余白、文字組みで見せた方が情報量を増やしても読みにくくなりにくいです
+- 前回比: 改善
+- 根拠: 前回はページタイトルと節見出しがやや大きく、本文へ入る前の占有面積が大きかったが、今回は同じ構造のまま `h1`、`h2`、`h3` を一段圧縮できたため、情報密度と一覧性が前進した
+- 次に修正すべきこと: 実ページ確認でまだ見出しが強すぎる章ハブがあれば、個別ページをいじらず共通スタイル側の値だけで再調整する
+
+## 2026-03-28-05 ルート補足は動詞より論点名を置く
+
+- 対象: `content/docs/index.mdx`、各トップルートの `meta.json` と `index.mdx`、`docs/wiki-review-log.md`
+- 成果: `経済学・経済政策` から `参照資料` まで 9 ルートの補足を、`ミクロ・マクロ・政策`、`戦略・組織・顧客` のような短い論点名へ差し替えた。ホームの導線カードも同じ短文にそろえ、ルート先頭ページとサイドバー系の表示で同じ補足が出る状態にした
+- 品質ゲート: 補足は `1行`、`12文字前後`、`〜を整理` や `〜を確認` のような汎用動詞を避ける
+- 検証: `pnpm lint` は既存の docs リンク切れで失敗、`NEXT_DIST_DIR=.next-check pnpm build` は成功、`@playwright/test` を使って `/docs/economics-and-economic-policy` から `/docs/reference` まで 9 ルートの `200` と `h1` と補足文の一致を確認、`/docs` は `200` とカード文言の一致を確認
+- 鮮度確認: 表現調整のみのため鮮度台帳の追加対象外
+- 学び: ルート補足は `何をするページか` を動詞で言い換えるより、`何の論点が並ぶか` を名詞で置いた方が短くても情報量が落ちにくいです。特にモバイル幅では、説明文より `3要素の名詞列` の方が一目で判断しやすいです
+- 前回比: 改善
+- 根拠: 変更前は各補足が文章寄りで、短くしても `整理` や `確認` が残って意味の芯が弱かった。変更後は `会社法・知財・取引`、`4事例・設問・答案` のように論点そのものが見えるため、同じ1行でも識別性が上がった
+- 次に修正すべきこと: さらに狭い幅で折り返すルートが出るなら、まず補足文を増やさず、該当ルートだけ語の粒度を一段そろえて詰める
+
+## 2026-03-28-06 surface と textarea は薄い primitive に寄せる
+
+- 対象: `components/ui/surface.ts`、`components/feedback/client.tsx`、`components/ai/search-panel.tsx`、`components/ai/search-message.tsx`、`components/graph-view.tsx`、`docs/wiki-ui-patterns.md`
+- 成果: [components/ui/surface.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/ui/surface.ts) に `card`、`secondary`、`background`、`popover` の surface class と `textareaVariants` を追加し、[components/feedback/client.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/feedback/client.tsx)、[components/ai/search-panel.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/ai/search-panel.tsx)、[components/ai/search-message.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/ai/search-message.tsx)、[components/graph-view.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/graph-view.tsx) の手書き surface と textarea を寄せた。あわせて [docs/wiki-ui-patterns.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-ui-patterns.md) に運用ルールを追記した
+- 学び: この規模の design system では、`何でも variants にする` より `同じ見た目を 2 回書き始めた場所だけ薄く寄せる` 方が追いやすいです。surface と textarea はその境界にあり、部品化しても責務が増えにくいです
+- 前回比: 改善
+- 根拠: 変更前は feedback、AI 検索、graph tooltip で `border + 背景 + 文字色 + 影` の組み合わせを個別に持っていた。変更後は surface の正が 1 か所に寄り、textarea も `md / sm` の差分だけで追えるため、見た目変更時の修正箇所が減った
+- 次に修正すべきこと: `app/page.tsx` や未使用の `wiki-*` surface class が本当に不要かを見直し、使っていない共通層を増やさない
+
+## 2026-03-28-06 docs 本文は余白より情報量を優先する
+
+- 対象: `app/globals.css`、`app/styles/docs-home.css`、`docs/wiki-review-log.md`
+- 成果: docs 共通の本文行間、`h2` / `h3` の上余白、`Callout` と `Cards` の `padding` と `gap`、ホーム本文のセクション間 `gap` を一段詰め、ホームの導線カードと知識ノードの箇条書きが同じ画面内でより多く見えるようにした
+- 品質ゲート: MDX 本文や分岐は増やさず、Fumadocs の既存 DOM にだけ CSS を当てる
+- 検証: `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs` と `/docs/economics-and-economic-policy/microeconomics/knowledge-game-theory` の `200` と見出しを確認する
+- 鮮度確認: 見た目の調整のみのため鮮度台帳の追加対象外
+- 学び: 情報量を上げたいときは、本文テキストより先に `節の上余白`、`箇条書きの行間`、`カード内余白` を詰める方が効きます。特に wiki 型のページは、1 要素ごとの余白が少し大きいだけで画面全体が間延びして見えやすいです
+- 前回比: 改善
+- 根拠: 変更前は `h2` の上余白、本文 `line-height`、カードと callout の内側余白が重なって 1 画面あたりの情報量が落ちていた。変更後は同じ構造のまま余白だけを一段圧縮したため、スクロール量を増やさずに読める情報量が上がった
+- 次に修正すべきこと: まだ詰まりきらないページがあれば、本文量を増やさず `Cards` の列数や短文の粒度を route ごとに見直す
+
+## 2026-03-28-07 経営情報管理を主要戻り先ごとに独立ノード化する
+
+- 対象: `経営情報システム`、`経営情報管理`、`過去問テーマ索引`、`重要用語集`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略
+- 成果: [経営情報管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/information-management.mdx) を章ハブとして組み直し、[知識ノード IT戦略・BPR・DX](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-it-strategy-and-dx.mdx)、[知識ノード システム開発手法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-systems-development-methods.mdx)、[知識ノード プロジェクトマネジメント](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-project-management.mdx)、[知識ノード 運用管理・評価・監査](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-it-operations-and-audit.mdx)、[知識ノード 外部資源活用と意思決定支援](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/knowledge-outsourcing-and-decision-support.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/management-information-systems/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を同時に更新した
+- 品質ゲート: 追加した 5 ページは安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `経営情報管理` と追加した 5 ページの `200` と `h1` を確認する
+- 鮮度確認: 更新論点ではないため鮮度台帳の追加対象外。章ハブの更新確認メモは既存の一次情報導線を維持した
+- 学び: `経営情報管理` は、章ページ 1 枚に `戦略`、`開発`、`運用`、`委託`、`意思決定支援` を抱えると、`どこへ戻れば解けるか` が曖昧になりやすいです。`開発手法` と `プロジェクト管理` を分け、`外部資源活用` と `意思決定支援` を同じページで `委託` と `分析` の二軸で整理すると、細目 coverage と実際の戻り先の両方を小さな差分で前進させやすいです
+- 前回比: 改善
+- 根拠: 前回は coverage 台帳上、第19章の `19.1` から `19.5` まで 5 細目すべてが `章ページで対応` だったが、今回は 5 細目すべて独立ノードありへ上がり、`章ページで対応` 件数も `23 → 18` に減ったため、`完全網羅` に向けた主要ボトルネックを 1 章分解消できた
+- 次に修正すべきこと: 次回は `中小企業経営` を `定義 / 統計 / 経営課題 / 業種別動向 / 産業集積 / 開廃業 / 白書の読み方` に切り、残る `章ページで対応` を `第20章〜第21章` へさらに集約する
+
+## 2026-03-28-07 `/docs` ホームは graph を主役に寄せる
+
+- 対象: `content/docs/index.mdx`、`app/docs/[[...slug]]/page.tsx`、`components/graph-view.tsx`、`app/styles/docs-home.css`、`docs/wiki-review-log.md`
+- 成果: `/docs` ホームを、`hero + 導線 + graph` の順ではなく、`hero の中に graph を組み込む` 形へ組み直した。あわせてホーム専用の `h1`、導線カード、7科目一覧、使い方の再構成を行い、先頭に出ていた page action はホームだけ外した
+- 品質ゲート: 既存の graph と Fumadocs / MDX の仕組みを再利用し、新しい分岐や別ページは増やさない
+- 検証: `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs` の `200` と `h1` と graph を確認する
+- 鮮度確認: 見た目と導線の調整のみのため鮮度台帳の追加対象外
+- 学び: wiki のトップは、説明文を積むより `主役になる視覚要素` と `最初の3手` を先に見せた方が強いです。特に graph のような資産があるなら、ページ末尾の補助ではなく、入口の第一印象に使った方が全体の性格が伝わります
+- 前回比: 改善
+- 根拠: 変更前は `/docs` がプレーンな本文とカードの積み上げで始まり、graph は下部の補助要素に留まっていた。変更後は hero の時点で `知識の広がり` と `読む入口` が同時に見えるため、トップページとしての印象と回遊導線がともに強くなった
+- 次に修正すべきこと: `第2次試験` と `参照資料` のハブでも、視覚の主役が弱い場合は `hero の役割` と `最初の3手` を同じ粒度で見直す
+
+## 2026-03-28-08 AI 検索は fallback 順と Route Handler の責務を先に固定する
+
+- 対象: `app/api/chat/route.ts`、`lib/get-llm-text.ts`、`README.md`、`docs/wiki-review-log.md`
+- 成果: [app/api/chat/route.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/app/api/chat/route.ts) で `search` ツールの検索件数計算、ページ解決、本文切り詰め、レスポンス組み立てを小さな関数へ分解し、[lib/get-llm-text.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/lib/get-llm-text.ts) で `raw MDX -> structuredData -> processed text` の fallback 順を明示した。あわせて [README.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/README.md) に AI 検索の実装入口を追記し、どの変更をどのファイルから始めるべきかをまとめた
+- 品質ゲート: 既存の `docsSearch`、`getLLMText`、Route Handler を再利用し、新しい設定フラグや別経路は増やさない
+- 検証: `pnpm lint` は既存の docs 内リンク不整合で失敗、`pnpm exec eslint app/api/chat/route.ts lib/get-llm-text.ts` は成功、`NEXT_DIST_DIR=.next-check pnpm build` は成功
+- 鮮度確認: 実装整理と開発導線の追記のみのため鮮度台帳の追加対象外
+- 学び: AI 検索のように `UI -> Route Handler -> docs 検索 -> Markdown 変換` が跨る機能は、仕様変更そのものより `どこに手を入れるかの判断` に時間を使いがちです。fallback 順と責務境界を先に固定すると、小さい改善を積みやすくなります
+- 前回比: 改善
+- 根拠: 変更前は `app/api/chat/route.ts` の中で検索件数計算、URL 解決、本文加工、再試行がまとまっており、`lib/get-llm-text.ts` も fallback 順がネストした `try/catch` に埋もれていた。変更後は `何を変えたいときにどこを見るか` が README と関数名の両方で追えるため、次の変更の初動が短くなる
+- 次に修正すべきこと: AI 検索の代表ケースを 1 本でも自動確認できるようにし、`search` ツールの結果件数と本文長の調整を画面確認なしでも見直せる状態にする
+
+## 2026-03-28-09 docs リンク監査は route group を URL から落として扱う
+
+- 対象: `scripts/check-doc-links.mjs`、`content/docs/reference/study-time-model.mdx`、`docs/wiki-review-log.md`
+- 成果: [scripts/check-doc-links.mjs](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/scripts/check-doc-links.mjs) で `content/docs/(first-stage)/...` のような route group を URL 化するときに落とし、`..` から `/docs` へ戻る境界条件も吸収するようにした。あわせて [study-time-model.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/study-time-model.mdx) に残っていた旧 `first-stage` 導線を、現在の公開ルートへ差し替えた
+- 品質ゲート: 既存の `next-validate-link` と docs 構造を再利用し、新しい監査経路や例外設定は増やさない
+- 検証: `pnpm exec node scripts/check-doc-links.mjs`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs/reference/study-time-model` の `200` と `h1=学習時間モデル` を確認
+- 鮮度確認: 監査ロジックと安定論点ページの導線修正のみのため鮮度台帳の追加対象外
+- 学び: `lint` を塞いでいる不具合は、公開面のバグと同じくらい優先度が高いです。特に `route group はファイルパスにはあるが URL には出ない` という差分を監査スクリプトが知らないと、本物のリンク切れと誤検知が混ざって運用しづらくなります
+- 前回比: 改善
+- 根拠: 変更前は `check:docs-links` が `(first-stage)` を含む実パスをそのまま URL 化しており、repo 全体の `pnpm lint` が大量の誤検知で止まっていた。変更後は監査が `0 errored file, 0 errors` まで戻り、全体 `lint` も通る状態になったため、今後は本物のリンク不整合だけを見ればよくなった
+- 次に修正すべきこと: `docs` 側で `../` や `./` の相対リンクを使う基準を 1 つに寄せ、リンク監査スクリプトの前提と本文運用のずれをこれ以上増やさない
+
+## 2026-03-28-10 中小企業経営を主要戻り先ごとに独立ノード化する
+
+- 対象: `中小企業経営・中小企業政策`、`過去問テーマ索引`、`重要用語集`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略
+- 成果: [中小企業経営](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/sme-management.mdx) を章ハブとして組み直し、[知識ノード 中小企業の定義と規模別分類](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/knowledge-sme-definition-and-size-criteria.mdx)、[知識ノード 中小企業の経済的役割と主要統計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/knowledge-sme-economic-role-and-statistics.mdx)、[知識ノード 中小企業の経営課題](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/knowledge-sme-management-issues.mdx)、[知識ノード 業種別の中小企業動向](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/knowledge-sme-industry-trends.mdx)、[知識ノード 産業集積](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/knowledge-industrial-clusters.mdx)、[知識ノード 開業率と廃業率](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/knowledge-startup-and-closure-rates.mdx)、[知識ノード 白書の読み方と頻出テーマ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/knowledge-sme-white-paper-reading.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/meta.json)、[中小企業経営・中小企業政策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/index.mdx)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を同時に更新した
+- 品質ゲート: 追加した 7 ページは安定論点ページとして `G1-G5`、章ハブは更新論点ページとして `G1-G6`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs/sme-management-and-policy`、`/docs/sme-management-and-policy/sme-management`、新規 7 ページ、`/docs/reference/past-question-theme-index`、`/docs/reference/important-terms-glossary` の `200` と `h1` を確認、Next.js `get_errors` は `configErrors: []`、`sessionErrors: []`
+- 鮮度確認: 章ハブの `2026-03-26` 時点メモと一次情報導線を維持し、新規知識ノードには年次メモを持ち込まなかった
+- 学び: `中小企業経営` は更新論点を含みますが、戻り先として必要なのは年次の数字そのものより `定義`、`統計の意味`、`課題の因果`、`白書の読み方` です。年次メモを章ハブへ寄せたまま、知識ノード側を安定論点に切ると、鮮度管理を増やさずに戻り先の粒度だけを上げられます
+- 前回比: 改善
+- 根拠: 変更前は coverage 台帳上、第20章の `20.1` から `20.7` まで 7 細目すべてが `章ページで対応` だったが、今回は 7 細目すべて `独立ノードあり` へ上がり、coverage 件数も `独立ノードあり 135 → 142`、`章ページで対応 18 → 11` に改善したため、`完全網羅` に向けた主要ボトルネックを 1 章分解消できた
+- 次に修正すべきこと: 次回は `中小企業政策` を `政策体系と基本法 / 経営支援 / 金融支援 / 主要補助金 / 創業・承継・M&A / 下請・小規模事業者向け施策 / BCP と災害復旧支援` に切り、残る `章ページで対応` の最大クラスターを崩す
+
+## 2026-03-28-10 wiki 保守チェックは年次更新で壊れない判定に寄せる
+
+- 対象: `scripts/check-wiki-maintenance.mjs`、`docs/wiki-quality-gates.md`、`docs/wiki-review-log.md`
+- 成果: [scripts/check-wiki-maintenance.mjs](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/scripts/check-wiki-maintenance.mjs) を `鮮度台帳の確認`、`進捗トラッカーとの突合`、`更新系ページの未登録検出` に分けて読みやすくし、`G2` の日付付き見出し判定を `2026-03-26` 固定から `YYYY-MM-DD 時点での読み方` の形式へ一般化した。あわせて [docs/wiki-quality-gates.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-quality-gates.md) に、自動チェックの担当範囲と日付見出しの前提を追記した
+- 品質ゲート: 既存の `check:wiki` 経路を再利用し、新しい設定や例外フラグは増やさない
+- 検証: `pnpm check:wiki`、`pnpm lint`
+- 鮮度確認: 保守チェック基盤と運用文書の整理のみのため鮮度台帳の追加対象外
+- 学び: 更新論点を扱う wiki では、本文の年次更新より先に `チェック側が年次変化に追随できるか` を見ておく方が効率がいいです。今回のように日付を固定文字列で判定していると、本文の更新が正しくても保守スクリプトが足を引っ張ります
+- 前回比: 改善
+- 根拠: 変更前は `G2` 判定の一部が `2026-03-26 時点での読み方` に固定されており、将来の日付更新でスクリプト側の追従修正が必要だった。変更後は日付形式で判定でき、責務も 3 段に分かれたため、次のチェック追加や不具合調査の初動が短くなる
+- 次に修正すべきこと: `check-doc-page-structure.mjs` でもページ型ごとの見出し判定を定数へ寄せ、`見出し要件の文書` と `スクリプト` の差分をさらに減らす
+
+## 2026-03-28-11 事例ページの見出し要件は文書とスクリプトを同じ粒度で持つ
+
+- 対象: `scripts/check-doc-page-structure.mjs`、`docs/wiki-ui-patterns.md`、`docs/wiki-review-log.md`
+- 成果: [scripts/check-doc-page-structure.mjs](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/scripts/check-doc-page-structure.mjs) を `型定義`、`対象ファイル解決`、`見出し検証` の流れで読み直せる形へ整理し、`second-stage` の一覧取得を 1 回に寄せた。あわせて [docs/wiki-ui-patterns.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-ui-patterns.md) の `事例個別ノード` に、実際のチェックで必須になっている `## 解く順` または `## ○○型の処理順` を追記した
+- 品質ゲート: 既存の `pnpm check:wiki` 経路を再利用し、新しいページ型や例外フラグは増やさない
+- 検証: `pnpm check:wiki`、`pnpm lint`
+- 鮮度確認: 構造チェック基盤と運用文書の整理のみのため鮮度台帳の追加対象外
+- 学び: `運用文書` と `自動チェック` が同じことを言っていない状態は、実装のバグより遅れて効く負債です。特にテンプレを見てページを増やす運用では、文書にない必須見出しがあるだけで初回の執筆コストが上がります
+- 前回比: 改善
+- 根拠: 変更前は `事例個別ノード` について docs の最小テンプレに `解き方の手順` が書かれていない一方、スクリプトでは必須だった。変更後は docs とスクリプトの前提が揃い、スクリプト側も型定義から見直せるため、次のページ型追加や見出し変更の修正箇所が追いやすくなった
+- 次に修正すべきこと: `更新参照ページ` 以外にも、`索引・付録ページ` や `演習ページ` の最小テンプレを自動チェック対象へ広げるかを、実際の崩れ事例が出た時点で判断する
+
+## 2026-03-28-12 UI smoke test の運用メモは固定件数を持たない
+
+- 対象: `tests/docs-ui.spec.ts`、`docs/wiki-ui-patterns.md`、`docs/wiki-review-log.md`
+- 成果: [tests/docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts) の desktop 代表ルートを、`hubs`、`reference`、`business-law`、`second-stage` などの型ごとの `desktopRouteGroups` に整理した。あわせて [docs/wiki-ui-patterns.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-ui-patterns.md) から古い固定件数を外し、代表ルートの正を `desktopRouteGroups` と明示した
+- 品質ゲート: 既存の Playwright smoke test を再利用し、新しい確認観点や別ファイルの一覧定義は増やさない
+- 検証: `pnpm lint`、`pnpm exec playwright test tests/docs-ui.spec.ts --list`
+- 鮮度確認: テスト定義と運用文書の整理のみのため鮮度台帳の追加対象外
+- 学び: smoke test の対象件数は、運用メモに数字で書くとすぐ古くなります。今回のように docs が `88 routes` を指していても、実際のテスト定義は `97` まで増えており、数字より `どの型を見ているか` を残した方が保守しやすいです
+- 前回比: 改善
+- 根拠: 変更前は UI 確認メモが古い件数を持ち、テスト追加時に docs 更新漏れが起きやすかった。変更後は tests 側が型ごとに読めるうえ、docs は固定件数ではなく grouped 定義を参照するため、次のルート追加で直す場所が明確になった
+- 次に修正すべきこと: `mobile` や `dark mode` などの追加確認も、必要なら `代表ルート配列` を小さく定数化し、`どの観点をどのルートで見ているか` を同じ粒度で読めるようにする
+
+## 2026-03-28-13 UI smoke test の補助確認ルートも定数で持つ
+
+- 対象: `tests/docs-ui.spec.ts`、`docs/wiki-ui-patterns.md`、`docs/maintenance-iteration-tracker.md`、`docs/wiki-review-log.md`
+- 成果: [tests/docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts) に `uiScenarioRoutes` を追加し、`mobile hubs`、`dark mode`、`AI に質問`、`Feedback`、`Banner と数式`、`reference` の補助確認ルートを 1 箇所へ寄せた。あわせて [docs/wiki-ui-patterns.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-ui-patterns.md) で、補助確認ルートの正も `uiScenarioRoutes` だと明記し、[docs/maintenance-iteration-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/maintenance-iteration-tracker.md) に今回を `4 / 100` として記録した
+- 品質ゲート: 既存の Playwright smoke test と docs 運用文書を再利用し、新しい確認シナリオや別ファイルの一覧は増やさない
+- 検証: `pnpm lint`、`pnpm exec playwright test tests/docs-ui.spec.ts --list`
+- 鮮度確認: テスト定義、反復ログ、運用文書の整理のみのため鮮度台帳の追加対象外
+- 学び: 代表ルートだけを grouped 化しても、補助確認がインライン文字列のままだと `どの観点がどのページを根拠にしているか` が半分しか見えません。補助確認まで同じ粒度で定数化すると、テスト追加より先に `確認戦略` を読める状態になります
+- 前回比: 改善
+- 根拠: 変更前は `mobile`、`dark mode`、`AI に質問` などの確認ルートが各 test 本文に散っており、代表ルート追加時と同じ粒度では追えなかった。変更後は `desktopRouteGroups` と `uiScenarioRoutes` に役割が分かれ、docs 側もそれを前提に読めるため、次の補助確認追加で迷う場所が減った
+- 次に修正すべきこと: `scripts/check-doc-links.mjs` でも `URL 変換` と `本文リンク正規化` の責務を見直し、route 追加時にどこを直すかをさらに短くする
+
+## 2026-03-28-14 docs リンク監査は変換経路を関数名で追えるようにする
+
+- 対象: `scripts/check-doc-links.mjs`、`docs/wiki-freshness-registry.json`、`docs/maintenance-iteration-tracker.md`、`docs/wiki-review-log.md`
+- 成果: [scripts/check-doc-links.mjs](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/scripts/check-doc-links.mjs) で `route group を落とした docs ルート生成`、`相対リンク解決`、`監査用本文生成` を小さな関数へ分け、`relative link regex` も定数へ寄せた。検証中に見つかった `中小企業政策` の更新ノード 8 ページの鮮度台帳漏れも [docs/wiki-freshness-registry.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-freshness-registry.json) へ追加し、`lint` を再び通る状態へ戻した
+- 品質ゲート: 既存の `next-validate-link` と `pnpm lint` 経路を再利用し、新しい監査コマンドや例外設定は増やさない
+- 検証: `pnpm exec node scripts/check-doc-links.mjs`、`pnpm check:wiki`、`pnpm lint`
+- 鮮度確認: 更新ノード 8 ページを鮮度台帳へ登録し、`2026-03-28` 時点の一次情報リンクを基準に確認した
+- 学び: 監査スクリプトは `通るかどうか` だけでなく、`route を足したときにどの関数を見るか` がすぐ分かる状態の方が長持ちします。さらに、保守スクリプトの整理をすると未登録ページのような周辺負債が表面化するので、検証中にそのまま閉じるのが結果として速いです
+- 前回比: 改善
+- 根拠: 変更前は `check-doc-links` の中で URL 化と相対リンク正規化の責務が inline に近く、修正箇所を辿りにくかった。変更後は変換経路を関数名で追え、鮮度台帳漏れも埋まったため、`pnpm lint` 全体が再度安定して通る状態になった
+- 次に修正すべきこと: `README` や handoff 文書からも、最新の保守入口と反復ログへ迷わず辿れるようにする
+
+## 2026-03-28-15 保守入口の文書は最新の運用定義へ直接つなぐ
+
+- 対象: `README.md`、`docs/agent-handoff.md`、`docs/maintenance-iteration-tracker.md`、`docs/wiki-review-log.md`
+- 成果: [README.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/README.md) に継続改善の反復ログへの入口を追加し、docs UI の確認説明を固定件数から `desktopRouteGroups` と `uiScenarioRoutes` 参照へ置き換えた。あわせて [docs/agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md) にも反復ログへの入口と役割を追記し、別エージェントが現在回と次の候補を拾いやすくした
+- 品質ゲート: 既存の README と handoff 文書を更新するだけに留め、新しい説明レイヤや別の索引ファイルは増やさない
+- 検証: `pnpm lint`
+- 鮮度確認: 文書整理のみのため鮮度台帳の追加対象外
+- 学び: 保守の入口が複数ある repo では、`最初に読む文書` から `今の運用の正` へ直接飛べることが重要です。テストや tracker を整えても、README と handoff が古いままだと新しい流れに入るまでに余計な探索が発生します
+- 前回比: 改善
+- 根拠: 変更前の README には古い UI smoke test 件数が残り、handoff にも反復ログの入口がなかった。変更後は README と handoff の両方から、現行の grouped test 定義と反復ログへ直接辿れるため、継続改善を引き継ぎやすくなった
+- 次に修正すべきこと: `README` の `docs のページ型` と `wiki-ui-patterns` の定義差分も将来ずれやすいので、どこまで README に重ねて書くかをさらに絞る
+
+## 2026-03-28-16 入口文書は source of truth を先に示し、重複説明を減らす
+
+- 対象: `README.md`、`docs/wiki-quality-gates.md`、`docs/wiki-completeness-roadmap.md`、`docs/initialization-strategy.md`、`docs/pnpm-nextjs-fumadocs-vercel-best-practices.md`、`docs/maintenance-iteration-tracker.md`
+- 成果: [README.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/README.md) の `docs のページ型` を `wiki-ui-patterns` 参照へ寄せ、保守コマンド一覧には `check:wiki-links` と `check:wiki-full` を追記した。[docs/wiki-quality-gates.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-quality-gates.md) では更新日と tracker への入口を揃え、[docs/wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md) には coverage 件数の source of truth が `wiki-coverage-registry` だと明記した。さらに [docs/initialization-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/initialization-strategy.md) と [docs/pnpm-nextjs-fumadocs-vercel-best-practices.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/pnpm-nextjs-fumadocs-vercel-best-practices.md) にも、現行 repo の運用入口は別文書だと追記した
+- 品質ゲート: 入口文書の説明整理だけに留め、運用フローやコマンドの実体は変えない
+- 検証: `pnpm lint`
+- 鮮度確認: 文書整理のみのため鮮度台帳の追加対象外
+- 学び: 入口文書の保守で大事なのは `全部を詳しく書くこと` ではなく、`何が正か` を最初に示すことです。README、roadmap、初期化メモがそれぞれ同じ内容を持ち始めると、更新時にどこかが必ず遅れます
+- 前回比: 改善
+- 根拠: 変更前は README にページ型の重複説明があり、quality gates や roadmap も source of truth が明示されていなかった。変更後は各文書の役割が一段はっきりし、今後は詳細を 1 箇所へ寄せて更新しやすくなった
+- 次に修正すべきこと: `README` と `wiki-ui-patterns` の説明重複はまだ残るので、UI 方針はさらに docs 側へ寄せ、README は実装入口とコマンド中心に絞る
+
+## 2026-03-28-18 保守スクリプトは回帰テスト込みで `check:wiki` に載せる
+
+- 対象: `scripts/check-doc-links.mjs`、`scripts/check-wiki-maintenance.mjs`、`scripts/check-maintenance-scripts.test.mjs`、`package.json`、`README.md`、`docs/wiki-quality-gates.md`、`docs/maintenance-iteration-tracker.md`
+- 成果: [scripts/check-doc-links.mjs](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/scripts/check-doc-links.mjs) と [scripts/check-wiki-maintenance.mjs](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/scripts/check-wiki-maintenance.mjs) を `import 時は実行せず、CLI 実行時だけ main を走らせる` 形へ整え、重要な純粋関数を export した。あわせて [scripts/check-maintenance-scripts.test.mjs](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/scripts/check-maintenance-scripts.test.mjs) を追加し、`docs URL 正規化`、`相対リンク解決`、`本文監査前の正規化`、`G1-G6 判定` の回帰を [package.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/package.json) の `check:maintenance-tests` と `check:wiki` に組み込んだ
+- 品質ゲート: 既存の保守スクリプトと `node:test` だけを再利用し、新しいテストフレームワークや設定ファイルは増やさない
+- 検証: `pnpm check:maintenance-tests`、`pnpm exec node scripts/check-doc-links.mjs`
+- 鮮度確認: スクリプトと運用文書の整理のみのため鮮度台帳の追加対象外
+- 学び: 保守スクリプトは `実行できる` だけだと、関数分割や条件変更のあとに `何が壊れたか` を追うまで時間がかかります。URL 変換やゲート判定のような中核ロジックだけでも固定しておくと、整理のしやすさと壊しにくさを両立できます
+- 前回比: 改善
+- 根拠: 変更前は `check-doc-links` と `check-wiki-maintenance` が top-level 実行前提で、重要ロジックを部分検証できなかった。変更後は `check:wiki` の入口で 6 本の回帰テストが先に走るため、保守スクリプトの変更で公開 URL 変換や G6 判定を壊したときに即座に検知できる
+- 次に修正すべきこと: 次回は `check-doc-page-structure` の代表テンプレ判定にも同じ粒度の回帰テストを足し、ページ型追加時の構造崩れをより早く見つける
+
+## 2026-03-28-12 `/docs` ホームの hydration mismatch は MDX 内の段落ネストを外して止める
+
+- 対象: `content/docs/index.mdx`、`docs/wiki-review-log.md`
+- 成果: [content/docs/index.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/index.mdx) の `hero`、導線カード、説明セクションにあった複数の JSX `<p>` を、MDX が内側に別の段落を生成しない書き方へそろえた。これで `/docs` で出ていた `In HTML, <p> cannot be a descendant of <p>` と hydration mismatch を同じコードパスのまま止めた
+- 品質ゲート: 既存の Fumadocs / MDX 構成と CSS をそのまま使い、コンポーネント追加や MDX 変換設定の変更はしない
+- 検証: `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、`curl` で `/docs` の `200` と `h1=中小企業診断士 wiki` を確認、Next.js `get_errors` で `sessionErrors: []` を確認。headless browser の再確認は MCP の browser profile 競合で未実施
+- 鮮度確認: 表現の修正のみのため鮮度台帳の追加対象外
+- 学び: MDX では JSX の `<p>` の中に複数行テキストをそのまま置くと、内側が Markdown 段落として解釈されて `p > p` を作ることがあります。見た目が同じでも、段落タグの中へ Markdown 段落を作らない書き方に寄せる方が安全です
+- 前回比: 改善
+- 根拠: 変更前は `/docs` 表示時に Next.js `get_errors` で `In HTML, <p> cannot be a descendant of <p>` と recoverable hydration error が再現していた。変更後は同じ `/docs` で runtime error が消えれば、原因だった invalid HTML が直接除去できたと判断できる
+- 次に修正すべきこと: 今後 `content/docs/` に JSX の段落タグを足すときは、段落本文を複数行 Markdown として入れず、今回と同じ安全な書き方へ揃える
+
+## 2026-03-28-13 原価計算を知識ノード、出題ノード、要約へ分割する
+
+- 対象: `原価計算`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、AI 自動改善タスクリスト
+- 成果: [原価計算](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/cost-accounting.mdx) を章ハブとして組み直し、[原価計算の目的と分類](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/cost-accounting-purpose-and-classification.mdx)、[個別原価計算と総合原価計算](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/cost-accounting-job-order-and-process-costing.mdx)、[標準原価計算と差異分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/cost-accounting-standard-costing-and-variance-analysis.mdx)、[直接原価計算と全部原価計算](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/cost-accounting-direct-and-absorption-costing.mdx)、[原価計算の解き方](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/cost-accounting-exam-patterns.mdx)、[原価計算 要点整理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/cost-accounting-summary.mdx) を追加した。あわせて [原価計算 基本確認問題](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/cost-accounting-practice-basic-check.mdx)、[meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[AI 自動改善 タスクリスト](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/automation/task-list.md) を更新した
+- 品質ゲート: 追加した 6 ページと章ハブ更新は安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs/finance-and-accounting/cost-accounting`、新規 6 ページ、`/docs/reference/past-question-theme-index` の `200` と `h1` を確認
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `原価計算` は章ページと演習ページだけでも最低限読めますが、`分類軸`、`集計単位`、`差異分析`、`利益差` を同じページに抱えると、`どこへ戻れば解けるか` が曖昧になりやすいです。`知識` と `出題` と `要約` を分けると、勘定連絡、完成品換算量、差異分析、全部原価計算の利益差を別々の戻り先として持てるようになります
+- 前回比: 改善
+- 根拠: 変更前は coverage 台帳上、第5章の `5.1` から `5.4` まで 4 細目すべてが `章ページ+演習あり` だったが、今回は 4 細目すべて `独立ノードあり` へ上がり、coverage 件数も `独立ノードあり 142 → 146`、`章ページ+演習あり 11 → 7` に改善したため、`完全網羅` に向けた財務・会計の大きなクラスターを 1 章分解消できた
+- 次に修正すべきこと: 次回は `経営分析` を `収益性 / 安全性 / 効率性・成長性 / CVP` の戻り先へ分け、`章ページ+演習あり` の残件をさらに減らす
+
+## 2026-03-28-16 中小企業政策を主要戻り先ごとに独立ノード化する
+
+- 対象: `中小企業政策`、`過去問テーマ索引`、`重要用語集`、鮮度台帳、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略
+- 成果: [中小企業政策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/sme-policy.mdx) を章ハブとして組み直し、[更新ノード 政策体系と基本法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-framework-and-basic-laws.mdx)、[更新ノード 経営支援施策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-management-support.mdx)、[更新ノード 金融支援施策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-financial-support.mdx)、[更新ノード 主要補助金制度](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-major-subsidies.mdx)、[更新ノード 創業支援策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-startup-support.mdx)、[更新ノード 事業承継・M&A支援](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-business-succession-and-ma-support.mdx)、[更新ノード 取引適正化と小規模事業者向け施策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-fair-trade-and-small-business-support.mdx)、[更新ノード BCPと災害復旧支援](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/policy-bcp-and-disaster-recovery-support.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/meta.json)、[中小企業経営・中小企業政策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/sme-management-and-policy/index.mdx)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[wiki-freshness-registry.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-freshness-registry.json)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を同時に更新した
+- 品質ゲート: 追加した 8 ページと章ハブ更新は更新論点ページとして `G1-G6`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs/sme-management-and-policy`、`/docs/sme-management-and-policy/sme-policy`、新規 8 ページ、`/docs/reference/past-question-theme-index`、`/docs/reference/important-terms-glossary` の `200` と `h1` を確認、Next.js `get_errors` は `configErrors: []`、`sessionErrors: []`
+- 鮮度確認: 新規 8 ページを鮮度台帳へ追加し、`2026-03-28` 時点の一次情報 URL を基準に確認した。章ハブ側の更新メモも `2026-03-28` 基準へ寄せた
+- 学び: `中小企業政策` は更新論点ですが、戻り先として必要なのは `公募回の細部` より `対象 / 目的 / 支援手段` の切り分けです。章ハブへ年次メモを残したまま、個別ノード側を `基本法`、`経営支援`、`金融`、`補助金`、`創業`、`承継`、`取引適正化`、`災害対応` へ分けると、鮮度管理を崩さずに戻り先の粒度だけを上げられます
+- 前回比: 改善
+- 根拠: 変更前は coverage 台帳上、第21章の `21.1`、`21.2`、`21.3`、`21.4`、`21.5`、`21.6`、`21.8`、`21.10` の 8 細目が `章ページで対応` だったが、今回は 8 細目すべて `独立ノードあり` へ上がり、coverage 件数も `独立ノードあり 146 → 154`、`章ページで対応 11 → 3` に改善したため、`完全網羅` に向けた最大クラスターを 1 章分解消できた
+- 次に修正すべきこと: 次回は `経営分析` と `利益と資金の管理` を独立ノードへ上げ、`章ページ+演習あり` をさらに減らす
+
+## 2026-03-28-17 経営分析と利益と資金の管理を知識ノードへ分割する
+
+- 対象: `経営分析`、`利益と資金の管理`、`過去問テーマ索引`、`重要用語集`、`重要公式集`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略
+- 成果: [経営分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/management-analysis.mdx) と [利益と資金の管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/profit-and-cash-management.mdx) を章ハブとして組み直し、[収益性分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/management-analysis-profitability.mdx)、[安全性分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/management-analysis-safety.mdx)、[効率性分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/management-analysis-efficiency.mdx)、[成長性分析と生産性分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/management-analysis-growth-and-productivity.mdx)、[損益分岐点分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/management-analysis-cvp-and-break-even.mdx)、[利益計画と予算管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/profit-and-cash-management-profit-planning-and-budget-control.mdx)、[キャッシュ・フロー管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/profit-and-cash-management-cash-flow-and-fcf.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/meta.json)、[財務・会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/finance-and-accounting/index.mdx)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[重要公式・計算式一覧](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-formulas.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を同時に更新した
+- 品質ゲート: 追加した 7 ページと章ハブ更新は安定論点ページとして `G1-G5`
+- 検証: `pnpm check:wiki`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs/finance-and-accounting`、`/docs/finance-and-accounting/management-analysis`、新規 7 ページ、`/docs/finance-and-accounting/profit-and-cash-management`、`/docs/reference/past-question-theme-index`、`/docs/reference/important-terms-glossary`、`/docs/reference/important-formulas` の `200` と `h1` を確認、Next.js `get_errors` は `configErrors: []`、`sessionErrors: []`
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `経営分析` と `利益と資金の管理` は、章ページと演習ページだけでも最低限読めますが、`収益性`、`安全性`、`効率性`、`成長性 / 生産性`、`CVP`、`予算管理`、`CF / FCF` を同じ戻り先へ寄せると、`どこへ戻れば解けるか` が曖昧になりやすいです。章ハブを入口に残しつつ、個別ノード側を `指標の意味`、`資金繰り`、`利益計画` の単位へ分けると、1次と事例Ⅳの往復導線を壊さずに粒度だけ上げられます
+- 前回比: 改善
+- 根拠: 変更前は coverage 台帳上、第6章の `6.1` から `6.5` と第7章の `7.1`、`7.2` がすべて `章ページ+演習あり` だったが、今回は 7 細目すべて `独立ノードあり` へ上がり、coverage 件数も `独立ノードあり 154 → 161`、`章ページ+演習あり 7 → 0` に改善したため、`完全網羅` に向けた財務・会計の残クラスターを解消できた
+- 次に修正すべきこと: 次回は `事例Ⅰ〜Ⅲ` の年度別小問例と `設問索引` の初版を作り、残る `章ページで対応 3` を最小限の補助ページで埋める
+
+## 2026-03-28-19 第2次の逆引き索引と横断付録を厚くする
+
+- 対象: `第2次試験` の設問索引、`論理的記述の技術`、`事例Ⅱ / Ⅲ` の設問型と答案骨子、`重要用語集`、`重要公式・計算式一覧`、`学習時間モデル`、`受験ガイド`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ
+- 成果: [第2次試験 設問索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/second-stage-question-index.mdx) を新設し、[参照資料 index](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/index.mdx)、[参照資料 meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/meta.json)、[第2次試験 index](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/index.mdx) から逆引き導線を追加した。あわせて [論理的記述の技術](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/logical-writing-techniques.mdx)、[事例Ⅱの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-2-question-patterns.mdx)、[事例Ⅱの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-2-answer-frameworks.mdx)、[事例Ⅲの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-3-question-patterns.mdx)、[事例Ⅲの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-3-answer-frameworks.mdx) に年度別小問例、悪文例と改善例、判断の切り口を追記した。さらに [重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[重要公式・計算式一覧](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-formulas.mdx)、[学習時間モデル](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/study-time-model.mdx)、[受験ガイド](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/exam-guide.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md) を実態に合わせて更新した
+- 品質ゲート: 追加した `設問索引` と補強した第2次 / 参照資料ページは、安定論点ページとして `G1-G5` に収まる形で更新した。`受験ガイド` は更新参照ページの必須見出しに合わせてテンプレを整えた
+- 検証: `pnpm check:wiki`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build` を実行した。headless shell と HTTP 確認で `/docs/reference/second-stage-question-index`、`/docs/second-stage/logical-writing-techniques`、`/docs/second-stage/case-2-question-patterns`、`/docs/second-stage/case-2-answer-frameworks`、`/docs/second-stage/case-3-question-patterns`、`/docs/second-stage/case-3-answer-frameworks`、`/docs/reference/important-terms-glossary`、`/docs/reference/important-formulas`、`/docs/reference/study-time-model`、`/docs/reference/exam-guide` の `200` と `h1` を確認した
+- 鮮度確認: [第2次試験 設問索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/second-stage-question-index.mdx) は [wiki-freshness-registry.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-freshness-registry.json) の `2026-03-28` 確認に合わせ、試験案内ページと令和7年度第2次試験案内 PDF を本文の一次情報として維持した
+- 学び: 第2次ページは `説明がある` だけでは戻り先になりません。`年度別小問例`、`悪文例 / 改善例`、`どこで迷うか` を同じページに置くと、抽象的なフレームのまま終わらず、実際の設問から戻る経路が一段短くなります。横断付録側も同じで、`略語` と `誤用逆引き` が入ると、公式や用語のページが単なる一覧から復習の入口へ変わります
+- 前回比: 改善
+- 根拠: 変更前は `第2次の設問索引` がなく、`論理的記述の技術` と `事例Ⅱ / Ⅲ` のページも汎用フレーム中心で、設問から戻る粒度が弱かった。変更後は `年度 / 問題番号 / 設問型 / 必要知識 / 誤答パターン / 対応ページ` の逆引き初版ができ、進捗台帳とロードマップ上の残件も `索引をさらに厚くすること` と `横断付録の逆引き拡充` に明確化された
+- 次に修正すべきこと: 次回は `事例Ⅰ〜Ⅳ` の設問索引の行数を増やし、`価格戦略`、`CRM`、`外注管理`、`設備制約`、`納期対応` の実年度小問例をさらに追加する
+
+## 2026-03-28-19 更新ページと横断付録を実用的な戻り先へ寄せる
+
+- 対象: `受験ガイド`、`2次試験の概要と解答プロセス`、`重要用語集`、`重要公式・計算式一覧`、`wiki-progress-tracker.md`、`wiki-coverage-registry.md`、`agent-handoff.md`、`wiki-freshness-registry.json`、`wiki-review-log.md`
+- 成果: [受験ガイド](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/exam-guide.mdx) に `令和8年度予定日程`、`確定 / 予定 / 未公表` の切り分け、`令和7年度の直近実績との比較` を追加し、`未公表` 前提だった記述を更新した。[2次試験の概要と解答プロセス](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/overview.mdx) には `4事例の違いを1枚で見る表`、`80分の時間配分テンプレート`、`設問文の言葉から次に進むページ` を追加した。[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx) には `略語から引く` と `問題文や答案の言い換えから引く` を追加し、[重要公式・計算式一覧](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-formulas.mdx) には `計算を始める前のチェック`、`略語から引く`、`問題文の言い換えから引く` を追加した。あわせて [wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[wiki-freshness-registry.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-freshness-registry.json) を更新し、検証中に見つかった `事例Ⅰ〜Ⅲ 設問索引` の鮮度台帳漏れも閉じた
+- 品質ゲート: `受験ガイド` と `2次試験 overview` は更新論点ページとして `G1-G6`、`重要用語集` と `重要公式・計算式一覧` は安定論点ページとして `G1-G5`
+- 検証: `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser と HTTP 確認で `/docs/reference/exam-guide`、`/docs/second-stage/overview`、`/docs/reference/important-terms-glossary`、`/docs/reference/important-formulas` の `200` と `h1` を確認
+- 鮮度確認: [受験ガイド](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/exam-guide.mdx) と [2次試験の概要と解答プロセス](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/overview.mdx) は `2026-03-28` 時点で、`令和8年度中小企業診断士試験実施スケジュールについて(予定)`、`令和8年度からの中小企業診断士試験における改正点について`、`中小企業診断士試験` トップ、`令和7年度の試験日程について` を基準に再確認した
+- 学び: 更新論点ページは `最新情報があるか` だけでなく、`確定`、`予定`、`直近実績` を分けて置かないとすぐ古く見えます。また、横断付録は `略語` や `公式` を増やすだけでは弱く、`問題文でどう言い換えられるか` と `どこへ戻るか` を同じページに置くと初めて wiki として使いやすくなります
+- 前回比: 改善
+- 根拠: 変更前の `受験ガイド` は `令和8年度の正式日程が未公表` のままで、`2次試験 overview` も時間配分と事例別の違いが入口止まりだった。変更後は `令和8年度予定日程` を取り込み、`4ページとも用語や制度を見たあとに次へ進む判断材料` を持つようになったため、`更新ページの鮮度` と `横断付録の実用性` の両方が一段進んだ
+- 次に修正すべきこと: 次回は `事例Ⅰ〜Ⅲ` の設問型と答案骨子へ、今回追加した `設問索引` と `時間配分テンプレート` を逆流させ、年度別小問例と悪文例を増やす
+
+## 2026-03-28-18 第2次試験の設問索引を公開導線と運用文書へ同期する
+
+- 対象: `第2次試験 設問索引`、`第2次試験`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、AI 自動改善タスクリスト、UI smoke test
+- 成果: 既存の [第2次試験 設問索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/second-stage-question-index.mdx) に `初版の範囲` を明示し、[第2次試験](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/index.mdx) と [過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx) からの導線を強めた。あわせて [wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[AI 自動改善 タスクリスト](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/automation/task-list.md)、[tests/docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts) を更新し、`設問索引は未整備` という運用側の認識差を解消した
+- 品質ゲート: 既存の参照資料ページを再利用し、新しい管理レイヤや別経路の索引は増やさない
+- 検証: `pnpm check:wiki`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs/second-stage`、`/docs/reference/second-stage-question-index`、`/docs/reference/past-question-theme-index` の `200` と `h1` を確認する
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
+- 学び: `設問索引` のような参照ページは、本文が存在していても `roadmap`、`handoff`、`task-list`、`smoke test` が追いついていないと、運用上は「まだない」のと同じ状態になりやすいです。今回は新規ページ追加より先に `既存資産を source of truth として揃える` 方が、KISS に沿って前進量が大きいと分かりました
+- 前回比: 改善
+- 根拠: 変更前は `第2次試験 設問索引` の公開ページがある一方で、roadmap と handoff とタスクリストでは `未整備` 扱いが残っていた。変更後は `設問索引の初版あり` を前提に次作業を `実年度の小問例` と `横断付録の逆引き` に絞って進められるため、継続改善の判断がぶれにくくなった
+- 次に修正すべきこと: 次回は `事例Ⅰ〜Ⅲ` の `年度別小問例` を実年度・小問単位へ広げ、`悪文例 / 改善例` と結び付ける
+
+## 2026-03-28-19 事例Ⅰの不足を埋め、事例Ⅱ・Ⅲの年度別小問例も実年度テーマへ寄せる
+
+- 対象: `事例Ⅰ〜Ⅲ` の設問型ページ、`事例Ⅰの答案骨子`、`第2次試験 設問索引`、`年度別出題傾向`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略、AI 自動改善タスクリスト
+- 成果: [事例Ⅰの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-question-patterns.mdx) に直近 5 年の `年度別小問例` を追加し、[事例Ⅰの答案骨子](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-answer-frameworks.mdx) に `悪文例と改善例` と `年度別小問例` を追加した。あわせて [事例Ⅱの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-2-question-patterns.mdx) と [事例Ⅲの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-3-question-patterns.mdx) の年度別小問例を実年度のテーマへ寄せ、[第2次試験 設問索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/second-stage-question-index.mdx) と [年度別出題傾向](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/yearly-question-trends.mdx) の往復導線も整えた。さらに [wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[AI 自動改善 タスクリスト](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/automation/task-list.md) の優先順位も現在形へ同期した
+- 品質ゲート: 既存の `設問型`、`答案骨子`、`参照資料` の型をそのまま再利用し、新しいレイヤや別索引は増やさない
+- 検証: `pnpm check:wiki`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs/second-stage/case-1-question-patterns`、`/docs/second-stage/case-1-answer-frameworks`、`/docs/second-stage/case-2-question-patterns`、`/docs/second-stage/case-3-question-patterns`、`/docs/reference/second-stage-question-index`、`/docs/reference/yearly-question-trends` の `200` と `h1` を確認
+- 鮮度確認: `_book` の年別整理をもとにした安定論点整理のため、鮮度台帳の追加対象外
+- 学び: 第2次の逆引きは、`索引ページ` 単独では弱いです。`年度別小問例` と `悪文例 / 改善例` が各事例ページ側にあると、`どこに戻るか` と `戻った先で何を直すか` が同じコードパスで決まるため、索引の実用性が一段上がります
+- 前回比: 改善
+- 根拠: 変更前は `事例Ⅰの設問型` に年度別小問例がなく、`事例Ⅰの答案骨子` に悪文例と年度別小問例もなかった。変更後は `事例Ⅰ〜Ⅲ` の年度別小問例が実年度テーマでそろい、`第2次試験 設問索引` と `年度別出題傾向` の往復も明示されたため、coverage 件数を維持したまま `戻り先の粒度` を前進させられた
+- 次に修正すべきこと: 次回は `重要用語集` と `重要公式集` の略語、類義語、誤答逆引きを厚くし、その次に `受験ガイド` と `第2次試験 overview` の残る `章ページで対応 3 件` を最小差分で補う
+
+## 2026-03-28-20 事例Ⅰの小問例を5軸に整理し、存在しない設問索引ルートのズレを止める
+
+- 対象: `事例Ⅰの設問型`、`wiki-freshness-registry.json`、`wiki-progress-tracker.md`、`AI 自動改善 タスクリスト`
+- 成果: [事例Ⅰの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-question-patterns.mdx) の `年度別小問例` を `SWOT / 組織構造 / 人材育成 / 活性化 / 承継` の 5 軸へ整理し、`どの型へ戻るか` で読み直せる形に直した。あわせて [wiki-freshness-registry.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-freshness-registry.json) から、存在しない `content/docs/second-stage/question-index.mdx` を指していたエントリを外し、索引導線は [第2次試験 設問索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/second-stage-question-index.mdx) へ一本化した。さらに [wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md) と [AI 自動改善 タスクリスト](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/automation/task-list.md) も現在形に同期した
+- 品質ゲート: 既存の `設問型` ページと `reference` 側索引を再利用し、新しい索引ページや管理レイヤは増やさない
+- 検証: `pnpm check:wiki`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs/second-stage/case-1-question-patterns` と `/docs/reference/second-stage-question-index` の `200` と `h1` を確認する
+- 鮮度確認: 安定論点ページの整理と台帳同期のため、鮮度台帳の追加対象はなし
+- 学び: `存在しないが台帳には残っているページ` は、本文不足より先に検証ループを止めます。先に `実在する導線を 1 本にする` と、その後の年別小問例追加も迷わず進められます
+- 前回比: 改善
+- 根拠: 変更前は `wiki-freshness-registry.json` に存在しない `content/docs/second-stage/question-index.mdx` が入り、`check:wiki` が毎回ここで止まっていた。変更後は検証の詰まりどころを外したうえで、`事例Ⅰの設問型` もタスクリストの粒度どおりに `5 軸` で逆引きできるようになった
+- 次に修正すべきこと: 次回は `事例Ⅱ` と `事例Ⅲ` の `年度別小問例` を同じ粒度へ寄せ、そのあとで `重要用語集` と `重要公式集` の逆引きを厚くする
+
+## 2026-03-28-21 公式過去問を根拠に第2次索引と横断付録の戻り先を厚くする
+
+- 対象: `第2次試験 設問索引`、`事例Ⅰ〜Ⅲの設問型`、`重要用語集`、`重要公式・計算式一覧`、`wiki-progress-tracker.md`、`wiki-coverage-registry.md`、`agent-handoff.md`、`wiki-completeness-roadmap.md`、`AI 自動改善 タスクリスト`、`shindanshi-wiki-strategy.md`
+- 成果: [第2次試験 設問索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/second-stage-question-index.mdx) を、`R3〜R7` の `事例Ⅰ〜Ⅲ` について `年度 / 問題番号 / 設問テーマ / 設問型 / 必要知識 / 典型的な誤答 / 対応ページ` で引ける形へ差し替えた。あわせて [事例Ⅱの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-2-question-patterns.mdx) と [事例Ⅲの設問型](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-3-question-patterns.mdx) の `年度別小問例` を見出し崩れなく整理し、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx) には `事例別の言い換えから引く`、[重要公式・計算式一覧](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-formulas.mdx) には `何を求めたいかから引く` と `単位・符号・最終年度回収の確認欄` を加えた。さらに [wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[AI 自動改善 タスクリスト](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/automation/task-list.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を、`索引初版を作る段階` から `索引と逆引きを育てる段階` へ更新した
+- 品質ゲート: 既存の `reference` と `設問型` の型を再利用し、新しい索引レイヤや別経路の付録は増やさない。追加した記述は安定論点ページとして `G1-G5` を維持する
+- 検証: `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、Next.js `get_errors` で `configErrors: []` と `sessionErrors: []` を確認し、headless browser で `/docs/reference/second-stage-question-index`、`/docs/second-stage/case-1-question-patterns`、`/docs/second-stage/case-2-question-patterns`、`/docs/second-stage/case-3-question-patterns`、`/docs/reference/important-terms-glossary`、`/docs/reference/important-formulas` の `200` と `h1` を確認した
+- 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外。ただし、`設問索引` と `年度別小問例` の根拠として `2021〜2025 年度 第2次試験問題` の公式 PDF を `2026-03-28` 時点で再確認した
+- 学び: 第2次の逆引きは、二次資料の要約を並べるより、公式問題文の `問われ方` を直接拾った方が型の切り分けが安定します。また、`用語集` と `公式集` も、項目を足すだけでは弱く、`その言葉や式から次にどのページへ戻るか` を同じページ内で決められる形にすると、wiki としての再利用性が一段上がります
+- 前回比: 改善
+- 根拠: 変更前の `第2次試験 設問索引` は `初版の入口` としては機能していたが、`実年度の設問テーマ` と `典型的な誤答` が薄く、`重要用語集` と `重要公式集` も `どこへ戻るか` の入口がまだ弱かった。変更後は `R3〜R7` の公式問題を基準に `設問索引`、`事例別ページ`、`横断付録` の 3 点が同じ戻り先を指せるようになり、coverage 件数を変えずに `戻り先の解像度` を上げられた
+- 次に修正すべきこと: 次回は `事例Ⅰ〜Ⅳ` の `答案骨子` に `悪文例 / 改善例 / 短文骨子` をさらに足し、`設問索引` は `事例Ⅳ` と次年度の行まで広げる
