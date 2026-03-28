@@ -4,7 +4,7 @@
 **分析対象**：
 - Reference：`_book/本編/第1章_ミクロ経済学.md`（602 行）
 - Reference 参考：`_book/_作成メモ/調査結果/経済学・経済政策.md`
-- Wiki：`content/docs/(first-stage)/economics-and-economic-policy/microeconomics/` 全 9 ファイル
+- Wiki：`content/docs/economics-and-economic-policy/microeconomics/` 全 9 ファイル
 
 ---
 

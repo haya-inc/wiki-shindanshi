@@ -13,29 +13,28 @@ import { detectActualGates, parseClaimedGates } from "./check-wiki-maintenance.m
 const docsRoot = path.join(process.cwd(), "content", "docs");
 
 test("check-doc-links は route group と index を docs ルートへ正規化する", () => {
-  assert.equal(normalizeDocRoutePath("(first-stage)/finance-and-accounting/index.mdx"), "finance-and-accounting");
+  assert.equal(normalizeDocRoutePath("finance-and-accounting/index.mdx"), "finance-and-accounting");
   assert.equal(
-    toDocUrlFromRelativePath("(first-stage)/finance-and-accounting/cost-accounting.mdx"),
-    "/docs/finance-and-accounting/cost-accounting",
+    toDocUrlFromRelativePath("finance-and-accounting/cost-accounting.mdx"),
+    "/finance-and-accounting/cost-accounting",
   );
-  assert.equal(toDocUrlFromRelativePath("reference/index.mdx"), "/docs/reference");
+  assert.equal(toDocUrlFromRelativePath("reference/index.mdx"), "/reference");
 });
 
 test("check-doc-links は相対リンクを公開 URL と hash 付き URL へ解決する", () => {
   const filePath = path.join(
     docsRoot,
-    "(first-stage)",
     "finance-and-accounting",
     "cost-accounting.mdx",
   );
 
   assert.equal(
     resolveRelativeDocHref(filePath, "./cost-accounting-summary.mdx#practice"),
-    "/docs/finance-and-accounting/cost-accounting-summary#practice",
+    "/finance-and-accounting/cost-accounting-summary#practice",
   );
   assert.equal(
     resolveRelativeDocHref(filePath, "../reference/index.mdx"),
-    "/docs/reference",
+    "/reference",
   );
 });
 
@@ -52,9 +51,9 @@ $E=mc^2$
 `;
   const normalized = createValidationContent(filePath, content);
 
-  assert.match(normalized, /\]\(\/docs\/reference\/exam-guide\)/u);
-  assert.match(normalized, /href="\/docs\/reference\/study-time-model"/u);
-  assert.match(normalized, /href='\/docs\/reference\/important-formulas#profit'/u);
+  assert.match(normalized, /\]\(\/reference\/exam-guide\)/u);
+  assert.match(normalized, /href="\/reference\/study-time-model"/u);
+  assert.match(normalized, /href='\/reference\/important-formulas#profit'/u);
   assert.doesNotMatch(normalized, /\$E=mc\^2\$/u);
 });
 
@@ -72,7 +71,7 @@ test("check-wiki-maintenance は更新論点ページの根拠から G1-G6 を�
 
 ## 典型的なつまずき
 
-[関連ページ](/docs/reference/exam-guide)
+[関連ページ](/reference/exam-guide)
 [一次情報](https://www.smrj.go.jp/)
 
 2026-03-28
@@ -90,7 +89,7 @@ test("check-wiki-maintenance は鮮度台帳がない場合に G6 を付けな�
 
 ## 典型的なつまずき
 
-[関連ページ](/docs/reference/exam-guide)
+[関連ページ](/reference/exam-guide)
 [一次情報](https://www.smrj.go.jp/)
 
 2026-03-28

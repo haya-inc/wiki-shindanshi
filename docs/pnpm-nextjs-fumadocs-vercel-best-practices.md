@@ -92,8 +92,8 @@ pnpm add @orama/tokenizers
 
 - `source.config.ts`
 - `lib/source.ts`
-- `app/docs/layout.tsx`
-- `app/docs/[[...slug]]/page.tsx`
+- `app/[[...slug]]/layout.tsx`
+- `app/[[...slug]]/page.tsx`
 - `app/api/search/route.ts`
 
 この最小構成で docs ルートを成立させます。

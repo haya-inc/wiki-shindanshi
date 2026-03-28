@@ -16,7 +16,7 @@ export const docs = defineDocs({
 
 export default defineConfig({
   mdxOptions: {
-    rehypePlugins: (plugins) => [rehypeKatex, ...plugins],
+    rehypePlugins: (plugins) => [[rehypeKatex, { strict: false }], ...plugins],
     remarkPlugins: (plugins) => [
       remarkMath,
       [remarkFeedbackBlock, { generateBody: true }],

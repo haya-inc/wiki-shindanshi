@@ -13,7 +13,7 @@ export function baseOptions(): BaseLayoutProps {
           </span>
         </span>
       ),
-      url: "/docs",
+      url: "/",
       transparentMode: "top",
     },
   };

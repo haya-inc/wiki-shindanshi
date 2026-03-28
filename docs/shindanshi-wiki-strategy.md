@@ -68,14 +68,13 @@
 ```text
 content/docs/
   index.mdx
-  first-stage/
-    economics/
-    finance-accounting/
-    business-management/
-    operations/
-    legal/
-    information-systems/
-    sme-management-policy/
+  economics/
+  finance-accounting/
+  business-management/
+  operations/
+  legal/
+  information-systems/
+  sme-management-policy/
   second-stage/
     overview/
     case-1/

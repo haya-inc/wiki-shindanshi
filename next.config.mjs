@@ -7,26 +7,24 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/docs/first-stage",
-        destination: "/docs",
+        source: "/docs",
+        destination: "/",
         permanent: true,
       },
       {
-        source: "/docs/first-stage/:path*",
-        destination: "/docs/:path*",
+        source: "/docs/:path*",
+        destination: "/:path*",
         permanent: true,
       },
-    ];
-  },
-  async rewrites() {
-    return [
       {
-        source: "/docs.mdx",
-        destination: "/llms.mdx",
+        source: "/first-stage",
+        destination: "/",
+        permanent: true,
       },
       {
-        source: "/docs/:path*.mdx",
-        destination: "/llms.mdx/:path*",
+        source: "/first-stage/:path*",
+        destination: "/:path*",
+        permanent: true,
       },
     ];
   },

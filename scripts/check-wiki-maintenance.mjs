@@ -103,16 +103,12 @@ export function parseClaimedGates(value) {
 }
 
 function buildDocPathCandidates(route) {
-  const slug = route.replace(/^\/docs\/?/u, "");
+  const slug = route.replace(/^\//u, "");
   const basePath = slug === "" ? "content/docs" : path.join("content/docs", slug);
-  const groupedBasePath = slug === "" ? null : path.join("content/docs", "(first-stage)", slug);
-
   return [
     path.join(root, `${basePath}.mdx`),
     path.join(root, basePath, "index.mdx"),
-    groupedBasePath ? path.join(root, `${groupedBasePath}.mdx`) : null,
-    groupedBasePath ? path.join(root, groupedBasePath, "index.mdx") : null,
-  ].filter(Boolean);
+  ];
 }
 
 function routeToDocPath(route) {
@@ -158,7 +154,7 @@ function extractTrackedPages() {
     const status = cells[3];
     const claimedGates = cells[4];
 
-    if (!route.startsWith("/docs")) {
+    if (!route.startsWith("/")) {
       continue;
     }
 
@@ -179,7 +175,7 @@ function hasAnyPattern(content, patterns) {
 
 export function detectActualGates(content, hasFreshnessEntry) {
   const actual = new Set();
-  const hasInternalLink = /\]\(\/docs\/[^)]+\)/u.test(content);
+  const hasInternalLink = /\]\(\/[^)]+\)/u.test(content);
   const hasExternalLink = /\]\(https:\/\/[^)]+\)/u.test(content);
   const hasDateMarker = /\b20\d{2}-\d{2}-\d{2}\b/u.test(content) || /令和\d+年度/u.test(content);
 

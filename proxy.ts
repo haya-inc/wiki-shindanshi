@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { isMarkdownPreferred, rewritePath } from "fumadocs-core/negotiation";
 
-const { rewrite: rewriteLLM } = rewritePath("/docs/*path", "/llms.mdx/*path");
+const { rewrite: rewriteLLM } = rewritePath("/*path", "/llms.mdx/*path");
 
 export function proxy(request: NextRequest) {
   if (isMarkdownPreferred(request)) {
@@ -17,5 +17,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/docs", "/docs/:path*"],
+  matcher: ["/((?!api|llms|_next/static|_next/image|favicon\\.ico|apple-icon\\.png).*)"],
 };

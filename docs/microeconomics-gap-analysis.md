@@ -2,7 +2,7 @@
 
 **分析対象**:
 - Reference：`_book/本編/第1章_ミクロ経済学.md`
-- Wiki：`content/docs/(first-stage)/economics-and-economic-policy/microeconomics/` 全9ファイル
+- Wiki：`content/docs/economics-and-economic-policy/microeconomics/` 全9ファイル
 
 **分析日**：2026-03-28
 

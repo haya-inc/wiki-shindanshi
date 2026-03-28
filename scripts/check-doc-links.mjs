@@ -56,10 +56,10 @@ export function toDocUrlFromRelativePath(relativePath) {
   const normalizedRoutePath = normalizeDocRoutePath(relativePath);
 
   if (normalizedRoutePath === "") {
-    return "/docs";
+    return "/";
   }
 
-  return `/docs/${normalizedRoutePath}`;
+  return `/${normalizedRoutePath}`;
 }
 
 export function resolveRelativeDocHref(filePath, href) {
@@ -92,7 +92,7 @@ function stripMath(content) {
 }
 
 function toPopulateValue(url) {
-  const slug = url.replace(/^\/docs\/?/u, "");
+  const slug = url.replace(/^\//u, "");
 
   if (slug.length === 0) {
     return {
@@ -177,7 +177,7 @@ export async function main() {
   const scanned = await scanURLs({
     preset: "next",
     populate: {
-      "docs/[[...slug]]": files.map((file) => ({
+      "[[...slug]]": files.map((file) => ({
         value: toPopulateValue(file.url),
         hashes: file.hashes,
       })),

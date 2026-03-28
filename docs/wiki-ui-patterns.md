@@ -24,7 +24,7 @@
 
 ### 1. ハブページ
 
-- 対象: `/docs`、`/docs/second-stage`、`/docs/reference`
+- 対象: `/`、`/second-stage`、`/reference`
 - 役割: セクション全体の入口を作る
 - 必須要素:
   - 導入ブロック
@@ -33,7 +33,7 @@
 
 ### 2. 章トップ
 
-- 対象: `/docs/finance-and-accounting` のような科目・章ページ
+- 対象: `/finance-and-accounting` のような科目・章ページ
 - 役割: 範囲、優先順位、次に読むページを整理する
 - 必須要素:
   - 位置づけ
@@ -43,7 +43,7 @@
 
 ### 3. 事例ハブ
 
-- 対象: `/docs/second-stage/case-1-organization-and-hr` のような事例別トップページ
+- 対象: `/second-stage/case-1-organization-and-hr` のような事例別トップページ
 - 役割: 1事例の入口を作り、`関連1次科目` と `分解ページ` への往復を固定する
 - 必須要素:
   - この事例の位置づけ
@@ -56,7 +56,7 @@
 
 ### 4. 知識ノード
 
-- 対象: `/docs/second-stage/reading-case-materials` のような個別論点ページ
+- 対象: `/second-stage/reading-case-materials` のような個別論点ページ
 - 役割: 1論点を短く再利用可能な形で整理する
 - 必須要素:
   - このページの役割
@@ -66,7 +66,7 @@
 
 ### 5. 更新参照ページ
 
-- 対象: `/docs/reference/exam-guide` のような制度変更や年度差を扱う参照ページ
+- 対象: `/reference/exam-guide` のような制度変更や年度差を扱う参照ページ
 - 役割: `確認日つきの最新情報` と `その時点での読み方` を本文から分離して保つ
 - 必須要素:
   - このページの前提
@@ -77,7 +77,7 @@
 
 ### 6. 索引・付録ページ
 
-- 対象: `/docs/reference/past-question-theme-index`、`/docs/reference/important-formulas` のような道具ページ
+- 対象: `/reference/past-question-theme-index`、`/reference/important-formulas` のような道具ページ
 - 役割: 説明より `選ぶ / 確認する / 戻る` を最短で行えるようにする
 - 必須要素:
   - 通常のタイトルルール
@@ -91,7 +91,7 @@
 
 ### 7. 演習ページ
 
-- 対象: `/docs/**/practice-*` のような演習ノード
+- 対象: `/**/practice-*` のような演習ノード
 - 役割: 読ませるより `すぐ解く / すぐ確かめる` を優先する
 - 必須要素:
   - 通常のタイトルルール
@@ -144,7 +144,7 @@
 ## 実装場所
 
 - 共通スタイル: `app/globals.css`
-- `/docs` トップ: `content/docs/index.mdx`
+- `/` トップ: `content/docs/index.mdx`
 - ハブページ: `content/docs/*/index.mdx`
 - 事例ハブ: `content/docs/second-stage/case-*-*.mdx`
 - 章トップ・知識ノード: `content/docs/**/*.mdx`

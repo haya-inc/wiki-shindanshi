@@ -4,7 +4,7 @@ import { docs } from "collections/server";
 import { llms, loader } from "fumadocs-core/source";
 
 export const source = loader({
-  baseUrl: "/docs",
+  baseUrl: "/",
   icon(icon) {
     if (!icon || !(icon in icons)) {
       return;

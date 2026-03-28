@@ -81,11 +81,11 @@
 新しいページを増やすときは、次の既存ページを手本にすると崩れにくいです。
 
 - `章ハブ` の型:
-  - [microeconomics/index.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/economics-and-economic-policy/microeconomics/index.mdx)
-  - [civil-and-transaction-law.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/civil-and-transaction-law.mdx)
+  - [microeconomics/index.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/microeconomics/index.mdx)
+  - [civil-and-transaction-law.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/civil-and-transaction-law.mdx)
 - `解説ページ` の型:
-  - [knowledge-market-mechanism.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/economics-and-economic-policy/microeconomics/knowledge-market-mechanism.mdx)
-  - [knowledge-contracts-obligations-and-security.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/knowledge-contracts-obligations-and-security.mdx)
+  - [knowledge-market-mechanism.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/microeconomics/knowledge-market-mechanism.mdx)
+  - [knowledge-contracts-obligations-and-security.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-contracts-obligations-and-security.mdx)
 - `設問型` と `答案骨子` の型:
   - [case-1-question-patterns.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-question-patterns.mdx)
   - [case-1-answer-frameworks.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-answer-frameworks.mdx)
@@ -117,8 +117,8 @@
 
 例:
 
-- [content/docs/(first-stage)/business-law/index.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/index.mdx)
-- [content/docs/(first-stage)/business-law/civil-and-transaction-law.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/(first-stage)/business-law/civil-and-transaction-law.mdx)
+- [content/docs/business-law/index.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/index.mdx)
+- [content/docs/business-law/civil-and-transaction-law.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/civil-and-transaction-law.mdx)
 
 ## 9. 検証の基本手順
 

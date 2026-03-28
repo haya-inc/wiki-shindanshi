@@ -8,7 +8,7 @@
 pnpm dev
 ```
 
-ブラウザで [http://localhost:3000](http://localhost:3000) を開くとアプリ本体、[http://localhost:3000/docs](http://localhost:3000/docs) を開くと Fumadocs を確認できます。
+ブラウザで [http://localhost:3000](http://localhost:3000) を開くと Fumadocs を確認できます。
 
 ## 主なコマンド
 
@@ -24,14 +24,14 @@ pnpm dev
 
 ## Fumadocs の拡張
 
-- `/llms.txt` と `/llms-full.txt` を公開し、`/docs/*.mdx` で各ページの Markdown を取得できます。
+- `/llms.txt` と `/llms-full.txt` を公開し、各ページの Markdown を取得できます。
 - `llms` 向け出力は raw MDX を LLM 向け Markdown に整形し、`Cards`、`Tabs`、`Accordion`、`TypeTable` の情報が落ちにくい形にしています。
-- docs 画面に `AIに質問` を追加しています。`OpenRouter` の `google/gemini-3.1-flash-lite-preview` を利用します。
-- docs 内検索はページ種別タグで絞り込めます。
-- docs ページ下部に `Feedback` を追加しています。既定では `data/docs-feedback.jsonl` とサーバーログへ記録します。
+- wiki 画面に `AIに質問` を追加しています。`OpenRouter` の `google/gemini-3.1-flash-lite-preview` を利用します。
+- wiki 内検索はページ種別タグで絞り込めます。
+- wiki ページ下部に `Feedback` を追加しています。既定では `data/docs-feedback.jsonl` とサーバーログへ記録します。
 - 本文ブロックごとに `FeedbackBlock` を出し、段落単位でも改善要望を送れます。
-- docs ページ下部に、参照先と被リンクをまとめた `関連マップ` を表示します。
-- `/docs` トップに、ページ全体の参照関係を俯瞰できる `GraphView` を表示します。
+- wiki ページ下部に、参照先と被リンクをまとめた `関連マップ` を表示します。
+- `/` トップに、ページ全体の参照関係を俯瞰できる `GraphView` を表示します。
 - `DOCS_FEEDBACK_WEBHOOK_URL` を設定すると、Feedback を任意の Webhook にも転送できます。
 - `OPENROUTER_API_KEY` を設定すると、docs 内検索を使った AI チャットを利用できます。検索ツールの入力不備が出た場合は内部で再試行します。
 - `lastModified` は Git 履歴から計算します。Vercel では `VERCEL_DEEP_CLONE=true` を設定してください。
@@ -41,7 +41,7 @@ pnpm dev
 - UI 状態と `/api/chat` への接続: `components/ai/search-context.tsx`
 - パネル UI: `components/ai/search-panel.tsx`、`components/ai/search-input.tsx`、`components/ai/search-message.tsx`
 - Route Handler と prompt、検索件数、再試行: `app/api/chat/route.ts`
-- docs 内検索 index: `lib/docs-search.ts`
+- wiki 内検索 index: `lib/docs-search.ts`
 - LLM に渡す本文の生成: `lib/get-llm-text.ts`、`lib/llm-markdown.ts`、`lib/docs-structured-data.ts`
 
 ### AI 検索を変更するときの見方
@@ -61,26 +61,26 @@ pnpm dev
 
 - 設計判断と運用方針: `docs/`
 - ドキュメント本文: `content/docs/`
-- docs のページ型と UI 方針: `docs/wiki-ui-patterns.md`
+- wiki のページ型と UI 方針: `docs/wiki-ui-patterns.md`
 - 継続改善の反復状況: `docs/maintenance-iteration-tracker.md`
 
-## docs UI を触る場所
+## wiki UI を触る場所
 
 - `app/globals.css`: 配色、タイポグラフィ、Fumadocs 全体の見た目
-- `app/docs/[[...slug]]/page.tsx`: `/docs` 配下のページ共通レイアウト
-- `content/docs/index.mdx`: `/docs` トップの導線と構成
+- `app/[[...slug]]/page.tsx`: ページ共通レイアウト
+- `content/docs/index.mdx`: `/` トップの導線と構成
 
-## docs のページ型
+## wiki のページ型
 
 - 詳細な定義と最小テンプレは `docs/wiki-ui-patterns.md` を正とする
-- README では、`/docs` の入口、主要コマンド、実装の入口だけを把握する
+- README では入口、主要コマンド、実装の入口だけを把握する
 
-## docs UI の確認
+## wiki UI の確認
 
 - `pnpm check:docs-ui`
 - `tests/docs-ui.spec.ts` の `desktopRouteGroups` と `uiScenarioRoutes` を正として smoke test を実行する
 
-## docs の運用チェック
+## wiki の運用チェック
 
 - `pnpm check:wiki`
 - `pnpm check:wiki` には `check-doc-links` と `check-wiki-maintenance` の回帰テストを含める

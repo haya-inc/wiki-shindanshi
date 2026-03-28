@@ -52,7 +52,7 @@ export default function RootLayout({
         <RootProvider search={{ options: { allowClear: true } }}>
           <Banner id="exam-guide-reminder">
             制度情報と日程は毎年更新されます。受験前は{" "}
-            <Link href="/docs/reference/exam-guide" className="underline underline-offset-4">
+            <Link href="/reference/exam-guide" className="underline underline-offset-4">
               受験ガイド
             </Link>{" "}
             で確認日つきの一次情報を確認してください。

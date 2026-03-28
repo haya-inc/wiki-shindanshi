@@ -308,7 +308,7 @@ body {
   border-top: 0;
 }
 
-#nd-page .prose a {
+#nd-page .prose a:not(.wiki-home-primary):not(.wiki-home-secondary) {
   color: var(--accent-strong);
   text-decoration-color: rgba(31, 106, 87, 0.26);
   text-decoration-thickness: 0.08em;

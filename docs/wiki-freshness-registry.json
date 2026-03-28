@@ -3,7 +3,7 @@
   "timezone": "Asia/Tokyo",
   "entries": [
     {
-      "route": "/docs/second-stage",
+      "route": "/second-stage",
       "docPath": "content/docs/second-stage/index.mdx",
       "reviewWindowDays": 90,
       "lastReviewedAt": "2026-03-26",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "route": "/docs/second-stage/overview",
+      "route": "/second-stage/overview",
       "docPath": "content/docs/second-stage/overview.mdx",
       "reviewWindowDays": 90,
       "lastReviewedAt": "2026-03-28",
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "route": "/docs/reference/exam-guide",
+      "route": "/reference/exam-guide",
       "docPath": "content/docs/reference/exam-guide.mdx",
       "reviewWindowDays": 90,
       "lastReviewedAt": "2026-03-28",
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "route": "/docs/reference/second-stage-question-index",
+      "route": "/reference/second-stage-question-index",
       "docPath": "content/docs/reference/second-stage-question-index.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "route": "/docs/reference/yearly-question-trends",
+      "route": "/reference/yearly-question-trends",
       "docPath": "content/docs/reference/yearly-question-trends.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-27",
@@ -58,8 +58,8 @@
       ]
     },
     {
-      "route": "/docs/business-law",
-      "docPath": "content/docs/(first-stage)/business-law/index.mdx",
+      "route": "/business-law",
+      "docPath": "content/docs/business-law/index.mdx",
       "reviewWindowDays": 180,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -69,8 +69,8 @@
       ]
     },
     {
-      "route": "/docs/finance-and-accounting",
-      "docPath": "content/docs/(first-stage)/finance-and-accounting/index.mdx",
+      "route": "/finance-and-accounting",
+      "docPath": "content/docs/finance-and-accounting/index.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -79,8 +79,8 @@
       ]
     },
     {
-      "route": "/docs/business-law/company-law",
-      "docPath": "content/docs/(first-stage)/business-law/company-law.mdx",
+      "route": "/business-law/company-law",
+      "docPath": "content/docs/business-law/company-law.mdx",
       "reviewWindowDays": 180,
       "lastReviewedAt": "2026-03-26",
       "sourceUrls": [
@@ -89,8 +89,8 @@
       ]
     },
     {
-      "route": "/docs/business-law/intellectual-property",
-      "docPath": "content/docs/(first-stage)/business-law/intellectual-property.mdx",
+      "route": "/business-law/intellectual-property",
+      "docPath": "content/docs/business-law/intellectual-property.mdx",
       "reviewWindowDays": 180,
       "lastReviewedAt": "2026-03-26",
       "sourceUrls": [
@@ -100,8 +100,8 @@
       ]
     },
     {
-      "route": "/docs/business-law/civil-and-transaction-law",
-      "docPath": "content/docs/(first-stage)/business-law/civil-and-transaction-law.mdx",
+      "route": "/business-law/civil-and-transaction-law",
+      "docPath": "content/docs/business-law/civil-and-transaction-law.mdx",
       "reviewWindowDays": 180,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -113,8 +113,8 @@
       ]
     },
     {
-      "route": "/docs/management-information-systems",
-      "docPath": "content/docs/(first-stage)/management-information-systems/index.mdx",
+      "route": "/management-information-systems",
+      "docPath": "content/docs/management-information-systems/index.mdx",
       "reviewWindowDays": 180,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -126,8 +126,8 @@
       ]
     },
     {
-      "route": "/docs/operations-management",
-      "docPath": "content/docs/(first-stage)/operations-management/index.mdx",
+      "route": "/operations-management",
+      "docPath": "content/docs/operations-management/index.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -136,8 +136,8 @@
       ]
     },
     {
-      "route": "/docs/management-information-systems/ict-basics",
-      "docPath": "content/docs/(first-stage)/management-information-systems/ict-basics.mdx",
+      "route": "/management-information-systems/ict-basics",
+      "docPath": "content/docs/management-information-systems/ict-basics.mdx",
       "reviewWindowDays": 180,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -147,8 +147,8 @@
       ]
     },
     {
-      "route": "/docs/management-information-systems/information-management",
-      "docPath": "content/docs/(first-stage)/management-information-systems/information-management.mdx",
+      "route": "/management-information-systems/information-management",
+      "docPath": "content/docs/management-information-systems/information-management.mdx",
       "reviewWindowDays": 180,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -160,8 +160,8 @@
       ]
     },
     {
-      "route": "/docs/management-information-systems/security-guidelines-and-related-laws",
-      "docPath": "content/docs/(first-stage)/management-information-systems/security-guidelines-and-related-laws.mdx",
+      "route": "/management-information-systems/security-guidelines-and-related-laws",
+      "docPath": "content/docs/management-information-systems/security-guidelines-and-related-laws.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -172,8 +172,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/index.mdx",
+      "route": "/sme-management-and-policy",
+      "docPath": "content/docs/sme-management-and-policy/index.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -185,8 +185,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/sme-management",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/sme-management.mdx",
+      "route": "/sme-management-and-policy/sme-management",
+      "docPath": "content/docs/sme-management-and-policy/sme-management.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-26",
       "sourceUrls": [
@@ -196,8 +196,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/sme-policy",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/sme-policy.mdx",
+      "route": "/sme-management-and-policy/sme-policy",
+      "docPath": "content/docs/sme-management-and-policy/sme-policy.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
@@ -213,8 +213,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-framework-and-basic-laws",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-framework-and-basic-laws.mdx",
+      "route": "/sme-management-and-policy/policy-framework-and-basic-laws",
+      "docPath": "content/docs/sme-management-and-policy/policy-framework-and-basic-laws.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
@@ -224,8 +224,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-management-support",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-management-support.mdx",
+      "route": "/sme-management-and-policy/policy-management-support",
+      "docPath": "content/docs/sme-management-and-policy/policy-management-support.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
@@ -235,8 +235,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-financial-support",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-financial-support.mdx",
+      "route": "/sme-management-and-policy/policy-financial-support",
+      "docPath": "content/docs/sme-management-and-policy/policy-financial-support.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
@@ -247,8 +247,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-major-subsidies",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-major-subsidies.mdx",
+      "route": "/sme-management-and-policy/policy-major-subsidies",
+      "docPath": "content/docs/sme-management-and-policy/policy-major-subsidies.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
@@ -260,8 +260,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-startup-support",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-startup-support.mdx",
+      "route": "/sme-management-and-policy/policy-startup-support",
+      "docPath": "content/docs/sme-management-and-policy/policy-startup-support.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
@@ -271,8 +271,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-business-succession-and-ma-support",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-business-succession-and-ma-support.mdx",
+      "route": "/sme-management-and-policy/policy-business-succession-and-ma-support",
+      "docPath": "content/docs/sme-management-and-policy/policy-business-succession-and-ma-support.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
@@ -282,8 +282,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-human-resources-and-employment-support",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-human-resources-and-employment-support.mdx",
+      "route": "/sme-management-and-policy/policy-human-resources-and-employment-support",
+      "docPath": "content/docs/sme-management-and-policy/policy-human-resources-and-employment-support.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -293,8 +293,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-overseas-expansion-support",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-overseas-expansion-support.mdx",
+      "route": "/sme-management-and-policy/policy-overseas-expansion-support",
+      "docPath": "content/docs/sme-management-and-policy/policy-overseas-expansion-support.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
@@ -305,8 +305,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-fair-trade-and-small-business-support",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-fair-trade-and-small-business-support.mdx",
+      "route": "/sme-management-and-policy/policy-fair-trade-and-small-business-support",
+      "docPath": "content/docs/sme-management-and-policy/policy-fair-trade-and-small-business-support.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
@@ -317,8 +317,8 @@
       ]
     },
     {
-      "route": "/docs/sme-management-and-policy/policy-bcp-and-disaster-recovery-support",
-      "docPath": "content/docs/(first-stage)/sme-management-and-policy/policy-bcp-and-disaster-recovery-support.mdx",
+      "route": "/sme-management-and-policy/policy-bcp-and-disaster-recovery-support",
+      "docPath": "content/docs/sme-management-and-policy/policy-bcp-and-disaster-recovery-support.mdx",
       "reviewWindowDays": 120,
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
@@ -329,7 +329,7 @@
       ]
     },
     {
-      "route": "/docs/reference/past-exam-archive",
+      "route": "/reference/past-exam-archive",
       "docPath": "content/docs/reference/past-exam-archive.mdx",
       "reviewWindowDays": 180,
       "lastReviewedAt": "2026-03-28",
