@@ -28,7 +28,13 @@
 ## 3. ディレクトリの見方
 
 - `_book/`: 非公開の参照資料。書籍、原稿、作成メモ。公開文章の source of truth ではない
+  - `_book/past-exams/1ji/{年}/`: 1次試験 過去問PDF（H19〜R7 / 2007〜2025、7科目×19年=134ファイル）
+  - `_book/past-exams/2ji/{年}/`: 2次試験 過去問PDF（H19〜R7 / 2007〜2025、4事例×19年）
+  - `_book/本編/`: テキスト原稿（全26章 Markdown）
+  - `_book/PDF/`: 統合版PDF参考資料
+  - ファイル命名規則: `economics-2024.pdf`, `finance-2025.pdf`, `case-1-2024.pdf` 等
 - `content/docs/`: 公開する wiki 本文
+- `content/docs/past-exam-solutions/`: 年度別・科目別の過去問解説ページ（著作権安全な要旨+解法型）
 - `docs/`: 戦略、進捗、coverage、鮮度管理、レビュー記録
 - `tests/docs-ui.spec.ts`: docs の主要ルート smoke test
 - `scripts/check-wiki-maintenance.mjs`: 進捗、鮮度、構造の整合確認

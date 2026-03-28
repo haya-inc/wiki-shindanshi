@@ -357,6 +357,15 @@
       ]
     },
     {
+      "route": "/past-exam-solutions/r06/finance",
+      "docPath": "content/docs/past-exam-solutions/r06/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
       "route": "/past-exam-solutions/r05/economics",
       "docPath": "content/docs/past-exam-solutions/r05/economics.mdx",
       "reviewWindowDays": 365,
