@@ -166,7 +166,7 @@
 ## 2026-03-27-01 ミクロ経済学の 4 層構成への昇格
 
 - 対象: `ミクロ経済学` の章構成、進捗トラッカー、戦略文書
-- 成果: `ミクロ経済学` を `章ハブ`、`知識ノード`、`出題ノード`、`演習ノード`、`要約` に分割し、章 coverage だけでなく論点ノード coverage を追える形へ進めた
+- 成果: `ミクロ経済学` を `章ハブ`、`ノード`、`出題ノード`、`演習ノード`、`要約` に分割し、章 coverage だけでなく論点ノード coverage を追える形へ進めた
 - 品質ゲート: 追加したミクロ経済学の各ページは安定論点ページとして `G1-G5`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/economics-and-economic-policy/microeconomics` と `/docs/economics-and-economic-policy/microeconomics/practice-basic-check` の表示確認、`configErrors: []`、`sessionErrors: []`
 - 鮮度確認: 安定論点のため鮮度台帳の追加対象外
@@ -178,7 +178,7 @@
 ## 2026-03-27-02 マクロ経済学の 4 層構成への昇格
 
 - 対象: `マクロ経済学` の章構成、進捗トラッカー
-- 成果: `マクロ経済学` を `章ハブ`、`知識ノード`、`出題ノード`、`演習ノード`、`要約` に分割し、`国民所得計算`、`IS-LM`、`AD-AS と国際マクロ` を分けて読める形にした
+- 成果: `マクロ経済学` を `章ハブ`、`ノード`、`出題ノード`、`演習ノード`、`要約` に分割し、`国民所得計算`、`IS-LM`、`AD-AS と国際マクロ` を分けて読める形にした
 - 品質ゲート: 追加したマクロ経済学の各ページは安定論点ページとして `G1-G5`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/economics-and-economic-policy/macroeconomics` と `/docs/economics-and-economic-policy/macroeconomics/practice-basic-check` の表示確認、`configErrors: []`、`sessionErrors: []`
 - 鮮度確認: 安定論点のため鮮度台帳の追加対象外
@@ -190,7 +190,7 @@
 ## 2026-03-27-03 過去問テーマ索引の初版追加
 
 - 対象: `参照資料`、`ミクロ経済学`、`マクロ経済学`
-- 成果: `過去問テーマ索引` を追加し、まずは `経済学・経済政策` の `ミクロ` と `マクロ` について、テーマから `章ハブ`、`知識ノード`、`出題ノード`、`演習ノード` を逆引きできる形にした
+- 成果: `過去問テーマ索引` を追加し、まずは `経済学・経済政策` の `ミクロ` と `マクロ` について、テーマから `章ハブ`、`ノード`、`出題ノード`、`演習ノード` を逆引きできる形にした
 - 品質ゲート: 索引ページは安定論点ページとして `G1-G5`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/reference/past-question-theme-index` の表示確認、`configErrors: []`、`sessionErrors: []`
 - 鮮度確認: 安定論点のため鮮度台帳の追加対象外
@@ -490,8 +490,8 @@
 ## 2026-03-27-28 台帳で見えた穴を、独立ノードとして実際に埋める
 
 - 対象: `ミクロ経済学`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`
-- 成果: `ゲーム理論` と `国際貿易理論` を [知識ノード ゲーム理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/microeconomics/knowledge-game-theory.mdx) と [知識ノード 国際貿易理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/microeconomics/knowledge-international-trade.mdx) として独立追加し、章ハブ、演習ノード、要点整理、索引、進捗トラッカー、coverage 台帳を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した演習 / 要約ページは安定論点ページとして `G1-G5`
+- 成果: `ゲーム理論` と `国際貿易理論` を [ゲーム理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/microeconomics/knowledge-game-theory.mdx) と [国際貿易理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/microeconomics/knowledge-international-trade.mdx) として独立追加し、章ハブ、演習ノード、要点整理、索引、進捗トラッカー、coverage 台帳を同時に更新した
+- 品質ゲート: 新規ノードと更新した演習 / 要約ページは安定論点ページとして `G1-G5`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/economics-and-economic-policy/microeconomics`、`/knowledge-game-theory`、`/knowledge-international-trade` の表示確認
 - 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
 - 学び: 台帳は `穴を見つける` だけでなく、`次にどこを切り出すと章の完成度が上がるか` を決める道具として機能します。特に `章内に一部含む` 論点は、独立ページへ切り出すだけで索引と演習の価値まで一緒に上がります
@@ -502,8 +502,8 @@
 ## 2026-03-27-29 理論が埋もれる章は、比較軸ごとに独立ノードへ分ける
 
 - 対象: `マクロ経済学`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
-- 成果: `消費理論と投資理論` を [知識ノード 消費理論と投資理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/macroeconomics/knowledge-consumption-and-investment-theory.mdx)、`主要経済理論の系譜` を [知識ノード 主要経済理論の系譜](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/macroeconomics/knowledge-history-of-macroeconomic-thought.mdx) として独立追加し、章ハブ、演習ノード、要点整理、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した演習 / 要約ページは安定論点ページとして `G1-G5`
+- 成果: `消費理論と投資理論` を [消費理論と投資理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/macroeconomics/knowledge-consumption-and-investment-theory.mdx)、`主要経済理論の系譜` を [主要経済理論の系譜](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/macroeconomics/knowledge-history-of-macroeconomic-thought.mdx) として独立追加し、章ハブ、演習ノード、要点整理、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
+- 品質ゲート: 新規ノードと更新した演習 / 要約ページは安定論点ページとして `G1-G5`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/economics-and-economic-policy/macroeconomics`、`/knowledge-consumption-and-investment-theory`、`/knowledge-history-of-macroeconomic-thought` の表示確認
 - 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
 - 学び: 後半理論を 1 つの統合ページに入れたままだと、`理論の違い` が読み手にも索引にも残りません。`比較軸が複数ある理論` は独立ノードへ切り出すだけで、章ハブ、演習、要約、索引まで一緒に整理しやすくなります
@@ -515,7 +515,7 @@
 
 - 対象: `第2次試験`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
 - 成果: `与件文の読み方`、`設問解釈と答案構成`、`論理的記述の技術` を独立ノードとして追加し、[2次試験の概要と解答プロセス](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/overview.mdx) は第22章のハブへ寄せた。あわせて `第2次試験` トップ、索引、進捗トラッカー、coverage 台帳、戦略を更新した
-- 品質ゲート: 新規知識ノードは安定論点ページとして `G1-G5`、`2次試験の概要と解答プロセス` は更新論点ページとして `G1-G6`
+- 品質ゲート: 新規ノードは安定論点ページとして `G1-G5`、`2次試験の概要と解答プロセス` は更新論点ページとして `G1-G6`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/second-stage/overview`、`/docs/second-stage/reading-case-materials`、`/docs/second-stage/interpreting-questions-and-structuring-answers`、`/docs/second-stage/logical-writing-techniques` の表示確認
 - 鮮度確認: `2次試験の概要と解答プロセス` は既存の更新運用を継続し、新規 3 ページは安定論点ページのため鮮度台帳の追加対象外
 - 学び: 第2次試験の共通論点は、1 ページで抱えると `どこへ戻ればよいか` が曖昧になります。`与件読み`、`設問解釈`、`記述` の段階で分けると、各事例ページや索引から戻る導線が明確になります
@@ -526,8 +526,8 @@
 ## 2026-03-27-31 後半計算論点は、比較法ごとに独立ノードへ出す
 
 - 対象: `財務・会計`、`事例Ⅳ`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
-- 成果: `収益性指数法` を [知識ノード 収益性指数法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-profitability-index.mdx)、`効率的市場仮説` を [知識ノード 効率的市場仮説](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx)、`マルチプル法` を [知識ノード マルチプル法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-multiples-valuation.mdx) として追加し、`ファイナンス` 章、科目ハブ、演習ノード、事例Ⅳ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した章ハブ / 演習ページは安定論点ページとして `G1-G5`
+- 成果: `収益性指数法` を [収益性指数法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-profitability-index.mdx)、`効率的市場仮説` を [効率的市場仮説](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx)、`マルチプル法` を [マルチプル法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-multiples-valuation.mdx) として追加し、`ファイナンス` 章、科目ハブ、演習ノード、事例Ⅳ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
+- 品質ゲート: 新規ノードと更新した章ハブ / 演習ページは安定論点ページとして `G1-G5`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/finance-and-accounting/finance`、`/docs/finance-and-accounting/finance-profitability-index`、`/docs/finance-and-accounting/finance-efficient-market-hypothesis`、`/docs/finance-and-accounting/finance-multiples-valuation` の表示確認
 - 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
 - 学び: `ファイナンス` の後半論点は、章ページの一節のままだと検索でも索引でも弱いです。`投資効率`、`証券市場の情報反映`、`相対評価` のように比較法ごとへ切り出すと、1次と事例Ⅳの両方から戻りやすくなります
@@ -538,8 +538,8 @@
 ## 2026-03-27-32 前提条件で結論が変わる理論も、ヘッジ手段の比較も独立で置く
 
 - 対象: `財務・会計`、`事例Ⅳ`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
-- 成果: `MM理論と配当政策` を [知識ノード MM理論と配当政策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-mm-and-dividend-policy.mdx)、`デリバティブ` を [知識ノード デリバティブとリスク管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) として追加し、`ファイナンス` 章、科目ハブ、演習ノード、事例Ⅳ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した章ハブ / 演習ページは安定論点ページとして `G1-G5`
+- 成果: `MM理論と配当政策` を [MM理論と配当政策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-mm-and-dividend-policy.mdx)、`デリバティブ` を [デリバティブとリスク管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) として追加し、`ファイナンス` 章、科目ハブ、演習ノード、事例Ⅳ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
+- 品質ゲート: 新規ノードと更新した章ハブ / 演習ページは安定論点ページとして `G1-G5`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/finance-and-accounting/finance`、`/docs/finance-and-accounting/finance-mm-and-dividend-policy`、`/docs/finance-and-accounting/finance-derivatives-risk-management` の表示確認
 - 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
 - 学び: `負債を増やすほどよいのか`、`配当を増やすほどよいのか`、`どのヘッジ手段を選ぶか` は、いずれも前提条件を切らないと誤答しやすい論点です。章ページの一節に埋めるより、`前提で結論が変わる理論` と `手段を選ぶ比較論点` を独立ノードへ出した方が、索引と演習をつなぎやすくなります
@@ -550,8 +550,8 @@
 ## 2026-03-27-33 理論家名や近年概念で埋もれる論点も、比較軸ごとに独立で置く
 
 - 対象: `企業経営理論`、`事例Ⅰ`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
-- 成果: `CSR・ESGとコーポレートガバナンス` を [知識ノード CSR・ESGとコーポレートガバナンス](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-csr-esg-and-governance.mdx)、`バーナードとサイモン` を [知識ノード バーナードとサイモン](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-barnard-and-simon.mdx) として追加し、科目ハブ、章ページ、事例Ⅰ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した章ハブ / 章ページは安定論点ページとして `G1-G5`
+- 成果: `CSR・ESGとコーポレートガバナンス` を [CSR・ESGとコーポレートガバナンス](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-csr-esg-and-governance.mdx)、`バーナードとサイモン` を [バーナードとサイモン](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-barnard-and-simon.mdx) として追加し、科目ハブ、章ページ、事例Ⅰ、索引、進捗トラッカー、coverage 台帳、戦略を同時に更新した
+- 品質ゲート: 新規ノードと更新した章ハブ / 章ページは安定論点ページとして `G1-G5`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`pnpm build`、`/docs/business-management-theory/knowledge-csr-esg-and-governance`、`/docs/business-management-theory/knowledge-barnard-and-simon`、`/docs/second-stage/case-1-organization-and-hr` の表示確認
 - 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
 - 学び: `CSR・ESG` のような近年概念や `バーナード / サイモン` のような理論家名は、章ページの一節だと `何を比べる論点か` が残りにくいです。独立ノードへ出すと、索引から戻る先と、事例Ⅰへつながる比較軸の両方を固定しやすくなります
@@ -562,7 +562,7 @@
 ## 2026-03-27-34 安定論点の統計と、更新論点のセキュリティ指針は分けて置く
 
 - 対象: `経営情報システム`、`過去問テーマ索引`、進捗トラッカー、`wiki coverage 台帳`、戦略
-- 成果: `統計学の基礎` を [知識ノード 統計学の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-statistics-basics.mdx)、`情報セキュリティガイドラインと関連法規` を [更新ノード 情報セキュリティガイドラインと関連法規](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/security-guidelines-and-related-laws.mdx) として追加し、科目ハブ、`情報通信技術の基礎`、`経営情報管理`、索引、進捗トラッカー、coverage 台帳、戦略、鮮度台帳を同時に更新した
+- 成果: `統計学の基礎` を [統計学の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-statistics-basics.mdx)、`情報セキュリティガイドラインと関連法規` を [更新ノード 情報セキュリティガイドラインと関連法規](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/security-guidelines-and-related-laws.mdx) として追加し、科目ハブ、`情報通信技術の基礎`、`経営情報管理`、索引、進捗トラッカー、coverage 台帳、戦略、鮮度台帳を同時に更新した
 - 品質ゲート: `統計学の基礎` は安定論点ページとして `G1-G5`、`情報セキュリティガイドラインと関連法規` は更新論点ページとして `G1-G6`
 - 検証: `pnpm check:wiki`、`pnpm check:wiki-links`、`pnpm lint`、`pnpm build`、`/docs/management-information-systems/knowledge-statistics-basics`、`/docs/management-information-systems/security-guidelines-and-related-laws`、`/docs/management-information-systems/information-management` の表示確認
 - 鮮度確認: `情報セキュリティガイドラインと関連法規` を鮮度台帳へ登録し、`サイバーセキュリティ経営ガイドライン Ver 3.0`、`中小企業の情報セキュリティ対策ガイドライン 第4.0版`、`内部不正防止ガイドライン 第5版`、`情報セキュリティ10大脅威 2026` を `2026-03-27` 時点で確認した。あわせて `AI事業者ガイドライン` は `第1.1版` へ更新した
@@ -658,8 +658,8 @@
 ## 2026-03-27-42 財務の前半基礎は後半演習の戻り先として先に切る
 
 - 対象: `簿記の基礎`、`企業会計の基礎`、`財務・会計ハブ`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
-- 成果: [知識ノード 5分類と仕訳](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/bookkeeping-basics-account-categories-and-journal-entries.mdx)、[知識ノード 決算整理仕訳](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/bookkeeping-basics-adjusting-entries.mdx)、[知識ノード 帳簿組織と伝票](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/bookkeeping-basics-ledgers-and-vouchers.mdx)、[知識ノード 財務諸表と5段階利益](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/corporate-accounting-financial-statements-and-five-profits.mdx)、[知識ノード 資産会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/corporate-accounting-assets-accounting.mdx)、[知識ノード 負債・純資産会計と税効果会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/corporate-accounting-liabilities-equity-and-tax-effect.mdx)、[知識ノード 企業会計原則と連結会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/corporate-accounting-principles-and-consolidation.mdx) を追加し、章ハブ、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
+- 成果: [5分類と仕訳](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/bookkeeping-basics-account-categories-and-journal-entries.mdx)、[決算整理仕訳](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/bookkeeping-basics-adjusting-entries.mdx)、[帳簿組織と伝票](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/bookkeeping-basics-ledgers-and-vouchers.mdx)、[財務諸表と5段階利益](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/corporate-accounting-financial-statements-and-five-profits.mdx)、[資産会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/corporate-accounting-assets-accounting.mdx)、[負債・純資産会計と税効果会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/corporate-accounting-liabilities-equity-and-tax-effect.mdx)、[企業会計原則と連結会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/corporate-accounting-principles-and-consolidation.mdx) を追加し、章ハブ、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
 - 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/finance-and-accounting/bookkeeping-basics-account-categories-and-journal-entries$|desktop /docs/finance-and-accounting/bookkeeping-basics-adjusting-entries$|desktop /docs/finance-and-accounting/bookkeeping-basics-ledgers-and-vouchers$|desktop /docs/finance-and-accounting/corporate-accounting-financial-statements-and-five-profits$|desktop /docs/finance-and-accounting/corporate-accounting-assets-accounting$|desktop /docs/finance-and-accounting/corporate-accounting-liabilities-equity-and-tax-effect$|desktop /docs/finance-and-accounting/corporate-accounting-principles-and-consolidation$'`
 - 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
 - 学び: `簿記` と `企業会計` は導入章に見えても、後半論点の戻り先として何度も使います。ここを章ページ止まりのままにすると、`どこへ戻るか` が曖昧なままです。前半基礎を先に独立ノード化すると、`原価計算`、`経営分析`、`CF`、`事例Ⅳ` まで戻り先が一段強くなります
@@ -670,8 +670,8 @@
 ## 2026-03-27-43 理論科目は分析対象と考える順番で戻り先を作る
 
 - 対象: `経営戦略論`、`マーケティング論`、`企業経営理論ハブ`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
-- 成果: [知識ノード 経営計画とSWOT](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-strategic-planning-and-swot.mdx)、[知識ノード 全社戦略と成長戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-corporate-and-growth-strategy.mdx)、[知識ノード 競争戦略と経営資源戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-competitive-and-resource-strategy.mdx)、[知識ノード イノベーション・国際経営・デジタル戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-innovation-international-and-digital-strategy.mdx)、[知識ノード STPと4P](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-stp-and-4p.mdx)、[知識ノード マーケティングリサーチと消費者行動](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-marketing-research-and-consumer-behavior.mdx)、[知識ノード 製品戦略と価格戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-product-and-price-strategy.mdx)、[知識ノード チャネル戦略とプロモーション戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-channel-and-promotion-strategy.mdx)、[知識ノード サービスマーケティングとCRM](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-service-marketing-and-crm.mdx) を追加し、章ハブ、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
+- 成果: [経営計画とSWOT](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-strategic-planning-and-swot.mdx)、[全社戦略と成長戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-corporate-and-growth-strategy.mdx)、[競争戦略と経営資源戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-competitive-and-resource-strategy.mdx)、[イノベーション・国際経営・デジタル戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-innovation-international-and-digital-strategy.mdx)、[STPと4P](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-stp-and-4p.mdx)、[マーケティングリサーチと消費者行動](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-marketing-research-and-consumer-behavior.mdx)、[製品戦略と価格戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-product-and-price-strategy.mdx)、[チャネル戦略とプロモーション戦略](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-channel-and-promotion-strategy.mdx)、[サービスマーケティングとCRM](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-service-marketing-and-crm.mdx) を追加し、章ハブ、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
 - 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/business-management-theory/knowledge-'`
 - 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
 - 学び: `経営戦略論` と `マーケティング論` は、用語単位で細かく切りすぎるより、まず `分析対象` と `考える順番` の単位で戻り先を作る方が、試験でも第2次でも使いやすいです。`5フォース / VRIO` や `STP / 4P / CRM` を同じページへ置くのではなく、`何を見ている理論か` と `どの順で使うか` で分けると、迷いが減ります
@@ -682,8 +682,8 @@
 ## 2026-03-27-44 現場科目は流れの止まり方ごとに戻り先を作る
 
 - 対象: `運営管理`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
-- 成果: [知識ノード 生産方式と計画統制](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-production-systems-and-planning-control.mdx)、[知識ノード 工場レイアウトと流れ設計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-factory-layout-and-flow-design.mdx)、[知識ノード 資材・在庫管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-materials-and-inventory-management.mdx)、[知識ノード 品質管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-quality-management.mdx)、[知識ノード IEとVE](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-ie-and-ve.mdx)、[知識ノード JITとかんばん方式](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-jit-and-kanban.mdx)、[知識ノード スケジューリングとラインバランシング](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-scheduling-and-line-balancing.mdx)、[知識ノード 設備管理と生産性向上](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-equipment-management-and-productivity.mdx)、[知識ノード 購買・外注管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-purchasing-and-outsourcing-management.mdx)、[知識ノード 店舗立地と商圏分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-store-location-and-trading-area.mdx)、[知識ノード 店舗レイアウトとマーチャンダイジング](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-store-layout-and-merchandising.mdx)、[知識ノード 販売管理指標・物流・流通情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems.mdx) を追加し、章ハブ、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
+- 成果: [生産方式と計画統制](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-production-systems-and-planning-control.mdx)、[工場レイアウトと流れ設計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-factory-layout-and-flow-design.mdx)、[資材・在庫管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-materials-and-inventory-management.mdx)、[品質管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-quality-management.mdx)、[IEとVE](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-ie-and-ve.mdx)、[JITとかんばん方式](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-jit-and-kanban.mdx)、[スケジューリングとラインバランシング](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-scheduling-and-line-balancing.mdx)、[設備管理と生産性向上](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-equipment-management-and-productivity.mdx)、[購買・外注管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-purchasing-and-outsourcing-management.mdx)、[店舗立地と商圏分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-store-location-and-trading-area.mdx)、[店舗レイアウトとマーチャンダイジング](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-store-layout-and-merchandising.mdx)、[販売管理指標・物流・流通情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems.mdx) を追加し、章ハブ、科目ハブ、索引、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
 - 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test --grep 'desktop /docs/operations-management/knowledge-'`
 - 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
 - 学び: `運営管理` は、用語の種類で切るより `どこで流れが止まるか` で戻り先を作る方が使いやすいです。`生産方式`、`在庫`、`品質`、`設備`、`店舗` のどこに問題があるかを先に分けると、第1次の設問でも第2次の事例でも迷いにくくなります
@@ -694,10 +694,10 @@
 ## 2026-03-27-45 法務科目は比較軸が見える単位で独立ノード化する
 
 - 対象: `会社法`、`知的財産権`、`経営法務` の章ハブ、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
-- 成果: [知識ノード 会社類型と設立手続](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-company-types-and-incorporation.mdx)、[知識ノード 株式と株主](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-shares-and-shareholders.mdx)、[知識ノード 機関設計と株主総会決議](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-corporate-organs-and-shareholder-meetings.mdx)、[知識ノード 資金調達・配当・計算書類](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-fundraising-dividends-and-financial-statements.mdx)、[知識ノード 組織再編と事業譲渡](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-corporate-reorganization-and-business-transfer.mdx)、[知識ノード 倒産法制](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-insolvency-and-corporate-rehabilitation.mdx)、[知識ノード 知的財産権の体系と存続期間](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-ip-framework-and-terms.mdx)、[知識ノード 特許法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-patent-law.mdx)、[知識ノード 実用新案法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-utility-model-law.mdx)、[知識ノード 意匠法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-design-law.mdx)、[知識ノード 商標法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-trademark-law.mdx)、[知識ノード 著作権法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-copyright-law.mdx)、[知識ノード 不正競争防止法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-unfair-competition-prevention-law.mdx)、[知識ノード 知的財産権の活用と国際的保護](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-ip-strategy-and-international-protection.mdx) を追加し、[会社法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/company-law.mdx)、[知的財産権](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/intellectual-property.mdx)、[meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した章ハブは安定論点ページとして `G1-G5`
+- 成果: [会社類型と設立手続](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-company-types-and-incorporation.mdx)、[株式と株主](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-shares-and-shareholders.mdx)、[機関設計と株主総会決議](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-corporate-organs-and-shareholder-meetings.mdx)、[資金調達・配当・計算書類](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-fundraising-dividends-and-financial-statements.mdx)、[組織再編と事業譲渡](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-corporate-reorganization-and-business-transfer.mdx)、[倒産法制](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-insolvency-and-corporate-rehabilitation.mdx)、[知的財産権の体系と存続期間](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-ip-framework-and-terms.mdx)、[特許法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-patent-law.mdx)、[実用新案法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-utility-model-law.mdx)、[意匠法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-design-law.mdx)、[商標法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-trademark-law.mdx)、[著作権法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-copyright-law.mdx)、[不正競争防止法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-unfair-competition-prevention-law.mdx)、[知的財産権の活用と国際的保護](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-ip-strategy-and-international-protection.mdx) を追加し、[会社法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/company-law.mdx)、[知的財産権](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/intellectual-property.mdx)、[meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規ノードと更新した章ハブは安定論点ページとして `G1-G5`
 - 検証: `pnpm lint`、`pnpm build`、新規 14 ルートの dev server HTML 確認
-- 鮮度確認: 更新日付きの制度メモは既存の章ハブに集約し、新規知識ノードは安定論点として鮮度台帳の追加対象外
+- 鮮度確認: 更新日付きの制度メモは既存の章ハブに集約し、新規ノードは安定論点として鮮度台帳の追加対象外
 - 学び: 法務科目は `会社法`、`知財法` と大きく置くだけでは、近い制度の違いを説明しにくいです。`権利主体`、`手続`、`効果` の比較軸で独立ノードを切ると、制度の名前より `どこが違うか` が先に見えるため、設問で混同しにくくなります
 - 前回比: 改善
 - 根拠: 前回は coverage 台帳上、第15章 6 細目と第16章 8 細目がすべて章ページ止まりだったが、今回は 14 細目すべて独立ノードありへ上がり、章ハブと索引からの戻り先も揃ったため、`細目 coverage` と `比較しやすさ` が同時に前進した
@@ -706,8 +706,8 @@
 ## 2026-03-27-46 組織論は理論家名ではなく5層の戻り先で整理する
 
 - 対象: `組織論`、`企業経営理論` ハブ、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、戦略、`docs ui smoke test`
-- 成果: [知識ノード 組織構造と組織設計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-organizational-structure-and-design.mdx)、[知識ノード モチベーション理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-motivation-theories.mdx)、[知識ノード リーダーシップ論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-leadership-theories.mdx)、[知識ノード 人的資源管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-human-resource-management.mdx)、[知識ノード 組織文化と組織変革](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-organizational-culture-and-change.mdx) を追加し、[組織論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/organization-theory.mdx)、[企業経営理論ハブ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/index.mdx)、[meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
-- 品質ゲート: 新規知識ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
+- 成果: [組織構造と組織設計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-organizational-structure-and-design.mdx)、[モチベーション理論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-motivation-theories.mdx)、[リーダーシップ論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-leadership-theories.mdx)、[人的資源管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-human-resource-management.mdx)、[組織文化と組織変革](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/knowledge-organizational-culture-and-change.mdx) を追加し、[組織論](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/organization-theory.mdx)、[企業経営理論ハブ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/index.mdx)、[meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-management-theory/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、進捗トラッカー、coverage 台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 新規ノードと更新した章ハブ / 科目ハブは安定論点ページとして `G1-G5`
 - 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test tests/docs-ui.spec.ts --grep 'desktop /docs/business-management-theory/knowledge-(organizational-structure-and-design|motivation-theories|leadership-theories|human-resource-management|organizational-culture-and-change)$'`
 - 鮮度確認: 安定論点ページのため鮮度台帳の追加対象外
 - 学び: `組織論` は理論家名で覚え始めると、`組織構造の課題`、`人の動機`、`リーダーの行動`、`人事制度`、`文化変革` が同じ層に見えてしまいます。先に `5層の戻り先` を作ると、設問がどのレイヤーを問っているかを切り分けやすくなり、`事例Ⅰ` でも論点ズレを起こしにくくなります
@@ -718,8 +718,8 @@
 ## 2026-03-27-47 民法系は一般ルールと特別法を分けて独立ノード化する
 
 - 対象: `民法と取引関連法`、`経営法務` ハブ、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、鮮度台帳、戦略、`docs ui smoke test`
-- 成果: [知識ノード 契約・債権・物権・担保](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-contracts-obligations-and-security.mdx)、[知識ノード 時効と保証](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-prescription-and-guarantee.mdx)、[知識ノード 相続](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-inheritance.mdx)、[知識ノード 独占禁止法と取引適正化](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-antimonopoly-and-trade-regulation.mdx)、[知識ノード 消費者保護関連法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-consumer-protection-laws.mdx)、[知識ノード 個人情報保護法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-personal-information-protection.mdx)、[知識ノード 労働関連法規の概要](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-labor-laws-overview.mdx)、[知識ノード 資本市場関連法規](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-capital-market-laws.mdx)、[知識ノード 英文契約書の基本用語](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-english-contract-terms.mdx) を追加し、[民法と取引関連法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/civil-and-transaction-law.mdx)、[経営法務](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/index.mdx)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、進捗トラッカー、coverage 台帳、鮮度台帳、戦略、smoke test を同時に更新した
-- 品質ゲート: 章ハブは更新論点ページとして `G1-G6`、新規知識ノードは安定論点ページとして `G1-G5`
+- 成果: [契約・債権・物権・担保](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-contracts-obligations-and-security.mdx)、[時効と保証](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-prescription-and-guarantee.mdx)、[相続](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-inheritance.mdx)、[独占禁止法と取引適正化](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-antimonopoly-and-trade-regulation.mdx)、[消費者保護関連法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-consumer-protection-laws.mdx)、[個人情報保護法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-personal-information-protection.mdx)、[労働関連法規の概要](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-labor-laws-overview.mdx)、[資本市場関連法規](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-capital-market-laws.mdx)、[英文契約書の基本用語](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-english-contract-terms.mdx) を追加し、[民法と取引関連法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/civil-and-transaction-law.mdx)、[経営法務](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/index.mdx)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、進捗トラッカー、coverage 台帳、鮮度台帳、戦略、smoke test を同時に更新した
+- 品質ゲート: 章ハブは更新論点ページとして `G1-G6`、新規ノードは安定論点ページとして `G1-G5`
 - 検証: `pnpm lint`、`pnpm build`、`pnpm exec playwright test tests/docs-ui.spec.ts --grep 'desktop /docs/business-law/knowledge-(contracts-obligations-and-security|prescription-and-guarantee|inheritance|antimonopoly-and-trade-regulation|consumer-protection-laws|personal-information-protection|labor-laws-overview|capital-market-laws|english-contract-terms)$'`
 - 鮮度確認: [経営法務](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/index.mdx) と [民法と取引関連法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/civil-and-transaction-law.mdx) は `2026-03-27` 時点で、個人情報保護委員会の `通則編` ページ、公正取引委員会の `取適法・振興法` 特設サイト、消費者庁の `消費者契約法`、`特定商取引法`、`ステルスマーケティング` の各ページを確認した
 - 学び: `民法と取引関連法` は、`民法の一般ルール` と `特別法の上乗せ規制` を同じページで説明すると、受験者が `どこまでが一般ルールか` を見失いやすいです。先に `契約・時効・保証・相続` を固め、その後に `独禁法 / 取適法`、`消費者法制`、`個人情報保護法` を置くと、問題文で何が問われているかをかなり切り分けやすくなります
@@ -730,10 +730,10 @@
 ## 2026-03-28-01 経営情報システムは ICT 基礎を論点ごとの戻り先へ分解する
 
 - 対象: `経営情報システム`、`情報通信技術の基礎`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略、`docs ui smoke test`
-- 成果: [情報通信技術の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/ict-basics.mdx) を章ハブとして組み直し、[知識ノード コンピュータの基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-computer-basics.mdx)、[知識ノード データベースとSQL](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-database-and-sql.mdx)、[知識ノード 通信ネットワーク](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-network-basics.mdx)、[知識ノード Webテクノロジーとクラウド](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-web-and-cloud.mdx)、[知識ノード 情報セキュリティの基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-information-security-basics.mdx)、[知識ノード AI・機械学習の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md)、[tests/docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts) を同期し、coverage 件数を `独立130 / 章ページ+演習11 / 章ページ23` に更新した
-- 品質ゲート: 新規知識ノードと更新した章ハブは安定論点ページとして `G1-G5`
+- 成果: [情報通信技術の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/ict-basics.mdx) を章ハブとして組み直し、[コンピュータの基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-computer-basics.mdx)、[データベースとSQL](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-database-and-sql.mdx)、[通信ネットワーク](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-network-basics.mdx)、[Webテクノロジーとクラウド](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-web-and-cloud.mdx)、[情報セキュリティの基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-information-security-basics.mdx)、[AI・機械学習の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md)、[tests/docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts) を同期し、coverage 件数を `独立130 / 章ページ+演習11 / 章ページ23` に更新した
+- 品質ゲート: 新規ノードと更新した章ハブは安定論点ページとして `G1-G5`
 - 検証: `pnpm lint` は repo 全体の既存リンク監査で失敗、`NEXT_DIST_DIR=.next-check pnpm build` は成功、`pnpm exec playwright test tests/docs-ui.spec.ts --grep 'desktop /docs/management-information-systems/knowledge-(computer-basics|database-and-sql|network-basics|web-and-cloud|information-security-basics|ai-and-machine-learning-basics)$'` は 6 件通過
-- 鮮度確認: 新規知識ノードは安定論点ページのため鮮度台帳の追加対象外。更新情報は既存の [情報通信技術の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/ict-basics.mdx) と [情報セキュリティガイドラインと関連法規](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/security-guidelines-and-related-laws.mdx) に寄せた
+- 鮮度確認: 新規ノードは安定論点ページのため鮮度台帳の追加対象外。更新情報は既存の [情報通信技術の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/ict-basics.mdx) と [情報セキュリティガイドラインと関連法規](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/security-guidelines-and-related-laws.mdx) に寄せた
 - 学び: `経営情報システム` は、章ハブに基礎技術を並べるだけだと `CPU` と `DB` と `ネットワーク` が同じ層に見えてしまいます。まず `技術のまとまりごとの戻り先` を作ると、過去問テーマ索引、章ハブ、後続の `経営情報管理` を同じ粒度でつなげやすくなります
 - 前回比: 改善
 - 根拠: 前回は coverage 台帳上、第18章の `18.1` から `18.6` まで 6 細目すべてが `章ページで対応` だったが、今回は 6 細目すべて独立ノードありへ上がり、章ハブ、索引、進捗管理、戦略、smoke test まで同じ粒度で揃ったため、`細目 coverage` と `戻り先の強さ` が同時に前進した
@@ -807,7 +807,7 @@
 ## 2026-03-28-06 docs 本文は余白より情報量を優先する
 
 - 対象: `app/globals.css`、`app/styles/docs-home.css`、`docs/wiki-review-log.md`
-- 成果: docs 共通の本文行間、`h2` / `h3` の上余白、`Callout` と `Cards` の `padding` と `gap`、ホーム本文のセクション間 `gap` を一段詰め、ホームの導線カードと知識ノードの箇条書きが同じ画面内でより多く見えるようにした
+- 成果: docs 共通の本文行間、`h2` / `h3` の上余白、`Callout` と `Cards` の `padding` と `gap`、ホーム本文のセクション間 `gap` を一段詰め、ホームの導線カードとノードの箇条書きが同じ画面内でより多く見えるようにした
 - 品質ゲート: MDX 本文や分岐は増やさず、Fumadocs の既存 DOM にだけ CSS を当てる
 - 検証: `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs` と `/docs/economics-and-economic-policy/microeconomics/knowledge-game-theory` の `200` と見出しを確認する
 - 鮮度確認: 見た目の調整のみのため鮮度台帳の追加対象外
@@ -819,7 +819,7 @@
 ## 2026-03-28-07 経営情報管理を主要戻り先ごとに独立ノード化する
 
 - 対象: `経営情報システム`、`経営情報管理`、`過去問テーマ索引`、`重要用語集`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略
-- 成果: [経営情報管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/information-management.mdx) を章ハブとして組み直し、[知識ノード IT戦略・BPR・DX](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-it-strategy-and-dx.mdx)、[知識ノード システム開発手法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-systems-development-methods.mdx)、[知識ノード プロジェクトマネジメント](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-project-management.mdx)、[知識ノード 運用管理・評価・監査](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-it-operations-and-audit.mdx)、[知識ノード 外部資源活用と意思決定支援](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-outsourcing-and-decision-support.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を同時に更新した
+- 成果: [経営情報管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/information-management.mdx) を章ハブとして組み直し、[IT戦略・BPR・DX](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-it-strategy-and-dx.mdx)、[システム開発手法](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-systems-development-methods.mdx)、[プロジェクトマネジメント](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-project-management.mdx)、[運用管理・評価・監査](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-it-operations-and-audit.mdx)、[外部資源活用と意思決定支援](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-outsourcing-and-decision-support.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を同時に更新した
 - 品質ゲート: 追加した 5 ページは安定論点ページとして `G1-G5`
 - 検証: `pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `経営情報管理` と追加した 5 ページの `200` と `h1` を確認する
 - 鮮度確認: 更新論点ではないため鮮度台帳の追加対象外。章ハブの更新確認メモは既存の一次情報導線を維持した
@@ -867,11 +867,11 @@
 ## 2026-03-28-10 中小企業経営を主要戻り先ごとに独立ノード化する
 
 - 対象: `中小企業経営・中小企業政策`、`過去問テーマ索引`、`重要用語集`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略
-- 成果: [中小企業経営](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/sme-management.mdx) を章ハブとして組み直し、[知識ノード 中小企業の定義と規模別分類](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-definition-and-size-criteria.mdx)、[知識ノード 中小企業の経済的役割と主要統計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-economic-role-and-statistics.mdx)、[知識ノード 中小企業の経営課題](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-management-issues.mdx)、[知識ノード 業種別の中小企業動向](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-industry-trends.mdx)、[知識ノード 産業集積](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-industrial-clusters.mdx)、[知識ノード 開業率と廃業率](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-startup-and-closure-rates.mdx)、[知識ノード 白書の読み方と頻出テーマ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-white-paper-reading.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/meta.json)、[中小企業経営・中小企業政策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/index.mdx)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を同時に更新した
+- 成果: [中小企業経営](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/sme-management.mdx) を章ハブとして組み直し、[中小企業の定義と規模別分類](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-definition-and-size-criteria.mdx)、[中小企業の経済的役割と主要統計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-economic-role-and-statistics.mdx)、[中小企業の経営課題](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-management-issues.mdx)、[業種別の中小企業動向](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-industry-trends.mdx)、[産業集積](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-industrial-clusters.mdx)、[開業率と廃業率](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-startup-and-closure-rates.mdx)、[白書の読み方と頻出テーマ](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/knowledge-sme-white-paper-reading.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/meta.json)、[中小企業経営・中小企業政策](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/sme-management-and-policy/index.mdx)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を同時に更新した
 - 品質ゲート: 追加した 7 ページは安定論点ページとして `G1-G5`、章ハブは更新論点ページとして `G1-G6`
 - 検証: `pnpm check:wiki`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build`、headless browser で `/docs/sme-management-and-policy`、`/docs/sme-management-and-policy/sme-management`、新規 7 ページ、`/docs/reference/past-question-theme-index`、`/docs/reference/important-terms-glossary` の `200` と `h1` を確認、Next.js `get_errors` は `configErrors: []`、`sessionErrors: []`
-- 鮮度確認: 章ハブの `2026-03-26` 時点メモと一次情報導線を維持し、新規知識ノードには年次メモを持ち込まなかった
-- 学び: `中小企業経営` は更新論点を含みますが、戻り先として必要なのは年次の数字そのものより `定義`、`統計の意味`、`課題の因果`、`白書の読み方` です。年次メモを章ハブへ寄せたまま、知識ノード側を安定論点に切ると、鮮度管理を増やさずに戻り先の粒度だけを上げられます
+- 鮮度確認: 章ハブの `2026-03-26` 時点メモと一次情報導線を維持し、新規ノードには年次メモを持ち込まなかった
+- 学び: `中小企業経営` は更新論点を含みますが、戻り先として必要なのは年次の数字そのものより `定義`、`統計の意味`、`課題の因果`、`白書の読み方` です。年次メモを章ハブへ寄せたまま、ノード側を安定論点に切ると、鮮度管理を増やさずに戻り先の粒度だけを上げられます
 - 前回比: 改善
 - 根拠: 変更前は coverage 台帳上、第20章の `20.1` から `20.7` まで 7 細目すべてが `章ページで対応` だったが、今回は 7 細目すべて `独立ノードあり` へ上がり、coverage 件数も `独立ノードあり 135 → 142`、`章ページで対応 18 → 11` に改善したため、`完全網羅` に向けた主要ボトルネックを 1 章分解消できた
 - 次に修正すべきこと: 次回は `中小企業政策` を `政策体系と基本法 / 経営支援 / 金融支援 / 主要補助金 / 創業・承継・M&A / 下請・小規模事業者向け施策 / BCP と災害復旧支援` に切り、残る `章ページで対応` の最大クラスターを崩す
@@ -984,7 +984,7 @@
 - 根拠: 変更前は `/docs` 表示時に Next.js `get_errors` で `In HTML, <p> cannot be a descendant of <p>` と recoverable hydration error が再現していた。変更後は同じ `/docs` で runtime error が消えれば、原因だった invalid HTML が直接除去できたと判断できる
 - 次に修正すべきこと: 今後 `content/docs/` に JSX の段落タグを足すときは、段落本文を複数行 Markdown として入れず、今回と同じ安全な書き方へ揃える
 
-## 2026-03-28-13 原価計算を知識ノード、出題ノード、要約へ分割する
+## 2026-03-28-13 原価計算をノード、出題ノード、要約へ分割する
 
 - 対象: `原価計算`、`過去問テーマ索引`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、AI 自動改善タスクリスト
 - 成果: [原価計算](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/cost-accounting.mdx) を章ハブとして組み直し、[原価計算の目的と分類](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/cost-accounting-purpose-and-classification.mdx)、[個別原価計算と総合原価計算](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/cost-accounting-job-order-and-process-costing.mdx)、[標準原価計算と差異分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/cost-accounting-standard-costing-and-variance-analysis.mdx)、[直接原価計算と全部原価計算](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/cost-accounting-direct-and-absorption-costing.mdx)、[原価計算の解き方](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/cost-accounting-exam-patterns.mdx)、[原価計算 要点整理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/cost-accounting-summary.mdx) を追加した。あわせて [原価計算 基本確認問題](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/cost-accounting-practice-basic-check.mdx)、[meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/meta.json)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[AI 自動改善 タスクリスト](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/automation/task-list.md) を更新した
@@ -1008,7 +1008,7 @@
 - 根拠: 変更前は coverage 台帳上、第21章の `21.1`、`21.2`、`21.3`、`21.4`、`21.5`、`21.6`、`21.8`、`21.10` の 8 細目が `章ページで対応` だったが、今回は 8 細目すべて `独立ノードあり` へ上がり、coverage 件数も `独立ノードあり 146 → 154`、`章ページで対応 11 → 3` に改善したため、`完全網羅` に向けた最大クラスターを 1 章分解消できた
 - 次に修正すべきこと: 次回は `経営分析` と `利益と資金の管理` を独立ノードへ上げ、`章ページ+演習あり` をさらに減らす
 
-## 2026-03-28-17 経営分析と利益と資金の管理を知識ノードへ分割する
+## 2026-03-28-17 経営分析と利益と資金の管理をノードへ分割する
 
 - 対象: `経営分析`、`利益と資金の管理`、`過去問テーマ索引`、`重要用語集`、`重要公式集`、進捗トラッカー、coverage 台帳、handoff、完全網羅ロードマップ、戦略
 - 成果: [経営分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/management-analysis.mdx) と [利益と資金の管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/profit-and-cash-management.mdx) を章ハブとして組み直し、[収益性分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/management-analysis-profitability.mdx)、[安全性分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/management-analysis-safety.mdx)、[効率性分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/management-analysis-efficiency.mdx)、[成長性分析と生産性分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/management-analysis-growth-and-productivity.mdx)、[損益分岐点分析](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/management-analysis-cvp-and-break-even.mdx)、[利益計画と予算管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/profit-and-cash-management-profit-planning-and-budget-control.mdx)、[キャッシュ・フロー管理](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/profit-and-cash-management-cash-flow-and-fcf.mdx) を追加した。あわせて [meta.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/meta.json)、[財務・会計](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/finance-and-accounting/index.mdx)、[過去問テーマ索引](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)、[重要用語集](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-terms-glossary.mdx)、[重要公式・計算式一覧](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/important-formulas.mdx)、[wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)、[wiki-completeness-roadmap.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-completeness-roadmap.md)、[agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)、[shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md) を同時に更新した
@@ -1183,7 +1183,7 @@
 - 前回比: 改善（14ページ中6ページが教材型に変換、読みやすさ大幅向上）
 - 次に修正すべきこと: 残り8ページ（medium/light優先度）のナラティブ書き直し。経済学ページのinline $ math修正。B群10論点の5層追記
 
-## 2026-03-28-29 経済学・経済政策 全10知識ノードの教材型書き直し
+## 2026-03-28-29 経済学・経済政策 全10ノードの教材型書き直し
 
 - 対象: ミクロ経済学5ノード（`knowledge-market-mechanism.mdx`、`knowledge-consumer-and-firm.mdx`、`knowledge-market-structure-and-failure.mdx`、`knowledge-game-theory.mdx`、`knowledge-international-trade.mdx`）、マクロ経済学5ノード（`knowledge-national-income-and-indicators.mdx`、`knowledge-consumption-and-investment-theory.mdx`、`knowledge-is-lm-and-policies.mdx`、`knowledge-ad-as-and-international-macro.mdx`、`knowledge-history-of-macroeconomic-thought.mdx`）
 - 成果: IS-LMページで確立した「通読型教材」パターンを全9残ノードに適用。合計2,084行→5,057行（2.4倍）。具体的な改善: (1) 全ノードに日常的な具体例・比喩を冒頭に追加（トマト市場、バン屋のGDP連鎖、コーヒーとドーナツの無差別曲線など）(2) 公式の前に「なぜこの計算が必要か」を説明 (3) 全主要公式に数値例・計算手順を追加 (4) 過去問検証で発見した6ギャップを即時追記（ジニ係数/ローレンツ曲線、寄与度分析、45度線分析、買い手独占/労働市場、公平性の基準/ロールズ/功利主義、生産可能性曲線+負の所得税）(5) 3層過去問ナビゲーション実装（各ノードに出題実績Callout、テーマ索引に出題列、年度別出題傾向は既存）
@@ -1294,3 +1294,56 @@
 2. 一次情報URL警告のある既存更新ノード（policy-framework-and-basic-laws等）のURL修正
 3. 各科目の過去問突合（ステップ5）と3層ナビ（ステップ6）の実施
 4. 企業経営理論の章ハブページの更新（新ノード追加分の反映確認）
+
+## 2026-03-28-02 過去問解説セクション新設（R6経済学パイロット）
+
+### 対象
+
+- `content/docs/past-exam-solutions/` — 新規セクション全体
+- `content/docs/past-exam-solutions/r06/economics.mdx` — R6経済学25問フル解説（パイロット）
+- `content/docs/meta.json` — ルートナビに `past-exam-solutions` 追加
+- `docs/wiki-freshness-registry.json` — R6経済学のエントリ追加
+
+### 成果
+
+- 過去問解説セクションの基盤構築: R02〜R07の6年分ディレクトリ、meta.json、indexページを作成
+- R6経済学25問のフル解説ページ（596行）を作成
+- 分析フレームワーク（K1-K5知識種類 × T1-T5思考法 × L1-L4形式層 × Trap-A〜E罠パターン）を全問に適用
+- 年度総括に思考法分布・罠パターン頻度・学習優先度Tier・本番セルフチェックを付与
+
+### 品質ゲート
+
+- 著作権: 問題文を一切掲載せず「問題要旨＋解説型」（1+2方式）を遵守
+- wiki接続: 全25問に対応ノードへのリンクを付与
+- wikiカバレッジ検証: 7つのwikiノードを全文読みし、R6全問の必要知識がカバー済みであることを確認（○22問、△3問）
+- lint: 0 error。鮮度台帳にエントリ追加済み（reviewWindowDays=365）
+
+### 検証
+
+- `npx pnpm lint` → 0 error
+- 全問のwikiノード突合完了。補充が必要なギャップなし
+- 分類マップの問数合計（L1: 3 + L2: 13 + L3: 9 = 25）が全問数と一致
+
+### 鮮度確認
+
+- R6経済学: 過去問は不変のため reviewWindowDays=365 に設定
+- 一次情報: J-SMECA試験問題ページURL（shikenmondai.html）をページ本文に記載
+
+### 学び
+
+1. **初版の解説は散文的になりがち**: 最初に書いた解説は各問の記述が独立した散文で、テーマ横断的な分析軸が欠けていた。外部分析資料（3軸フレームワーク）と突合することで構造的な改善が可能になった
+2. **分類フレームワーク（K/T/L/Trap）は他科目にも横展開すべき**: 知識種類×思考法×形式層×罠パターンの4軸分類は、科目を問わず過去問解説の品質を底上げする。次の科目から初版で適用する
+3. **因果連鎖は矢印表記が効果的**: 散文で「Aが起きるとBが起きて…」と書くより、`G↑ → r↑ → 資本流入 → 円高 → NX↓` のように矢印で書く方が受験生にとって読みやすく記憶に残りやすい
+4. **「総量と平均の区別」「利潤最大化 vs 総収入最大化」等の混同パターンは問を超えて共通する**: Trap-Dは個別問題の注意点ではなく横断的なパターン認識として提示すべき
+5. **年度総括の思考法分布・罠頻度は受験生にとって戦略的価値が高い**: 「L2が52%でグラフ読解が最重要」「Trap-Dが8回で混同誘発が最頻出」といった統計情報は、学習計画の優先順位づけに直結する
+
+### 前回比
+
+改善: 過去問解説という新しいコンテンツ層を新設。経済学パイロットで解説テンプレートと分類フレームワークを確立
+
+### 次に修正すべきこと
+
+1. 他年度（R5→R4→R3→R2→R7）の経済学解説ページを同一フレームワークで作成
+2. 他科目（財務・会計が次の有力候補）のR6解説ページを作成
+3. R7の分析で判明したwiki補充候補（加速度原理、フィッシャー方程式、所得分配/ローレンツ曲線の累進税分析）を消費投資理論ノードと国民所得ノードに追記検討
+4. ユーザーローカルでの build 確認

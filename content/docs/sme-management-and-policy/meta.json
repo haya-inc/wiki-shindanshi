@@ -5,6 +5,7 @@
   "root": true,
   "pages": [
     "index",
+    "---中小企業経営---",
     "sme-management",
     "knowledge-sme-definition-and-size-criteria",
     "knowledge-sme-economic-role-and-statistics",
@@ -13,6 +14,7 @@
     "knowledge-industrial-clusters",
     "knowledge-startup-and-closure-rates",
     "knowledge-sme-white-paper-reading",
+    "---中小企業政策---",
     "sme-policy",
     "policy-framework-and-basic-laws",
     "policy-management-support",
@@ -23,6 +25,8 @@
     "policy-overseas-expansion-support",
     "policy-fair-trade-and-small-business-support",
     "policy-human-resources-and-employment-support",
-    "policy-bcp-and-disaster-recovery-support"
+    "policy-bcp-and-disaster-recovery-support",
+    "---過去問マッピング---",
+    "exam-question-mapping"
   ]
 }

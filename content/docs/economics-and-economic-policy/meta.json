@@ -3,5 +3,5 @@
   "description": "ミクロ・マクロ・政策",
   "icon": "ChartColumn",
   "root": true,
-  "pages": ["index", "microeconomics", "macroeconomics"]
+  "pages": ["index", "microeconomics", "macroeconomics", "---過去問マッピング---", "exam-question-mapping"]
 }

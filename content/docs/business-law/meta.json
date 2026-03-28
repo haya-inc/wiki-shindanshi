@@ -5,6 +5,7 @@
   "root": true,
   "pages": [
     "index",
+    "---会社法---",
     "company-law",
     "knowledge-company-types-and-incorporation",
     "knowledge-shares-and-shareholders",
@@ -12,6 +13,7 @@
     "knowledge-fundraising-dividends-and-financial-statements",
     "knowledge-corporate-reorganization-and-business-transfer",
     "knowledge-insolvency-and-corporate-rehabilitation",
+    "---知的財産権---",
     "intellectual-property",
     "knowledge-ip-framework-and-terms",
     "knowledge-patent-law",
@@ -21,6 +23,7 @@
     "knowledge-copyright-law",
     "knowledge-unfair-competition-prevention-law",
     "knowledge-ip-strategy-and-international-protection",
+    "---民法・取引関連法規---",
     "civil-and-transaction-law",
     "knowledge-contracts-obligations-and-security",
     "knowledge-prescription-and-guarantee",
@@ -30,6 +33,8 @@
     "knowledge-personal-information-protection",
     "knowledge-labor-laws-overview",
     "knowledge-capital-market-laws",
-    "knowledge-english-contract-terms"
+    "knowledge-english-contract-terms",
+    "---過去問マッピング---",
+    "exam-question-mapping"
   ]
 }

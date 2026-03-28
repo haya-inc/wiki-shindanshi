@@ -28,7 +28,7 @@
 
 | 章 | 公開導線 | 状態 | 達成ゲート | 次の作業 |
 |---|---------|------|----------|---------|
-| 諸取引の処理 | `/commercial/transactions` | 未着手 | — | S群の知識ノード作成から着手 |
+| 諸取引の処理 | `/commercial/transactions` | 未着手 | — | S群のノード作成から着手 |
 | 決算 | `/commercial/closing` | 未着手 | — | |
 | 株式会社会計 | `/commercial/corporate` | 未着手 | — | |
 | 本支店会計 | `/commercial/branch` | 未着手 | — | |

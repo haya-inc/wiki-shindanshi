@@ -336,6 +336,70 @@
       "sourceUrls": [
         "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
       ]
+    },
+    {
+      "route": "/reference/exam-prediction-2026",
+      "docPath": "content/docs/reference/exam-prediction-2026.mdx",
+      "reviewWindowDays": 120,
+      "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html",
+        "https://www.chusho.meti.go.jp/pamflet/hakusyo/"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r06/economics",
+      "docPath": "content/docs/past-exam-solutions/r06/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r05/economics",
+      "docPath": "content/docs/past-exam-solutions/r05/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r04/economics",
+      "docPath": "content/docs/past-exam-solutions/r04/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r03/economics",
+      "docPath": "content/docs/past-exam-solutions/r03/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r02/economics",
+      "docPath": "content/docs/past-exam-solutions/r02/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r07/economics",
+      "docPath": "content/docs/past-exam-solutions/r07/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
     }
   ]
 }

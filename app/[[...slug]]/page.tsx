@@ -90,7 +90,7 @@ async function renderCachedPage(slug: string[]) {
       full={page.data.full ?? isHomePage}
       lastUpdate={page.data.lastModified}
       className={isHomePage ? "wiki-home-page" : "wiki-docs-page"}
-      breadcrumb={{ enabled: !isHomePage }}
+      breadcrumb={{ enabled: !isHomePage, includePage: true, includeRoot: true }}
       footer={{ enabled: !isHomePage }}
       tableOfContent={{ enabled: !isHomePage }}
       tableOfContentPopover={{ enabled: !isHomePage }}

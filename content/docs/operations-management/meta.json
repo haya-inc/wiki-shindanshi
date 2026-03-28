@@ -5,20 +5,25 @@
   "root": true,
   "pages": [
     "index",
+    "---生産計画---",
     "production-planning",
     "knowledge-production-systems-and-planning-control",
     "knowledge-factory-layout-and-flow-design",
     "knowledge-materials-and-inventory-management",
     "knowledge-quality-management",
     "knowledge-ie-and-ve",
+    "---生産オペレーション---",
     "production-operations",
     "knowledge-jit-and-kanban",
     "knowledge-scheduling-and-line-balancing",
     "knowledge-equipment-management-and-productivity",
     "knowledge-purchasing-and-outsourcing-management",
+    "---店舗・販売管理---",
     "store-and-sales-management",
     "knowledge-store-location-and-trading-area",
     "knowledge-store-layout-and-merchandising",
-    "knowledge-sales-indicators-logistics-and-retail-information-systems"
+    "knowledge-sales-indicators-logistics-and-retail-information-systems",
+    "---過去問マッピング---",
+    "exam-question-mapping"
   ]
 }
