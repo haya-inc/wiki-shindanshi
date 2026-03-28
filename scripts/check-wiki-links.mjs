@@ -3,11 +3,32 @@ import path from "node:path";
 
 const root = process.cwd();
 const registryPath = path.join(root, "docs/wiki-freshness-registry.json");
+const cachePath = path.join(root, ".link-cache.json");
 const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
 const uniqueUrls = [...new Set(registry.entries.flatMap((entry) => entry.sourceUrls))];
 const userAgent = "shindanshi-wiki-link-check/1.0";
 const timeoutMs = 8000;
 const concurrency = 4;
+const cacheTtlMs = 7 * 24 * 60 * 60 * 1000; // 7日
+
+// --- キャッシュ読み込み ---
+
+function loadCache() {
+  try {
+    return JSON.parse(fs.readFileSync(cachePath, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
+function saveCache(cache) {
+  fs.writeFileSync(cachePath, JSON.stringify(cache, null, 2) + "\n");
+}
+
+const cache = loadCache();
+const now = Date.now();
+
+// --- リクエスト ---
 
 async function requestUrl(url, method) {
   const controller = new AbortController();
@@ -35,6 +56,11 @@ async function requestUrl(url, method) {
 }
 
 async function checkUrl(url) {
+  // キャッシュが有効ならスキップ
+  if (cache[url] && now - cache[url] < cacheTtlMs) {
+    return { level: "cached", message: `CACHED ${url}` };
+  }
+
   try {
     let result = await requestUrl(url, "HEAD");
 
@@ -43,10 +69,12 @@ async function checkUrl(url) {
     }
 
     if (result.ok || (result.status >= 300 && result.status < 400)) {
+      cache[url] = now;
       return { level: "ok", message: `OK ${url} -> ${result.status}` };
     }
 
     if (result.status === 404 || result.status === 410) {
+      delete cache[url];
       return { level: "error", message: `リンク切れの可能性があります: ${url} -> ${result.status}` };
     }
 
@@ -63,6 +91,8 @@ async function checkUrl(url) {
     return { level: "warning", message: `接続確認失敗: ${url} -> ${error.message}` };
   }
 }
+
+// --- 実行 ---
 
 async function runQueue(items, worker, limit) {
   const results = [];
@@ -81,9 +111,18 @@ async function runQueue(items, worker, limit) {
 }
 
 const results = await runQueue(uniqueUrls, checkUrl, concurrency);
+
+saveCache(cache);
+
 let hasError = false;
+let cachedCount = 0;
 
 for (const result of results) {
+  if (result.level === "cached") {
+    cachedCount += 1;
+    continue;
+  }
+
   if (result.level === "error") {
     console.error(result.message);
     hasError = true;
@@ -96,6 +135,10 @@ for (const result of results) {
   }
 
   console.log(result.message);
+}
+
+if (cachedCount > 0) {
+  console.log(`${cachedCount} URL をキャッシュからスキップしました`);
 }
 
 if (hasError) {

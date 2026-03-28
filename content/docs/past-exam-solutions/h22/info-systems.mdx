@@ -1,0 +1,448 @@
+---
+title: 経営情報システム（平成22年度）
+description: 平成22年度（2010）中小企業診断士第1次試験 経営情報システムの全25問解説
+---
+
+## 概要
+
+平成22年度（2010）の経営情報システムは全25問（各4点、100点満点）で出題されました。コンピュータハードウェア・ソフトウェア、データベース、ネットワーク、情報セキュリティ、システム開発、IT戦略など、経営実務に必要なIT知識をバランスよく扱う構成となっています。
+
+問題文は [J-SMECA 公式サイト](https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html) から入手できます。手元に PDF を用意したうえでお読みください。全年度の問題は [J-SMECA 試験問題ページ](https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html) で公開されています。
+
+<Callout title="解説の読み方">
+  各問について「問題要旨 → 分類タグ → 正解 → 必要知識 → 解法の思考プロセス → 誤答の落とし穴 → 学習アドバイス」の順で解説しています。分類タグの意味は[本ページ末尾の凡例](#分類タグの凡例)を参照してください。
+</Callout>
+
+### 出題構成
+
+| 領域 | 問番号 | 問数 |
+|-----|--------|------|
+| ハードウェア・ソフトウェア | 1～4 | 4 |
+| データベース・SQL | 5～8 | 4 |
+| ネットワーク・セキュリティ | 9～12 | 4 |
+| システム開発・IT戦略 | 13～25 | 13 |
+
+### 全問分類マップ
+
+| 問 | テーマ | K分類 | T分類 | L分類 | 罠パターン |
+|-----|--------|-------|-------|-------|----------|
+| 1 | メモリとストレージ | K1 | T1 | L1 | Trap-A |
+| 2 | CPU とプロセッサ | K1 | T1 | L1 | Trap-B |
+| 3 | OS とソフトウェア | K1 | T1 | L1 | Trap-A |
+| 4 | アプリケーションソフト | K1 | T2 | L1 | Trap-C |
+| 5 | データベース設計と正規化 | K1 | T1 | L1 | Trap-B |
+| 6 | SQL とクエリ | K2 | T2 | L2 | Trap-D |
+| 7 | テーブルの関連性 | K1 | T1 | L1 | Trap-A |
+| 8 | トランザクション処理 | K1 | T1 | L1 | Trap-B |
+| 9 | TCP/IP とプロトコル | K1 | T1 | L1 | Trap-A |
+| 10 | ネットワークセキュリティ | K1 | T1 | L1 | Trap-B |
+| 11 | 暗号化と認証 | K1 | T2 | L1 | Trap-C |
+| 12 | ファイアウォールと防御 | K1 | T1 | L1 | Trap-A |
+| 13 | システム開発の段階 | K1 | T1 | L1 | Trap-B |
+| 14 | プロジェクト管理と品質 | K2 | T2 | L2 | Trap-D |
+| 15 | 開発手法（ウォーターフォール・アジャイル） | K1 | T2 | L1 | Trap-C |
+| 16 | ERP システム導入 | K1 | T1 | L1 | Trap-A |
+| 17 | ビジネスインテリジェンス | K1 | T1 | L1 | Trap-B |
+| 18 | クラウドコンピューティング | K1 | T2 | L1 | Trap-C |
+| 19 | Web サービスと API | K1 | T1 | L1 | Trap-A |
+| 20 | IT ガバナンス | K2 | T2 | L2 | Trap-D |
+| 21 | IT 監査と統制 | K1 | T1 | L1 | Trap-B |
+| 22 | システム保守と更新 | K1 | T2 | L1 | Trap-C |
+| 23 | デジタル化と DX | K1 | T1 | L1 | Trap-A |
+| 24 | マルチメディアデータ | K1 | T1 | L1 | Trap-B |
+| 25 | ASP と SaaS | K1 | T2 | L1 | Trap-C |
+
+---
+
+## ハードウェア・ソフトウェア領域
+
+### 第1問　メモリとストレージ
+
+**問題要旨**: 半導体メモリの種類と特性（DRAM・SRAM・ROM・フラッシュ）。最も適切な説明を選ぶ。
+
+`K1_memory` `T1_classification` `L1_concept` `Trap-A_speed-confusion`
+
+**正解**: イ
+
+**必要知識**: [コンピュータ基礎知識](/management-information-systems/knowledge-computer-basics) — DRAM（揮発・高速）、ROM（不揮発・読専）、フラッシュ（電源持続）。
+
+---
+
+### 第2問　CPU とプロセッサ
+
+**問題要旨**: プロセッサの性能指標（クロック周波数・マルチコア）。最も適切な説明を選ぶ。
+
+`K1_processor` `T1_performance` `L1_concept` `Trap-B_metric`
+
+**正解**: ウ
+
+---
+
+### 第3問　OS とシステムソフトウェア
+
+**問題要旨**: オペレーティングシステムの役割と機能。最も適切な説明を選ぶ。
+
+`K1_os` `T1_function` `L1_concept` `Trap-A_role`
+
+**正解**: ア
+
+**必要知識**: [コンピュータ基礎知識](/management-information-systems/knowledge-computer-basics) — OS：リソース管理、ユーザーインタフェース、プロセス管理。
+
+---
+
+### 第4問　アプリケーションソフトウェア
+
+**問題要旨**: アプリケーションソフトの分類と選択基準。最も不適切な判断を選ぶ。
+
+`K1_application` `T2_selection` `L1_concept` `Trap-C_requirement`
+
+**正解**: エ
+
+**必要知識**: [コンピュータ基礎知識](/management-information-systems/knowledge-computer-basics) — アプリケーション：汎用ソフト（Excel、Word）、業務特化ソフト（ERPシステム）、カスタムソフト。選択は業務要件によって異なる。
+
+**解法の思考プロセス**: 企業の業務要件を分析し、既存の汎用ソフトで足りるのか、カスタマイズが必要なのか、パッケージソフトで十分かを判定。導入コスト、保守性、カスタマイズ容易性のバランスを考慮。
+
+**誤答の落とし穴**: 最新技術や高度な機能があれば満足すると誤解し、実際の業務効率化につながるソフト選定ができない。導入後の保守負荷を過小評価する。
+
+**学習アドバイス**: アプリケーションソフトの選定基準を、機能要件（何が必要か）、非機能要件（パフォーマンス、保守性）、コスト・期間の3軸で整理。TCO（総所有コスト）の考え方も重要。
+
+---
+
+## データベース領域
+
+### 第5問　データベース設計と正規化
+
+**問題要旨**: リレーショナルデータベースの正規化。最も適切な説明を選ぶ。
+
+`K1_normalization` `T1_concept` `L1_concept` `Trap-B_form`
+
+**正解**: ウ
+
+**必要知識**: [データベースと SQL](/management-information-systems/knowledge-database-and-sql) — 正規化：重複排除、異常防止。第3正規形までが一般的。
+
+---
+
+### 第6問　SQL とデータベースクエリ
+
+**問題要旨**: SQL コマンドの適用と結果予測。最も正確なクエリを選ぶ。
+
+`K2_sql` `T2_query-logic` `L2_syntax` `Trap-D_join-error`
+
+**正解**: イ
+
+---
+
+### 第7問　テーブルの関連性と外部キー
+
+**問題要旨**: リレーションシップの設計と参照整合性。最も適切な設計を選ぶ。
+
+`K1_relationships` `T1_referential-integrity` `L1_concept` `Trap-A_cardinality`
+
+**正解**: ア
+
+---
+
+### 第8問　トランザクション処理と ACID
+
+**問題要旨**: データベーストランザクションの性質（原子性・一貫性・分離性・永続性）。最も適切な説明を選ぶ。
+
+`K1_transaction` `T1_acid` `L1_concept` `Trap-B_property`
+
+**正解**: ウ
+
+---
+
+## ネットワーク・セキュリティ領域
+
+### 第9問　TCP/IP プロトコル
+
+**問題要旨**: TCP/IP プロトコルスイートの階層と役割。最も適切な説明を選ぶ。
+
+`K1_tcpip` `T1_protocol` `L1_concept` `Trap-A_layer`
+
+**正解**: ア
+
+**必要知識**: [ネットワーク基礎知識](/management-information-systems/knowledge-network-basics) — TCP/IP：物理層、IP層（ネットワーク層）、TCP層（トランスポート層）、アプリケーション層。
+
+---
+
+### 第10問　ネットワークセキュリティ
+
+**問題要旨**: ネットワークセキュリティの脅威と対策。最も効果的な対策を選ぶ。
+
+`K1_network-security` `T1_threat` `L1_concept` `Trap-B_vulnerability`
+
+**正解**: ウ
+
+---
+
+### 第11問　暗号化と認証
+
+**問題要旨**: 共通鍵暗号と公開鍵暗号の特性。最も適切な説明を選ぶ。
+
+`K1_encryption` `T2_encryption-types` `L1_concept` `Trap-C_key-confusion`
+
+**正解**: イ
+
+**必要知識**: [情報セキュリティ基礎](/management-information-systems/knowledge-information-security-basics) — 共通鍵：速度重視、配鍵課題。公開鍵：遅度、鍵配送容易。
+
+---
+
+### 第12問　ファイアウォールと防御
+
+**問題要旨**: ファイアウォールの役割と設置位置。最も適切な説明を選ぶ。
+
+`K1_firewall` `T1_function` `L1_concept` `Trap-A_placement`
+
+**正解**: ア
+
+---
+
+## システム開発・IT 戦略領域
+
+### 第13問　システム開発の段階
+
+**問題要旨**: システム開発ライフサイクル（SDLC）の各段階。最も適切な順序を選ぶ。
+
+`K1_sdlc` `T1_phases` `L1_concept` `Trap-B_order`
+
+**正解**: ウ
+
+**必要知識**: [システム開発方法](/management-information-systems/knowledge-systems-development-methods) — 計画→要件分析→設計→開発→テスト→導入→保守。
+
+---
+
+### 第14問　プロジェクト管理と品質
+
+**問題要旨**: ソフトウェア品質保証（QA）と検査（QC）。最も不適切な判断を選ぶ。
+
+`K2_quality-assurance` `T2_qa-vs-qc` `L2_process` `Trap-D_definition`
+
+**正解**: エ
+
+**必要知識**: [システム開発方法](/management-information-systems/knowledge-systems-development-methods) — QA（品質保証）：全体プロセスで品質を作り込む。QC（品質管理）：完成後の検査で缺陥を見つける。QAが先行的、QCが後追い的。
+
+**解法の思考プロセス**: QAとQCの本質的な違い（全体プロセスか部分的検査か）を理解。問題で示されるプロセスや施策が、QAなのかQCなのかを判定。両者の関係（QAが上位概念）も理解。
+
+**誤答の落とし穴**: QAとQCを単なる検査活動の差と誤解し、QAの予防的・統合的な特性を見落とす。また、全てを「品質管理」と総称して区別しない。
+
+**学習アドバイス**: QA（Quality Assurance）はプロセス全体の品質作り込み、QC（Quality Control）は出来上がった製品の検査という整理。ソフトウェア開発ライフサイクルの各段階でのQA活動（要件レビュー、設計レビュー等）を学ぶ。
+
+---
+
+### 第15問　開発手法（ウォーターフォール・アジャイル）
+
+**問題要旨**: 従来的な開発手法とアジャイル手法の違い。最も適切な選択基準を選ぶ。
+
+`K1_development-methods` `T2_methodology-choice` `L1_concept` `Trap-C_context`
+
+**正解**: イ
+
+---
+
+### 第16問　ERP システム導入
+
+**問題要旨**: エンタープライズリソースプランニング（ERP）システムの特性。最も適切な説明を選ぶ。
+
+`K1_erp` `T1_functionality` `L1_concept` `Trap-A_benefit`
+
+**正解**: ウ
+
+---
+
+### 第17問　ビジネスインテリジェンス
+
+**問題要旨**: BI（ビジネスインテリジェンス）と意思決定支援。最も適切な説明を選ぶ。
+
+`K1_bi` `T1_concept` `L1_concept` `Trap-B_function`
+
+**正解**: ア
+
+---
+
+### 第18問　クラウドコンピューティング
+
+**問題要旨**: クラウドのサービスモデル（IaaS・PaaS・SaaS）。最も適切な分類を選ぶ。
+
+`K1_cloud` `T2_service-model` `L1_concept` `Trap-C_responsibility`
+
+**正解**: イ
+
+---
+
+### 第19問　Web サービスと API
+
+**問題要旨**: Web サービスと API の概念。最も適切な説明を選ぶ。
+
+`K1_web-service` `T1_concept` `L1_concept` `Trap-A_definition`
+
+**正解**: ウ
+
+---
+
+### 第20問　IT ガバナンス
+
+**問題要旨**: IT ガバナンスの目的と枠組み。最も不適切な判断を選ぶ。
+
+`K2_it-governance` `T2_framework` `L2_organization` `Trap-D_objective`
+
+**正解**: エ
+
+**必要知識**: [IT 戦略と DX](/management-information-systems/knowledge-it-strategy-and-dx) — ITガバナンス：経営戦略とIT戦略の整合。IT投資の効果測定、リスク管理、コンプライアンス確保。CIO（情報統括責任者）の役割が重要。
+
+**解法の思考プロセス**: IT投資の意思決定・執行が、経営戦略と整合し、適切な管理・監視下にあるかを評価。単なるIT導入ではなく、経営価値創造が目的。問題で示されるIT施策が経営戦略に貢献するかを判定。
+
+**誤答の落とし穴**: ITガバナンスを単なる情報セキュリティ対策や技術管理と誤解すること。経営層のITに対する認識不足や、IT部門の独立した運営がガバナンス崩壊につながる。
+
+**学習アドバイス**: ITガバナンスの4つの主要領域（投資管理、リスク管理、資源管理、パフォーマンス管理）を学習。IT戦略フレームワーク（ITIL、COBIT）も重要。
+
+---
+
+### 第21問　IT 監査と統制
+
+**問題要旨**: IT 監査の目的と実施範囲。最も適切な説明を選ぶ。
+
+`K1_it-audit` `T1_objective` `L1_concept` `Trap-B_scope`
+
+**正解**: ア
+
+---
+
+### 第22問　システム保守と更新
+
+**問題要旨**: システムの保守形態（予防・是正・適応）。最も適切な判断を選ぶ。
+
+`K1_maintenance` `T2_maintenance-type` `L1_concept` `Trap-C_timing`
+
+**正解**: ウ
+
+---
+
+### 第23問　デジタル化と DX（デジタルトランスフォーメーション）
+
+**問題要旨**: デジタル化による業務改革。最も適切な取り組みを選ぶ。
+
+`K1_dx` `T1_concept` `L1_concept` `Trap-A_scope`
+
+**正解**: イ
+
+---
+
+### 第24問　マルチメディアデータと形式
+
+**問題要旨**: マルチメディアデータの形式と圧縮（ロッシー・ロスレス）。最も適切な説明を選ぶ。
+
+`K1_multimedia` `T1_formats` `L1_concept` `Trap-B_compression`
+
+**正解**: ウ
+
+---
+
+### 第25問　ASP と SaaS
+
+**問題要旨**: アプリケーション・サービス・プロバイダー（ASP）と SaaS の違い。最も適切な説明を選ぶ。
+
+`K1_asp-saas` `T2_service-model` `L1_concept` `Trap-C_evolution`
+
+**正解**: ア
+
+---
+
+## 年度総括
+
+### 分野別出題
+
+| 分野 | 問数 | 割合 |
+|-----|------|------|
+| ハードウェア・ソフトウェア | 4 | 16% |
+| データベース | 4 | 16% |
+| ネットワーク・セキュリティ | 4 | 16% |
+| システム開発・IT戦略 | 13 | 52% |
+
+### K分類の特性
+
+- **K1（概念・定義）**: 88%
+- **K2（手法・設計）**: 12%
+
+### 本番セルフチェック5項目
+
+1. **メモリの種類：DRAM（揮発・高速）vs ROM（不揮発・読専）を区別**
+2. **データベース正規化：第1～3正規形の段階を理解**
+3. **TCP/IP 階層：物理→IP→TCP→アプリケーション層**
+4. **開発手法：ウォーターフォール（計画重視）vs アジャイル（柔軟性重視）**
+5. **クラウドサービス：IaaS（インフラ）・PaaS（プラットフォーム）・SaaS（アプリ）を区別**
+
+---
+
+## 分類タグの凡例
+
+### K分類（知識種類）
+
+| 記号 | 説明 |
+|-----|------|
+| K1 | IT概念・定義・用語 |
+| K2 | IT手法・設計・フレームワーク |
+
+### T分類（思考法）
+
+| 記号 | 説明 |
+|-----|------|
+| T1 | 定義・用語の正確性 |
+| T2 | 選択肢比較・最適化判定 |
+
+### L分類（形式層）
+
+| 記号 | 説明 |
+|-----|------|
+| L1 | 単一概念・定義問題 |
+| L2 | 複数要素の統合・設計判定 |
+
+### Trap分類（誤答パターン）
+
+| 記号 | パターン |
+|-----|--------|
+| Trap-A | 用語定義の誤読 |
+| Trap-B | 性能指標・特性の混同 |
+| Trap-C | 適用条件・要件の無視 |
+| Trap-D | 複雑な関係性の誤判定 |
+
+---
+
+
+## 分類タグ凡例
+
+| タグ | 意味 |
+|---|---|
+| **K1 定義・用語** | 用語の正確な意味を問う |
+| **K2 グラフ形状** | グラフの読み取り・形状判断 |
+| **K3 数式・公式** | 公式の適用・計算 |
+| **K4 因果メカニズム** | 原因→結果の論理連鎖 |
+| **K5 制度・データ** | 法制度・統計データの知識 |
+| **T1 正誤判定** | 選択肢の正誤を判定 |
+| **T2 グラフ読解** | グラフから情報を読み取る |
+| **T3 計算実行** | 数値計算を実行 |
+| **T4 因果推論** | 因果関係を推論 |
+| **T5 場合分け** | 条件による場合分け |
+| **L1 基礎** | 基本知識で解ける |
+| **L2 応用** | 知識の組み合わせが必要 |
+| **L3 高度** | 複数ステップの推論が必要 |
+| **L4 最難度** | 高度な分析力が必要 |
+| **Trap 逆方向誘発** | 因果の向きを逆に誘導 |
+| **Trap 混同誘発** | 類似概念を混同させる |
+| **Trap 部分正解** | 部分的に正しい選択肢で誘導 |
+| **Trap 条件すり替え** | 前提条件を変えて誘導 |
+| **Trap 計算ミス** | 計算過程での間違いを誘発 |
+
+## 関連ページ
+
+- [コンピュータ基礎知識](/management-information-systems/knowledge-computer-basics)
+- [データベースと SQL](/management-information-systems/knowledge-database-and-sql)
+- [ネットワーク基礎知識](/management-information-systems/knowledge-network-basics)
+- [情報セキュリティ基礎](/management-information-systems/knowledge-information-security-basics)
+- [システム開発方法](/management-information-systems/knowledge-systems-development-methods)
+- [Web とクラウド](/management-information-systems/knowledge-web-and-cloud)
+- [プロジェクト管理](/management-information-systems/knowledge-project-management)
+- [IT 戦略と DX](/management-information-systems/knowledge-it-strategy-and-dx)
+- [IT 運用と監査](/management-information-systems/knowledge-it-operations-and-audit)
+- [統計基礎知識](/management-information-systems/knowledge-statistics-basics)
+- [アウトソーシングと意思決定支援](/management-information-systems/knowledge-outsourcing-and-decision-support)

@@ -1,0 +1,451 @@
+---
+title: 運営管理（平成22年度）
+description: 平成22年度（2010）中小企業診断士第1次試験 運営管理の全25問解説
+---
+
+## 概要
+
+平成22年度（2010）の運営管理は全25問（各4点、100点満点）で出題されました。生産計画・管理、在庫管理、品質管理、流通・物流、小売業の各領域をバランスよく扱い、実務的な処理スキルと理論的理解を重視する構成となっています。
+
+問題文は [J-SMECA 公式サイト](https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html) から入手できます。手元に PDF を用意したうえでお読みください。全年度の問題は [J-SMECA 試験問題ページ](https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html) で公開されています。
+
+<Callout title="解説の読み方">
+  各問について「問題要旨 → 分類タグ → 正解 → 必要知識 → 解法の思考プロセス → 誤答の落とし穴 → 学習アドバイス」の順で解説しています。分類タグの意味は[本ページ末尾の凡例](#分類タグの凡例)を参照してください。
+</Callout>
+
+### 出題構成
+
+| 領域 | 問番号 | 問数 |
+|-----|--------|------|
+| 生産計画・管理 | 1～8 | 8 |
+| 在庫管理・購買 | 9～14 | 6 |
+| 品質管理 | 15～20 | 6 |
+| 流通・小売業 | 21～25 | 5 |
+
+### 全問分類マップ
+
+| 問 | テーマ | K分類 | T分類 | L分類 | 罠パターン |
+|-----|--------|-------|-------|-------|----------|
+| 1 | デカップリングポイント | K1 | T1 | L1 | Trap-A |
+| 2 | ロット生産と設定時間 | K2 | T2 | L2 | Trap-B |
+| 3 | スケジューリングと負荷 | K2 | T2 | L2 | Trap-C |
+| 4 | 直列型生産とボトルネック | K2 | T3 | L2 | Trap-D |
+| 5 | 発注点と安全在庫 | K4 | T2 | L3 | Trap-B |
+| 6 | EOQ計算と在庫費用 | K4 | T2 | L3 | Trap-E |
+| 7 | 在庫回転率と効率性 | K4 | T2 | L2 | Trap-B |
+| 8 | JITと在庫削減 | K1 | T1 | L1 | Trap-A |
+| 9 | 工程能力とCp/Cpk | K4 | T2 | L3 | Trap-F |
+| 10 | QC七つ道具と不良原因 | K1 | T2 | L1 | Trap-A |
+| 11 | 品質コストの分類 | K1 | T1 | L1 | Trap-B |
+| 12 | ブランド管理と品質 | K2 | T3 | L2 | Trap-D |
+| 13 | リサイクル設計と環境対応 | K1 | T1 | L1 | Trap-C |
+| 14 | リーダーシップ対応戦略 | K2 | T2 | L2 | Trap-E |
+| 15 | 商圏と立地選択 | K1 | T2 | L1 | Trap-A |
+| 16 | 店舗レイアウトと回遊 | K1 | T1 | L1 | Trap-B |
+| 17 | 商品管理と販売構成 | K2 | T2 | L2 | Trap-C |
+| 18 | VMDと消費者心理 | K1 | T1 | L1 | Trap-A |
+| 19 | 販売指標と効率性評価 | K2 | T3 | L2 | Trap-D |
+| 20 | ロジスティクスと配送 | K1 | T2 | L1 | Trap-B |
+| 21 | 多段階直列型生産 | K2 | T2 | L2 | Trap-E |
+| 22 | 生産計画の平準化 | K1 | T1 | L1 | Trap-A |
+| 23 | 変動費と固定費の分離 | K4 | T2 | L3 | Trap-F |
+| 24 | 在庫評価と減損 | K1 | T1 | L1 | Trap-B |
+| 25 | サプライチェーン統合 | K2 | T3 | L2 | Trap-D |
+
+---
+
+## 生産計画・管理領域
+
+### 第1問　デカップリングポイント
+
+**問題要旨**: 見込生産と受注生産の分岐点（デカップリングポイント）の概念と機能。最も適切な説明を選ぶ。
+
+`K1_production-strategy` `T1_concept` `L1_concept` `Trap-A_partial`
+
+**正解**: ウ
+
+**必要知識**: [生産システムと計画・管理](/operations-management/knowledge-production-systems-and-planning-control) — デカップリングポイントは見込生産・受注生産の分岐点。中間製品で在庫保持してリードタイム短縮。
+
+**解法の思考プロセス**: デカップリングポイントの機能は「リードタイム短縮」と「需要変動対応」の両立。選択肢から定義に合致するものを選別。
+
+**誤答の落とし穴**: デッドストック（死蔵在庫）リスクが存在することを忘れやすい。
+
+**学習アドバイス**: デカップリングポイントは経営判断。リードタイム短縮とリスク保有のトレードオフ。
+
+---
+
+### 第2問　ロット生産と設定時間
+
+**問題要旨**: ロット生産でのロットサイズ決定と費用関係。設定時間が長い場合の最適ロットを判定。
+
+`K2_lot-size` `T2_trade-off` `L2_calculation` `Trap-B_inverse`
+
+**正解**: ア
+
+**必要知識**: [スケジューリングとラインバランシング](/operations-management/knowledge-scheduling-and-line-balancing) — ロットサイズ：設定費用と保有在庫のトレードオフ。設定費用大→大ロット、設定費用小→小ロット。
+
+---
+
+### 第3問　スケジューリングと負荷
+
+**問題要旨**: 複数工程でのスケジューリング。工程の負荷計画において最も適切な判断を選ぶ。
+
+`K2_scheduling` `T2_capacity-planning` `L2_multiple` `Trap-C_bottleneck`
+
+**正解**: ウ
+
+---
+
+### 第4問　直列型生産とボトルネック
+
+**問題要旨**: 直列に連結された工程での生産能力。工程間在庫制約下での最適出力を判定。
+
+`K2_bottleneck` `T3_constraint` `L2_system` `Trap-D_averaging`
+
+**正解**: ウ
+
+**必要知識**: [生産システムと計画・管理](/operations-management/knowledge-production-systems-and-planning-control) — 直列型では最遅工程の能力が全体出力を決定（ボトルネック理論）。
+
+---
+
+### 第5問　発注点と安全在庫
+
+**問題要旨**: 定期発注方式での発注点計算。需要変動と納期を考慮した安全在庫決定。
+
+`K4_inventory-calculation` `T2_formula-application` `L3_calculation` `Trap-B_formula-error`
+
+**正解**: ア
+
+**必要知識**: [材料・在庫管理](/operations-management/knowledge-materials-and-inventory-management) — 発注点 = 平均需要×納期 + 安全在庫。
+
+---
+
+### 第6問　経済発注量（EOQ）計算
+
+**問題要旨**: 保管費と発注費のバランスによる最適発注量計算。年間総在庫費用の最小化。
+
+`K4_eoq` `T2_optimization` `L3_calculation` `Trap-E_formula-misapply`
+
+**正解**: ウ
+
+**必要知識**: [材料・在庫管理](/operations-management/knowledge-materials-and-inventory-management) — EOQ計算：√（2×年需要量×発注費÷年1単位保管費）。
+
+---
+
+### 第7問　在庫回転率と効率性
+
+**問題要旨**: 小売業での在庫効率性指標。平均在庫日数の計算と評価。
+
+`K4_inventory-turnover` `T2_indicator-analysis` `L2_metric` `Trap-B_inverse-ratio`
+
+**正解**: イ
+
+---
+
+### 第8問　JIT（ジャスト・イン・タイム）
+
+**問題要旨**: JIT生産システムの特性と効果。最も適切な説明を選ぶ。
+
+`K1_jit` `T1_definition` `L1_concept` `Trap-A_partial-understanding`
+
+**正解**: ア
+
+**必要知識**: [JITとカンバン](/operations-management/knowledge-jit-and-kanban) — JIT：必要なものを、必要な量だけ、必要な時に。在庫最小化と品質確保の両立。
+
+---
+
+## 品質管理領域
+
+### 第9問　工程能力指数（Cp/Cpk）
+
+**問題要旨**: 統計的品質管理での工程能力評価。Cpk値の計算と解釈。
+
+`K4_capability-index` `T2_formula-application` `L3_calculation` `Trap-F_interpretation`
+
+**正解**: エ
+
+**必要知識**: [品質管理](/operations-management/knowledge-quality-management) — Cp=規格幅/6σ、Cpk=min（上限までの距離、下限までの距離）/3σ。Cpk>1.33が目安。
+
+---
+
+### 第10問　QC七つ道具と不良原因分析
+
+**問題要旨**: QC七つ道具（パレート図、因果図等）の活用。特定の問題分析に最適な道具を選ぶ。
+
+`K1_qc-tools` `T2_tool-selection` `L1_concept` `Trap-A_tool-confusion`
+
+**正解**: ア
+
+**必要知識**: [品質管理](/operations-management/knowledge-quality-management) — 不良原因分析には特性要因図（魚骨図）。不良の多寡分析にはパレート図。
+
+---
+
+### 第11問　品質コストの分類
+
+**問題要旨**: 品質関連コストの分類（予防費、鑑定費、不良費）。最も適切な分類を選ぶ。
+
+`K1_quality-cost` `T1_classification` `L1_concept` `Trap-B_category-error`
+
+**正解**: ウ
+
+---
+
+### 第12問　ブランド管理と品質維持
+
+**問題要旨**: 高級ブランドが品質低下に直面する際の戦略判断。最も不適切な対応を選ぶ。
+
+`K2_brand-strategy` `T3_strategic-choice` `L2_case` `Trap-D_long-term-risk`
+
+**正解**: エ
+
+---
+
+### 第13問　リサイクル設計と環境対応
+
+**問題要旨**: 製品ライフサイクル全体での環境責任と品質管理の統合。最も適切な戦略を選ぶ。
+
+`K1_sustainability` `T1_lifecycle-thinking` `L1_concept` `Trap-C_false-trade-off`
+
+**正解**: イ
+
+---
+
+### 第14問　リーダーシップとチーム対応
+
+**問題要旨**: 品質改善活動でのリーダーシップ。最も不適切な方針を選ぶ。
+
+`K2_leadership` `T2_team-management` `L2_organization` `Trap-E_authority-overuse`
+
+**正解**: ウ
+
+---
+
+## 流通・小売業領域
+
+### 第15問　商圏と店舗立地
+
+**問題要旨**: 小売業の店舗立地選定。商圏分析と市場評価の方法。最も適切な判断を選ぶ。
+
+`K1_location` `T2_market-analysis` `L1_concept` `Trap-A_proximity-bias`
+
+**正解**: ア
+
+**必要知識**: [店舗立地と商圏](/operations-management/knowledge-store-location-and-trading-area) — 商圏：顧客が店舗に行きやすい地域。購買行動の距離考慮。
+
+---
+
+### 第16問　店舗レイアウトと消費者行動
+
+**問題要旨**: 小売店舗のレイアウト設計。消費者の回遊と購買を促進する配置。最も効果的な方針を選ぶ。
+
+`K1_layout` `T1_consumer-psychology` `L1_concept` `Trap-B_layout-rule`
+
+**正解**: ウ
+
+**必要知識**: [店舗レイアウトとマーチャンダイジング](/operations-management/knowledge-store-layout-and-merchandising) — 回遊動線設計：入口から奥へ主要商品配置、装飾品・衝動買い品は近い。
+
+---
+
+### 第17問　商品管理と販売構成
+
+**問題要旨**: 店舗の商品構成（品ぞろえ）の決定。販売構成と在庫効率のバランス。最も不適切な判断を選ぶ。
+
+`K2_merchandise-mix` `T2_assortment-planning` `L2_multiple` `Trap-C_space-allocation`
+
+**正解**: イ
+
+---
+
+### 第18問　VMD（ビジュアル・マーチャンダイジング）と消費者心理
+
+**問題要旨**: 店舗の視覚的演出による購買促進。VMDの原則と効果。最も適切な説明を選ぶ。
+
+`K1_vmd` `T1_visual-merchandising` `L1_concept` `Trap-A_aesthetic-bias`
+
+**正解**: ア
+
+**必要知識**: [店舗レイアウトとマーチャンダイジング](/operations-management/knowledge-store-layout-and-merchandising) — VMD：顧客の目線を引きつけ、購買欲求を喚起。季節感・新規感の演出。
+
+---
+
+### 第19問　販売指標と効率性評価
+
+**問題要旨**: 小売業の経営指標（売上高、顧客数、平均客単価等）の関係。最も不適切な評価を選ぶ。
+
+`K2_sales-metrics` `T3_indicator-analysis` `L2_multiple` `Trap-D_ratio-inversion`
+
+**正解**: ウ
+
+---
+
+### 第20問　ロジスティクスと配送効率
+
+**問題要旨**: 小売企業の物流・配送戦略。配送費最小化と顧客サービス。最も効果的な方針を選ぶ。
+
+`K1_logistics` `T2_cost-service-trade-off` `L1_concept` `Trap-B_false-optimization`
+
+**正解**: ア
+
+**必要知識**: [販売指標・ロジスティクスと小売情報システム](/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems) — 配送費最小化と納期確保のバランス。
+
+---
+
+## 統合領域
+
+### 第21問　多段階直列型生産システム
+
+**問題要旨**: 複数工程の直列生産での能力制約。工程間の最適なバッファ在庫。
+
+`K2_buffer-management` `T2_bottleneck-analysis` `L2_system` `Trap-E_averaging`
+
+**正解**: イ
+
+---
+
+### 第22問　生産計画の平準化
+
+**問題要旨**: 月間需要の変動に対する生産計画。平準生産による在庫削減。最も効果的な方針を選ぶ。
+
+`K1_production-leveling` `T1_planning-principle` `L1_concept` `Trap-A_demand-following`
+
+**正解**: ア
+
+---
+
+### 第23問　変動費・固定費の分離と意思決定
+
+**問題要旨**: 運搬間隔の決定。費用関数の最小化計算（運搬費vs保管費）。
+
+`K4_optimization` `T2_cost-calculation` `L3_calculation` `Trap-F_formula-choice`
+
+**正解**: ウ
+
+**必要知識**: [材料・在庫管理](/operations-management/knowledge-materials-and-inventory-management) — 運搬費と保管費の最小化：総コスト = 発注費 + 保有在庫費。
+
+---
+
+### 第24問　在庫評価と減損処理
+
+**問題要旨**: 在庫の適切な評価と減損判定。経営効率と財務報告の整合性。最も適切な判断を選ぶ。
+
+`K1_inventory-valuation` `T1_accounting` `L1_concept` `Trap-B_policy-choice`
+
+**正解**: イ
+
+---
+
+### 第25問　サプライチェーン統合
+
+**問題要旨**: サプライチェーン全体での最適化。調達から販売までの統合管理。最も不適切な判断を選ぶ。
+
+`K2_supply-chain` `T3_system-integration` `L2_multiple` `Trap-D_local-optimization`
+
+**正解**: ウ
+
+---
+
+## 年度総括
+
+### 分野別出題
+
+| 分野 | 問数 | 割合 |
+|-----|------|------|
+| 生産計画・管理 | 8 | 32% |
+| 在庫管理・購買 | 6 | 24% |
+| 品質管理 | 6 | 24% |
+| 流通・小売業 | 5 | 20% |
+
+### K分類の特性
+
+- **K1（概念・原則）**: 48%
+- **K2（フレームワーク・手法）**: 32%
+- **K4（計算・数値分析）**: 20%
+
+### 本番セルフチェック5項目
+
+1. **EOQ・発注点・安全在庫の公式を正確に適用**
+2. **ボトルネック（最遅工程）が全体出力を決定することを理解**
+3. **品質コスト分類（予防費・鑑定費・不良費）を区別**
+4. **店舗立地・レイアウト・VMDの原則を明確に**
+5. **ロジスティクスにおけるコストと納期のトレードオフを認識**
+
+---
+
+## 分類タグの凡例
+
+### K分類（知識種類）
+
+| 記号 | 説明 | 説明 |
+|-----|------|------|
+| K1 | 概念・原則・定義 | デカップリング、JIT、品質コスト分類 |
+| K2 | フレームワーク・手法 | ロット計算、スケジューリング、VMD |
+| K4 | 計算・数値分析・公式 | EOQ、発注点、工程能力指数 |
+
+### T分類（思考法）
+
+| 記号 | 説明 |
+|-----|------|
+| T1 | 定義・原則の理解と適用 |
+| T2 | トレードオフ・最適化判定 |
+| T3 | 制約条件下での条件付き判定 |
+
+### L分類（形式層）
+
+| 記号 | 説明 |
+|-----|------|
+| L1 | 単一概念・原則問題 |
+| L2 | 複数要素の統合・システム分析 |
+| L3 | 計算・定量分析 |
+
+### Trap分類（誤答パターン）
+
+| 記号 | パターン |
+|-----|--------|
+| Trap-A | 定義の部分的理解 |
+| Trap-B | 比率・逆数の誤認 |
+| Trap-C | 条件無視・一般化 |
+| Trap-D | ボトルネック・制約の見落とし |
+| Trap-E | 公式選択誤り |
+| Trap-F | 解釈基準の誤読 |
+
+---
+
+
+## 分類タグ凡例
+
+| タグ | 意味 |
+|---|---|
+| **K1 定義・用語** | 用語の正確な意味を問う |
+| **K2 グラフ形状** | グラフの読み取り・形状判断 |
+| **K3 数式・公式** | 公式の適用・計算 |
+| **K4 因果メカニズム** | 原因→結果の論理連鎖 |
+| **K5 制度・データ** | 法制度・統計データの知識 |
+| **T1 正誤判定** | 選択肢の正誤を判定 |
+| **T2 グラフ読解** | グラフから情報を読み取る |
+| **T3 計算実行** | 数値計算を実行 |
+| **T4 因果推論** | 因果関係を推論 |
+| **T5 場合分け** | 条件による場合分け |
+| **L1 基礎** | 基本知識で解ける |
+| **L2 応用** | 知識の組み合わせが必要 |
+| **L3 高度** | 複数ステップの推論が必要 |
+| **L4 最難度** | 高度な分析力が必要 |
+| **Trap 逆方向誘発** | 因果の向きを逆に誘導 |
+| **Trap 混同誘発** | 類似概念を混同させる |
+| **Trap 部分正解** | 部分的に正しい選択肢で誘導 |
+| **Trap 条件すり替え** | 前提条件を変えて誘導 |
+| **Trap 計算ミス** | 計算過程での間違いを誘発 |
+
+## 関連ページ
+
+- [生産システムと計画・管理](/operations-management/knowledge-production-systems-and-planning-control)
+- [スケジューリングとラインバランシング](/operations-management/knowledge-scheduling-and-line-balancing)
+- [材料・在庫管理](/operations-management/knowledge-materials-and-inventory-management)
+- [品質管理](/operations-management/knowledge-quality-management)
+- [IE と VE](/operations-management/knowledge-ie-and-ve)
+- [JIT とカンバン](/operations-management/knowledge-jit-and-kanban)
+- [工場レイアウトとフロー設計](/operations-management/knowledge-factory-layout-and-flow-design)
+- [設備管理と生産性](/operations-management/knowledge-equipment-management-and-productivity)
+- [購買とアウトソーシング管理](/operations-management/knowledge-purchasing-and-outsourcing-management)
+- [店舗立地と商圏](/operations-management/knowledge-store-location-and-trading-area)
+- [店舗レイアウトとマーチャンダイジング](/operations-management/knowledge-store-layout-and-merchandising)
+- [販売指標・ロジスティクスと小売情報システム](/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems)

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-28",
+  "updatedAt": "2026-03-29",
   "timezone": "Asia/Tokyo",
   "entries": [
     {
@@ -230,7 +230,6 @@
       "lastReviewedAt": "2026-03-28",
       "sourceUrls": [
         "https://www.chusho.meti.go.jp/keiei/kakushin/",
-        "https://www.chusho.meti.go.jp/keiei/kyoka/",
         "https://www.chusho.meti.go.jp/keiei/kakushin/nintei/"
       ]
     },
@@ -299,8 +298,8 @@
       "lastReviewedAt": "2026-03-27",
       "sourceUrls": [
         "https://www.chusho.meti.go.jp/shogyo/chiiki/ichiman-export/index.html",
-        "https://www.jetro.go.jp/consortium.html",
-        "https://www.smrj.go.jp/regional_hq/okinawa/sme/mimc180000001qq3.html",
+        "https://www.jetro.go.jp/",
+        "https://www.smrj.go.jp/",
         "https://www.chusho.meti.go.jp/shogyo/chiiki/"
       ]
     },
@@ -406,6 +405,924 @@
       "docPath": "content/docs/past-exam-solutions/r07/economics.mdx",
       "reviewWindowDays": 365,
       "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r01",
+      "docPath": "content/docs/past-exam-solutions/r01/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r01/economics",
+      "docPath": "content/docs/past-exam-solutions/r01/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r01/finance",
+      "docPath": "content/docs/past-exam-solutions/r01/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r01/management",
+      "docPath": "content/docs/past-exam-solutions/r01/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r01/operations",
+      "docPath": "content/docs/past-exam-solutions/r01/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r01/business-law",
+      "docPath": "content/docs/past-exam-solutions/r01/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r01/info-systems",
+      "docPath": "content/docs/past-exam-solutions/r01/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r01/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/r01/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r02",
+      "docPath": "content/docs/past-exam-solutions/r02/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r03",
+      "docPath": "content/docs/past-exam-solutions/r03/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r04",
+      "docPath": "content/docs/past-exam-solutions/r04/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r05",
+      "docPath": "content/docs/past-exam-solutions/r05/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r06",
+      "docPath": "content/docs/past-exam-solutions/r06/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r07",
+      "docPath": "content/docs/past-exam-solutions/r07/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h19",
+      "docPath": "content/docs/past-exam-solutions/h19/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h19/economics",
+      "docPath": "content/docs/past-exam-solutions/h19/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h19/finance",
+      "docPath": "content/docs/past-exam-solutions/h19/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h19/management",
+      "docPath": "content/docs/past-exam-solutions/h19/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h19/operations",
+      "docPath": "content/docs/past-exam-solutions/h19/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h19/business-law",
+      "docPath": "content/docs/past-exam-solutions/h19/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h19/info-systems",
+      "docPath": "content/docs/past-exam-solutions/h19/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h19/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/h19/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h20",
+      "docPath": "content/docs/past-exam-solutions/h20/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h20/economics",
+      "docPath": "content/docs/past-exam-solutions/h20/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h20/finance",
+      "docPath": "content/docs/past-exam-solutions/h20/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h20/management",
+      "docPath": "content/docs/past-exam-solutions/h20/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h20/operations",
+      "docPath": "content/docs/past-exam-solutions/h20/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h20/business-law",
+      "docPath": "content/docs/past-exam-solutions/h20/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h20/info-systems",
+      "docPath": "content/docs/past-exam-solutions/h20/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h20/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/h20/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h21",
+      "docPath": "content/docs/past-exam-solutions/h21/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h21/economics",
+      "docPath": "content/docs/past-exam-solutions/h21/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h21/finance",
+      "docPath": "content/docs/past-exam-solutions/h21/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h21/management",
+      "docPath": "content/docs/past-exam-solutions/h21/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h21/operations",
+      "docPath": "content/docs/past-exam-solutions/h21/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h21/business-law",
+      "docPath": "content/docs/past-exam-solutions/h21/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h21/info-systems",
+      "docPath": "content/docs/past-exam-solutions/h21/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h21/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/h21/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h22",
+      "docPath": "content/docs/past-exam-solutions/h22/index.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h22/economics",
+      "docPath": "content/docs/past-exam-solutions/h22/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h22/finance",
+      "docPath": "content/docs/past-exam-solutions/h22/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h22/management",
+      "docPath": "content/docs/past-exam-solutions/h22/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h22/operations",
+      "docPath": "content/docs/past-exam-solutions/h22/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h22/business-law",
+      "docPath": "content/docs/past-exam-solutions/h22/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h22/info-systems",
+      "docPath": "content/docs/past-exam-solutions/h22/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h22/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/h22/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h28/economics",
+      "docPath": "content/docs/past-exam-solutions/h28/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h28/finance",
+      "docPath": "content/docs/past-exam-solutions/h28/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h28/management",
+      "docPath": "content/docs/past-exam-solutions/h28/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h28/operations",
+      "docPath": "content/docs/past-exam-solutions/h28/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h28/business-law",
+      "docPath": "content/docs/past-exam-solutions/h28/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h28/info-systems",
+      "docPath": "content/docs/past-exam-solutions/h28/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h28/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/h28/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h27/economics",
+      "docPath": "content/docs/past-exam-solutions/h27/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h27/finance",
+      "docPath": "content/docs/past-exam-solutions/h27/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h27/management",
+      "docPath": "content/docs/past-exam-solutions/h27/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h27/operations",
+      "docPath": "content/docs/past-exam-solutions/h27/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h27/business-law",
+      "docPath": "content/docs/past-exam-solutions/h27/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h27/info-systems",
+      "docPath": "content/docs/past-exam-solutions/h27/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h27/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/h27/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h26/economics",
+      "docPath": "content/docs/past-exam-solutions/h26/economics.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h26/finance",
+      "docPath": "content/docs/past-exam-solutions/h26/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h26/management",
+      "docPath": "content/docs/past-exam-solutions/h26/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h26/operations",
+      "docPath": "content/docs/past-exam-solutions/h26/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h26/business-law",
+      "docPath": "content/docs/past-exam-solutions/h26/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h26/info-systems",
+      "docPath": "content/docs/past-exam-solutions/h26/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/h26/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/h26/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r02/business-law",
+      "docPath": "content/docs/past-exam-solutions/r02/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r02/finance",
+      "docPath": "content/docs/past-exam-solutions/r02/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r02/info-systems",
+      "docPath": "content/docs/past-exam-solutions/r02/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r02/management",
+      "docPath": "content/docs/past-exam-solutions/r02/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r02/operations",
+      "docPath": "content/docs/past-exam-solutions/r02/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r02/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/r02/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r03/business-law",
+      "docPath": "content/docs/past-exam-solutions/r03/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r03/finance",
+      "docPath": "content/docs/past-exam-solutions/r03/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r03/info-systems",
+      "docPath": "content/docs/past-exam-solutions/r03/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r03/management",
+      "docPath": "content/docs/past-exam-solutions/r03/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r03/operations",
+      "docPath": "content/docs/past-exam-solutions/r03/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r03/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/r03/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r04/business-law",
+      "docPath": "content/docs/past-exam-solutions/r04/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r04/finance",
+      "docPath": "content/docs/past-exam-solutions/r04/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r04/info-systems",
+      "docPath": "content/docs/past-exam-solutions/r04/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r04/management",
+      "docPath": "content/docs/past-exam-solutions/r04/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r04/operations",
+      "docPath": "content/docs/past-exam-solutions/r04/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r04/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/r04/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r05/business-law",
+      "docPath": "content/docs/past-exam-solutions/r05/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r05/finance",
+      "docPath": "content/docs/past-exam-solutions/r05/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r05/info-systems",
+      "docPath": "content/docs/past-exam-solutions/r05/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r05/management",
+      "docPath": "content/docs/past-exam-solutions/r05/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r05/operations",
+      "docPath": "content/docs/past-exam-solutions/r05/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r05/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/r05/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r06/business-law",
+      "docPath": "content/docs/past-exam-solutions/r06/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r06/info-systems",
+      "docPath": "content/docs/past-exam-solutions/r06/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r06/management",
+      "docPath": "content/docs/past-exam-solutions/r06/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r06/operations",
+      "docPath": "content/docs/past-exam-solutions/r06/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r06/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/r06/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r07/business-law",
+      "docPath": "content/docs/past-exam-solutions/r07/business-law.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r07/finance",
+      "docPath": "content/docs/past-exam-solutions/r07/finance.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r07/info-systems",
+      "docPath": "content/docs/past-exam-solutions/r07/info-systems.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r07/management",
+      "docPath": "content/docs/past-exam-solutions/r07/management.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r07/operations",
+      "docPath": "content/docs/past-exam-solutions/r07/operations.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
+    },
+    {
+      "route": "/past-exam-solutions/r07/sme-policy",
+      "docPath": "content/docs/past-exam-solutions/r07/sme-policy.mdx",
+      "reviewWindowDays": 365,
+      "lastReviewedAt": "2026-03-29",
       "sourceUrls": [
         "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
       ]

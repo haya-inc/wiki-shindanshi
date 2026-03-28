@@ -112,12 +112,12 @@ const desktopRouteGroups = {
       selector: "h2",
     },
     {
-      route: "/economics-and-economic-policy/microeconomics/practice-basic-check",
+      route: "/economics-and-economic-policy/microeconomics-practice-basic-check",
       markerText: "基本確認問題",
       selector: "h2",
     },
     {
-      route: "/economics-and-economic-policy/microeconomics/knowledge-market-mechanism",
+      route: "/economics-and-economic-policy/microeconomics-knowledge-market-mechanism",
       markerText: "市場メカニズムの基礎",
       selector: "article",
     },
@@ -533,7 +533,7 @@ const uiScenarioRoutes = {
     bannerPages: ["/reference/exam-guide", "/reference/yearly-question-trends"],
     mathPages: [
       "/reference/important-formulas",
-      "/economics-and-economic-policy/microeconomics/knowledge-market-mechanism",
+      "/economics-and-economic-policy/microeconomics-knowledge-market-mechanism",
     ],
   },
   referenceSurface: "/reference",

@@ -4,16 +4,16 @@
   "private": true,
   "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "check:maintenance-tests": "node --test scripts/check-maintenance-scripts.test.mjs",
-    "check:wiki": "pnpm check:maintenance-tests && node scripts/check-wiki-maintenance.mjs && node scripts/check-doc-page-structure.mjs",
-    "check:wiki-links": "node scripts/check-wiki-links.mjs",
-    "check:docs-links": "node scripts/check-doc-links.mjs",
-    "check:docs-ui": "playwright test",
-    "check:wiki-full": "pnpm check:wiki && pnpm check:wiki-links && pnpm check:docs-links",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "pnpm check:wiki && pnpm check:docs-links && eslint"
+    "lint": "eslint",
+    "test": "playwright test",
+    "check:wiki": "node --test scripts/check-maintenance-scripts.test.mjs && node scripts/check-wiki-maintenance.mjs && node scripts/check-doc-page-structure.mjs",
+    "check:wiki-links": "node scripts/check-wiki-links.mjs",
+    "check:docs-links": "node scripts/check-doc-links.mjs",
+    "check": "pnpm check:wiki && pnpm check:wiki-links && pnpm check:docs-links",
+    "validate": "pnpm check && pnpm lint && NEXT_DIST_DIR=.next-check pnpm build"
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.143",

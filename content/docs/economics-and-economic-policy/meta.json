@@ -3,5 +3,29 @@
   "description": "ミクロ・マクロ・政策",
   "icon": "ChartColumn",
   "root": true,
-  "pages": ["index", "microeconomics", "macroeconomics", "---過去問マッピング---", "exam-question-mapping"]
+  "pages": [
+    "index",
+    "---ミクロ経済学---",
+    "microeconomics",
+    "microeconomics-knowledge-market-mechanism",
+    "microeconomics-knowledge-consumer-and-firm",
+    "microeconomics-knowledge-market-structure-and-failure",
+    "microeconomics-knowledge-game-theory",
+    "microeconomics-knowledge-international-trade",
+    "microeconomics-exam-graph-and-comparison-patterns",
+    "microeconomics-practice-basic-check",
+    "microeconomics-summary",
+    "---マクロ経済学---",
+    "macroeconomics",
+    "macroeconomics-knowledge-national-income-and-indicators",
+    "macroeconomics-knowledge-consumption-and-investment-theory",
+    "macroeconomics-knowledge-is-lm-and-policies",
+    "macroeconomics-knowledge-ad-as-and-international-macro",
+    "macroeconomics-knowledge-history-of-macroeconomic-thought",
+    "macroeconomics-exam-policy-and-graph-patterns",
+    "macroeconomics-practice-basic-check",
+    "macroeconomics-summary",
+    "---過去問マッピング---",
+    "exam-question-mapping"
+  ]
 }
