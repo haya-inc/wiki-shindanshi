@@ -30,8 +30,8 @@
 
 | 章 | 公開導線 | 論点区分 | 状態 | 達成ゲート | 次の作業 |
 | --- | --- | --- | --- | --- | --- |
-| 第1章 ミクロ経済学 | `/docs/economics-and-economic-policy/microeconomics` | 安定論点 | 公開済み | `G1-G5` | 年別出題傾向と誤答パターンに加え、出題ノードへ後半論点の判断順を広げる |
-| 第2章 マクロ経済学 | `/docs/economics-and-economic-policy/macroeconomics` | 安定論点 | 公開済み | `G1-G5` | 索引から政策比較表と年別出題傾向へ広げる |
+| 第1章 ミクロ経済学 | `/docs/economics-and-economic-policy/microeconomics` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し・過去問125問検証・3層ナビ完了。inline $ math修正、出題ノードの判断順表を残す |
+| 第2章 マクロ経済学 | `/docs/economics-and-economic-policy/macroeconomics` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し・過去問125問検証・3層ナビ完了。inline $ math修正、出題ノードの判断順表を残す |
 | 第3章 簿記の基礎 | `/docs/finance-and-accounting/bookkeeping-basics` | 安定論点 | 公開済み | `G1-G5` | 商品売買、現金過不足、銀行勘定調整表の確認問題を追加する |
 | 第4章 企業会計の基礎 | `/docs/finance-and-accounting/corporate-accounting-basics` | 安定論点 | 公開済み | `G1-G5` | 財務諸表横断表、税効果会計の誤答例、連結会計の入口例を補強する |
 | 第5章 原価計算 | `/docs/finance-and-accounting/cost-accounting` | 安定論点 | 公開済み | `G1-G5` | 仕損・減損、配合差異、勘定連絡の応用問題を追加する |
@@ -56,28 +56,28 @@
 
 | ページ | 公開導線 | 論点区分 | 状態 | 達成ゲート | 次の作業 |
 | --- | --- | --- | --- | --- | --- |
-| 章ハブ ミクロ経済学 | `/docs/economics-and-economic-policy/microeconomics` | 安定論点 | 公開済み | `G1-G5` | 年別出題傾向と誤答パターンを追加する |
-| 知識ノード 需要と供給、市場均衡 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-mechanism` | 安定論点 | 公開済み | `G1-G5` | 価格規制、税、補助金の図表パターンを厚くする |
-| 知識ノード 消費者行動と企業行動 | `/docs/economics-and-economic-policy/microeconomics/knowledge-consumer-and-firm` | 安定論点 | 公開済み | `G1-G5` | スルツキー分解と独占企業の利潤最大化を補強する |
-| 知識ノード 市場構造と市場の失敗 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-structure-and-failure` | 安定論点 | 公開済み | `G1-G5` | 寡占とゲーム理論、比較優位の例を追加する |
-| 知識ノード ゲーム理論 | `/docs/economics-and-economic-policy/microeconomics/knowledge-game-theory` | 安定論点 | 公開済み | `G1-G5` | 支配戦略、ナッシュ均衡、囚人のジレンマの誤答パターンを追加する |
-| 知識ノード 国際貿易理論 | `/docs/economics-and-economic-policy/microeconomics/knowledge-international-trade` | 安定論点 | 公開済み | `G1-G5` | 比較優位、機会費用、関税の効果を演習付きで補強する |
+| 章ハブ ミクロ経済学 | `/docs/economics-and-economic-policy/microeconomics` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了。出題ノードの判断順表を残す |
+| 知識ノード 需要と供給、市場均衡 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-mechanism` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（149→358行）。出題実績Callout・読む順序ガイド追加済み |
+| 知識ノード 消費者行動と企業行動 | `/docs/economics-and-economic-policy/microeconomics/knowledge-consumer-and-firm` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（262→705行）。PPF・負の所得税のギャップ追記済み |
+| 知識ノード 市場構造と市場の失敗 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-structure-and-failure` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（307→877行）。買い手独占・公平性基準のギャップ追記済み |
+| 知識ノード ゲーム理論 | `/docs/economics-and-economic-policy/microeconomics/knowledge-game-theory` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（83→364行）。3つのNE計算例・囚人のジレンマ・混合戦略追加済み |
+| 知識ノード 国際貿易理論 | `/docs/economics-and-economic-policy/microeconomics/knowledge-international-trade` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（141→258行）。比較優位計算例・関税数値例追加済み |
 | 出題ノード グラフ・比較問題の解き方 | `/docs/economics-and-economic-policy/microeconomics/exam-graph-and-comparison-patterns` | 安定論点 | 公開済み | `G1-G5` | 設問パターンごとの判断順を表で固定する |
-| 演習ノード 基本確認問題 | `/docs/economics-and-economic-policy/microeconomics/practice-basic-check` | 安定論点 | 公開済み | `G1-G5` | ゲーム理論と国際貿易理論の応用問題、誤答パターンを追加する |
+| 演習ノード 基本確認問題 | `/docs/economics-and-economic-policy/microeconomics/practice-basic-check` | 安定論点 | 公開済み | `G1-G5` | 知識ノードの教材型書き直しに合わせた応用問題の追加を残す |
 | 要点整理 | `/docs/economics-and-economic-policy/microeconomics/summary` | 安定論点 | 公開済み | `G1-G5` | 後半論点を含む比較表と直前確認欄を増やす |
 
 ### 第2章 マクロ経済学の論点ノード
 
 | ページ | 公開導線 | 論点区分 | 状態 | 達成ゲート | 次の作業 |
 | --- | --- | --- | --- | --- | --- |
-| 章ハブ マクロ経済学 | `/docs/economics-and-economic-policy/macroeconomics` | 安定論点 | 公開済み | `G1-G5` | 政策比較表と年別出題傾向を追加する |
-| 知識ノード 国民所得計算と主要指標 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-national-income-and-indicators` | 安定論点 | 公開済み | `G1-G5` | 物価指数と失業率の計算例を追加する |
-| 知識ノード 消費理論と投資理論 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-consumption-and-investment-theory` | 安定論点 | 公開済み | `G1-G5` | ライフサイクル仮説、恒常所得仮説、トービンの q の比較演習を追加する |
-| 知識ノード IS-LM と政策効果 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-is-lm-and-policies` | 安定論点 | 公開済み | `G1-G5` | クラウディングアウトと乗数の比較表を追加する |
-| 知識ノード AD-AS、フィリップス曲線、国際マクロ | `/docs/economics-and-economic-policy/macroeconomics/knowledge-ad-as-and-international-macro` | 安定論点 | 公開済み | `G1-G5` | 供給ショックと国際マクロの政策比較を追加する |
-| 知識ノード 主要経済理論の系譜 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-history-of-macroeconomic-thought` | 安定論点 | 公開済み | `G1-G5` | 古典派、ケインズ派、マネタリズム、新しい古典派、新しいケインズ派の出題比較を追加する |
+| 章ハブ マクロ経済学 | `/docs/economics-and-economic-policy/macroeconomics` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了。出題ノードの判断順表を残す |
+| 知識ノード 国民所得計算と主要指標 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-national-income-and-indicators` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（126→610行）。ジニ係数・寄与度分析のギャップ追記済み |
+| 知識ノード 消費理論と投資理論 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-consumption-and-investment-theory` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（145→469行）。4消費理論比較表・加速度原理追加済み |
+| 知識ノード IS-LM と政策効果 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-is-lm-and-policies` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（387→477行）。45度線分析のギャップ追記済み |
+| 知識ノード AD-AS、フィリップス曲線、国際マクロ | `/docs/economics-and-economic-policy/macroeconomics/knowledge-ad-as-and-international-macro` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（355→657行）。マンデル=フレミング全メカニズム追加済み |
+| 知識ノード 主要経済理論の系譜 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-history-of-macroeconomic-thought` | 安定論点 | 公開済み | `G1-G5` | 教材型書き直し完了（129→282行）。内生的成長理論・AKモデル追加済み |
 | 出題ノード 政策・グラフ問題の解き方 | `/docs/economics-and-economic-policy/macroeconomics/exam-policy-and-graph-patterns` | 安定論点 | 公開済み | `G1-G5` | 設問パターンごとの判断順を表で固定する |
-| 演習ノード 基本確認問題 | `/docs/economics-and-economic-policy/macroeconomics/practice-basic-check` | 安定論点 | 公開済み | `G1-G5` | 応用問題と誤答パターンを追加する |
+| 演習ノード 基本確認問題 | `/docs/economics-and-economic-policy/macroeconomics/practice-basic-check` | 安定論点 | 公開済み | `G1-G5` | 知識ノードの教材型書き直しに合わせた応用問題の追加を残す |
 | 要点整理 | `/docs/economics-and-economic-policy/macroeconomics/summary` | 安定論点 | 公開済み | `G1-G5` | 政策比較の早見表を増やす |
 
 ### 企業経営理論の知識ノード

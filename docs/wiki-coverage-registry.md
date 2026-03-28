@@ -33,28 +33,28 @@
 
 | 細目 | 現在の主な対応ページ | 状態 | 次に必要なこと |
 | --- | --- | --- | --- |
-| 1.1 市場メカニズムの基礎 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-mechanism` | 独立ノードあり | 税、補助金、価格規制の演習を厚くする |
-| 1.2 消費者行動と需要曲線 | `/docs/economics-and-economic-policy/microeconomics/knowledge-consumer-and-firm` | 独立ノードあり | スルツキー分解の応用問題を追加する |
-| 1.3 企業行動と供給曲線 | `/docs/economics-and-economic-policy/microeconomics/knowledge-consumer-and-firm` | 独立ノードあり | 費用曲線と利潤最大化の図表問題を増やす |
-| 1.4 市場構造と競争 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-structure-and-failure` | 独立ノードあり | 寡占の比較表を追加する |
-| 1.5 市場の失敗と政府の役割 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-structure-and-failure` | 独立ノードあり | 余剰分析と政策比較の演習を増やす |
-| 1.6 ゲーム理論 | `/docs/economics-and-economic-policy/microeconomics/knowledge-game-theory` | 独立ノードあり | 出題ノードと誤答パターンを追加する |
-| 1.7 国際貿易理論 | `/docs/economics-and-economic-policy/microeconomics/knowledge-international-trade` | 独立ノードあり | 関税の効果を含む演習を増やす |
+| 1.1 市場メカニズムの基礎 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-mechanism` | 独立ノードあり | 教材型書き直し・出題実績Callout完了。演習ノードとの連携を残す |
+| 1.2 消費者行動と需要曲線 | `/docs/economics-and-economic-policy/microeconomics/knowledge-consumer-and-firm` | 独立ノードあり | 教材型書き直し完了。PPF・負の所得税のギャップ追記済み |
+| 1.3 企業行動と供給曲線 | `/docs/economics-and-economic-policy/microeconomics/knowledge-consumer-and-firm` | 独立ノードあり | 教材型書き直し完了。費用曲線の数値例・限界費用の直感的説明追加済み |
+| 1.4 市場構造と競争 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-structure-and-failure` | 独立ノードあり | 教材型書き直し完了。クールノー・シュタッケルベルグ計算例追加済み |
+| 1.5 市場の失敗と政府の役割 | `/docs/economics-and-economic-policy/microeconomics/knowledge-market-structure-and-failure` | 独立ノードあり | 教材型書き直し完了。買い手独占・公平性基準のギャップ追記済み |
+| 1.6 ゲーム理論 | `/docs/economics-and-economic-policy/microeconomics/knowledge-game-theory` | 独立ノードあり | 教材型書き直し完了。3つのNE計算例・囚人のジレンマ・混合戦略追加済み |
+| 1.7 国際貿易理論 | `/docs/economics-and-economic-policy/microeconomics/knowledge-international-trade` | 独立ノードあり | 教材型書き直し完了。比較優位計算例・関税数値例追加済み |
 
 ### 第2章 マクロ経済学
 
 | 細目 | 現在の主な対応ページ | 状態 | 次に必要なこと |
 | --- | --- | --- | --- |
-| 2.1 国民経済計算の基本概念 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-national-income-and-indicators` | 独立ノードあり | 指標計算の演習を増やす |
-| 2.2 主要経済指標の読み方 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-national-income-and-indicators` | 独立ノードあり | 景気指標と物価指標の比較表を追加する |
-| 2.3 消費理論と投資理論 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-consumption-and-investment-theory` | 独立ノードあり | 出題ノードと比較演習を追加する |
-| 2.4 財市場の分析 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-is-lm-and-policies` | 独立ノードあり | 乗数と IS 導出の演習を増やす |
-| 2.5 貨幣市場の分析 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-is-lm-and-policies` | 独立ノードあり | LM 導出と金融政策手段の比較表を増やす |
-| 2.6 IS-LM分析と財政・金融政策の効果 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-is-lm-and-policies` | 独立ノードあり | 政策比較の出題ノードを厚くする |
-| 2.7 AD-AS分析 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-ad-as-and-international-macro` | 独立ノードあり | 供給ショックと政策効果の演習を増やす |
-| 2.8 フィリップス曲線 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-ad-as-and-international-macro` | 独立ノードあり | 短期 / 長期の比較表を補強する |
-| 2.9 国際マクロ経済学 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-ad-as-and-international-macro` | 独立ノードあり | 為替と国際収支の演習を増やす |
-| 2.10 主要経済理論の系譜 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-history-of-macroeconomic-thought` | 独立ノードあり | 理論比較の出題ノードを追加する |
+| 2.1 国民経済計算の基本概念 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-national-income-and-indicators` | 独立ノードあり | 教材型書き直し完了。ジニ係数・寄与度分析のギャップ追記済み |
+| 2.2 主要経済指標の読み方 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-national-income-and-indicators` | 独立ノードあり | 教材型書き直し完了。ラスパイレスCPI計算例・失業率計算追加済み |
+| 2.3 消費理論と投資理論 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-consumption-and-investment-theory` | 独立ノードあり | 教材型書き直し完了。4消費理論比較表・加速度原理・トービンのq追加済み |
+| 2.4 財市場の分析 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-is-lm-and-policies` | 独立ノードあり | 教材型書き直し完了。45度線分析のギャップ追記済み |
+| 2.5 貨幣市場の分析 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-is-lm-and-policies` | 独立ノードあり | 教材型書き直し完了。LM導出とIS-LM同時均衡の計算例追加済み |
+| 2.6 IS-LM分析と財政・金融政策の効果 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-is-lm-and-policies` | 独立ノードあり | 教材型書き直し完了。政策比較・クラウディングアウト追加済み |
+| 2.7 AD-AS分析 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-ad-as-and-international-macro` | 独立ノードあり | 教材型書き直し完了。AD曲線導出・ソローモデル追加済み |
+| 2.8 フィリップス曲線 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-ad-as-and-international-macro` | 独立ノードあり | 教材型書き直し完了。フィリップス曲線公式・オークンの法則追加済み |
+| 2.9 国際マクロ経済学 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-ad-as-and-international-macro` | 独立ノードあり | 教材型書き直し完了。マンデル=フレミング全メカニズム追加済み |
+| 2.10 主要経済理論の系譜 | `/docs/economics-and-economic-policy/macroeconomics/knowledge-history-of-macroeconomic-thought` | 独立ノードあり | 教材型書き直し完了。内生的成長理論・AKモデル追加済み |
 
 ### 第3章 簿記の基礎
 

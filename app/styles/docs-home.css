@@ -114,13 +114,13 @@
 
 .wiki-home-primary {
   background: var(--color-fd-primary);
-  color: var(--color-fd-primary-foreground);
+  color: #fff;
 }
 
 #nd-page .prose .wiki-home-actions .wiki-home-primary,
 #nd-page .prose .wiki-home-actions .wiki-home-primary:visited,
 #nd-page .prose .wiki-home-actions .wiki-home-primary:hover {
-  color: var(--color-fd-primary-foreground);
+  color: #fff;
 }
 
 .wiki-home-secondary {

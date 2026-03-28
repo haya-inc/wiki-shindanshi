@@ -327,6 +327,15 @@
         "https://www.chusho.meti.go.jp/keiei/shokibo/2024/240308jizoku.html",
         "https://www.jfc.go.jp/n/finance/saftynet/202409saigai.html"
       ]
+    },
+    {
+      "route": "/docs/reference/past-exam-archive",
+      "docPath": "content/docs/reference/past-exam-archive.mdx",
+      "reviewWindowDays": 180,
+      "lastReviewedAt": "2026-03-28",
+      "sourceUrls": [
+        "https://www.jf-cmca.jp/contents/010_c_/shikenmondai.html"
+      ]
     }
   ]
 }

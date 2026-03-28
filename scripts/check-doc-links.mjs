@@ -84,8 +84,10 @@ export function normalizeDocRelativeLinks(filePath, content) {
 
 function stripMath(content) {
   return content
-    .replace(/^\$\$[\s\S]*?^\$\$$/gmu, "")
-    .replace(/\$\$[\s\S]*?\$\$/gu, "")
+    // ブロック数式: 行頭（インデント可）に $$ だけの行で囲まれた部分を除去
+    .replace(/^[ \t]*\$\$\s*\n[\s\S]*?\n[ \t]*\$\$\s*$/gmu, "")
+    // インライン表示数式: 1行内の $$...$$ を除去
+    .replace(/\$\$[^$\n]+\$\$/gu, "")
     .replace(/(?<!\$)\$[^$\n]+\$(?!\$)/gu, "");
 }
 
@@ -142,8 +144,14 @@ export function extractHeadingHashes(content) {
   return hashes;
 }
 
+function escapeNonTagAngleBrackets(content) {
+  // HTML/JSX タグ以外の裸の < > を除去（MDX パーサーが JSX と誤認するのを防ぐ）
+  // タグ形式 <Word... や </Word... や <br/> は残し、それ以外の < > を無害な文字に置換
+  return content.replace(/<(?!\/?[A-Za-z])/gu, "&lt;");
+}
+
 export function createValidationContent(filePath, content) {
-  return normalizeDocRelativeLinks(filePath, stripMath(content));
+  return normalizeDocRelativeLinks(filePath, escapeNonTagAngleBrackets(stripMath(content)));
 }
 
 async function getFiles() {
