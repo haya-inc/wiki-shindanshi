@@ -1,7 +1,10 @@
+import { connection } from "next/server";
 import { getLLMText } from "@/lib/get-llm-text";
 import { source } from "@/lib/source";
 
 export async function GET() {
+  await connection();
+
   const pages = source
     .getPages()
     .slice()

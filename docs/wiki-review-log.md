@@ -1,6 +1,6 @@
 # wiki レビュー記録
 
-更新日: 2026-03-28
+更新日: 2026-03-29
 
 ## 記録の見方
 
@@ -1347,3 +1347,93 @@
 2. 他科目（財務・会計が次の有力候補）のR6解説ページを作成
 3. R7の分析で判明したwiki補充候補（加速度原理、フィッシャー方程式、所得分配/ローレンツ曲線の累進税分析）を消費投資理論ノードと国民所得ノードに追記検討
 4. ユーザーローカルでの build 確認
+
+## 2026-03-29-01 デプロイ build は source map と llms prerender を切り離して軽くする
+
+### 対象
+
+- `next.config.mjs` - 本番 build の source map 設定
+- `app/llms.txt/route.ts` - `llms` index の build 時 prerender 抑止
+- `app/llms-full.txt/route.ts` - 全文 LLM 出力の build 時 prerender 抑止
+- `app/llms.mdx/[[...slug]]/route.ts` - 各ページ Markdown 出力の静的生成抑止
+- `content/docs/business-law/analysis-*.md` - build blocker だった frontmatter 不足の補正
+
+### 成果
+
+- `productionBrowserSourceMaps: false` と `experimental.serverSourceMaps: false`、`enablePrerenderSourceMaps: false` を追加し、Cache Components 有効時の build メモリ増加要因だった source map 生成を抑えた
+- `llms.txt`、`llms-full.txt`、`llms.mdx` を `connection()` ベースの request 時生成へ寄せ、build 中に全文走査や全ページ static params 展開をしない形に変えた
+- `content/docs/business-law/analysis-*.md` に最小限の frontmatter を追加し、ローカル build を止めていた別件エラーを解消した
+- ローカル生成物確認では `.next-check/server/chunks` が約 `781MB` から `271MB` に縮み、巨大 `*.js.map` も消えた
+
+### 品質ゲート
+
+- 既存の公開導線は維持し、URL は変更しない
+- `llms` 系は static から request 時生成へ変えるだけで、返却フォーマットは変えない
+- Next.js 16.2.1 の公式ドキュメントで `connection()` による prerender 停止と memory guide の source map 抑止策を確認済み
+
+### 検証
+
+- `NEXT_DIST_DIR=.next-check pnpm build` を実行
+- `pnpm exec prettier --check next.config.mjs app/llms.txt/route.ts app/llms-full.txt/route.ts app/llms.mdx/[[...slug]]/route.ts docs/wiki-review-log.md content/docs/business-law/analysis-19years-comprehensive.md content/docs/business-law/analysis-concrete-examples.md content/docs/business-law/analysis-data-tables.md` を実行
+- build 後に `.next-check/server/chunks` を確認し、10MB 超の source map が生成されていないことを確認
+
+### 鮮度確認
+
+- 2026-03-29 時点の Next.js 16.2.1 公式 docs を確認
+- Vercel の `routes-manifest` エラー説明も確認し、今回のログは `build が最後まで完了していない` 系統と整合することを確認
+
+### 学び
+
+1. OOM の直接原因が `routes-manifest` 不在ではなく、`routes-manifest` が出る前に build が kill されている点を切り分ける必要がある
+2. Cache Components 有効時は prerender source map が build メモリを押し上げやすく、巨大 docs リポジトリでは先に切る価値が高い
+3. `llms` 系ルートは build 時 static 化しなくても機能要件を満たせるため、重い全文系処理は request 時へ逃がした方が安全
+
+### 前回比
+
+改善: デプロイ時 OOM の主要因候補を build 設定と route 生成方針の両面から減らし、`routes-manifest` エラーの再発可能性を下げた
+
+### 次に修正すべきこと
+
+1. Vercel の次回 deploy で build メモリと `routes-manifest` エラー再発有無を確認する
+2. まだ OOM が残る場合は `next build --webpack` への切り替えを比較検証する
+3. `llms` 系 route の request 時生成で十分か、運用上の応答時間を確認する
+
+## 2026-03-29-02 docs ページの長い h1 は見出し幅を素直に使う
+
+### 対象
+
+- `app/globals.css` - docs 共通 `h1` の表示幅と折り返し
+- `docs/wiki-ui-patterns.md` - 長いタイトルの運用ルール
+
+### 成果
+
+- `.wiki-page-title` の `max-width: 18ch` を外し、折り返しを `text-wrap: pretty` へ寄せた
+- `経済学の学習指針 — 19年分の過去問から見えること` のような長い見出しでも、左半分だけで早く改行せず見出しカラムをほぼ使い切る形に変わった
+- UI 方針書に、長いタイトルは `h1` が見出しカラムの幅を素直に使う運用を追記した
+
+### 品質ゲート
+
+- 本文カラム幅や TOC 幅は変えず、共通 `h1` スタイルだけを最小差分で修正する
+- 短いタイトルの見た目は維持しつつ、長いタイトルだけの不自然な余白を減らす
+
+### 検証
+
+- `pnpm exec prettier --check app/globals.css docs/wiki-ui-patterns.md`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- `pnpm exec node -e '...'` の headless browser で `/economics-and-economic-policy/exam-study-guide` を開き、`.wiki-page-title` が `820px / 900px` まで広がり、2 行表示で収まることを確認した
+
+### 学び
+
+1. docs 共通 `h1` の `18ch` 制限は英字見出しには効いても、日本語の長いタイトルでは左だけで早く折れて余白が目立ちやすい
+2. 「タイトル幅を広げたい」要望では、本文レイアウト全体を動かす前に `h1` 単体の制約を疑う方が最小差分になりやすい
+3. `text-wrap: pretty` は極端なバランス調整を避けつつ、長い日本語見出しの収まりを整えやすい
+
+### 前回比
+
+改善: 学習指針ページの first view でタイトルが主役として見えやすくなり、右側の無駄な余白が減った
+
+### 次に修正すべきこと
+
+1. 他の長い docs タイトルでも 2〜3 行以内に収まるか spot check する
+2. 説明文が first view を圧迫するページがあれば、description の行長と余白だけを追加で見直す

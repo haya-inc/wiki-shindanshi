@@ -175,13 +175,13 @@ body {
   border: 0;
   background: transparent;
   padding: 0;
-  max-width: 18ch;
+  max-width: none;
   font-family: var(--font-display), serif;
   font-size: clamp(1.95rem, 1.7rem + 1vw, 2.55rem);
   font-weight: 650;
   line-height: 1;
   letter-spacing: -0.045em;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .wiki-page-description {

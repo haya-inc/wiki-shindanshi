@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { connection } from "next/server";
 import { getLLMText } from "@/lib/get-llm-text";
 import { source } from "@/lib/source";
 
@@ -9,6 +10,8 @@ type RouteProps = {
 };
 
 export async function GET(_request: Request, { params }: RouteProps) {
+  await connection();
+
   const { slug = [] } = await params;
   const page = source.getPage(slug);
 
@@ -21,8 +24,4 @@ export async function GET(_request: Request, { params }: RouteProps) {
       "content-type": "text/markdown; charset=utf-8",
     },
   });
-}
-
-export function generateStaticParams() {
-  return source.generateParams();
 }
