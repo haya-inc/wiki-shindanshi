@@ -15,7 +15,22 @@ import { source } from "@/lib/source";
 
 export default async function Layout({ children }: { children: ReactNode }) {
   return (
-    <DocsLayout tree={source.pageTree} {...baseOptions()}>
+    <DocsLayout
+      tree={source.pageTree}
+      {...baseOptions()}
+      sidebar={{
+        footer: (
+          <a
+            href="https://www.haya.company/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+          >
+            © haya株式会社
+          </a>
+        ),
+      }}
+    >
       <AISearch>
         {children}
         <AISearchPanel />

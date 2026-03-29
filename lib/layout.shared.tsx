@@ -16,5 +16,6 @@ export function baseOptions(): BaseLayoutProps {
       url: "/",
       transparentMode: "top",
     },
+    githubUrl: "https://github.com/haya-inc/wiki-shindanshi",
   };
 }
