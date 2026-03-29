@@ -189,7 +189,7 @@ chapter/
 
 ### 6.1.1 細目の基準台帳を固定する
 
-今後は、`_book/_作成メモ/目次_確定版.md` の細目と公開側の対応を、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md) で `1細目1行` で管理します。
+今後は、`_book/_作成メモ/目次_確定版.md` の細目と公開側の対応を、[wiki-coverage-registry.md](docs/wiki-coverage-registry.md) で `1細目1行` で管理します。
 
 ここでは少なくとも次を持ちます。
 

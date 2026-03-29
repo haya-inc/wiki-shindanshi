@@ -157,9 +157,9 @@
 - 制度や日程のような更新論点は、本文に固定せず参照資料へ寄せる
 - 見た目の改善だけでなく、`次にどこへ進むか` がすぐ分かる導線を優先する
 - 配色トークンは `app/globals.css` の `--color-fd-*` を基準にし、`--background` や `--accent-strong` などの独自変数はレイアウトと装飾の別名にとどめる
-- ボタンの共通 class は [components/ui/button.tsx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/ui/button.tsx) の `color` と `size` だけを正とし、同義の引数名を増やさない
+- ボタンの共通 class は [components/ui/button.tsx](components/ui/button.tsx) の `color` と `size` だけを正とし、同義の引数名を増やさない
 - ボタンの丸みや余白は呼び出し側で足さず、見た目の差分はまず `size` に寄せる
-- カード状の面と feedback 用 textarea は、見た目を呼び出し側へ再記述せず [components/ui/surface.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/components/ui/surface.ts) の class と `textareaVariants` を先に見る
+- カード状の面と feedback 用 textarea は、見た目を呼び出し側へ再記述せず [components/ui/surface.ts](components/ui/surface.ts) の class と `textareaVariants` を先に見る
 - `content/docs/**/meta.json` では、必要な箇所だけ `---区切り---` を使って sidebar の塊を明確にする
 - docs 内の内部リンクは、ページ移動や階層変更に追従しやすいように相対パスを優先する
 - `Steps` は手順を順序つきで読ませたいときだけ使い、単なる装飾には使わない

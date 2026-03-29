@@ -15,7 +15,7 @@
     "check:wiki-links": "node scripts/check-wiki-links.mjs",
     "check:docs-links": "node scripts/check-doc-links.mjs",
     "check": "pnpm check:wiki && pnpm check:wiki-links && pnpm check:docs-links",
-    "validate": "pnpm check && pnpm lint && NEXT_DIST_DIR=.next-check pnpm build"
+    "validate": "pnpm check && pnpm format:check && pnpm lint && NEXT_DIST_DIR=.next-check pnpm build"
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.143",

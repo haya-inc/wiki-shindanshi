@@ -34,10 +34,17 @@
 
 このリポジトリは、`AGENTS.md` を起点に次の順で読むと状況を把握しやすいです。
 
-1. [docs/agent-handoff.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/agent-handoff.md)
-2. [docs/wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)
-3. [docs/wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)
-4. 更新論点を触るときだけ [docs/wiki-freshness-registry.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-freshness-registry.json)
+1. [docs/agent-handoff.md](docs/agent-handoff.md)
+2. [docs/wiki-progress-tracker.md](docs/wiki-progress-tracker.md)
+3. [docs/wiki-coverage-registry.md](docs/wiki-coverage-registry.md)
+4. 更新論点を触るときだけ [docs/wiki-freshness-registry.json](docs/wiki-freshness-registry.json)
+
+`docs/` の構造:
+
+- ルート直下: 運用中のドキュメント（進捗、coverage、戦略、品質基準、レビュー記録など）
+- `docs/archive/`: 完了済みの分析メモ（経済学ギャップ分析など。役目を終えた中間成果物）
+- `docs/templates/`: 新規プロジェクト用テンプレート（簿記2級、初期化手順など）
+- `docs/analysis/`: 出題予測・傾向分析（2026年度経済学予測、出題頻度データなど）
 
 ## 読み手の想定
 
@@ -57,14 +64,17 @@
 
 ## 検証の基本
 
-一括実行なら `pnpm validate`（check → lint → build を順に実行）。個別に叩く場合は以下を参照。
+一括実行なら `pnpm validate`（check → format:check → lint → build を順に実行）。個別に叩く場合は以下を参照。
 
-| コマンド                               | 内容                                                |
-| -------------------------------------- | --------------------------------------------------- |
-| `pnpm check`                           | wiki 構造・リンク・ドキュメントリンクをすべて検証   |
-| `pnpm lint`                            | eslint のみ                                         |
-| `pnpm test`                            | Playwright による UI テスト（build + start を内包） |
-| `NEXT_DIST_DIR=.next-check pnpm build` | ビルド（競合回避用の出力先指定）                    |
+| コマンド                               | 内容                                                    |
+| -------------------------------------- | ------------------------------------------------------- |
+| `pnpm check`                           | wiki 構造・リンク・ドキュメントリンクをすべて検証       |
+| `pnpm format:check`                    | Prettier（ts/tsx/css/json/md。mdx は対象外）            |
+| `pnpm format`                          | Prettier で自動整形（mdx は `.prettierignore` で除外）  |
+| `pnpm lint`                            | ESLint + eslint-plugin-mdx + remark-lint                |
+| `pnpm lint --fix`                      | mdx の自動修正（heading-style、改行、リストマーカー等） |
+| `pnpm test`                            | Playwright による UI テスト（build + start を内包）     |
+| `NEXT_DIST_DIR=.next-check pnpm build` | ビルド（競合回避用の出力先指定）                        |
 
 - 変更した docs ルートは headless browser で `200` と `h1` を確認する（`pnpm test`）
 - 標準の `pnpm build` は、他のローカル Next.js サーバーが `.next` を使っていると `_buildManifest.js.tmp` 競合で落ちることがある。`NEXT_DIST_DIR=.next-check` を付けるか、`pnpm validate` を使う。

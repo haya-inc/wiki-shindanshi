@@ -8,12 +8,12 @@
 
 より詳細な状態は次を参照します。
 
-- 全体進捗: [wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)
-- 細目 coverage: [wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)
-- 戦略: [shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md)
-- 更新論点の確認対象: [wiki-freshness-registry.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-freshness-registry.json)
-- 直近の学び: [wiki-review-log.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-review-log.md)
-- 継続改善の反復状況: [maintenance-iteration-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/maintenance-iteration-tracker.md)
+- 全体進捗: [wiki-progress-tracker.md](docs/wiki-progress-tracker.md)
+- 細目 coverage: [wiki-coverage-registry.md](docs/wiki-coverage-registry.md)
+- 戦略: [shindanshi-wiki-strategy.md](docs/shindanshi-wiki-strategy.md)
+- 更新論点の確認対象: [wiki-freshness-registry.json](docs/wiki-freshness-registry.json)
+- 直近の学び: [wiki-review-log.md](docs/wiki-review-log.md)
+- 継続改善の反復状況: [maintenance-iteration-tracker.md](docs/maintenance-iteration-tracker.md)
 
 ## 2. 何を作っているか
 
@@ -80,26 +80,26 @@
 2. `事例Ⅰ〜Ⅳ` の悪文例、改善例、短文骨子を増やし、`設問索引` を事例Ⅳと次年度まで広げる
 3. `受験ガイド` と `第2次試験 overview` は、制度更新時に即追随しつつ、必要なら索引または個別ノードで補う
 
-判断に迷ったら、[wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md) の `いますぐ優先する不足` を先に減らします。残る `章ページで対応` は 3 件だけですが、いま重いのは `第2次の悪文例 / 改善例 / 短文骨子不足` と `横断付録を各ページへ戻す導線不足` です。
+判断に迷ったら、[wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `いますぐ優先する不足` を先に減らします。残る `章ページで対応` は 3 件だけですが、いま重いのは `第2次の悪文例 / 改善例 / 短文骨子不足` と `横断付録を各ページへ戻す導線不足` です。
 
 ## 6. 既存の良い型
 
 新しいページを増やすときは、次の既存ページを手本にすると崩れにくいです。
 
 - `章ハブ` の型:
-  - [microeconomics/index.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/microeconomics/index.mdx)
-  - [civil-and-transaction-law.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/civil-and-transaction-law.mdx)
+  - [microeconomics/index.mdx](content/docs/economics-and-economic-policy/microeconomics/index.mdx)
+  - [civil-and-transaction-law.mdx](content/docs/business-law/civil-and-transaction-law.mdx)
 - `解説ページ` の型:
-  - [knowledge-market-mechanism.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/economics-and-economic-policy/microeconomics/knowledge-market-mechanism.mdx)
-  - [knowledge-contracts-obligations-and-security.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/knowledge-contracts-obligations-and-security.mdx)
+  - [knowledge-market-mechanism.mdx](content/docs/economics-and-economic-policy/microeconomics/knowledge-market-mechanism.mdx)
+  - [knowledge-contracts-obligations-and-security.mdx](content/docs/business-law/knowledge-contracts-obligations-and-security.mdx)
 - `設問型` と `答案骨子` の型:
-  - [case-1-question-patterns.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-question-patterns.mdx)
-  - [case-1-answer-frameworks.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-1-answer-frameworks.mdx)
+  - [case-1-question-patterns.mdx](content/docs/second-stage/case-1-question-patterns.mdx)
+  - [case-1-answer-frameworks.mdx](content/docs/second-stage/case-1-answer-frameworks.mdx)
 - `逆引き索引` の型:
-  - [second-stage-question-index.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/second-stage-question-index.mdx)
+  - [second-stage-question-index.mdx](content/docs/reference/second-stage-question-index.mdx)
 - `事例Ⅳの個別ノード` の型:
-  - [case-4-management-analysis.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-4-management-analysis.mdx)
-  - [case-4-npv-and-investment-decision.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/second-stage/case-4-npv-and-investment-decision.mdx)
+  - [case-4-management-analysis.mdx](content/docs/second-stage/case-4-management-analysis.mdx)
+  - [case-4-npv-and-investment-decision.mdx](content/docs/second-stage/case-4-npv-and-investment-decision.mdx)
 
 ## 7. ページ追加時に一緒に触ること
 
@@ -107,13 +107,13 @@
 
 - `content/docs/.../meta.json`
 - 関連する科目ハブまたは章ハブ
-- [content/docs/reference/past-question-theme-index.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/reference/past-question-theme-index.mdx)
-- [docs/wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md)
-- [docs/wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md)
-- [docs/shindanshi-wiki-strategy.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/shindanshi-wiki-strategy.md)
-- [docs/wiki-review-log.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-review-log.md)
-- `必要なら` [tests/docs-ui.spec.ts](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/tests/docs-ui.spec.ts)
-- `更新論点なら` [docs/wiki-freshness-registry.json](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-freshness-registry.json)
+- [content/docs/reference/past-question-theme-index.mdx](content/docs/reference/past-question-theme-index.mdx)
+- [docs/wiki-progress-tracker.md](docs/wiki-progress-tracker.md)
+- [docs/wiki-coverage-registry.md](docs/wiki-coverage-registry.md)
+- [docs/shindanshi-wiki-strategy.md](docs/shindanshi-wiki-strategy.md)
+- [docs/wiki-review-log.md](docs/wiki-review-log.md)
+- `必要なら` [tests/docs-ui.spec.ts](tests/docs-ui.spec.ts)
+- `更新論点なら` [docs/wiki-freshness-registry.json](docs/wiki-freshness-registry.json)
 
 ## 8. 更新論点の扱い
 
@@ -123,8 +123,8 @@
 
 例:
 
-- [content/docs/business-law/index.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/index.mdx)
-- [content/docs/business-law/civil-and-transaction-law.mdx](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/business-law/civil-and-transaction-law.mdx)
+- [content/docs/business-law/index.mdx](content/docs/business-law/index.mdx)
+- [content/docs/business-law/civil-and-transaction-law.mdx](content/docs/business-law/civil-and-transaction-law.mdx)
 
 ## 9. 検証の基本手順
 
