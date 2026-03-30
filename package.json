@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:check": "rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build",
+    "build:check:webpack": "rm -rf .next-check-webpack && NEXT_DIST_DIR=.next-check-webpack pnpm exec next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
@@ -15,7 +17,7 @@
     "check:wiki-links": "node scripts/check-wiki-links.mjs",
     "check:docs-links": "node scripts/check-doc-links.mjs",
     "check": "pnpm check:wiki && pnpm check:wiki-links && pnpm check:docs-links",
-    "validate": "pnpm check && pnpm format:check && pnpm lint && NEXT_DIST_DIR=.next-check pnpm build"
+    "validate": "pnpm check && pnpm format:check && pnpm lint && (pnpm build:check || pnpm build:check:webpack)"
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.143",

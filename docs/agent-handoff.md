@@ -1,6 +1,6 @@
 # エージェント引き継ぎ
 
-更新日: 2026-03-28
+更新日: 2026-03-30
 
 ## 1. この文書の役割
 
@@ -11,6 +11,7 @@
 - 全体進捗: [wiki-progress-tracker.md](docs/wiki-progress-tracker.md)
 - 細目 coverage: [wiki-coverage-registry.md](docs/wiki-coverage-registry.md)
 - 戦略: [shindanshi-wiki-strategy.md](docs/shindanshi-wiki-strategy.md)
+- 初学者通読レビューの現在位置: [wiki-beginner-review-tracker.md](docs/wiki-beginner-review-tracker.md)
 - 更新論点の確認対象: [wiki-freshness-registry.json](docs/wiki-freshness-registry.json)
 - 直近の学び: [wiki-review-log.md](docs/wiki-review-log.md)
 - 継続改善の反復状況: [maintenance-iteration-tracker.md](docs/maintenance-iteration-tracker.md)
@@ -72,6 +73,14 @@
 - `横断付録`: 略語、類義語、誤答逆引きの入口は揃ったので、`事例Ⅳ`、1次ノード、索引からの逆流を増やす
 - `章ページで対応` の残り: `受験ガイド` と `第2次試験 overview` は確認順と時間配分を補強済み。必要なら今後は索引や個別ノードで補う
 
+### 4.3 初学者通読レビューの現在位置
+
+- `2026-03-29` から、`docs/wiki-beginner-review-tracker.md` を正として、公開導線どおりの通読レビューを開始
+- レビュー対象は、まず `content/docs` のコア本文 `201ページ`
+- `content/docs/past-exam-solutions` の `153ページ` は、入口、科目トップ、章ハブ、主要ノードの通読が一巡したあとに後段で着手
+- `入口フェーズ` は、`content/docs/index.mdx`、`content/docs/reference/exam-guide.mdx`、`content/docs/reference/index.mdx`、`content/docs/second-stage/index.mdx`、`content/docs/economics-and-economic-policy/index.mdx`、`content/docs/finance-and-accounting/index.mdx`、`content/docs/business-management-theory/index.mdx`、`content/docs/operations-management/index.mdx`、`content/docs/business-law/index.mdx`、`content/docs/management-information-systems/index.mdx`、`content/docs/sme-management-and-policy/index.mdx` の通過で完了
+- `章ハブ・事例ハブフェーズ` に入り、`content/docs/economics-and-economic-policy/microeconomics.mdx`、`content/docs/economics-and-economic-policy/macroeconomics.mdx`、`content/docs/finance-and-accounting/bookkeeping-basics.mdx`、`content/docs/finance-and-accounting/corporate-accounting-basics.mdx`、`content/docs/finance-and-accounting/cost-accounting.mdx`、`content/docs/finance-and-accounting/management-analysis.mdx`、`content/docs/finance-and-accounting/profit-and-cash-management.mdx`、`content/docs/finance-and-accounting/finance.mdx`、`content/docs/second-stage/case-4-finance-and-accounting.mdx`、`content/docs/second-stage/case-1-organization-and-hr.mdx`、`content/docs/second-stage/case-2-marketing-and-distribution.mdx`、`content/docs/second-stage/case-3-production-and-technology.mdx`、`content/docs/business-management-theory/management-strategy.mdx`、`content/docs/business-management-theory/organization-theory.mdx` は通過済み、次は `content/docs/business-management-theory/marketing.mdx`
+
 ## 5. 今すぐ着手しやすい次の作業
 
 優先順位は次です。
@@ -82,15 +91,21 @@
 
 判断に迷ったら、[wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `いますぐ優先する不足` を先に減らします。残る `章ページで対応` は 3 件だけですが、いま重いのは `第2次の悪文例 / 改善例 / 短文骨子不足` と `横断付録を各ページへ戻す導線不足` です。
 
+### 5.1 初学者通読レビューで次にやること
+
+1. [wiki-beginner-review-tracker.md](docs/wiki-beginner-review-tracker.md) の順番どおりに `マーケティング論` 章ハブを読む
+2. `市場選定 → 顧客理解 → 価値設計 → 届け方 → 関係維持` の順と、`初めて読むならこの順`、`テーマ → まず戻るページ`、`次に読むページ` が同じ学習導線になっているかを確認する
+3. 読み終えたら、`最後に読んだページ`、`次に読むページ`、`今回の学び` を台帳へ追記する
+
 ## 6. 既存の良い型
 
 新しいページを増やすときは、次の既存ページを手本にすると崩れにくいです。
 
 - `章ハブ` の型:
-  - [microeconomics/index.mdx](content/docs/economics-and-economic-policy/microeconomics/index.mdx)
+  - [microeconomics.mdx](content/docs/economics-and-economic-policy/microeconomics.mdx)
   - [civil-and-transaction-law.mdx](content/docs/business-law/civil-and-transaction-law.mdx)
 - `解説ページ` の型:
-  - [knowledge-market-mechanism.mdx](content/docs/economics-and-economic-policy/microeconomics/knowledge-market-mechanism.mdx)
+  - [microeconomics-knowledge-market-mechanism.mdx](content/docs/economics-and-economic-policy/microeconomics-knowledge-market-mechanism.mdx)
   - [knowledge-contracts-obligations-and-security.mdx](content/docs/business-law/knowledge-contracts-obligations-and-security.mdx)
 - `設問型` と `答案骨子` の型:
   - [case-1-question-patterns.mdx](content/docs/second-stage/case-1-question-patterns.mdx)
@@ -136,18 +151,44 @@
 
 ### 9.1 build の注意
 
-標準の `pnpm build` は、他のローカル Next.js サーバーが `.next` を使っていると、`_buildManifest.js.tmp` 競合で失敗することがあります。安全側で `NEXT_DIST_DIR=.next-check pnpm build` を使ってください。
+標準の `pnpm build` は、他のローカル Next.js サーバーが `.next` を使っていると、`_buildManifest.js.tmp` 競合で失敗することがあります。安全側で `pnpm build:check` または `pnpm validate` を使ってください。
+
+`pnpm validate` は `pnpm build:check` を実行し、Turbopack 側の一時ファイル削除や manifest 生成でフレークした場合は、自動で webpack 専用の dist dir を使う `pnpm build:check:webpack` へ fall back します。
+
+それでも `.next-check` や `.next-check-webpack` 側で `ENOENT` や `ENOTDIR` が続く場合は、同じリポジトリで `.next` を使うサーバーが動いていないことを確認したうえで、`pnpm exec next build --webpack` に切り替えて検証してよいです。
+
+`2026-03-30` の `原価計算` 章ハブレビューでは、`pnpm validate` が `check`、`format:check`、`lint` 通過後に、Turbopack panic のあと webpack fallback でも `.next-check-webpack/server/pages-manifest.json` の `ENOENT` で止まりました。この場合は、差分原因を build failure と決め打ちせず、`NEXT_DIST_DIR=.next-devcheck pnpm exec next dev --hostname 127.0.0.1 --port 3101` で対象ルートの `200`、`h1`、console error を取り、`wiki-review-log.md` に build フレークとして残してください。
+
+`2026-03-30` の `利益と資金の管理` 章ハブレビューでは、`pnpm validate` が `check`、`format:check`、`lint` 通過後に、Turbopack 側で `.next-check/required-server-files.json` の `ENOENT` で落ちました。webpack fallback も validate 経由では途中終了したため、`rm -rf .next-check-webpack && NEXT_DIST_DIR=.next-check-webpack pnpm exec next build --webpack` を単独で完走させ、`NEXT_DIST_DIR=.next-check-webpack pnpm exec next start --hostname 127.0.0.1 --port 3101` で表示確認しています。
+
+`2026-03-30` の `ファイナンス` 章ハブレビューでは、`pnpm validate` が `check` 後に `pnpm format:check` の Node abort で止まり、単独の webpack build も `.next-check-webpack/server/functions-config-manifest.json` の `ENOENT` で落ちました。この場合は、dist build に固執せず、`rm -rf .next-devcheck && NEXT_DIST_DIR=.next-devcheck pnpm exec next dev --hostname 127.0.0.1 --port 3101` を clean start し、対象ルートだけを headless browser で読ませて `200`、`h1`、追加文言、console error を確認してよいです。
+
+`2026-03-30` の `事例Ⅰ 組織・人事` ハブレビューでは、`pnpm validate` の `check`、`format:check`、`lint` は通過したものの、Turbopack build が `.next-check/static/.../_clientMiddlewareManifest.js` の `ENOENT` で落ち、webpack fallback も `next build --webpack` が 1 分以上 output なしで残留しました。この場合も `rm -rf .next-devcheck && NEXT_DIST_DIR=.next-devcheck pnpm exec next dev --hostname 127.0.0.1 --port 3101` の clean start に切り替えてよいです。
+
+`2026-03-30` の `事例Ⅲ 生産・技術` ハブレビューでは、`pnpm validate` の `check`、`format:check`、`lint` は通過したものの、Turbopack build が `ELIFECYCLE exit code 143` で validate 内 fallback へ移り、webpack build も 1 分以上 output なしで残留しました。ただし `.next-check` 自体は生成されて `next start` で起動できたため、この場合は自分が起動した build プロセスだけ止め、`NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101` と inline の `@playwright/test` で対象ルートの `200`、`h1`、console error を確認してよいです。
+
+`.next` 側へ切り替えたとき、`tsconfig.json` の `include` にある `.next-check/types/**/*.ts` が未生成だと `File '.next-check/types/routes.d.ts' not found` で止まることがあります。その場合は、先に `.next-check` 側の build を一度走らせて `routes.d.ts` を作ってから `.next` build を再実行すると通しやすいです。
+
+`pnpm validate` の前に `.next-devcheck` が残っていると、`pnpm format:check` が生成物まで拾って大量 warning で止まります。dev fallback を使ったあとに validate を回し直すときは、先に `rm -rf .next-devcheck` を入れてください。
+
+`.next-check-webpack` が壊れた cache pack を含んだまま残っていると、`pnpm format:check` が `Unable to read file ".next-check-webpack/cache/webpack/...1.pack_"`、`Invalid string length` で止まることがあります。この場合も、validate を回し直す前に `rm -rf .next-check-webpack` を入れてください。
 
 ### 9.2 表示確認の注意
 
 - `tests/docs-ui.spec.ts` の対象なら `pnpm exec playwright test ...`
 - ポート競合や MCP 不調がある場合は、`NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101` で起動し、headless browser で `200` と `h1` を確認する
+- Playwright MCP が `Browser is already in use for .../ms-playwright/mcp-chrome` で詰まる場合は、孤立した `playwright-mcp` / `mcp-chrome` プロセスを落としたうえで、`@playwright/test` の `chromium.launch()` を使う簡単な inline script で `status`、`h1`、console error を確認してよい
+- `NEXT_DIST_DIR=.next-check pnpm exec next start` が `middleware-manifest.json` 読み込みで不安定な場合は、表示確認だけ `NEXT_DIST_DIR=.next-devcheck pnpm exec next dev --hostname 127.0.0.1 --port 3101` に切り替えてよい。dev サーバーでは websocket が常駐するので、browser script の `page.goto()` は `networkidle` ではなく `domcontentloaded` と `h1` 待ちを使う
+- `NEXT_DIST_DIR=.next-devcheck pnpm exec next dev` の初回 route compile は 30 秒を超えることがある。`page.goto()` が timeout した場合でも、サーバー側で `GET ... 200` が出ていれば、同じ route を 60 秒 timeout で再試行すると通ることがある
+- ただし `.next-devcheck` 側で `Persisting failed: Unable to write SST file ...` や `app/globals.css` の CSS parse error が出て `500` になる場合は、dev fallback 自体を諦め、dist dir を作り直した webpack build と `next start` に戻した方が早い
+- それでも `.next-devcheck`、`.next-check`、`.next-check-webpack` が全部不安定で、他に `.next` を使う Next.js プロセスが動いていないなら、生成物だけ `rm -rf .next .next-devcheck .next-check .next-check-webpack` で掃除してから、最後の fallback として既定の `.next` で `pnpm exec next dev --hostname 127.0.0.1 --port 3101` を立て直してよい
 
 ## 10. 既知の注意点
 
 - ワークツリーはかなり dirty な前提で扱う。自分が触っていない差分は戻さない
 - `scripts/check-doc-page-structure.mjs` により、`第2次試験` の `設問型` と `答案骨子` は `## このページの役割` などの見出しが必須
 - `_book/` は参照専用。公開文章をそのまま転記しない
+- Playwright MCP はまれに `mcp-chrome` のロックが残る。表示確認が詰まったら、MCP に固執せず standalone の Playwright script へ切り替える
 
 ## 11. 迷ったときの判断基準
 

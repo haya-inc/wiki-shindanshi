@@ -1437,3 +1437,3892 @@
 
 1. 他の長い docs タイトルでも 2〜3 行以内に収まるか spot check する
 2. 説明文が first view を圧迫するページがあれば、description の行長と余白だけを追加で見直す
+
+## 2026-03-29-03 過去問解説の必要知識を 19 年分監査
+
+### 対象
+
+- `content/docs/past-exam-solutions/**/*.mdx`
+- `docs/past-exam-knowledge-audit-2026-03-29.md`
+- `scripts/audit-past-exam-knowledge-links.mjs`
+
+### 成果
+
+- `必要知識` ブロック 2603 件を走査し、`2277 件（87.5%）は現行 wiki へ直接たどれる / 326 件は配線に問題がある` ことを確認した
+- 問題は 21 ファイルに集中しており、`r01/*` の `example.com` 残存、`h20/h24/h29/r05` の plain text `必要知識`、`r07/economics` の broad hub link が主要因であると整理した
+- 手確認で、`h20/business-law` の相続系誤着地、`プロバイダ責任制限法`、`内部統制報告制度`、`h19/economics` の `アブソープション・アプローチ / J曲線効果 / 企業内貿易`、`r07/economics` の `累進税`、`r01/finance` の `補助金会計` が wiki 未収載または誤着地であることを記録した
+- 再実行用に `scripts/audit-past-exam-knowledge-links.mjs` を追加し、構造監査の再現手順を固定した
+
+### 品質ゲート
+
+- 既存の過去問解説本文は変更せず、まず監査結果と再実行手順を残す
+- 監査は `必要知識` の追跡性に絞り、将来の修正優先順位が付く粒度で記録する
+
+### 検証
+
+- `node scripts/audit-past-exam-knowledge-links.mjs`
+- `node scripts/audit-past-exam-knowledge-links.mjs --json`
+- `pnpm exec prettier --check scripts/audit-past-exam-knowledge-links.mjs docs/past-exam-knowledge-audit-2026-03-29.md docs/wiki-review-log.md`
+
+### 鮮度確認
+
+- 安定論点中心の監査とレビュー記録追加のため、鮮度台帳の追加対象外
+
+### 学び
+
+1. `必要知識` が書いてあっても、`example.com`、plain text、科目トップ着地のままでは「知識として取得できる」とは言いにくい
+2. 問題の大半は `wiki 本文不足` ではなく `解説側の配線不足` だが、一部は本当に wiki 側に論点がない
+3. 過去問解説の監査は `リンク切れ` だけでなく、`そのリンク先に論点語が存在するか` まで見ないと誤着地を取り逃がす
+
+### 前回比
+
+改善: これまで感覚的だった「過去問解説から wiki へ戻れるか」を 19 年分で数値化し、修正順を決められる状態にした
+
+### 次に修正すべきこと
+
+1. `r01/*` の `example.com` を現行 wiki パスへ置換する
+2. `h20/info-systems`、`h20/management`、`h20/sme-policy`、`h29/sme-policy`、`r05/info-systems` の plain text `必要知識` に現行 wiki リンクを付ける
+3. `h20/business-law`、`h19/economics`、`r07/economics` の誤着地と未収載論点を順に潰す
+
+## 2026-03-29-04 過去問起点の未収載論点を既存ノードへ補強
+
+### 対象
+
+- `content/docs/business-law/knowledge-personal-information-protection.mdx`
+- `content/docs/business-law/knowledge-capital-market-laws.mdx`
+- `content/docs/business-law/knowledge-fundraising-dividends-and-financial-statements.mdx`
+- `content/docs/economics-and-economic-policy/*.mdx`
+- `content/docs/finance-and-accounting/corporate-accounting-assets-accounting.mdx`
+- `content/docs/past-exam-solutions/h19/economics.mdx`
+- `content/docs/past-exam-solutions/h20/business-law.mdx`
+- `content/docs/past-exam-solutions/r01/finance.mdx`
+- `content/docs/past-exam-solutions/r03/finance.mdx`
+- `content/docs/past-exam-solutions/r07/economics.mdx`
+
+### 成果
+
+- `プロバイダ責任制限法`、`内部統制報告制度 / 確認書制度`、`会社法442条の備置`、`負債性補助金 / 非負債性補助金`、`アブソープション・アプローチ`、`国家財政恒等式`、`累進税`、`企業内貿易 / 産業内貿易` を、既存ノードへ新規追記した
+- `h20/business-law` の相続リンク誤着地を `knowledge-inheritance` へ修正し、`内部統制` と `開示制度` の説明も現行の wiki ノードと整合する表現へ直した
+- `r01/finance` の `example.com` リンクをまとめて現行 wiki パスへ置換し、収益認識・補助金会計・CVP・MM理論などの主要導線を復旧した
+- `r07/economics` の broad hub link を `国民所得計算と主要指標`、`市場構造と市場の失敗` などの具体ノードへ落とし込み、`r03/finance` の配当割引モデルも専用ノードへ精密化した
+- 監査再実行後、`必要知識` 2603 件のうち `2313 件（88.9%）` が現行 wiki へ直接たどれる状態になり、影響設問は `326 → 290`、問題ファイルは `21 → 18`、`broad_hub_link` は `10 → 1` まで減った
+
+### 品質ゲート
+
+- 新規ページは増やさず、既存ノードの文脈に寄せて受験知識として読める粒度で補強する
+- 過去問側はリンク修正だけでなく、明らかに誤っていた期限・手続説明も最小限で是正する
+
+### 検証
+
+- `node scripts/audit-past-exam-knowledge-links.mjs`
+- `pnpm check`
+- `pnpm lint`
+
+### 鮮度確認
+
+- 法務論点は 2026-03-29 時点で金融庁・裁判所公開資料を参照し、`内部統制報告制度 / 確認書制度` と発信者情報開示まわりの表現が現行実務と矛盾しないことを確認した
+
+### 学び
+
+1. 過去問で不足していた論点の多くは、新規ページではなく既存ノードの一段深い説明で十分に吸収できる
+2. 監査数字を改善するには本文追加だけでなく、`example.com` と broad hub link の除去が即効性を持つ
+3. 古い過去問解説はリンク不備だけでなく説明自体にズレが混ざるため、代表年度は本文の正確性も同時に点検すべき
+
+### 前回比
+
+改善: 監査で見つけた「wikiに論点がない」状態から、「既存ノードで受験知識を回収できる」状態へ一段進めた
+
+### 次に修正すべきこと
+
+1. `r01/economics` と `r01/sme-policy` の `example.com` 残りを置換する
+2. `h20/h24/h29/r05` の plain text `必要知識` を現行 wiki パスへリンク化する
+3. `h27/operations` と `h30/finance` に残る単発の broad / missing を潰して監査の残件をさらに絞る
+
+## 2026-03-29-05 「リンク先を読めば解けるか」基準で政策・経営課題ノードを増補し、監査を 100% 化
+
+### 対象
+
+- `content/docs/sme-management-and-policy/policy-management-support.mdx`
+- `content/docs/sme-management-and-policy/knowledge-sme-management-issues.mdx`
+- `content/docs/sme-management-and-policy/knowledge-industrial-clusters.mdx`
+- `content/docs/sme-management-and-policy/policy-business-succession-and-ma-support.mdx`
+- `content/docs/past-exam-solutions/r01/sme-policy.mdx`
+- `content/docs/past-exam-solutions/h19/economics.mdx`
+
+### 成果
+
+- `r01/sme-policy` の 37 問すべてで `必要知識` を現行 wiki の具体ノードへ接続し、`example.com` と plain text の残りを解消した
+- `policy-management-support` に `中小企業庁と実施機関の役割分担`、`経営診断と経営計画のつながり`、`SBIR・知財活用支援` を追記し、Q11/Q14/Q17 相当の設問に本文だけで答えやすい状態へ寄せた
+- `knowledge-sme-management-issues` に `成長段階ごとの経営課題`、`サイバーセキュリティ`、`ESG・サステナビリティ経営` を追記し、DX・人材・サステナビリティ系の設問で判断軸が拾えるようにした
+- `knowledge-industrial-clusters` に `過疎地域・限界集落と地域雇用` を加え、地域経済系の説明を観光・商店街だけでなく雇用創出まで通して読めるようにした
+- `policy-business-succession-and-ma-support` に `第三者承継（M&A）の基本実務` を追記し、手法比較、企業価値評価、DD、仲介機関の役割まで拾えるようにした
+- `h19/economics` の残っていた plain text `必要知識` をリンク化し、監査上の最後の 1 件を解消した
+- 監査再実行後、`必要知識` 2603 件のうち **2603 件（100%）** が現行 wiki へ直接たどれる状態になり、`missing_link / placeholder_external / broad_hub_link` はすべて 0 になった
+
+### 品質ゲート
+
+- `必要知識` は科目トップや広いハブへ逃がさず、設問の判定材料が本文にあるノードへ直接落とす
+- 新規ページは作らず、既存ノードの説明を一段深くして受験生が因果と比較で理解できる構成を優先する
+- 中小企業診断士受験生向けに、制度名だけでなく `何を区別すべきか` `どこで誤るか` `どう判断するか` を本文に明示する
+
+### 検証
+
+- `node scripts/audit-past-exam-knowledge-links.mjs`
+- `pnpm check`
+- `pnpm lint`
+
+### 鮮度確認
+
+- 今回の追記は制度の骨格や受験判断軸を中心とした安定論点の整理であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 過去問の `必要知識` は、リンク先が存在するだけでは不十分で、`そのページ単体で比較・因果・誤答パターンまで回収できるか` を見ないと受験教材として弱い
+2. 中小企業政策は、制度所管と実施機関の役割分担を本文で切り分けないと、受験生は `中小企業庁が直接支援する` 方向の誤解をしやすい
+3. `DX` `GX` `ESG` `サイバー` のような新しめの論点も、中小企業の経営課題として一本の流れで説明すると、政策科目と白書読解の両方に効く
+
+### 前回比
+
+改善: `リンクを直した` 状態から、`リンク先本文を読めば回答の判断軸まで取れる` 状態へ一段進め、構造監査も 100% で閉じた
+
+### 次に修正すべきこと
+
+1. `docs/past-exam-knowledge-audit-2026-03-29.md` の歴史的な監査メモを、最新 100% 状態が誤読なく分かる形に整理する
+2. 今年度側の新規論点でも、`必要知識` が単なる制度名列挙になっていないかを同じ基準で再点検する
+3. `policy-*` と `knowledge-*` の役割分担が曖昧なページは、受験生が迷わないよう導線文をさらにそろえる
+
+## 2026-03-29-06 年度別過去問の「必要知識」を、初学者が本当に解答へ到達できる基準で再点検
+
+### 対象
+
+- `content/docs/past-exam-solutions/h20/operations.mdx`
+- `content/docs/past-exam-solutions/h27/economics.mdx`
+- `content/docs/past-exam-solutions/h27/management.mdx`
+- `content/docs/past-exam-solutions/h28/management.mdx`
+- `content/docs/past-exam-solutions/r01/operations.mdx`
+- `content/docs/past-exam-solutions/r02/management.mdx`
+- `content/docs/past-exam-solutions/r04/management.mdx`
+- `content/docs/business-management-theory/knowledge-corporate-and-growth-strategy.mdx`
+- `content/docs/business-management-theory/knowledge-innovation-international-and-digital-strategy.mdx`
+- `content/docs/economics-and-economic-policy/microeconomics-knowledge-market-structure-and-failure.mdx`
+- `content/docs/management-information-systems/ict-basics.mdx`
+- `content/docs/operations-management/production-planning.mdx`
+- `content/docs/operations-management/store-and-sales-management.mdx`
+
+### 成果
+
+- `h27/economics` で一般均衡、比較優位、ローレンツ曲線・ジニ係数のリンク先を、設問判断に直接使えるノードへ修正した
+- `h20/operations`、`h27/management`、`h28/management`、`r04/management` の `必要知識` を、章ハブではなく具体論点ページへ寄せた
+- `r02/management` のアンゾフと PIMS について、章ハブではなく `knowledge-corporate-and-growth-strategy` に直接落とし、リンク先本文も追記した
+- `knowledge-corporate-and-growth-strategy` に `アンゾフの意思決定の階層` と `PIMS` を加え、目標・戦略・組織の違いと、市場シェアと収益性の読み方を初学者向けに補強した
+- `knowledge-innovation-international-and-digital-strategy` にステージゲート法と製品アーキテクチャを追記し、開発手法系の過去問から逆引きしやすくした
+- `microeconomics-knowledge-market-structure-and-failure` にエッジワース・ボックス、契約曲線、一般均衡の説明を足し、`市場均衡 = 契約曲線そのもの` という誤解を防げるようにした
+- `ict-basics` に USB、RFID、クライアントサーバ、スマートフォンセンサー、表計算ロジックの補助論点を追記し、古い情報システム過去問の `ICT基礎` 着地でも迷わないようにした
+- `production-planning` に `企画から販売までをつなぐ納期短縮` を加え、需要予測や BOM だけでなく、部門横断の納期短縮論点まで拾えるようにした
+- `store-and-sales-management` に `価格政策`、`ショッピングセンターと商業統計`、`カテゴリーマネジメントと非計画購買`、`食品衛生と食品リサイクルの違い`、`売場の照明と色彩` を補い、広めのリンクでも受験生が判断材料を得られる状態へ寄せた
+
+### 品質ゲート
+
+- `必要知識` の評価基準を、`リンクが存在するか` から `そのページ単体で初学者が正誤判断の根拠を取れるか` に引き上げる
+- 専用ページがある論点はそこへ直接落とし、専用ページがない論点だけを広めの受け皿ページに必要最小限で補う
+- 専門用語は定義だけで終えず、`何と何を区別するのか`、`どこで誤読しやすいのか` まで書く
+
+### 検証
+
+- `node scripts/audit-past-exam-knowledge-links.mjs`
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+
+### 鮮度確認
+
+- 今回の追記は、過去問に必要な安定論点の説明補強が中心であり、制度更新の追跡が必要な鮮度台帳の追加対象はなし
+
+### 学び
+
+1. `必要知識` はハブ着地でも教材として成立する場合があるが、そのためには `初学者がその場で誤答要因を消せる説明` が本文に必要
+2. 構造監査で 100% になっていても、`リンク先を読んでも解けない` 問題は残るため、構造監査と本文監査を分けて見る必要がある
+3. 章ハブの補助論点は増やしすぎると散漫になるが、過去問で繰り返し戻る論点だけを短く補うと、導線と教材性の両立ができる
+
+### 前回比
+
+改善: `リンク切れや broad hub を潰した` 状態から、`リンク先本文を読めば正答判断の根拠まで拾える` 状態へ一段進めた
+
+### 次に修正すべきこと
+
+1. `r03/r04` の運営管理で残る古い説明文も、リンク先補強だけでなく本文自体の言い回しを受験生向けに揃える
+2. `management-strategy` や `store-and-sales-management` のような章ページに残る broad link を、必要に応じてさらに具体ノードへ落とす
+3. 年度別過去問の本文に残る `公式発表を確認してください` 系の暫定記述を、確認可能なものから順に埋める
+
+## 2026-03-29-07 高頻度で参照される知識ページを「過去問に十分答えられる本文」へ補強
+
+### 対象
+
+- `content/docs/business-management-theory/knowledge-human-resource-management.mdx`
+- `content/docs/operations-management/knowledge-production-systems-and-planning-control.mdx`
+- `content/docs/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 戦略
+
+- `必要知識` の被リンク数が多いページから先に直す
+- 本文補強は `比較軸`、`判断順`、`典型誤答`、`確認問題へつながる最小十分の説明` の4点でそろえる
+- 本来は別ノードにある周辺論点を無制限に吸収せず、過去問で繰り返し戻るものだけを短く補う
+
+### 成果
+
+- `knowledge-human-resource-management` に、`賃金支払の5原則`、`労働者名簿・賃金台帳・労働時間記録`、`労働者性の判断`、`解雇予告と解雇禁止事由`、`社会保険の加入の見方` を追加し、人事制度ページから労働法設問へ戻ったときにも根拠を拾いやすくした
+- 同ページに `典型的なつまずき` と `問題を解くときの観点` を追加し、`制度設計` と `法的最低基準` を切り分けて読めるようにした
+- `knowledge-production-systems-and-planning-control` に、`QCD / PQCDSME`、`MPS と MRP のつながり`、`定量 / 定期 / かんばん / 予約方式`、`タクトタイムとサイクルタイム` を追加し、計画統制ページだけでも選択肢を切れる論点を増やした
+- 同ページに `典型的なつまずき` と `問題を解くときの観点` を加え、分類軸と時間軸の混同を防げる形にした
+- `knowledge-sales-indicators-logistics-and-retail-information-systems` に、`ユニットロードと物流機器`、`モーダルシフトと輸送方式`、`支持度 / 信頼度 / リフト`、`散布図と相関の読み方` を追加し、物流と販売データ分析の戻り先としての十分性を上げた
+- 同ページに `典型的なつまずき`、`問題を解くときの観点` を追加し、あわせて末尾の関連リンクを現行の公開パスへ修正した
+- `wiki-progress-tracker` と `wiki-coverage-registry` の次タスクを、今回の補強後の残件に合わせて更新した
+
+### 品質ゲート
+
+- `比較表を置く` だけではなく、`何を見れば誤答を消せるか` が本文にあることを必須条件にする
+- 周辺論点を足すときは、`定義の列挙` ではなく `どこで混同するか` を先に書く
+- 更新されやすい法制度の細目は安定ノードに過剰に埋め込まず、まずは判断軸を置いて、最新要件確認が必要な論点と切り分ける
+
+### 学び
+
+1. 高頻度ページの不足は、1ページの弱さではなく、複数年度の正答率低下に直結するため、被リンク数で優先順位を切るのが有効
+2. 章ハブ補強よりも、`必要知識` の着地点そのものに `判断順` と `典型誤答` を置いた方が、初学者は迷いにくい
+3. 労働法や物流のように周辺論点が多いページほど、`全部説明する` より `何を切り分けるページか` を明示した方が教材として強い
+
+### 次に修正すべきこと
+
+1. `knowledge-computer-basics`、`knowledge-systems-development-methods`、`knowledge-competitive-and-resource-strategy` のような高頻度戻り先にも、同じ型で `判断順` と `誤答パターン` を増やす
+2. `r03/r04` の運営管理と `r03/r05/r07` の企業経営理論で、今回補強した本文に対応する説明文へ寄せる
+3. 更新論点を含む法制度ページは、安定ノードとハブの役割分担を崩さずに、最新確認の導線をもう一段そろえる
+
+## 2026-03-29-06 過去問参照頻度の高いノードを本文読解型に増補
+
+- 対象: `国民所得計算と主要指標`、`IS-LM と政策効果`、`情報セキュリティの基礎`、`経営支援施策`
+- 成果: 過去問からの参照頻度が高いノードを優先し、`リンク先を読めば判断軸まで取れる` ことを目標に、比較表・判定手順・頻出概念の切り分けを追加した
+- 品質ゲート: 追加した 4 ノードはいずれも安定論点ページとして `G1-G5` を維持
+- 検証: `pnpm check`、`pnpm lint`
+- 鮮度確認: 政策系で現行制度に触れる箇所は `2026-03-29` 時点の中小企業庁 / 中小機構の公開情報で役割分担を確認
+- 学び: coverage を 100% にしても、本文が `用語定義の寄せ集め` だと過去問にはまだ弱い。特に高頻度ノードでは、`何と何を見分けるのか`、`どの順で切るのか` を本文に埋め込む必要がある
+- 前回比: 改善
+- 根拠: 今回は `国民所得` に `フロー/ストック・需給ギャップ・労働分配率`、`IS-LM` に `国債価格と利回り・IS-LM-BP`、`情報セキュリティ` に `FAR/FRR・LDAP/RADIUS・タイムスタンプ・ISMS分析アプローチ`、`経営支援施策` に `活性化協議会・計画認定制度・高度化事業` を追加し、過去問側の参照語に対して本文の受け皿を具体化できた
+- 次に修正すべきこと: 次回は `生産管理`、`ファイナンス`、`システム開発手法` の高頻度ノードについても同じ基準で `本文だけで解けるか` を点検し、比較表と確認問題を増やす
+
+## 2026-03-29-08 ファイナンスの主経路を `CAPM → WACC → NPV / DCF法` で読み切れる形へ補強
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`WACC`、`NPV`、`DCF法`、`PI`、`IRR` を `何を求めるときに使う道具か` で並べた比較表を追加し、問題文の合図から使う式を逆引きできるようにした
+- 同ページに `判断順を固定する` セクションを加え、`CAPM → WACC → NPV / DCF法` を主経路、`PI / IRR` を補助線として読む順を明文化した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`最初に使う道具を選ぶ問題` と `企業価値から株主価値へ落とす問題` を追加し、式の暗記ではなく道具選択と価値の切り分けを確認できるようにした
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) の `第8章 ファイナンス` の次作業を、今回完了した `WACC、NPV、DCF の比較表補強` から、次段階の `企業価値と株主価値、DCF法とマルチプル法の橋渡し` へ更新した
+
+### 品質ゲート
+
+- 既存ページへの追記だけで、`新しい理論ページを増やさずに理解の主経路を太くする` 方針を維持した
+- 初学者が `どの式を選ぶか` で迷わないよう、定義説明だけでなく `問題文の合図` と `典型誤答` を同じ表に置いた
+- 演習ページでは、`計算できるか` だけでなく `企業価値と株主価値を混同しないか` を明示的に点検できるようにした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. ファイナンスは式の数が多い一方で、受験生が本当に迷うのは `式の選択順` です。比較表を `何を求めるか` 基準で並べると、`似た指標が多くて混ざる` 問題をかなり減らせる
+2. `CAPM → WACC → NPV / DCF法` を主経路、`PI / IRR` を補助線として固定すると、相互排他や資本制約の設問でも `最後に NPV に戻る` という判断がぶれにくい
+3. `企業価値` と `株主価値` の混同は計算ミスではなく概念ミスなので、本文比較表と短問の両方で同じ切り分けを反復させる方が効く
+
+### 前回比
+
+改善: 以前は本文で各式の説明はあっても、`どの場面でどれを最初に使うか` の横断比較が弱かった。今回は主経路と補助線を固定し、過去問での道具選択ミスを防ぎやすい形に進めた
+
+### 次に修正すべきこと
+
+1. `マルチプル法` 側にも `企業価値 / 株主価値 / EV` の比較表を足し、`DCF法` との往復をさらに滑らかにする
+2. `ファイナンス` 章で `企業価値評価` と `MM理論 / 配当政策` のつながりを、株主視点と債権者視点の違いから補強する
+3. `ファイナンス 基本確認問題` には、将来の `調査費`、`撤退価値`、`途中見直し` を含むデシジョンツリー型の問題を追加する
+
+## 2026-03-29-10 高頻度の戻り先 3ページを「過去問の判断まで届く本文」へ増補
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-computer-basics.mdx`
+- `content/docs/management-information-systems/knowledge-systems-development-methods.mdx`
+- `content/docs/business-management-theory/knowledge-competitive-and-resource-strategy.mdx`
+- `content/docs/past-exam-solutions/r01/management.mdx`
+- `content/docs/past-exam-solutions/r02/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 戦略
+
+- `必要知識` の被リンクが多いが、本文だけでは選択肢を切りにくいページを優先する
+- 追記は `比較軸`、`判断順`、`典型誤答`、`短い確認問題` の4点でそろえる
+- 別ノードへ切り出すべき大論点は増やさず、過去問で繰り返し戻ってくる補助論点だけを追加する
+- 本文補強とあわせて、意味的にずれていた `必要知識` リンクも直す
+
+### 成果
+
+- `knowledge-computer-basics` に、`システムバス`、`周辺機器インタフェース`、`ユーザーインタフェースの選び方`、`BIOS / ファームウェア / ドライバ / ミドルウェア`、`レスポンスタイム / ターンアラウンド / スループット`、`ファイルシステム階層とパス表記` を追加した
+- 同ページに `BIOS とドライバの混同`、`性能指標の混同` のつまずきと、2問の確認問題を追加し、情報システムの細粒度設問へ戻ったときでも判断根拠を拾いやすくした
+- `knowledge-systems-development-methods` に、`見積手法`、`プロトタイピング / スパイラル / 反復型 / FDD`、`オブジェクト指向と UML`、`OSS ライセンス`、`コンパイル型 / インタプリタ型`、`スケールアップ / スケールアウト / リフト・シフト / コンバージョン` を追加した
+- 同ページに `見積手法の混同`、`プロトタイピングとスパイラルの混同`、`OSS ライセンスの見落とし` を追記し、確認問題も 3 問追加した
+- `knowledge-competitive-and-resource-strategy` に、`経営資源の分類と情報資源の特性`、`企業ドメインと事業ドメイン`、`タイムベース競争`、`戦略的アライアンスとアウトソーシング`、`問題を解くときの観点` を追加した
+- 同ページに `交渉力の読み違い`、`タイムベース競争の誤読`、`アライアンスとアウトソーシングの混同` を追記し、確認問題を 3 問増やした
+- `r01/management` の PPM 問題は、本来の戻り先である `全社戦略と成長戦略` へ修正した
+- `r02/info-systems` の ACID 問題は、本来の戻り先である `データベースとSQL` へ修正した
+- `wiki-progress-tracker` と `wiki-coverage-registry` は、今回の補強を踏まえた残タスクへ更新した
+
+### 品質ゲート
+
+- 補助論点は `何を比較するか` が最初に見える見出し名にする
+- 似た概念が並ぶ箇所では、定義だけでなく `何を見ると切り分けられるか` を本文中に書く
+- 誤答が多い論点は、本文補強だけで終わらせず、短い確認問題まで置いて再確認できるようにする
+- 年度別ページの `必要知識` は、リンクが生きているだけでなく、論点の性質に合った着地点かも確認する
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `/management-information-systems/knowledge-computer-basics`
+  - `/management-information-systems/knowledge-systems-development-methods`
+  - `/business-management-theory/knowledge-competitive-and-resource-strategy`
+  - `/past-exam-solutions/r01/management`
+  - `/past-exam-solutions/r02/info-systems`
+  - いずれも `title` と `h1` を確認し、追加見出しまたは修正リンクの反映を確認
+
+### 学び
+
+1. 情報システムの高頻度ノードは、章の大枠だけでは足りず、`細粒度の比較語` を本文へ戻しておかないと過去問の選択肢を切れない
+2. 競争戦略ノードは骨格だけ整っていても、情報資源、ドメイン、タイムベース競争のような周辺論点が薄いと、年度別解説の説明が独立してしまう
+3. `必要知識` 監査は構造監査と本文監査に加えて、`その論点に対して本当にそのページが最短か` という意味監査も必要
+
+### 次に修正すべきこと
+
+1. `knowledge-database-and-sql`、`knowledge-network-basics`、`knowledge-project-management` についても同じ基準で `本文だけで過去問に届くか` を点検する
+2. 今回増やした補助論点に対応する `年度別の誤答比較` を、`r01/r02/r04/r06` の経営情報システムと `h24/h27/r03` の企業経営理論へ展開する
+3. `management-information-systems/exam-study-guide` と `business-management-theory/exam-study-guide` に、今回補強した戻り先を優先ノードとして反映する
+
+## 2026-03-29-09 企業価値評価ページと演習ページを往復できる形へ補強
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance-multiples-valuation.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [マルチプル法と企業価値評価](content/docs/finance-and-accounting/finance-multiples-valuation.mdx) に、`PER / PBR / EV/EBITDA / DCF法 / 割引超過利益モデル` が `何の価値を直接出す道具か` を並べた対応表を追加し、`負債・現預金調整が必要か` まで一目で確認できるようにした
+- 同ページに `企業価値、株主価値、EV をどう行き来するか` の判断順を追加し、`EV/EBITDA` と `DCF法` では事業価値を出してから株主価値へ直す、`PER / PBR` では株式価値を直接読む、という流れを固定した
+- 同ページの確認問題に、`DCF法` で出した事業価値を `EV/EBITDA` と照合し、最後に 1 株価値へ落とす問題を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`市場調査費`、`撤退価値`、`右から左へ戻る意思決定` を含む多段デシジョンツリー問題を追加し、期待値計算の前に各末端の `NPV` を確定する練習を入れた
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `ファイナンス` 関連の次作業を、今回完了した内容の先へ更新した
+
+### 品質ゲート
+
+- 新規ページは増やさず、既存の `企業価値評価` と `演習` の往復を強くする方針を維持した
+- 比較表では `直接出る値` と `調整の要否` を同じ行で読めるようにし、式の暗記よりも判断順を優先した
+- デシジョンツリー問題では、`期待値を先に取らない`、`末端の NPV から戻る` という解法の順序を本文内で固定した
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `企業価値評価` の誤答は、`どの式を忘れたか` より `どの価値を出している途中なのか` を見失うことから起きやすい。対応表で `直接出る値` を先に固定すると、受験生の迷いを減らしやすい
+2. `EV/EBITDA` と `DCF法` の往復は、数値の一致を求めるためではなく、`前提が市場比較と乖離していないか` を点検するための補助線として教えた方が理解されやすい
+3. 多段デシジョンツリーは、期待値計算だけを教えると弱く、`撤退` や `見送り` を含めて `右から左へ戻る` 手順まで本文で見せる方が過去問対応力につながる
+
+### 前回比
+
+改善: 前回は `CAPM → WACC → NPV / DCF法` の主経路を補強した。今回はそこから一歩進めて、`企業価値評価ページ` と `演習ページ` の両方で `事業価値と株主価値の往復` を同じ判断順で扱えるようにした
+
+### 次に修正すべきこと
+
+1. `ファイナンス` 章で `企業価値評価` と `MM理論 / 配当政策` のつながりを、株主視点と債権者視点の違いから補強する
+2. `マルチプル法` では `類似企業選定` を誤るケースと、`PBR 1倍割れ` の読み方を比較問題として追加する
+3. `ファイナンス 基本確認問題` には、`感度分析` と `延期オプション` を組み合わせた比較問題を追加する
+
+## 2026-03-29-12 `企業価値の源泉` と `価値の配分` を分けて読めるように補強
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-mm-and-dividend-policy.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`投資政策`、`資本構成`、`配当政策` のどれが `企業価値` を動かし、どれが `株主` と `債権者` の取り分や要求収益率を動かすのかを並べた比較表を追加した
+- 同ページに `過去問での判断順` を加え、`営業 CF を変えるのか`、`借入比率だけが変わるのか`、`配当の払い出し時点だけが変わるのか` を先に切る読み方へ整理した
+- [MM理論と配当政策](content/docs/finance-and-accounting/finance-mm-and-dividend-policy.mdx) に、`DCF法`、`MM理論`、`DDM` がそれぞれ何を直接説明しているかをつなぐ表を追加し、`企業価値 → 資本構成 → 株主還元` の順で読めるようにした
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`NPVプラス投資`、`無税MM`、`有税MM`、`増配` を切り分ける確認問題を追加し、`企業価値の源泉` と `価値の配分` を混同しないか点検できるようにした
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `ファイナンス` 関連の次作業を、今回完了した橋渡し補強の先へ更新した
+
+### 品質ゲート
+
+- 新しい理論ページを増やさず、既存の `ファイナンス`、`MM理論と配当政策`、`演習` の往復で理解の主経路を太くした
+- 説明の焦点を `式の数` ではなく `何が価値の源泉で、何が配分や見え方を変えるだけか` に置き、初学者が混同しやすい箇所を表で切り分けた
+- 演習では、`数値計算` の前に `まずどの論点として読むか` を確認できる短問を置き、過去問の選択肢処理へつなげた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. ファイナンスの誤答は、`計算ミス` よりも `価値の源泉` と `価値の配分` の混同から起きやすい。`投資政策 / 資本構成 / 配当政策` を最初に切るだけで理解負荷がかなり下がる
+2. `MM理論` は単独で覚えるより、`DCF法で求めた企業価値を誰が受け取るか` の説明として置いた方が、`株主価値`、`負債価値`、`株主資本コスト` の関係が通りやすい
+3. `配当政策` は `価値を作る論点` ではなく `価値をどう還元するかの論点` と固定すると、`増配 = 企業価値上昇` という短絡を防ぎやすい
+
+### 前回比
+
+改善: 前回は `企業価値` と `株主価値` の往復を補強した。今回はそこに `MM理論` と `配当政策` を接続し、`何が価値を動かし、何が取り分を変えるだけか` まで同じ判断順で読めるようにした
+
+### 次に修正すべきこと
+
+1. `ファイナンス` 章では `NPVプロファイル`、`感度分析`、`デシジョンツリー` を `意思決定の順序` でつなぐ比較表を補強する
+2. `MM理論と配当政策` では `配当割引モデル`、`残余配当政策`、`自社株買い` の比較問題を追加する
+3. `ファイナンス 基本確認問題` には、`感度分析` と `延期 / 撤退` の実物オプションを組み合わせた比較問題を追加する
+
+## 2026-03-29-14 `NPVプロファイル → 感度分析 → デシジョンツリー` を解く順で固定
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`NPVプロファイル`、`感度分析`、`デシジョンツリー` を `何が不確実なのか` で切る比較表を追加し、3つの道具を `基準ケースの NPV` からどう使い分けるかを整理した
+- 同ページに `試験での判断順` を追記し、`基準ケースの NPV` → `割引率の不確実性` → `前提条件の不確実性` → `後から選び直せる柔軟性` の順で考える流れを固定した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`割引率による順位逆転`、`どの前提が危ないか`、`延期オプション` をそれぞれどの道具で見るかを問う確認問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `ファイナンス` 関連の次作業を、今回完了した意思決定順補強の先へ更新した
+
+### 品質ゲート
+
+- 既存の数値問題を増やしすぎず、まず `何を見たいから何を使うのか` を判断できることを優先した
+- `NPVプロファイル`、`感度分析`、`デシジョンツリー` を別論点にせず、すべて `NPV` を起点にした不確実性の点検としてそろえた
+- 演習では、計算の前に `割引率`、`前提条件`、`柔軟性` のどれを問われているかを言い分けられる構成にした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 投資決定の応用論点は、`新しい計算技法が増える` と教えるより、`何の不確実性を見る道具か` で束ねた方が受験生に通る
+2. `NPVプロファイル` と `感度分析` は似て見えるが、前者は `割引率による順位逆転`、後者は `どの前提が壊れやすいか` という問いの違いを先に固定すると混同が減る
+3. `デシジョンツリー` は期待値計算の道具というより、`後から選び直せる価値` を扱う道具として教えた方が `右から左` の手順が理解されやすい
+
+### 前回比
+
+改善: 前回は `企業価値の源泉` と `価値の配分` を切り分けた。今回はそこから一歩進めて、投資決定の応用論点を `不確実性の種類ごとにどの道具を当てるか` で整理し直した
+
+### 次に修正すべきこと
+
+1. `ファイナンス` 章では `ポートフォリオ理論`、`CAPM`、`効率的市場仮説` を `市場リスクと情報反映` の違いからつなぐ
+2. `ファイナンス 基本確認問題` には、`拡張 / 縮小 / 切替` を含む実物オプション比較問題を追加する
+3. `収益性指数法` 側では `PI` と `NPV`、`NPVプロファイル`、`感度分析` の役割差が見える比較演習を追加する
+
+## 2026-03-29-11 経営情報システムの戻り先3ページを比較軸ベースで再補強
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-database-and-sql.mdx`
+- `content/docs/management-information-systems/knowledge-network-basics.mdx`
+- `content/docs/management-information-systems/knowledge-project-management.mdx`
+- `content/docs/past-exam-solutions/r03/info-systems.mdx`
+- `content/docs/past-exam-solutions/r04/info-systems.mdx`
+- `content/docs/past-exam-solutions/r07/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 戦略
+
+- 年度別ページで実際に要求されている比較語を先に抽出し、その比較軸が本文にないページを優先して補強する
+- 追記は `補助論点`、`典型誤答`、`解法手順`、`確認問題` を1セットでそろえる
+- 既存ページで十分に扱っている大論点は無理に重複させず、意味的にずれていた `必要知識` リンクは本来の戻り先へ修正する
+
+### 成果
+
+- `knowledge-database-and-sql` に、`マスタデータとトランザクションデータ`、`AND / OR / NOT と IF / CASE の条件分岐`、`入力画面とDB設計の関係`、`DWH / データマート / データレイク / データクレンジング`、`UNION / UNION ALL / INTERSECT / EXCEPT` を追加した
+- 同ページに `マスタとトランザクションの取り違え`、`条件式の優先順位の誤読`、`JOIN と UNION の混同`、`DWH とデータレイクの混同` を追記し、確認問題を 3 問追加した
+- `knowledge-network-basics` に、`LAN / WAN / VAN / VPN`、`DHCP が配る項目`、`ARP / ICMP / ping / traceroute`、`CSMA/CD / CSMA/CA / Bluetooth`、`IETF / RFC / IEEE / W3C` と周辺プロトコル整理を追加した
+- 同ページに `LAN-WAN-VPN の混同`、`DHCP はIPだけという誤解`、`ping / traceroute / ARP の混同`、`CSMA/CD と CSMA/CA の逆転`、`RFC と IETF の混同` を追記し、確認問題を 3 問追加した
+- `knowledge-project-management` に、`三重制約と品質`、`マイルストーン / 成果物 / ワークパッケージ / WBS辞書`、`ベースラインと変更管理`、`バーンダウンチャートと EVM`、`イテレーション計画とローリングウェーブ計画` を追加した
+- 同ページに `マイルストーンと作業の混同`、`ベースライン変更と実績修正の混同`、`バーンダウンと EVM の混同` を追記し、確認問題を 3 問追加した
+- `knowledge-project-management` の練習問題にあった `全34日` の不整合は、作業日数合計と整合する `全44日` に修正した
+- `r03/r04/r07` の `DWH / データレイク` 系 `必要知識` は、本来の戻り先である `外部資源活用と意思決定支援` へ修正した
+- `wiki-progress-tracker` と `wiki-coverage-registry` は、今回の補強を反映した残タスクへ更新した
+
+### 品質ゲート
+
+- 比較語だけを増やさず、`どの問いに対して使い分ける知識か` を本文中に明示する
+- 用語定義が多いページほど、`定義` と `見分け方` を同じ節で読めるようにする
+- 本文補強だけで届かない論点は、誤誘導を避けるため `必要知識` リンク自体も修正する
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `/management-information-systems/knowledge-database-and-sql`
+  - `/management-information-systems/knowledge-network-basics`
+  - `/management-information-systems/knowledge-project-management`
+  - `/past-exam-solutions/r03/info-systems`
+  - `/past-exam-solutions/r04/info-systems`
+  - `/past-exam-solutions/r07/info-systems`
+
+### 学び
+
+1. 情報システム系ノードは、`主経路の説明` が整っていても、年度別設問が使う補助語の比較軸が抜けると、初学者は本文だけで選択肢を切れない
+2. `DWH / データレイク` のように別ノードで既に厚く扱っている論点は、本文に最低限の比較軸を置きつつ、戻り先は本来のノードへ直した方が学習導線として自然
+3. プロジェクト管理は数式より先に、`節目`、`作業単位`、`比較基準` の語彙を切り分けないと、計算問題以外で失点しやすい
+
+### 前回比
+
+改善: 前回は `computer-basics`、`systems-development-methods`、`competitive-and-resource-strategy` の補助論点を厚くした。今回は `DB / ネットワーク / PM` に同じ基準を適用し、経営情報システムの高頻度戻り先がほぼ一巡した
+
+### 次に修正すべきこと
+
+1. `management-information-systems/exam-study-guide.mdx` に、今回補強した `DB / ネットワーク / PM` の優先論点と戻り先を反映する
+2. `h23 / h25 / h27 / r05 / r06 / r07` の経営情報システムで、今回追加した比較軸に対応する `誤答比較` を年度ページ側へ逆流させる
+3. `knowledge-computer-basics` か別ノードで、`スタック / キュー / LIFO / FIFO` の着地点を用意し、現在の暫定リンクずれを解消する
+
+## 2026-03-29-13 経営情報システムの学習ガイドとスタック系導線を整えた
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-computer-basics.mdx`
+- `content/docs/management-information-systems/exam-study-guide.mdx`
+- `content/docs/past-exam-solutions/h25/info-systems.mdx`
+- `content/docs/past-exam-solutions/h25/management.mdx`
+- `content/docs/past-exam-solutions/r03/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 戦略
+
+- 新規ノードは増やさず、`コンピュータの基礎` の中に `スタック / キュー / LIFO / FIFO` の着地点を作る
+- 学習ガイドは `テーマ名` だけでなく、`そのページで何を比較できるようになるべきか` まで書き換える
+- 既に修正した `必要知識` の意味的ずれが本文中に残っていないかも合わせて点検する
+
+### 成果
+
+- `knowledge-computer-basics` に、`スタック / キュー / LIFO / FIFO` と `プロトコルスタック` の違いを切り分ける補助論点を追加した
+- 同ページに `スタックとキュー、LIFOとFIFO、プロトコルスタックの混同` を典型誤答として追加し、解法観点と確認問題も増やした
+- `exam-study-guide` の Tier 1 / Tier 2 / 学習ステップ / チェックリストに、今回補強済みの `LAN-WAN-VPN`、`DHCP / ARP / ping / traceroute`、`マスタ / トランザクション`、`JOIN / UNION`、`マイルストーン / WBS辞書 / ベースライン / EVM`、`スタック / キュー` を反映した
+- `h25/info-systems` と `h25/management` の `スタック・キュー・LIFO・FIFO` の戻り先を `knowledge-computer-basics` へ修正した
+- `h25/management` では設問名も内容に合わせて `スタック・キュー・LIFO・FIFO` へ直した
+- `r03/info-systems` に残っていた DWH 系の本文リンクずれも `外部資源活用と意思決定支援` へ修正した
+- `wiki-progress-tracker` と `wiki-coverage-registry` は、`コンピュータの基礎` の残タスクを今回完了分の先へ更新した
+
+### 品質ゲート
+
+- `スタック` という語の多義性を放置せず、`処理順序` と `通信の層構造` を同じページで切り分けた
+- 学習ガイドでは `読むページ名` よりも、`どの比較軸を説明できれば過去問を切れるか` を優先して明示した
+- リンク修正は `必要知識` だけでなく、本文中の学習アドバイスまで点検して意味的整合を取った
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `/management-information-systems/knowledge-computer-basics`
+  - `/management-information-systems/exam-study-guide`
+  - `/past-exam-solutions/h25/info-systems`
+  - `/past-exam-solutions/h25/management`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `学習指針` ページが古い粒度のままだと、本文ノードをどれだけ厚くしても、受験生は `何を比較できるようになればよいか` をつかみにくい
+2. `スタック` のような多義語は、短い定義だけでは不十分で、`別の意味で出るときは何を見分けるか` まで書かないと年度別設問の誤答が減りにくい
+3. 年度ページのリンク修正後も、本文中の学習アドバイスに旧リンクが残ることがあるため、`必要知識` だけでなく設問節全体の点検が必要
+
+### 前回比
+
+改善: 前回は `DB / ネットワーク / PM` の戻り先本文を厚くした。今回は、その内容が実際の学習導線に反映されるよう `学習ガイド` と `スタック系のリンク` を整え、受験生の読む順まで一貫させた
+
+### 次に修正すべきこと
+
+1. `h23 / h27 / r05 / r06 / r07` の経営情報システムで、今回整えた比較軸を `誤答の落とし穴` と `学習アドバイス` に逆流させる
+2. `knowledge-computer-basics` には `年度別の誤答例` をまだ十分に入れていないため、`スタック / キュー` と `プロトコルスタック` の誤読実例を追加する
+3. `exam-study-guide` のほかの科目別学習指針でも、`ページ名の列挙` から `比較軸ベースの読む目的` への書き換えを横展開できるか確認する
+
+## 2026-03-29-14 経営情報システムの年度別解説へ比較軸を逆流させた
+
+### 対象
+
+- `content/docs/past-exam-solutions/h23/info-systems.mdx`
+- `content/docs/past-exam-solutions/h27/info-systems.mdx`
+- `content/docs/past-exam-solutions/r05/info-systems.mdx`
+- `content/docs/past-exam-solutions/r06/info-systems.mdx`
+- `content/docs/past-exam-solutions/r07/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 戦略
+
+- 先に厚くした `コンピュータ基礎 / DB / ネットワーク / PM / 意思決定支援` の比較軸を、年度別ページの `誤答の落とし穴` と `学習アドバイス` へ戻す
+- 誤答理由が抽象的な節は、`何と何を見分ければ切れるか` が1文で分かる形へ直す
+- 逆流の途中で見つかった定義や式の誤りは、その節で一緒に補正する
+
+### 成果
+
+- `h23/info-systems` では、`正規化`、`ACID`、`WBS / マイルストーン / バーンダウン`、`BI / DWH / OLAP / ダッシュボード / データマイニング` の誤答理由を比較軸ベースへ書き換えた
+- `h27/info-systems` では、`IF 条件の補集合`、`マスタ入力と UI 部品`、`マスタ / トランザクション`、`ping / traceroute / ARP / tcpdump`、`LAN / WAN / VAN / VPN`、`スループット / レスポンスタイム / ターンアラウンドタイム` の切り分けを強化した
+- `r05/info-systems` では、`正規化`、`WHERE 条件`、`LAN 機器`、`帯域幅 / スループット / 遅延 / ジッタ`、`OLAP 系用語`、`CPI / SPI / クラッシング / ファストトラッキング` を補強した
+- 同ページでは、`ROLAP` と `OLTP` の混同、`CPI` の式、`クラッシング / ファストトラッキング` の定義など、本文中の不正確さも補正した
+- `r06/info-systems` では、`ヘッダ / 明細 / マスタ`、`DHCP / DNS / MIME / NNTP / SMTP / HTTP`、`BAC / PV / AC / EV` の見分け方を補強した
+- `r07/info-systems` では、`TCP / UDP / DHCP / SNMP / ARP`、`INNER JOIN / OUTER JOIN / GROUP BY`、`DWH / データマート / データレイク / OLTP / OLAP`、`WBS / WBS辞書 / ワークパッケージ / マイルストーン` の比較軸を強めた
+- `wiki-progress-tracker` と `wiki-coverage-registry` は、年度ページへの逆流完了後の次作業として、各ノード本文への `年度別誤答比較の逆輸入` を示す内容へ更新した
+
+### 品質ゲート
+
+- 年度別ページでは、`何を覚えるか` ではなく `何を見分ければ選択肢を切れるか` を先に書く
+- `比較語` が出る節は、`役割`、`粒度`、`対象` のいずれで切るかを明示する
+- 途中で見つかった事実誤認は放置せず、同じ節の中で定義と学習アドバイスをそろえて直す
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `/past-exam-solutions/h23/info-systems`
+  - `/past-exam-solutions/h27/info-systems`
+  - `/past-exam-solutions/r05/info-systems`
+  - `/past-exam-solutions/r06/info-systems`
+  - `/past-exam-solutions/r07/info-systems`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 年度別の `誤答の落とし穴` が抽象的だと、ノード本文を厚くしても `この設問ではどの比較軸を使うか` が受験生に伝わりにくい
+2. 年度ページを点検すると、比較軸不足だけでなく、古い仮説明や定義誤りが残っている箇所を見つけやすい
+3. `ノード本文を厚くする → 学習ガイドを直す → 年度別へ逆流させる` の順で進めると、初学者の読む経路がかなり揃う
+
+### 前回比
+
+改善: 前回は `学習ガイド` と `スタック系導線` を整えた。今回は、その比較軸を `h23 / h27 / r05 / r06 / r07` の年度別解説へ戻し、各設問の誤答理由が抽象論に逃げないよう補強した
+
+### 次に修正すべきこと
+
+1. `knowledge-computer-basics`、`knowledge-database-and-sql`、`knowledge-network-basics`、`knowledge-project-management`、`knowledge-outsourcing-and-decision-support` に、今回拾った年度別誤答例を逆輸入する
+2. `r05/info-systems` には、まだ DBMS 用語やファイル形式など定義精度の粗い節が残るため、今回と同じ基準で再点検する
+3. `r07/info-systems` には重複した説明塊が残る節があるため、内容を落とさずに構造整理する
+
+## 2026-03-29-20 初学者通読レビューで経済学トップの入口を補強した
+
+### 対象
+
+- `content/docs/economics-and-economic-policy/index.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+
+### 戦略
+
+- 最初の 1 次科目トップとして、`ミクロ / マクロ` の違いが名前だけで通るかを点検する
+- 初学者が次の 1 ページを迷わないよう、`何を見る分野か` と `読む順` を同じ場所で固定する
+- 学びが再利用できる形なら、ページ修正だけで終えず、戦略文書にも一般化して残す
+
+### 成果
+
+- `経済学・経済政策トップ` に、`ミクロ = 家計・企業・個別市場`、`マクロ = 国全体の景気・所得・物価・政策` の切り分けを追加した
+- 同ページに、`ミクロ経済学 → マクロ経済学 → 過去問マッピング` の既定順を追加し、索引や付録は後段で使うことを明示した
+- `IS-LM`、`AD-AS`、`GDP`、`CPI` など、トップページで初出だった略語に短い補足を入れた
+- `関連ページ` は、初学者が次に押すべき `ミクロ経済学`、`マクロ経済学` を先頭に並べ替えた
+- `wiki-beginner-review-tracker` と `agent-handoff` を更新し、次の対象を `財務・会計トップ` へ進めた
+- 戦略文書に、`科目トップは何をどの大きさで見るかを先にほどく` という学びを追加した
+
+### 品質ゲート
+
+- `科目名は知っているが、どちらから読むかが分からない` という初学者の停止点を、`観察対象の違い` と `既定順` で先に解消した
+- 索引や過去問マッピングを否定せず、`今使う入口` と `あとで使う参照先` を明確に分けた
+- 略語補足は必要最小限にとどめ、章ハブへ入る前の読解負荷だけを下げた
+
+### 検証
+
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+  - Turbopack で `ENOENT ... _clientMiddlewareManifest.js` と `ENOTEMPTY ... .next-check/server/app/...` が出たため、`.next-check` を消して `NEXT_DIST_DIR=.next-check pnpm exec next build --webpack` で再検証
+- ブラウザ確認:
+  - `/economics-and-economic-policy`
+  - `h1`、`初めて読むならこの順`、`消費者物価指数`、`関連ページ` の順序を確認
+  - console error `0`
+
+### 鮮度確認
+
+- 安定論点の導線補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 科目トップでは、論点の列挙より先に、`どの範囲をどう切って学ぶ科目か` を短く定義した方が初学者は止まりにくい
+2. `ミクロ / マクロ` のような既知に見える語でも、`個別市場` と `国全体` の違いを書かないと、次に押す章を選び切れない
+3. 科目トップの `関連ページ` は、便利な逆引きより `次の 1 ページ` を先に置いた方が導線として機能しやすい
+
+### 前回比
+
+改善: 前回は `第2次試験トップ` で共通プロセスの読む順を固定した。今回は 1 次科目トップでも同じ発想を適用し、`科目の切り方` と `次の 1 ページ` を先に示す方針を追加できた
+
+### 次に修正すべきこと
+
+1. `finance-and-accounting/index.mdx` を読み、`簿記 / 企業会計 / 原価計算 / 経営分析 / ファイナンス` の入り順が初学者に通るかを確認する
+2. `まず読むページ` と `関連ページ` が多い科目トップでは、`最初の数手` と `後から使う参照` の分離を横展開できるかを確認する
+3. 1 次 7 科目トップを一巡したら、`分野の切り方` の説明が必要なページ群をまとめて洗い直す
+
+## 2026-03-29-20-2 初学者通読レビューで財務・会計トップの入口を補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/index.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+
+### 戦略
+
+- `財務・会計` を初めて見る受験生が、`簿記 / 企業会計 / 原価計算 / 経営分析 / ファイナンス` の違いをページ名だけで判断できるかを点検する
+- 初学者が `どこから読み始め、どの順で進むか` を迷わないよう、分野の役割差と前後関係を同じ場所で固定する
+- 章名カードが途中の個別論点へ飛んでいる箇所は、まず章ハブへ戻す
+
+### 成果
+
+- `財務・会計トップ` に、`簿記 = 記録する分野`、`企業会計 = 財務諸表で読む分野`、`原価計算 / 経営分析 = 原価や状態を判断する分野`、`利益と資金の管理 / ファイナンス = 利益・現金・投資・資金調達へ進む分野` という役割差を追加した
+- 同ページに、`簿記の基礎 → 企業会計の基礎 → 原価計算 → 経営分析 → 利益と資金の管理 → ファイナンス` の既定順を追加した
+- `CVP`、`NPV`、`FCF`、`WACC`、`CAPM` の初出に短い補足を入れた
+- `経営分析` のカードと年度軸カードは、`収益性分析` ではなく `management-analysis` の章ハブへ戻した
+- `関連ページ` は、章ハブを先頭に置き、索引や事例Ⅳ、後半論点を後段へ並べ替えた
+- `wiki-beginner-review-tracker` と `agent-handoff` を更新し、次の対象を `企業経営理論トップ` へ進めた
+- 戦略文書に、`積み上げ型の科目トップは処理の流れを先に示す` という学びを追加した
+
+### 品質ゲート
+
+- `計算科目だが、何から固めればよいか分からない` という初学者の停止点を、`記録 → 読む → 判断 → 投資` の流れで先に解消した
+- `経営分析` だけが個別論点へ飛んでいた導線を章ハブへ戻し、他の章カードと粒度を揃えた
+- 略語補足はトップページで最低限にとどめ、詳細説明は各章ハブや個別ノードへ残した
+
+### 検証
+
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+  - `.next-check` 側で `ENOTDIR ... operations.segments` と `ENOENT ... pages-manifest.json` が続いたため、同リポジトリで `.next` を使うサーバーが止まっていることを確認して `pnpm exec next build --webpack` で最終確認
+- ブラウザ確認:
+  - `/finance-and-accounting`
+  - `h1`、`初めて読むならこの順`、`FCF`、`関連ページ` の順序を確認
+  - console error `0`
+
+### 鮮度確認
+
+- 安定論点の導線補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `財務・会計` のような積み上げ型科目では、論点名の列挙より先に `何を処理する段階か` を書いた方が、初学者は次の章を選びやすい
+2. 章名カードが途中の個別論点を向いていると、そこだけ粒度がずれて全体像をつかみにくくなる
+3. 初学者向けの `関連ページ` は、索引や後半論点よりも、まず章ハブを前に置いた方が戻り先として機能しやすい
+
+### 前回比
+
+改善: 前回は `経済学・経済政策トップ` で `何をどの大きさで見る科目か` を先に示した。今回は `財務・会計トップ` で `どの順に処理を積み上げる科目か` まで固定し、積み上げ型科目向けの別パターンを戦略へ追加できた
+
+### 次に修正すべきこと
+
+1. `business-management-theory/index.mdx` を読み、`戦略 / 組織 / マーケティング` の切り分けと既定順が初学者に通るかを確認する
+2. 他の科目トップでも、章カードが個別論点へ直結していないかを点検する
+3. 1 次 7 科目トップを一巡したら、`観察対象の違い` と `処理の流れ` のどちらを先に示すべきかで科目トップを分類し直す
+
+## 2026-03-29-21 `分散 → 価格づけ → 情報反映` の順で証券投資論をつないだ
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`ポートフォリオ理論`、`CAPM`、`効率的市場仮説` を `分散で落とすリスク`、`価格づけされる市場リスク`、`価格へ織り込み済みの情報` という役割差で並べた比較表を追加した
+- 同ページに `過去問での判断順` を加え、`分散`、`価格づけ`、`情報反映` のどれを聞いているかで最初の道具を切る読み方へ整理した
+- [効率的市場仮説](content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx) に、`ポートフォリオ理論 / CAPM / EMH` の違いをまとめた比較表と、3 理論を 1 本で理解する順序を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`ポートフォリオ理論`、`CAPM`、`効率的市場仮説` を説明文から見分ける確認問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `ファイナンス` 関連の次作業を、今回完了した橋渡し補強の先へ更新した
+
+### 品質ゲート
+
+- `β` の式説明だけで終わらせず、`なぜ会社固有リスクが CAPM の報酬対象から外れるのか` を、分散投資の説明から自然につながるようにした
+- `EMH` は `公開情報が反映される速さ` の話であり、`リスクの大きさ` の話ではないことを表で切り分けた
+- 演習では、数値計算を増やす前に `この説明はどの理論か` を言い分けられることを優先した
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-efficient-market-hypothesis`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 証券投資論で受験生が混同しやすいのは、`リスクを減らす理論`、`リスクに報酬をつける理論`、`情報が反映される理論` の役割差であり、見出し単位で分けるだけでは不十分だった
+2. `CAPM` の理解は `βの式` より前に、`分散で消えないリスクだけを見る` と置いた方が通りやすい
+3. `EMH` は `弱度 / 準強度 / 強度` の暗記だけでは弱く、`アクティブ運用がどこまで通用しにくいか` と結びつけた方が記憶に残りやすい
+
+### 前回比
+
+改善: 前回は `NPVプロファイル`、`感度分析`、`デシジョンツリー` を意思決定順でつないだ。今回は証券投資論でも同じ方針を適用し、`分散 → 価格づけ → 情報反映` の順で読めるようにした
+
+### 次に修正すべきこと
+
+1. `デリバティブとリスク管理` を、`価格固定`、`下振れ回避`、`金利固定` の選択順で補強する
+2. `効率的市場仮説` には、`市場ポートフォリオ`、`アクティブ / パッシブ運用`、`アノマリー` の比較問題を追加する
+3. `ファイナンス 基本確認問題` には、`拡張 / 縮小 / 切替` を含む実物オプション比較問題を追加する
+
+## 2026-03-29-22 経営情報システムの知識ノードへ年度別の誤答比較を逆輸入した
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-computer-basics.mdx`
+- `content/docs/management-information-systems/knowledge-database-and-sql.mdx`
+- `content/docs/management-information-systems/knowledge-network-basics.mdx`
+- `content/docs/management-information-systems/knowledge-project-management.mdx`
+- `content/docs/management-information-systems/knowledge-outsourcing-and-decision-support.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [コンピュータの基礎](content/docs/management-information-systems/knowledge-computer-basics.mdx) に、`スタック / キュー / プロトコルスタック` と `レスポンスタイム / スループット` を、問題文の言い換えから逆算する表と確認問題を追加した
+- [データベースとSQL](content/docs/management-information-systems/knowledge-database-and-sql.mdx) に、`ヘッダ / 明細 / マスタ`、`JOIN と GROUP BY`、`<> と自己結合の重複除去` の比較軸を追加し、確認問題の誤答例も修正した
+- 同ページで、EVM ではなく DB 論点だが放置できなかった `SQL 読み取り確認問題` の誤答を直し、`独立性違反 = ダーティリード` と短絡していた箇所も `更新競合 / ロストアップデート` へ修正した
+- [通信ネットワーク](content/docs/management-information-systems/knowledge-network-basics.mdx) に、`TCP / UDP / DHCP / DNS / ARP / SNMP` を `何を解決するか` で切る表と確認問題を追加した
+- [プロジェクトマネジメント](content/docs/management-information-systems/knowledge-project-management.mdx) に、`PV / EV / AC / BAC` の日本語化、`SPI / CPI` の分母の切り分け、`WBS / WBS辞書 / ワークパッケージ / マイルストーン` の言い換え表を追加した
+- [外部資源活用と意思決定支援](content/docs/management-information-systems/knowledge-outsourcing-and-decision-support.mdx) に、`OLTP / DWH / データマート / データレイク` の比較表と `ROLAP / MOLAP / HOLAP` の説明・確認問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した `年度別誤答の逆輸入` の先へ更新した
+
+### 品質ゲート
+
+- `定義を増やしただけ` で終わらせず、年度別ページで実際に詰まりやすかった `どの行を残すか`、`1 行の単位は何か`、`何を解決するプロトコルか` といった判断順へ落とし込んだ
+- 初学者向けに、記号や略語をそのまま追わせるのではなく、`日本語で言い換えてから判定する` 方針で統一した
+- 逆輸入作業のついでに見つかった誤答や誤ラベリングはその場で直し、知識ノード側の説明と確認問題が矛盾しないようにした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `/management-information-systems/knowledge-computer-basics`
+  - `/management-information-systems/knowledge-database-and-sql`
+  - `/management-information-systems/knowledge-network-basics`
+  - `/management-information-systems/knowledge-project-management`
+  - `/management-information-systems/knowledge-outsourcing-and-decision-support`
+  - いずれも `200` と `h1`、追加見出しの表示を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 年度別ページで拾った誤答傾向は、知識ノード側で `比較表` と `確認問題` に変換しないと再発防止になりにくい
+2. `JOIN と GROUP BY` や `SPI と CPI` のような頻出混同は、定義を並べるより `何と何を比べる式か` へ言い換えた方が伝わりやすい
+3. `OLTP / DWH / データマート / データレイク` のような保存先の違いは、`誰が / 何のために / どんな形で使うか` を一表に置くと初学者が迷いにくい
+
+### 前回比
+
+改善: 前回は年度別の経営情報システム解説に比較軸を逆流させた。今回はその比較軸を知識ノード本体へ戻し、年度ページを読まなくても基礎ページだけで誤答パターンまで学べる状態へ一段進めた
+
+### 次に修正すべきこと
+
+1. `knowledge-web-and-cloud.mdx` に `Web / API / CDN / SaaS / PaaS / IaaS` の比較問題を増やす
+2. `knowledge-it-operations-and-audit.mdx` に `ITIL / SLA / 可用性指標 / 監査` の比較問題を増やす
+3. 経営情報システムの年度別解説から拾った誤答パターンを、残る `Web / セキュリティ / 運用監査` ノードにも同じ形式で逆輸入する
+
+## 2026-03-29-23 `価格固定 → 片側保護 → 金利固定` の順でデリバティブをつないだ
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`価格固定`、`片側だけ保護`、`金利条件の変換` を軸に `先物 / 先渡 / 為替予約`、`オプション`、`スワップ` を選ぶ比較表と判断順を追加した
+- [デリバティブとリスク管理](content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) に、同じ判断軸を独立ノードとして詳しく置き、`将来買う側 = 買いヘッジ`、`将来売る側 = 売りヘッジ` まで一続きで読めるようにした
+- 同ページの `よくあるつまずき` にあった `買いヘッジ / 売りヘッジ` の誤記を修正し、方向判断のミスを誘う説明を除いた
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`買い先物`、`ドル・コール・オプション`、`金利スワップ`、`売り先物` を場面から選ぶ確認問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した `手段選択` の先へ更新した
+
+### 品質ゲート
+
+- `先物 / オプション / スワップ` を商品名の列挙にせず、`完全固定`、`片側保護`、`支払い条件の変換` という意思決定順へ置き直した
+- `買いヘッジ / 売りヘッジ` は `価格が上がるか下がるか` だけで決めず、`将来買う側か売る側か` を先に見るように統一した
+- `スワップ` は `新しい借入` ではなく、`既存契約は残したまま支払い条件を交換する手段` として固定した
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check-deriv pnpm build`
+  - 既存の `tsconfig.json` include と Next.js の自動追記が重なり、`File '.next-check/types/routes.d.ts' not found` で失敗
+- ブラウザ確認:
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-derivatives-risk-management`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. デリバティブで受験生が止まりやすいのは `商品名の定義` ではなく、`この場面で何を選ぶか` の入口であり、`固定 / 片側保護 / 条件変換` の 3 択に落とすと通りやすい
+2. `買いヘッジ / 売りヘッジ` の誤答は `価格上昇が困る / 下落が困る` だけで覚えると起きやすく、`将来買う側か売る側か` を先に置いた方が崩れにくい
+3. `スワップ` はデリバティブの一種として暗記するより、`利払い条件を付け替える道具` として説明した方が、金利リスク対策と結びつきやすい
+
+### 前回比
+
+改善: 前回は証券投資論を `分散 → 価格づけ → 情報反映` の順でつないだ。今回はデリバティブでも同じ発想を使い、`価格固定 → 片側保護 → 金利固定` の順で手段選択を固定した
+
+### 次に修正すべきこと
+
+1. `効率的市場仮説` には、`市場ポートフォリオ`、`アクティブ / パッシブ運用`、`アノマリー` の比較問題を追加する
+2. `デリバティブとリスク管理` には、`為替予約 / 通貨オプション / 通貨スワップ` の使い分けと、ドル受払方向の比較問題を追加する
+3. `ファイナンス 基本確認問題` には、`拡張 / 縮小 / 切替` を含む実物オプション比較問題を追加する
+
+## 2026-03-29-25 `市場全体の基準 → 市場平均との付き合い方 → 例外パターン` の順で EMH を補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`市場ポートフォリオ`、`アクティブ / パッシブ運用`、`アノマリー` を `市場全体の基準`、`市場平均との付き合い方`、`例外パターン` という順で並べた比較表と判断順を追加した
+- [効率的市場仮説](content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx) に、`市場ポートフォリオ`、`アクティブ運用`、`パッシブ運用`、`アノマリー` の違いをまとめた比較表と、`1月効果 / 小型株効果 / 割安株効果` の代表例を追加した
+- 同ページに、`準強度の EMH` と `パッシブ運用`、`アノマリー` の関係を一問で確かめる確認問題を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`市場ポートフォリオ`、`アクティブ運用`、`パッシブ運用`、`アノマリー` を説明文から切り分ける確認問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `ファイナンス` 関連の次作業を、今回完了した比較補強の先へ更新した
+
+### 品質ゲート
+
+- `市場ポートフォリオ` を単なる用語説明で終わらせず、`市場全体の基準` として `アクティブ / パッシブ運用` の比較へつなげた
+- `アノマリー` は `EMH が全部間違い` という飛躍に使わず、`EMH だけでは説明しにくい例外パターン` として位置づけた
+- 演習では、数式より前に `この説明は基準の話か、運用方針の話か、例外パターンの話か` を切れることを優先した
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+  - `required-server-files.json` の `ENOENT` で失敗
+- ブラウザ確認:
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-efficient-market-hypothesis`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `EMH` 周辺で受験生が止まりやすいのは `弱度 / 準強度 / 強度` そのものより、`市場平均をどう扱うのか` が見えない点であり、`市場ポートフォリオ` を先に置くと流れがかなり通りやすい
+2. `アクティブ / パッシブ運用` は単なる投資スタイル比較ではなく、`公開情報だけでどこまで勝てるか` という `EMH` の含意として置いた方が記憶に残りやすい
+3. `アノマリー` は用語だけでは弱く、`1月効果`、`小型株効果`、`割安株効果` のような具体例に落とした方が過去問との接続が良い
+
+### 前回比
+
+改善: 前回はデリバティブを `価格固定 → 片側保護 → 金利固定` の順でつないだ。今回は証券投資論に戻り、`市場全体の基準 → 市場平均との付き合い方 → 例外パターン` の順で `EMH` 周辺を読みやすくした
+
+### 次に修正すべきこと
+
+1. `ファイナンス` には、`延期 / 拡張 / 縮小 / 切替 / 撤退` を含む `実物オプション` の比較表を追加する
+2. `効率的市場仮説` には、`1月効果 / 小型株効果 / 割安株効果` を `弱度 / 準強度 / 強度` と結び付ける具体例問題を追加する
+3. `デリバティブとリスク管理` には、`為替予約 / 通貨オプション / 通貨スワップ` の使い分けと、ドル受払方向の比較問題を追加する
+
+## 2026-03-29-26 `待つ → 広げる → 絞る → 変える → やめる` の順で実物オプションを補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`延期 / 拡張 / 縮小 / 切替 / 撤退` を `待つ / 広げる / 絞る / 変える / やめる` の 5 動作で整理した比較表と判断順を追加した
+- [デリバティブとリスク管理](content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) の `リアルオプション` 節を拡張し、従来の `延期 / 拡張 / 撤退` に `縮小 / 切替` を明示的に加えた
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、5 種類の `実物オプション` を場面から見分ける確認問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `ファイナンス` 関連の次作業を、今回完了した比較補強の先へ更新した
+
+### 品質ゲート
+
+- `実物オプション` を抽象的な名称の列挙にせず、受験生が場面文を `動詞` に言い換えて選べるようにした
+- `縮小` と `切替` を `柔軟性オプション` に埋めたままにせず、過去問で選び分けやすい独立行として出した
+- 章ハブ、独立ノード、演習ノードで同じ 5 動詞を使い、読む場所によって判断軸が変わらないようにした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+  - 成功
+- `NEXT_DIST_DIR=.next-playwright pnpm exec next dev --hostname 127.0.0.1 --port 3102`
+  - 既存の `app/globals.css:449` の CSS パースエラーにより、`/finance-and-accounting/finance-derivatives-risk-management` で `500` を確認
+- `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3103`
+  - `.next-check/prerender-manifest.json` の `ENOENT` で起動不可
+- ブラウザ確認:
+  - `.next-check/server/app` の生成 HTML を返すローカル HTTP サーバーを使って確認
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-derivatives-risk-management`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `実物オプション` は名称だけで覚えると混同しやすく、`待つ / 広げる / 絞る / 変える / やめる` の動詞へ落とした方が場面選択に強い
+2. `縮小` と `撤退` はどちらも下振れ対策に見えるが、`一部を残すか全部をやめるか` を分けないと誤答しやすい
+3. `切替` は `製品`、`用途`、`原材料` のいずれを変えるかが本文に見えていないと、受験生は `拡張` や `縮小` と混同しやすい
+
+### 前回比
+
+改善: 前回は `EMH` を `市場全体の基準 → 市場平均との付き合い方 → 例外パターン` の順で整理した。今回は投資判断の柔軟性にも同じ方針を適用し、`実物オプション` を 5 動作で切れるようにした
+
+### 次に修正すべきこと
+
+1. `デリバティブとリスク管理` には、`為替予約 / 通貨オプション / 通貨スワップ` の使い分けと、ドル受払方向の比較問題を追加する
+2. `効率的市場仮説` には、`1月効果 / 小型株効果 / 割安株効果` を `弱度 / 準強度 / 強度` と結び付ける具体例問題を追加する
+3. `ファイナンス 基本確認問題` には、`為替予約 / 通貨オプション / 通貨スワップ` を `ドル支払い / ドル受取り` と組み合わせた比較問題を追加する
+
+## 2026-03-29-20-3 初学者通読レビューで企業経営理論トップの入口を補強した
+
+### 対象
+
+- `content/docs/business-management-theory/index.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+
+### 成果
+
+- [企業経営理論トップ](content/docs/business-management-theory/index.mdx) に、`戦略 → 組織 → マーケティング → 過去問マッピング` の既定順を足し、`会社がどこでどう戦うか`、`社内でどう実行するか`、`誰に何をどう売るか` の役割差を一文で切り分けた
+- 同ページの `学習のポイント` と `まず読むページ` に、`SWOT`、`5フォース`、`VRIO`、`STP`、`4P`、`CRM`、`LTV` の短い言い換えを加え、略語だけで止まりにくくした
+- `関連ページ` は `経営戦略論`、`組織論`、`マーケティング論` の章ハブを先頭へ出し、そこから過去問、2次、個別ノードへ進む並びに直した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) と [agent-handoff.md](docs/agent-handoff.md) を更新し、次の対象を `運営管理トップ` へ進めた
+
+### 品質ゲート
+
+- `戦略 / 組織 / マーケティング` が単なる科目内分類ではなく、`会社の向き`、`社内実行`、`顧客と施策` の役割差として読めることを優先した
+- 入口ページでは、深い理論名を増やすより、章ハブへ流す順番と略語の最短補足を先に整えた
+- `関連ページ` は、個別ノード先行ではなく章ハブ先行の並びに戻し、初回読者が全体像をつかみやすい状態にした
+
+### 検証
+
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101`
+- `@playwright/test` の `chromium.launch()` を使う inline script で `/business-management-theory` を確認
+  - `status: 200`
+  - `h1: 企業経営理論`
+  - `初めて読むならこの順`、`会社がどこでどう戦うかを決める分野です`、`CRM（顧客関係管理）` の表示を確認
+  - console error は `0`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `企業経営理論` のような横並び型の科目トップでは、分野名を3つ並べるだけでは弱く、`何を決める分野か` を一文で切り分けてから順番を固定した方が止まりにくい
+2. `SWOT` や `STP` のような略語は、詳解ページで定義する前提にせず、科目トップの最初のカードで短く言い換えた方が個別ノードへ入りやすい
+3. `関連ページ` は、深掘りリンクを増やすより先に `章ハブ → 過去問 → 2次 → 個別ノード` の大枠順を守った方が初学者の探索負荷を下げられる
+
+### 前回比
+
+改善: 前回は `財務・会計` のような積み上げ型科目で `処理の流れ` を先に示した。今回は `企業経営理論` のような横並び型科目で、`役割差` と `読む順` を先に固定した
+
+### 次に修正すべきこと
+
+1. `運営管理トップ` に入り、`生産管理` と `店舗・販売管理` の役割差と既定順が暗黙でないかを確認する
+2. `関連ページ` が章ハブ先行になっているかを見て、初回読者が個別ノードへ飛びすぎないように整える
+3. 今回足した `横並び型科目トップ` の学びが、今後の `運営管理` と `経営法務` の入口にも使えるかを確認する
+
+## 2026-03-29-24 Web/運用監査ノードへ年度別の比較軸を逆輸入した
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-web-and-cloud.mdx`
+- `content/docs/management-information-systems/knowledge-it-operations-and-audit.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [Webテクノロジーとクラウド](content/docs/management-information-systems/knowledge-web-and-cloud.mdx) に、`HTTP / HTML-CSS / Web API / JSON / REST` を `通信ルール / 画面表現 / 窓口 / データ形式 / 設計作法` で切る表を追加した
+- 同ページに、`SaaS / DaaS / PaaS / IaaS / オンプレミス` の責任分界表を追加し、`DaaS = VDI をサービスとして使う形` まで本文で回収した
+- 同ページの `典型的なつまずき` と `確認問題` を増やし、`Web API と HTML/CSS`、`JSON と HTTP`、`DaaS と IaaS`、`CDN と エッジ` の混同を直接切れるようにした
+- [運用管理・評価・監査](content/docs/management-information-systems/knowledge-it-operations-and-audit.mdx) に、`SLA / SLM / ITSMS / ISMS` を `文書 / 活動 / 管理の仕組み` で切る表を追加した
+- 同ページに、`システム監査 / 内部統制 / コンプライアンス` の役割差、`可用性 / 信頼性 / 保守性 / RASIS` の比較、`99% / 99.9% / 99.99%` の停止時間目安、確認問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した比較問題の先へ更新した
+
+### 品質ゲート
+
+- `用語定義を増やす` のではなく、年度別で実際に混同されていた `何のルールか / 何の窓口か / 何の仕組みか` を一目で切れる形を優先した
+- `監査` と `統制` のように立場が違う論点は、`誰が / 何のために / どの頻度で` の 3 軸でそろえ、抽象的な説明で逃げないようにした
+- 可用性は式だけでは初学者に残りにくいため、停止時間への換算と `計画停止を含むか` の条件確認まで入れた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `/management-information-systems/knowledge-web-and-cloud`
+  - `/management-information-systems/knowledge-it-operations-and-audit`
+  - いずれも `200` と `h1`、追加見出しと確認問題の表示を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `Web` 系の誤答は、`REST / JSON / HTTP / Web API` を同じ層の言葉として覚えることから起きやすく、`ルール / 窓口 / 荷姿 / 作法 / 見た目` に分けるだけでかなり減らせる
+2. `SLA / SLM / ITSMS / ISMS` は略語の丸暗記では崩れやすく、`文書 / 活動 / 管理システム` の違いを本文に明示した方が初学者に効く
+3. `可用性` は計算式だけでなく、`信頼性と保守性の結果`、`停止時間へ換算`、`計画停止条件` の 3 点まで説明して初めて年度別のひっかけに耐えやすくなる
+
+### 前回比
+
+改善: 前回は `コンピュータ基礎 / DB / ネットワーク / PM / 意思決定支援` に年度別の誤答比較を戻した。今回は残っていた `Web / クラウド / 運用監査` に同じ型を適用し、経営情報システムの主要ノードがほぼ同じ教材密度で読める状態へ近づけた
+
+### 次に修正すべきこと
+
+1. `knowledge-information-security-basics.mdx` に `暗号 / ハッシュ / 電子署名 / PKI / 認証` の比較軸と確認問題を増やす
+2. `knowledge-ai-and-machine-learning-basics.mdx` に `教師あり / 教師なし / 強化学習 / 生成AI / IoT` の比較軸と確認問題を増やす
+3. `h24 / h26 / h28 / r07` の経営情報システムで、今回追加した `SLA / ITSMS / DaaS / 可用性` の比較軸が年度ページ側でも十分に見えるか再点検する
+
+## 2026-03-29-20-4 初学者通読レビューで運営管理トップの入口を補強した
+
+### 対象
+
+- `content/docs/operations-management/index.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+
+### 成果
+
+- [運営管理トップ](content/docs/operations-management/index.mdx) に、`生産管理 プランニング → 生産管理 オペレーション → 店舗・販売管理 → 過去問マッピング` の既定順を足し、`工場が動く前`、`流しながら改善`、`売場で届ける` の工程差を一文で切り分けた
+- 同ページの `学習のポイント`、`まず読むページ`、`学習の優先順位` に、`JIT`、`PERT/CPM`、`OEE`、`VMD`、`POS`、`TPM`、`MTBF`、`MTTR`、`EOS`、`EDI`、`CRM` の短い言い換えを加え、略語だけで止まりにくくした
+- `関連ページ` は `生産管理 プランニング`、`生産管理 オペレーション`、`店舗・販売管理` の章ハブを先頭へ出し、そこから過去問、2次、個別ノードへ進む並びに直した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) と [agent-handoff.md](docs/agent-handoff.md) を更新し、次の対象を `経営法務トップ` へ進めた
+
+### 品質ゲート
+
+- `運営管理` を `工場` と `店舗` の二分で終わらせず、`計画する`、`流して改善する`、`売場と流通で届ける` の3段で読めることを優先した
+- 入口ページでは、個別手法を増やすより先に `どの工程で使う言葉か` が見える並びと短い補足を置いた
+- `関連ページ` は、知識ノード先行ではなく章ハブ先行に戻し、初回読者が先に全体像をつかめる状態にした
+
+### 検証
+
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101`
+- `@playwright/test` の `chromium.launch()` を使う inline script で `/operations-management` を確認
+  - `status: 200`
+  - `h1: 運営管理`
+  - `初めて読むならこの順`、`工場が動く前に 何を、いつ、どれだけ作るか を決める分野です`、`POS（販売時点情報管理）` の表示を確認
+  - console error は `0`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `運営管理` のように工程がつながる科目トップでは、`どこを計画している段か`、`どこを改善している段か`、`どこを顧客側で見ている段か` を先に切らないと、章ハブ名だけでは前後関係が伝わりにくい
+2. `JIT` や `VMD` のような略語は、個別ノードへ飛ぶ前に `必要なものを必要な時に流す`、`売り場づくり` のような言い換えを持たせた方が、現場イメージと結び付きやすい
+3. `運営管理` では `事例Ⅲ` と `事例Ⅱ` の両方へ接続するため、関連ページは `章ハブ → 過去問 → 2次 → 個別ノード` の大枠順を守った方が読者が迷いにくい
+
+### 前回比
+
+改善: 前回は `企業経営理論` のような横並び型科目で `役割差` と `読む順` を固定した。今回は `運営管理` のような工程横断型科目で、`どの段で何をするか` を先に固定した
+
+### 次に修正すべきこと
+
+1. `経営法務トップ` に入り、`会社法`、`知的財産権`、`民法と取引関連法` の切り分けが初学者に通るかを確認する
+2. 更新確認メモが、初学者の通読導線を止めずに `参照資料へ戻る補助` として機能しているかを見る
+3. 今回足した `工程横断型科目トップ` の学びが、今後の `経営法務` の更新論点整理とどう違うかを比較する
+
+## 2026-03-29-20-5 初学者通読レビューで経営法務トップの入口を補強した
+
+### 対象
+
+- `content/docs/business-law/index.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+
+### 成果
+
+- [経営法務トップ](content/docs/business-law/index.mdx) に、`会社法 → 知的財産権 → 民法と取引関連法` の既定順を足し、`会社を動かす`、`権利を守る`、`取引ルールを守る` の役割差を一文で切り分けた
+- 同ページの `更新論点` と `更新確認メモ` に、`まず本文の3章を読み、そのあと更新確認へ戻る` 導線を加え、日付入りメモが初回通読を横取りしにくい形へ直した
+- `民法と取引関連法` の学習ポイントに `誰に適用されるか` を補い、`関連ページ` には `会社法`、`知的財産権`、`民法と取引関連法` の章ハブを先頭へ出した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) と [agent-handoff.md](docs/agent-handoff.md) を更新し、次の対象を `経営情報システムトップ` へ進めた
+
+### 品質ゲート
+
+- `経営法務` は、法制度の列挙より先に `会社の内部ルール`、`権利保護`、`取引ルール` の役割差が読めることを優先した
+- 日付入りの更新メモは削らずに残しつつ、`初回は本文を先に読む` と明示して、通読導線と更新確認導線を分けた
+- `関連ページ` は章ハブ先行へ戻し、初回読者が先に全体の地図をつかめる状態にした
+
+### 検証
+
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- 表示確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101`
+  - `.next-check/server/middleware-manifest.json` 読み込みが不安定だったため、表示確認のみ `NEXT_DIST_DIR=.next-devcheck pnpm exec next dev --hostname 127.0.0.1 --port 3101` に切り替え
+  - `@playwright/test` の `chromium.launch()` を使う inline script で `/business-law` を確認
+    - `status: 200`
+    - `h1: 経営法務`
+    - `初めて読むならこの順`、`会社をどう作り、どう意思決定し、どう資金調達するかを見る分野です`、`このメモは制度更新を確認するときだけ戻れば十分です` の表示を確認
+    - console error は `0`。dev サーバー由来の `React DevTools` と `[HMR] connected` は info / log のみ
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `経営法務` のように更新論点を含む科目トップでは、`何を学ぶ科目か` と `何が更新確認事項か` の入口を分けないと、初学者は日付や改正語に引っ張られて本文の骨格をつかみにくい
+2. `更新確認メモ` は不要ではなく、`本文理解後の確認口` として位置付けた方が、制度改正を追う意味と基礎理解の順番を両立しやすい
+3. 法務系の入口では、`何を守る制度か` だけでなく、`誰に適用されるルールか` を書いた方が、民法と取引関連法のまとまりが伝わりやすい
+
+### 前回比
+
+改善: 前回は `運営管理` のような工程横断型科目で `どの段で何をするか` を先に固定した。今回は `経営法務` のような更新論点を含む科目で、`本文ルート` と `更新確認ルート` を先に分けた
+
+### 次に修正すべきこと
+
+1. `経営情報システムトップ` に入り、`基礎技術`、`経営情報管理`、`更新論点` の切り分けが初学者に通るかを確認する
+2. 更新確認メモが `基礎を読んだあとに戻る場所` として機能しているかを見て、日付入り情報が通読を横取りしないかを確認する
+3. 今回足した `本文ルート / 更新確認ルート` の学びが、今後の `経営情報システム` と `中小企業経営・政策` の更新ページ構成にも使えるかを比較する
+
+## 2026-03-29-20-6 初学者通読レビューで経営情報システムトップの入口を補強した
+
+### 対象
+
+- `content/docs/management-information-systems/index.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+
+### 成果
+
+- [経営情報システムトップ](content/docs/management-information-systems/index.mdx) に、`情報通信技術の基礎 → 経営情報管理 → 統計学の基礎 → 更新確認メモ / 更新ページ → 過去問マッピング` の既定順を足し、`基礎技術`、`企業実務`、`更新確認` の役割差を一文で切り分けた
+- 同ページの `学習のポイント` と `学習の優先順位` に、`DB`、`DX`、`ITIL`、`SLA`、`PKI`、`ISMS`、`BI`、`OLAP` の短い言い換えを加え、略語だけで止まりにくくした
+- `更新確認メモ` の前に、`基礎を読んだあとに戻る場所` だと明示し、更新確認ルートが初回通読を横取りしにくい形へ直した
+- `関連ページ` は `情報通信技術の基礎` と `経営情報管理` の章ハブを先頭へ出し、そこから過去問、補助ノード、更新ページへ進む並びに直した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) と [agent-handoff.md](docs/agent-handoff.md) を更新し、次の対象を `中小企業経営・政策トップ` へ進めた
+
+### 品質ゲート
+
+- `経営情報システム` は、略語の列挙より先に `何に使う技術か` と `どこで使う実務か` が読めることを優先した
+- `更新確認メモ` は削らずに残しつつ、`基礎技術` と `経営情報管理` を先に読む順を明示して、本文ルートと更新確認ルートを分けた
+- `関連ページ` は章ハブ先行へ戻し、初回読者が先に全体の地図をつかめる状態にした
+
+### 検証
+
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+  - Turbopack の `_buildManifest.js.tmp` で `ENOENT`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+  - `.next-check` 側では最終的に `Could not find a production build` で不安定
+- `pnpm exec next build --webpack`
+  - 初回は `.next-check/types/routes.d.ts` 参照で失敗
+  - `.next-check` 側で `routes.d.ts` を作ったあとに再実行し、成功
+- `pnpm exec next start --hostname 127.0.0.1 --port 3101`
+- `@playwright/test` の `chromium.launch()` を使う inline script で `/management-information-systems` を確認
+  - `status: 200`
+  - `h1: 経営情報システム`
+  - `初めて読むならこの順`、`IT の部品と通信の仕組みを理解する分野です`、`ITIL（ITサービス運用の考え方）`、`このメモは DX、AI、ガイドラインの更新を確認するときに戻れば十分です` の表示を確認
+  - console error は `0`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `経営情報システム` のように略語が多い科目トップでは、正式名称を足すだけでは弱く、`何に使う言葉か` まで最初のカードで言い換えた方が個別ノードへ入りやすい
+2. 技術系トップでも更新論点は必要だが、`基礎技術 → 実務 → 更新確認` の順を崩すと、DX や AI の新しい言葉が基礎理解より先に立ってしまいやすい
+3. `統計学の基礎` のような補助ノードは、章ハブの前に置くより、`基礎技術` と `経営情報管理` のあとに置いた方が役割が伝わりやすい
+
+### 前回比
+
+改善: 前回は `経営法務` のような更新論点を含む科目で `本文ルート` と `更新確認ルート` を分けた。今回は `経営情報システム` でその考え方を維持しつつ、さらに `略語の用途` を入口で補う形へ進めた
+
+### 次に修正すべきこと
+
+1. `中小企業経営・政策トップ` に入り、`中小企業経営`、`中小企業政策`、`更新論点` の切り分けが初学者に通るかを確認する
+2. 白書や補助金の更新確認メモが `本文のあとに戻る場所` として機能しているかを見て、日付入り情報が通読を横取りしないかを確認する
+3. 今回足した `略語の用途 + 更新確認ルート` の学びが、今後の `中小企業経営・政策` の支援制度説明とどう違うかを比較する
+
+## 2026-03-29-27 情報セキュリティとAIノードへ年度別の誤答比較を逆輸入した
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-information-security-basics.mdx`
+- `content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [情報セキュリティの基礎](content/docs/management-information-systems/knowledge-information-security-basics.mdx) に、`暗号化 / 圧縮 / 符号化` の違い、`OTP / チャレンジレスポンス / リスクベース認証` の比較、`電子署名 / 電子証明書 / 認証局 / PKI` の切り分けを追加した
+- 同ページの `問題を解くときの観点` に認証方式の見分け表を増やし、確認問題として `電子署名と PKI`、`認証方式の切り分け` を追加した
+- [AI・機械学習・深層学習の基礎](content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx) に、`分類 / 回帰 / クラスタリング / 強化学習 / 生成AI` を `出力したいもの` で切る表を追加した
+- 同ページに、`IoT / エッジ / LPWA / クラウド` の役割分担表、`クラスタリング = 教師あり` や `生成AI = 教師なし学習の別名` といった誤解の補強、`問2` の全面差し替え、`問4` の追加を行った
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した比較軸の先へ更新した
+
+### 品質ゲート
+
+- セキュリティは `難しい制度名` を増やすのではなく、`秘密化 / 効率化 / 表現変換`、`文書 / 機関 / 体制`、`毎回変わる / 秘密を送らない / 状況で強める` のように、日本語の役割差で切れることを優先した
+- AI は `教師あり / 教師なし / 強化学習 / 生成AI` を同じ軸で並べないようにし、`何を出力したいか` と `どう学ぶか` を分離して説明した
+- 既存の確認問題で初学者を迷わせる曖昧な設問は、そのまま残さず、過去問で実際に問われやすい切り分けに差し替えた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+  - `_buildManifest.js.tmp` の `ENOENT` で失敗
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+- ブラウザ確認:
+  - `/management-information-systems/knowledge-information-security-basics`
+  - `/management-information-systems/knowledge-ai-and-machine-learning-basics`
+  - いずれも `200` と `h1`、追加見出しと確認問題の表示を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. セキュリティの誤答は `鍵の仕組み` だけでなく、`暗号化 / 圧縮 / 符号化` や `電子署名 / 証明書 / CA / PKI` の役割差を曖昧に覚えることから起きやすい
+2. 認証方式は `多要素認証` の知識だけでは足りず、`毎回変わる値`、`秘密を直接送らない`、`普段と違う環境で強める` の 3 パターンを別に持っておくと年度別の言い換えに強い
+3. AI の初学者向け説明では、`教師あり / 教師なし / 強化学習` と `生成AI` を別軸にしないと、分類表を見ても逆に混乱しやすい
+
+### 前回比
+
+改善: 前回は `Web / クラウド / 運用監査` の比較軸を補強した。今回は `情報セキュリティ` と `AI / IoT` に同じ型を適用し、経営情報システムの高頻度ノードに `比較表 + 誤解 + 確認問題` が一巡した
+
+### 次に修正すべきこと
+
+1. `knowledge-it-strategy-and-dx.mdx` に `BPR / DX / ITガバナンス / ERP / SCM / CRM` の比較軸と確認問題を増やす
+2. `knowledge-systems-development-methods.mdx` と `knowledge-project-management.mdx` に、まだ薄い `RFP / 要件定義 / テスト / リスク / スクラム` の確認問題を補う
+3. `h21 / h22 / h26 / r03 / r04 / r07` の経営情報システムで、今回の `PKI / 認証方式 / 生成AI / IoT` の比較軸が年度ページ側でも十分見えるか再点検する
+
+## 2026-03-29-28 情報セキュリティとAIノードの比較軸を年度別の引っかけに合わせて深掘りした
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-information-security-basics.mdx`
+- `content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [情報セキュリティの基礎](content/docs/management-information-systems/knowledge-information-security-basics.mdx) に、`SAML / OAuth 2.0 / OpenID Connect / LDAP / RADIUS / Kerberos` を 1 枚で切る比較表を追加し、`認証結果の連携`、`権限委譲`、`ユーザー台帳`、`ネットワーク認証` の層を分けて説明した
+- 同ページに `BYOD / COPE / MDM / MCM` の組み合わせ表と、`ゼロトラスト / VPN / SSO / MFA` の関係整理を追加し、`視点 3.6` と `確認問題 8 / 9` で年度別の言い換えに耐えるよう補強した
+- [AI・機械学習・深層学習の基礎](content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx) に、`CNN / RNN / Transformer` の見分け表、`RAG / ファインチューニング / プロンプト改善` の使い分け表、`CRISP-DM` の段階判定表を追加した
+- 同ページに `誤解9-11` と `問5-7` を追加し、`RAG = 再学習`、`XAI = 公平性や正確性を自動解決`、`CRISP-DM = モデリングから開始` といった初学者の誤解を明示的に潰した
+- 既存の RAG 説明にあった不正確な `プロンプト注入耐性も向上` という表現を削り、`別途対策が必要` に修正した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した論点の先へ更新した
+
+### 品質ゲート
+
+- セキュリティは `認証`、`認可`、`認証基盤`、`ネットワーク接続認証` を別レイヤーとして説明し、`全部ログイン関連` と一括で覚えないようにした
+- AI は `モデルの種類`、`改善手段`、`プロジェクト工程` を別軸に分け、`Transformer`、`RAG`、`CRISP-DM` が同じ分類ではないことを本文構造で示した
+- 確認問題は、定義暗記でなく `この状況なら何を選ぶか` を問う形に寄せ、年度別解説で実際に誤答しやすい表現へ近づけた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+  - `_buildManifest.js.tmp` の `ENOENT` で失敗
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+  - 1 回目は `proxy.js.nft.json` の `ENOENT`
+  - 2 回目で通過
+- ブラウザ確認:
+  - `/management-information-systems/knowledge-information-security-basics`
+  - `/management-information-systems/knowledge-ai-and-machine-learning-basics`
+  - いずれも `200`、`h1`、追加見出し、追加確認問題の表示を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 認証関連は `SAML / OAuth / OpenID Connect / LDAP / RADIUS / Kerberos` を個別定義で覚えるだけでは足りず、`何を保存するか`、`何を渡すか`、`どこで認証するか` の軸で並べ直すと初学者の誤答が減る
+2. `BYOD / COPE / MDM / MCM` は単語単体より、`所有者` と `管理対象` を掛け合わせた方が問題文から逆算しやすい
+3. AI の誤答は `モデル名の混同` だけでなく、`RAG`、`ファインチューニング`、`XAI`、`CRISP-DM` を同じ種類の言葉として扱ってしまうことからも起きる
+4. RAG の安全性は誇張しやすく、`最新情報対応` と `安全対策` は分けて書かないと教材として危うい
+
+### 前回比
+
+改善: 前回は `PKI / 認証方式 / 生成AI / IoT` の比較軸を入れた。今回はその次の段として、`認証連携の層`、`端末管理の組み合わせ`、`アーキテクチャ選択`、`生成AI改善手段`、`分析工程` まで掘り下げ、年度別の引っかけを本文側で吸収できるようにした
+
+### 次に修正すべきこと
+
+1. `knowledge-it-strategy-and-dx.mdx` に `BPR / DX / ITガバナンス / ERP / SCM / CRM` の比較問題を追加する
+2. `knowledge-information-security-basics.mdx` に `FIDO / パスキー / タイムスタンプ / CRL-OCSP / リスク対応4類型` の確認問題を足す
+3. `knowledge-ai-and-machine-learning-basics.mdx` に `適合率-再現率-F値 / 過学習対策 / データ分割 / 特徴量エンジニアリング` の比較問題を追加する
+
+## 2026-03-29-29 情報セキュリティとAIノードへ計算・判断型の比較問題を追加した
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-information-security-basics.mdx`
+- `content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [情報セキュリティの基礎](content/docs/management-information-systems/knowledge-information-security-basics.mdx) に、`FIDO / パスキー / OTP / SSO` の違い、`CRL / OCSP` の役割差、`回避 / 低減 / 移転 / 受容` の比較表を追加した
+- 同ページの `問題を解くときの観点` に `FIDO / パスキー`、`タイムスタンプ`、`CRL / OCSP` の見分けを追記し、確認問題として `パスキー / OTP / SSO`、`タイムスタンプ / CRL / OCSP`、`リスク対応4類型` を追加した
+- [AI・機械学習・深層学習の基礎](content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx) に、`特徴量エンジニアリングでやってよいこと / 危ないこと`、`過学習 / 過小学習 / 良い学習`、`学習 / 検証 / テスト`、`正解率 / 適合率 / 再現率 / F値` の比較表を追加した
+- 同ページに `テストデータを調整に使う誤り` と `正解率だけで安心する誤り` を追加し、確認問題として `適合率 / 再現率 / F値の計算`、`過学習とデータ分割`、`特徴量エンジニアリングとデータリーク` を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した論点の次へ更新した
+
+### 品質ゲート
+
+- セキュリティは `認証方式`、`認証結果の再利用`、`証明書の失効確認`、`リスク対応戦略` を別レイヤーとして説明し、`ログイン関連` や `対策一般` と一括で覚えないようにした
+- AI は `指標の式` だけでなく、`何を減らしたいか`、`どのデータで何をするか`、`予測時点で使える情報か` まで含めて説明した
+- 初学者がつまずきやすい `データリーク` は、専門用語だけでなく `その時点で本当に分かるか` という日本語の判断軸に落とした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+- ブラウザ確認:
+  - `/management-information-systems/knowledge-information-security-basics`
+  - `/management-information-systems/knowledge-ai-and-machine-learning-basics`
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `パスキー` は `パスワードレス認証` の話、`OTP` は `追加コード`、`SSO` は `認証結果の再利用` であり、同じログイン画面の文脈に出ても問いの軸が違う
+2. `CRL / OCSP` は PKI の細部に見えても、実際には `一覧照合` と `リアルタイム照会` の違いだけでかなり切りやすくなる
+3. AI の評価指標は式だけ覚えても弱く、`偽陽性を嫌うのか`、`偽陰性を嫌うのか` を一緒に覚えた方が年度別の言い換えに強い
+4. `データリーク` は高度な話ではなく、`予測時点で分からない情報を入れていないか` と言い換えると初学者にも通る
+
+### 前回比
+
+改善: 前回は `認証連携の層` と `生成AI改善手段 / 分析工程` を補強した。今回はその次として、`パスキー・失効確認・リスク対応` と `評価指標・過学習・分割・特徴量` のように、計算や選択肢判定へ直結する論点まで深掘りした
+
+### 次に修正すべきこと
+
+1. `knowledge-information-security-basics.mdx` に `WAF / CSP / SameSite / Cookie属性 / IDS-IPS-EDR-SIEM` の比較問題を追加する
+2. `knowledge-ai-and-machine-learning-basics.mdx` に `MAE / MSE / RMSE / MAPE / WAPE / AUC-ROC / 交差検証` の比較問題を追加する
+3. `knowledge-it-strategy-and-dx.mdx` に `BPR / DX / ITガバナンス / ERP / SCM / CRM` の比較問題を追加する
+
+## 2026-03-29-30 validate の build fallback を自動化した
+
+### 対象
+
+- `package.json`
+- `docs/agent-handoff.md`
+- `tsconfig.json`
+
+### 成果
+
+- `pnpm build:check` を追加し、`.next-check` を掃除してから Turbopack build を実行する導線を明示した
+- `pnpm build:check:webpack` を追加し、webpack 専用の `.next-check-webpack` で再検証する手順をスクリプト化した
+- `pnpm validate` を `pnpm build:check || pnpm build:check:webpack` に変更し、既知の build フレークを手動介入なしで吸収できるようにした
+- `tsconfig.json` の `include` に `.next-check-webpack` の型生成先を追加し、webpack fallback 実行時に Next.js が毎回設定を書き換えないようにした
+- [agent-handoff.md](docs/agent-handoff.md) の build 手順を、追加したスクリプト名に合わせて更新した
+
+### 品質ゲート
+
+- Next.js 16.2.1 の `next build --help` で `--webpack` fallback が CLI オプションとして使えることを確認した
+- 既存の handoff に残っていた `.next-check` build フレークの運用知見を、手順書だけでなく実行経路へ寄せた
+- 新しい抽象化や専用スクリプトファイルは増やさず、既存の `package.json` scripts だけで収めた
+
+### 検証
+
+- `rm -rf .next-check-webpack && NEXT_DIST_DIR=.next-check-webpack pnpm exec next build --webpack`
+- `pnpm validate`
+  - 調査中に `.next-check/static/.../_buildManifest.js.tmp` の `ENOENT` を再現
+  - 最終実行では `check`、`format:check`、`lint`、`build:check` まで通過
+
+### 鮮度確認
+
+- 運用スクリプトの安定化であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. このリポジトリでは `NEXT_DIST_DIR=.next-check` を使う理由が明確なので、build の回避策も README 的な説明に留めず、同じ入口コマンドに畳み込んだ方が運用ミスを減らせる
+2. Turbopack のフレークは `ChunkLoadError` と `pages-manifest.json` 欠落のように症状が揺れるため、エラー文字列で分岐するより、失敗時に webpack へ切り替える単純な二段構えの方が安全
+
+### 前回比
+
+改善: 前回は build フレーク時に手動で `rm -rf .next-check && ... --webpack` を打ち直す前提だった。今回は `validate` 自体が既知の失敗を吸収するので、品質ゲートの再現性が上がった
+
+### 次に修正すべきこと
+
+1. `pnpm test` も `.next-playwright` 側で同種の build フレークが出ないかを観測し、必要なら同じ整理を入れる
+2. Next.js の patch 更新で Turbopack 側の manifest フレークが解消したら、`build:check:webpack` fallback がまだ必要かを再評価する
+
+## 2026-03-29-29 `為替予約 / 通貨オプション / 通貨スワップ` を受払方向で補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`為替予約 / 通貨オプション / 通貨スワップ` を `単発の外貨受払 / 継続的な元利払い` と `完全固定 / 片側保護` で切る比較表と判断順を追加した
+- [デリバティブとリスク管理](content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) に、`ドル支払い / ドル受取り / 長期の外貨建て借入` の場面から `為替予約 / 通貨オプション / 通貨スワップ` を選ぶ表、判断順、確認問題を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`ドル買い予約 / ドル売り予約 / ドル・コール / ドル・プット / 通貨スワップ` を見分ける `問題 45` を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `ファイナンス` 関連の次作業を、今回完了した為替比較の先へ更新した
+
+### 品質ゲート
+
+- `為替予約`、`通貨オプション`、`通貨スワップ` を単に `為替リスク対策` と一括りにせず、`単発決済` と `継続的な元利払い条件の交換` を分けて書いた
+- `ドル支払い = 後でドルを買う側`、`ドル受取り = 後でドルを売る側` の読み替えを、章ハブ、独立ノード、演習ノードで同じ言い方にそろえた
+- `ドル・コール / ドル・プット` の方向を暗記語で終わらせず、`後で外貨を買う権利か / 売る権利か` まで戻して選べる形にした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+  - `_buildManifest.js.tmp` の `ENOENT` で失敗
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+  - 成功。ただし生成物は `.next` 側へ出力された
+- ブラウザ確認:
+  - `.next/server/app` の生成 HTML を返すローカル HTTP サーバーを使って確認
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-derivatives-risk-management`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 為替論点の誤答は `コール / プット` の暗記不足より、`後で払う = 後で買う`、`後で受け取る = 後で売る` への読み替えができていないことから起きやすい
+2. `通貨スワップ` は `為替リスク対策` という共通語だけで覚えると `為替予約` と混ざるため、`単発の決済` ではなく `元本 + 利息` の継続交換だと明示した方が切れやすい
+3. 初学者向けには、`完全固定か片側保護か` の前に `単発か継続か` を置いた方が、`通貨スワップ` を先に除外できて判断が安定する
+
+### 前回比
+
+改善: 前回は `実物オプション` を `待つ / 広げる / 絞る / 変える / やめる` の 5 動作へ落とした。今回は同じやり方で、為替論点を `単発か継続か`、`払うか受け取るか` の順に落として、ヘッジ方向の誤答を減らす形へ寄せた
+
+### 次に修正すべきこと
+
+1. `効率的市場仮説` に `1月効果 / 小型株効果 / 割安株効果` と `弱度 / 準強度 / 強度` を結び付ける具体例問題を追加する
+2. `デリバティブとリスク管理` に `商品価格 / 為替 / 金利` をまたいで `先物 / オプション / スワップ` を往復する総合比較問題を追加する
+3. `ファイナンス 基本確認問題` に、`先物 / 為替予約 / 通貨オプション / 通貨スワップ / 金利スワップ` を一問で切り分ける横断問題を追加する
+
+## 2026-03-29-31 `1月効果 / 小型株効果 / 割安株効果` を EMH の強度へ結び付けた
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`1月効果 / 小型株効果 / 割安株効果` を `過去パターン / 公開情報 / 内部情報` のどれに基づく話かで切る橋渡し節を追加した
+- [効率的市場仮説](content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx) に、`1月効果 = 弱度`、`小型株効果 / 割安株効果 = 準強度`、`内部情報 = 強度` を整理する比較表、判断順、確認問題を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 46` として `アノマリー` と `EMH` の強度を結び付ける確認問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `証券投資論` 関連の次作業を、今回完了した強度対応の先へ更新した
+
+### 品質ゲート
+
+- `1月効果 / 小型株効果 / 割安株効果` を単なる名称暗記にせず、`何の情報で見えている現象か` に戻して `弱度 / 準強度 / 強度` を選べるようにした
+- `強度` に無理やり `1月効果` などを割り当てず、`内部情報` が通常の `強度` 論点だと明示して、理屈を崩さないようにした
+- 章ハブ、独立ノード、演習ノードで `過去パターン = 弱度`、`公開情報 = 準強度`、`内部情報 = 強度` の言い回しをそろえた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+  - `_buildManifest.js.tmp` の `ENOENT` で失敗
+- `rm -rf .next-check .next-check-webpack && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+  - `.next-check/server/proxy.js.nft.json` の `ENOENT` で失敗
+- `rm -rf .next-check-webpack && pnpm exec next build --webpack`
+  - 成功
+- ブラウザ確認:
+  - `.next/server/app` の生成 HTML を返すローカル HTTP サーバーを使って確認
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-efficient-market-hypothesis`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `アノマリー` の誤答は用語暗記不足というより、`その現象が過去パターンなのか、公開情報なのか` を見ずに直接 `弱度 / 準強度 / 強度` を選んでしまうことから起きやすい
+2. `1月効果 / 小型株効果 / 割安株効果` を 3 強度へ 1 対 1 に機械的に並べるより、`強度` は通常 `内部情報` で問われると明示した方が理解が崩れにくい
+3. 証券投資論は、`市場全体の基準`、`運用方針`、`アノマリー`、`EMH強度` を別ページの別話にせず、一度つなげて示した方が初学者の誤答が減りやすい
+
+### 前回比
+
+改善: 前回は `為替予約 / 通貨オプション / 通貨スワップ` を `単発か継続か`、`払うか受け取るか` の順に落とした。今回は同じやり方で、`アノマリー` を `過去パターン / 公開情報 / 内部情報` の順に落とし、`弱度 / 準強度 / 強度` の選択を安定させた
+
+### 次に修正すべきこと
+
+1. `デリバティブとリスク管理` に `商品価格 / 為替 / 金利` をまたいで `先物 / オプション / スワップ` を往復する総合比較問題を追加する
+2. `ファイナンス 基本確認問題` に、`先物 / 為替予約 / 通貨オプション / 通貨スワップ / 金利スワップ` を一問で切り分ける横断問題を追加する
+3. `効率的市場仮説` に `市場ポートフォリオ / アクティブ運用 / パッシブ運用 / アノマリー / EMH強度` を一問で往復する総合比較問題を追加する
+
+## 2026-03-29-34 `商品価格 / 為替 / 金利` をまたぐデリバティブ比較を補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`商品価格 / 為替 / 金利` をまたいで `先物 / 為替予約 / 通貨オプション / 金利スワップ / 通貨スワップ` を選ぶ橋渡し節を追加した
+- [デリバティブとリスク管理](content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) に、`原油仕入 / 穀物販売 / ドル支払い / 変動金利借入 / ドル建て借入` を横断で切る比較表、判断順、確認問題を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 47` として `商品価格 / 為替 / 金利` をまたぐ総合比較問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `デリバティブ` 関連の次作業を、今回完了した総合比較の先へ更新した
+
+### 品質ゲート
+
+- `先物 / オプション / スワップ` を商品名だけで並べず、`何が動くか`、`単発の将来取引か`、`継続的な条件交換か` の順で切るようにそろえた
+- `金利スワップ` と `通貨スワップ` を同じ `スワップ` で埋めず、`利払い条件だけか`、`通貨建ての元本 + 利息まで変えるか` の違いを明示した
+- 章ハブ、独立ノード、演習ノードで同じ判断順を使い、読む場所で選び方が変わらないようにした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101`
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-derivatives-risk-management`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. デリバティブの総合問題では、`先物かオプションかスワップか` を先に選ぶより、`商品価格 / 為替 / 金利` のどれが動いているかを切った方が誤答が減りやすい
+2. `スワップ` の誤答は種類暗記不足というより、`単発の受払` と `継続的な条件交換` を分けていないことから起きやすい
+3. `為替予約 / 通貨オプション` と `金利スワップ / 通貨スワップ` を同じ表に並べると、`単発取引` と `契約条件の交換` の違いが初学者にも伝わりやすい
+
+### 前回比
+
+改善: 前回は `アノマリー` を `過去パターン / 公開情報 / 内部情報` の順に落として `EMH` の強度へ結び付けた。今回は同じやり方で、`デリバティブ` を `何が動くか`、`単発か継続か` の順に落とし、横断問題でも手段を選びやすくした
+
+### 次に修正すべきこと
+
+1. `効率的市場仮説` に `市場ポートフォリオ / アクティブ運用 / パッシブ運用 / アノマリー / EMH強度` を一問で往復する総合比較問題を追加する
+2. `ファイナンス 基本確認問題` に、`市場ポートフォリオ / アクティブ運用 / パッシブ運用 / アノマリー / EMH強度` を一問で切り分ける横断問題を追加する
+3. `デリバティブとリスク管理` に `リーズ・アンド・ラグズ / マッチング / ネッティング` と `為替予約 / 通貨オプション` の使い分け問題を追加する
+
+## 2026-03-29-35 `市場ポートフォリオ / 運用方針 / アノマリー / EMH強度` を一問で往復できる形へ補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`市場ポートフォリオ / アクティブ運用 / パッシブ運用 / アノマリー / EMH強度` を `基準 → 運用方針 → 例外 → 情報反映の範囲` の順で読む橋渡し節を追加した
+- [効率的市場仮説](content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx) に、同じ 5 論点を 1 つの説明文から切り分ける比較表、判断順、`問5` を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 48` として同じ判断軸を使う総合比較問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `EMH` 関連次作業を、今回完了した総合比較の先へ更新した
+
+### 品質ゲート
+
+- `市場ポートフォリオ`、`アクティブ / パッシブ運用`、`アノマリー`、`EMH強度` を用語集のように分断せず、1 問の中で往復する順にそろえた
+- `パッシブ運用が合理的` という結論を単独で書かず、`公開情報だけでは継続的に勝ちにくい = 準強度` から導く形へ固定した
+- `1月効果` は `アノマリー` として終わらせず、`過去パターン` に基づくため `弱度` とぶつかりやすいところまで戻した
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `.next-check/server/app` の生成 HTML を返すローカル HTTP サーバーを使って確認
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-efficient-market-hypothesis`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `EMH` 周辺の総合問題では、受験生は `弱度 / 準強度 / 強度` の暗記より前に、`何が基準で、何が運用方針で、何が例外か` の切り分けで止まりやすい
+2. `パッシブ運用` の根拠を `低コストだから` だけで覚えると弱く、`準強度の含意` とセットにすると総合問題でも答えやすい
+3. `1月効果` のような `アノマリー` は、名前を覚えるだけでは不十分で、最後に `過去パターン / 公開情報 / 内部情報` へ戻して `EMH強度` とつなぐ必要がある
+
+### 前回比
+
+改善: 前回は `デリバティブ` を `何が動くか`、`単発か継続か` の順で横断比較できるようにした。今回は同じやり方で、`EMH` 周辺を `基準 → 運用方針 → 例外 → 情報反映の範囲` の順で往復できるようにした
+
+### 次に修正すべきこと
+
+1. `デリバティブとリスク管理` に `リーズ・アンド・ラグズ / マッチング / ネッティング` と `為替予約 / 通貨オプション` の使い分け問題を追加する
+2. `ファイナンス 基本確認問題` に、`リーズ・アンド・ラグズ / マッチング / ネッティング` と `為替予約 / 通貨オプション` を横断で切る総合問題を追加する
+3. `効率的市場仮説` に `テクニカル分析 / ファンダメンタル分析 / インサイダー情報 / インデックス運用` を `弱度 / 準強度 / 強度` と結び付ける誤答比較を追加する
+
+## 2026-03-30-02 `社内調整で吸収するか / 契約で固定するか` の軸で為替リスク対策を補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`リーズ・アンド・ラグズ / マッチング / ネッティング / 為替予約 / 通貨オプション` を `自社内で相殺 / グループで相殺 / 時期調整 / 契約固定 / 片側保護` の順で切る橋渡し節を追加した
+- [デリバティブとリスク管理](content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) に、同じ 5 手段を比較する表、判断順、`問6`、誤答しやすい比較ポイントを追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 49` として `リーズ・アンド・ラグズ / マッチング / ネッティング / 為替予約 / 通貨オプション` を一問で切る確認問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `デリバティブ` 関連次作業を、今回完了した自然ヘッジ比較の先へ更新した
+
+### 品質ゲート
+
+- `リーズ・アンド・ラグズ` を `レート固定手段` と誤読しないよう、`決済時期の調整` だとはっきり切った
+- `マッチング` と `ネッティング` はどちらも `相殺` で終わらせず、`自社内` と `グループ内` の違いまで明示した
+- `為替予約 / 通貨オプション` は社内調整で吸収できない場合の `契約ヘッジ` として置き、比較軸が混ざらないようにした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `.next-check/server/app` の生成 HTML を返すローカル HTTP サーバーを使って確認
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-derivatives-risk-management`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 為替リスク対策の誤答は、`デリバティブ名の暗記不足` というより、`社内調整で吸収する話` と `契約でヘッジする話` を混ぜることから起きやすい
+2. `マッチング` と `ネッティング` はどちらも相殺だが、`単独企業` と `企業グループ` の違いまで書いた方が初学者の再現性が高い
+3. `リーズ・アンド・ラグズ` は為替見通しを前提にした `時期調整` であり、`固定` や `片側保護` と同じ棚に置かない方が選択問題を外しにくい
+
+### 前回比
+
+改善: 前回は `EMH` 周辺を `基準 → 運用方針 → 例外 → 情報反映の範囲` の順で往復できるようにした。今回は同じやり方で、為替リスク対策を `社内で吸収するか / 契約で固定・保護するか` の順で往復できるようにした
+
+### 次に修正すべきこと
+
+1. `効率的市場仮説` に `テクニカル分析 / ファンダメンタル分析 / インサイダー情報 / インデックス運用` を `弱度 / 準強度 / 強度` と結び付ける誤答比較を追加する
+2. `ファイナンス 基本確認問題` に、`テクニカル分析 / ファンダメンタル分析 / インサイダー情報 / インデックス運用` を `弱度 / 準強度 / 強度` と結び付ける総合問題を追加する
+3. `デリバティブとリスク管理` に `輸入 / 輸出 / 仕入 / 販売` を `買いヘッジ / 売りヘッジ / コール / プット` と結び付ける誤答比較を追加する
+
+## 2026-03-30-04 `テクニカル分析 / ファンダメンタル分析 / インサイダー情報 / インデックス運用` を EMH 強度へ結び付けた
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`テクニカル分析 / ファンダメンタル分析 / インサイダー情報 / インデックス運用` を `使う情報` と `強度の含意` で切る橋渡し節を追加した
+- [効率的市場仮説](content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx) に、同じ 4 つを比較する表、判断順、`問6` を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 50` として同じ判断軸の総合問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の `EMH` 関連次作業を、今回完了した投資手法比較の先へ更新した
+
+### 品質ゲート
+
+- `インデックス運用` を `強度のときだけ合理的` と誤読しないよう、`準強度` の含意としても整理した
+- `テクニカル分析 / ファンダメンタル分析 / インサイダー情報` は、単なる用語暗記で終わらせず、`過去情報 / 公開情報 / 内部情報` へ戻す形にそろえた
+- 章ハブ、独立ノード、演習ノードで同じ判断順を使い、読む場所で答え方が変わらないようにした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `.next-check/server/app` の生成 HTML を返すローカル HTTP サーバーを使って確認
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-efficient-market-hypothesis`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `EMH` の誤答は、`弱度 / 準強度 / 強度` の暗記不足だけでなく、`どの手法がどの情報に依存しているか` を見ずに答えることから起きやすい
+2. `インデックス運用` は分析手法ではなく `運用方針` なので、`テクニカル分析 / ファンダメンタル分析 / インサイダー情報` と同列に置くときは `強度の含意` として説明した方が崩れにくい
+3. `準強度` の含意を `パッシブ運用` や `インデックス運用` までつなげると、初学者が `公開情報まで反映済み` を実際の選択肢に落とし込みやすい
+
+### 前回比
+
+改善: 前回は為替リスク対策を `社内で吸収するか / 契約で固定・保護するか` の順で比較できるようにした。今回は同じやり方で、`EMH` 周辺を `使う情報 → 強度 → 合理的な運用` の順で比較できるようにした
+
+### 次に修正すべきこと
+
+1. `デリバティブとリスク管理` に `輸入 / 輸出 / 仕入 / 販売` を `買いヘッジ / 売りヘッジ / コール / プット` と結び付ける誤答比較を追加する
+2. `ファイナンス 基本確認問題` に、`輸入 / 輸出 / 仕入 / 販売` を `買いヘッジ / 売りヘッジ / コール / プット` と結び付ける総合問題を追加する
+3. `効率的市場仮説` に `ランダム・ウォーク仮説 / テクニカル分析 / 弱度` の関係を比較表と確認問題で補強する
+
+## 2026-03-30-06 `輸入 / 輸出 / 仕入 / 販売` を `買いヘッジ / 売りヘッジ / コール / プット` へつないだ
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`輸入 / 輸出 / 仕入 / 販売` を `後で買う側 / 後で売る側` に読み替えて、`買いヘッジ / 売りヘッジ / コール / プット` を選ぶ橋渡し節を追加した
+- [デリバティブとリスク管理](content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) に、同じ 4 類型を並べた比較表、判断順、`問7` を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 51` として同じ判断軸の総合問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した方向選択の先へ更新した
+
+### 品質ゲート
+
+- `仕入 / 輸入 = 後で買う側`、`販売 / 輸出 = 後で売る側` という共通規則を、章ハブ、独立ノード、演習ノードで同じ順序にそろえた
+- `完全固定` と `片側保護` を先に切り、その後で `買う側 / 売る側` を決める構成にして、`買いヘッジ / 売りヘッジ` と `コール / プット` を同じ規則で選べるようにした
+- 為替と商品価格を別ルールに見せず、`対象は違っても方向選択の考え方は同じ` という説明へ寄せた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `.next-check/server/app` の生成 HTML を返すローカル HTTP サーバーを使って確認
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-derivatives-risk-management`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `買いヘッジ / 売りヘッジ` と `コール / プット` の誤答は、商品価格と為替を別の論点として覚えることから起きやすく、`後で買う側 / 後で売る側` に戻した方が再現性が高い
+2. `輸入 / 輸出` は `外貨の受払`、`仕入 / 販売` は `商品の受払` だが、方向選択だけ見れば `買う側 / 売る側` の規則で一本化できる
+3. `完全固定` と `片側保護` を先に切ると、`買いヘッジ / 売りヘッジ` と `コール / プット` を混ぜにくくなり、確認問題でも説明が短く済む
+
+### 前回比
+
+改善: 前回は `EMH` 周辺を `使う情報 → 強度 → 合理的な運用` の順でつないだ。今回は同じやり方で、デリバティブの方向選択を `後で買う側 / 後で売る側` の順でつなぎ直した
+
+### 次に修正すべきこと
+
+1. `効率的市場仮説` に `ランダム・ウォーク仮説 / テクニカル分析 / 弱度` を `チャート分析はなぜ難しいか` まで含めて補強する
+2. `ファイナンス 基本確認問題` に `ランダム・ウォーク仮説 / テクニカル分析 / 弱度` を一問でつなぐ総合問題を追加する
+3. `デリバティブとリスク管理` に `コール買い / プット買い / コール売り / プット売り` を `最大利益 / 最大損失 / 損益分岐点` と結び付ける比較問題を追加する
+
+## 2026-03-30-08 `ランダム・ウォーク仮説 / テクニカル分析 / 弱度` を一本でつないだ
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`ランダム・ウォーク仮説 / テクニカル分析 / 弱度` を `値動きの性質 / 手法 / 情報反映の範囲` で切る橋渡し節を追加した
+- [効率的市場仮説](content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx) に、同じ 3 つを並べた比較表、判断順、`問7` と `問8` を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 52` として同じ判断軸の総合問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した `EMH` 補強の先へ更新した
+
+### 品質ゲート
+
+- `ランダム・ウォーク仮説 = 完全な偶然` と雑に読ませず、`過去チャートだけでは系統的に読みにくい` という試験向けの読み方へそろえた
+- `値動きの性質`、`分析手法`、`情報反映の範囲` を分けることで、`ランダム・ウォーク仮説 / テクニカル分析 / 弱度` を同義語として丸めない形にした
+- 章ハブ、独立ノード、演習ノードで `弱度` → `ランダム・ウォーク的に読む` → `テクニカル分析は通用しにくい` の順を共通化した
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3102`
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-efficient-market-hypothesis`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `ランダム・ウォーク仮説` の誤答は、`完全な偶然` と言い切ることよりも、`弱度` や `テクニカル分析` と何が違うのかを分けずに答えることから起きやすい
+2. `ランダム・ウォーク仮説` を `値動きの性質`、`テクニカル分析` を `手法`、`弱度` を `情報反映の範囲` と置くと、同じ過去チャートの話でも取り違えにくい
+3. 初学者向けには、厳密な理論差だけでなく、`弱度がだいたい成り立つならチャート分析は難しい` という試験での読み筋まで書いた方が使いやすい
+
+### 前回比
+
+改善: 前回は `輸入 / 輸出 / 仕入 / 販売` を `後で買う側 / 後で売る側` に戻してデリバティブの方向選択を整理した。今回は同じやり方で、`ランダム・ウォーク仮説 / テクニカル分析 / 弱度` を `値動き / 手法 / 情報反映` に戻して整理した
+
+### 次に修正すべきこと
+
+1. `デリバティブとリスク管理` に `コール買い / プット買い / コール売り / プット売り` を `最大利益 / 最大損失 / 損益分岐点` と結び付ける比較問題を追加する
+2. `ファイナンス 基本確認問題` に `コール買い / プット買い / コール売り / プット売り` を `最大利益 / 最大損失 / 損益分岐点` と結び付ける総合問題を追加する
+3. `効率的市場仮説` に `弱度 / 準強度 / 強度` の包含関係と、否定される分析手法の範囲を一目で戻れる比較を追加する
+
+## 2026-03-30-11 `コール買い / プット買い / コール売り / プット売り` を `最大利益 / 最大損失 / 損益分岐点` へつないだ
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`コール買い / プット買い / コール売り / プット売り` を `有利な方向 / 最大利益 / 最大損失 / 損益分岐点` で並べた橋渡し節を追加した
+- [デリバティブとリスク管理](content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) に、4ポジション比較表、判断順、`問8`、つまずき補足を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 53` として4ポジションを一問で切る総合問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了したオプション4ポジション比較の先へ更新した
+
+### 品質ゲート
+
+- `買い手の最大損失 = プレミアム`、`売り手の最大利益 = プレミアム` を章ハブ、独立ノード、演習ノードで同じ順にそろえた
+- `コール = 行使価格 + プレミアム`、`プット = 行使価格 - プレミアム` の損益分岐点を、`買い / 売り` と別軸で戻せる形にした
+- `プット買い` と `プット売り` のように `損益分岐点` が同じでも利益方向が逆になる点を、比較表とつまずき補足で明示した
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+- `rm -rf .next && pnpm exec next build --webpack`
+- ブラウザ確認:
+  - `pnpm exec next start --hostname 127.0.0.1 --port 3103`
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-derivatives-risk-management`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+補足:
+
+- `NEXT_DIST_DIR=.next-check pnpm build` は `_buildManifest.js.tmp` の `ENOENT` で失敗
+- `NEXT_DIST_DIR=.next-check pnpm exec next build --webpack` は `functions-config-manifest.json` の `ENOENT` で失敗
+- 既定の `.next` への `pnpm exec next build --webpack` は成功
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. オプション4ポジションの誤答は、`コールかプットか` より先に `買い手か売り手か` を切れていないことから起きやすい
+2. `損益分岐点` は `コール = K + P`、`プット = K - P` で `買い / 売り` をまたいで共通なので、利益方向だけ別軸で教えた方が整理しやすい
+3. 初学者向けには、ペイオフ図そのものより `最大利益 / 最大損失 / 損益分岐点` を言語で比較できる形にした方が、過去問の選択肢へ戻しやすい
+
+### 前回比
+
+改善: 前回は `ランダム・ウォーク仮説 / テクニカル分析 / 弱度` を `値動き / 手法 / 情報反映` に戻して整理した。今回は同じやり方で、`オプション4ポジション` を `買い / 売り`、`上昇 / 下落`、`最大利益 / 最大損失 / 損益分岐点` に戻して整理した
+
+### 次に修正すべきこと
+
+1. `効率的市場仮説` に `弱度 / 準強度 / 強度` の包含関係と、`テクニカル分析 / ファンダメンタル分析 / インサイダー情報` のどこまで否定されるかを一目で戻れる比較を追加する
+2. `ファイナンス 基本確認問題` に同じ `EMH` の包含関係を一問でつなぐ総合問題を追加する
+3. `デリバティブとリスク管理` に `本質的価値 / 時間価値 / ITM / ATM / OTM` と `満期接近 / ボラティリティ` の関係を比較問題で追加する
+
+## 2026-03-30-13 `弱度 / 準強度 / 強度` の包含関係と否定範囲を一本でつないだ
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`弱度 / 準強度 / 強度` を `包含関係` と `どこまで分析手法が否定されるか` で切る橋渡し節を追加した
+- [効率的市場仮説](content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx) に、`強度 ⊃ 準強度 ⊃ 弱度` を明示する比較表、判断順、`問9`、つまずき補足を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 54` として同じ判断軸の総合問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した `EMH` 包含関係補強の先へ更新した
+
+### 品質ゲート
+
+- `反映される情報の範囲` と `否定される分析手法の範囲` を別列にし、`情報範囲` と `投資手法` を同じ言葉で流さない形にした
+- `準強度` は `弱度` を含み、`強度` は `準強度` と `弱度` を含む、という包含関係を章ハブ、独立ノード、演習ノードで同じ順にそろえた
+- `テクニカル分析だけ`、`ファンダメンタル分析まで`、`内部情報まで` の 3 段階で否定範囲を固定し、`弱度でもファンダメンタル分析が否定される` という誤読を防ぐ形にした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3104`
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-efficient-market-hypothesis`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `弱度 / 準強度 / 強度` の誤答は、情報範囲の暗記不足よりも、`準強度が弱度を含む` という包含関係を落として読むことから起きやすい
+2. `何の情報まで反映済みか` と `どの分析手法まで否定されるか` を分けて並べると、`弱度でもファンダメンタル分析が否定される` という混線を防ぎやすい
+3. 初学者向けには、`内部情報まで含む = それより弱い仮説も含む` と上から下へ読む形にした方が、3 強度を別々の箱として覚えるより使いやすい
+
+### 前回比
+
+改善: 前回は `オプション4ポジション` を `買い / 売り`、`上昇 / 下落`、`最大利益 / 最大損失 / 損益分岐点` に戻して整理した。今回は同じやり方で、`弱度 / 準強度 / 強度` を `情報範囲`、`包含関係`、`否定される分析手法の範囲` に戻して整理した
+
+### 次に修正すべきこと
+
+1. `デリバティブとリスク管理` に `本質的価値 / 時間価値 / ITM / ATM / OTM` と `満期接近 / ボラティリティ` の関係を比較問題で追加する
+2. `ファイナンス 基本確認問題` に同じオプション価値論点を一問でつなぐ総合問題を追加する
+3. `効率的市場仮説` に `CAPM / CML / 市場ポートフォリオ / EMH` の前提、基準、含意の違いを一目で戻れる比較を追加する
+
+## 2026-03-30-15 `本質的価値 / 時間価値 / ITM / ATM / OTM` を `満期接近 / ボラティリティ` へつないだ
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`ITM / ATM / OTM`、`本質的価値 / 時間価値`、`満期接近 / ボラティリティ` を一緒に戻す橋渡し節を追加した
+- [デリバティブとリスク管理](content/docs/finance-and-accounting/finance-derivatives-risk-management.mdx) に、価値構成の比較表、判断順、つまずき補足、`問9` を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 55` として価値構成と価格変化を一問で切る総合問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了したオプション価値論点の先へ更新した
+
+### 品質ゲート
+
+- `状態判定`、`本質的価値`、`時間価値`、`価格変化要因` を別段階に分け、`ITM / ATM / OTM` のラベルだけで終わらない形にした
+- `ATM / OTM でも満期前なら価格が残る` 理由を `時間価値` と明示し、`本質的価値 0 = 価格 0` という誤読を防ぐ形にした
+- `満期接近 = 時間価値減少`、`ボラティリティ上昇 = 時間価値増加` を章ハブ、独立ノード、演習ノードで同じ順にそろえた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+  - `_buildManifest.js.tmp` の `ENOENT` で失敗
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+  - 成功
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3105`
+  - `.next-check` を本番起動できず、`Could not find a production build` で失敗
+  - `pnpm exec next dev --hostname 127.0.0.1 --port 3105`
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-derivatives-risk-management`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも Playwright で `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. オプション価値の誤答は、`ITM / ATM / OTM` の判定自体よりも、`本質的価値 0` と `価格 0` を同一視することから起きやすい
+2. `満期接近` と `ボラティリティ上昇` は、直接 `コールかプットか` へ効くというより、まず `時間価値` を通じて効くと置いた方が整理しやすい
+3. 初学者向けには、`ITM / ATM / OTM` の定義表だけでなく、`価格 = 本質的価値 + 時間価値` の差分を数値で出す問題を一緒に置いた方が定着しやすい
+
+### 前回比
+
+改善: 前回は `弱度 / 準強度 / 強度` を `情報範囲`、`包含関係`、`否定される分析手法の範囲` に戻して整理した。今回は同じやり方で、`オプション価値` を `状態判定`、`本質的価値 / 時間価値`、`満期接近 / ボラティリティ` に戻して整理した
+
+### 次に修正すべきこと
+
+1. `効率的市場仮説` に `CAPM / CML / 市場ポートフォリオ / EMH` の前提、基準、含意の違いを一目で戻れる比較を追加する
+2. `ファイナンス 基本確認問題` に同じ `CAPM / CML / 市場ポートフォリオ / EMH` の比較を一問でつなぐ総合問題を追加する
+3. `デリバティブとリスク管理` に `プット＝コール・パリティ` と `二項モデル` の計算手順、使いどころ、前提の違いを比較問題で追加する
+
+## 2026-03-30-16 `CAPM / CML / 市場ポートフォリオ / EMH` を一問で戻れる形へ補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`CAPM / CML / 市場ポートフォリオ / EMH` を `前提`、`基準`、`直接答える問い`、`含意` で切る橋渡し節を追加した
+- [効率的市場仮説](content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx) に、同じ 4 論点の比較表、判断順、`問10` を追加し、`CAPM = β / 個別証券` と `CML = 標準偏差 / 効率的ポートフォリオ` の違いを明示した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 56` として同じ 4 論点を一問で切る総合問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した比較補強の先へ更新した
+
+### 品質ゲート
+
+- `市場ポートフォリオ = 基準`、`CML = 効率的ポートフォリオの線`、`CAPM = βで個別証券を価格づけ`、`EMH = 情報反映` と、4 語の役割を固定した
+- `CAPM` と `CML` を、`β / 個別証券` と `標準偏差 / 効率的ポートフォリオ` の違いで切り、`どちらも市場全体の話` とだけ読んで混線するのを防ぐ形にした
+- 章ハブ、独立ノード、演習ノードで `基準 → 効率的ポートフォリオの線 → 個別証券の価格づけ → 情報反映` の順をそろえ、同じ戻し方で復習できるようにした
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3106`
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-efficient-market-hypothesis`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも Playwright で `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `CAPM` と `CML` の誤答は、数式暗記不足よりも、`個別証券` を見ているのか `効率的ポートフォリオ全体` を見ているのかを切らずに読むことから起きやすい
+2. `市場ポートフォリオ` は `EMH` と同じ市場理論ではなく、`CAPM` と `CML` の基準だと固定した方が、`市場平均` という言葉に引っ張られにくい
+3. 初学者向けには、4 語を用語集のように横並びで置くより、`基準 → 線 → 個別証券 → 情報反映` の順で流した方が、一問で戻しやすい
+
+### 前回比
+
+改善: 前回は `オプション価値` を `状態判定`、`本質的価値 / 時間価値`、`満期接近 / ボラティリティ` に戻して整理した。今回は同じやり方で、`CAPM / CML / 市場ポートフォリオ / EMH` を `基準`、`効率的ポートフォリオの線`、`個別証券の価格づけ`、`情報反映` に戻して整理した
+
+### 次に修正すべきこと
+
+1. `効率的市場仮説` に `SML / CML / β / 標準偏差` の使い分けと `CAPM` との関係を一目で戻れる比較を追加する
+2. `デリバティブとリスク管理` に `プット＝コール・パリティ` と `二項モデル` の計算手順、使いどころ、前提の違いを比較問題で追加する
+3. `ファイナンス 基本確認問題` に `プット＝コール・パリティ / 二項モデル / オプション価格` の違いを一問でつなぐ総合問題を追加する
+
+## 2026-03-30-17 `SML / CML / β / 標準偏差` の使い分けを一本でつないだ
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx`
+- `content/docs/finance-and-accounting/finance-practice-basic-check.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`SML / CML / β / 標準偏差` を `何の線か`、`何のリスク指標か`、`何に使うか` で切る橋渡し節を追加した
+- [効率的市場仮説](content/docs/finance-and-accounting/finance-efficient-market-hypothesis.mdx) に、同じ 4 論点の比較表、判断順、`問11` を追加した
+- [ファイナンス 基本確認問題](content/docs/finance-and-accounting/finance-practice-basic-check.mdx) に、`問題 57` として同じ 4 論点を一問で切る総合問題を追加した
+- [wiki-progress-tracker.md](docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](docs/wiki-coverage-registry.md) の次作業を、今回完了した比較補強の先へ更新した
+
+### 品質ゲート
+
+- `SML = β / 個別証券`、`CML = 標準偏差 / 効率的ポートフォリオ`、`β = 市場感応度`、`標準偏差 = 総リスク` と、4 語の役割を固定した
+- `どの線か` と `どのリスク指標か` を分け、`CAPM` と `CML` がどちらも市場理論だから同じと読む誤答を防ぐ形にした
+- 章ハブ、独立ノード、演習ノードで `個別証券か / 効率的ポートフォリオか`、`βか / 標準偏差か` の判断順をそろえた
+
+### 検証
+
+- `pnpm check`
+- `setopt null_glob && rm -rf .next .next-* .next-devcheck* .next-check* && pnpm lint`
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm build`
+  - `/api/chat` の `route.js` 欠落で失敗
+- `rm -rf .next-check && NEXT_DIST_DIR=.next-check pnpm exec next build --webpack`
+  - 成功
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3107`
+  - `/finance-and-accounting/finance`
+  - `/finance-and-accounting/finance-efficient-market-hypothesis`
+  - `/finance-and-accounting/finance-practice-basic-check`
+  - いずれも Playwright で `200` と `h1` を確認
+
+### 鮮度確認
+
+- 安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `SML` と `CML` の誤答は、式の暗記不足よりも、`個別証券` を見ているのか `効率的ポートフォリオ` を見ているのかを先に切らないことから起きやすい
+2. `β` と `標準偏差` はどちらもリスク指標だが、`市場感応度` と `総リスク` で役割が違うため、線の説明と一緒に覚えた方が定着しやすい
+3. 初学者向けには、`SML = β`、`CML = 標準偏差` と短く固定してから、`個別証券` と `効率的ポートフォリオ` の違いへ戻した方が問題で迷いにくい
+
+### 前回比
+
+改善: 前回は `CAPM / CML / 市場ポートフォリオ / EMH` を `基準`、`効率的ポートフォリオの線`、`個別証券の価格づけ`、`情報反映` に戻して整理した。今回はその続きとして、`SML / CML / β / 標準偏差` を `何の線か` と `何のリスク指標か` に戻して整理した
+
+### 次に修正すべきこと
+
+1. `効率的市場仮説` に `相関係数 / 共分散 / β / 標準偏差` の役割差と `ポートフォリオ理論 / CAPM` との関係を一目で戻れる比較を追加する
+2. `デリバティブとリスク管理` に `プット＝コール・パリティ` と `二項モデル` の計算手順、使いどころ、前提の違いを比較問題で追加する
+3. `ファイナンス 基本確認問題` に `プット＝コール・パリティ / 二項モデル / オプション価格` の違いを一問でつなぐ総合問題を追加する
+
+## 2026-03-29-32 初学者通読レビューで中小企業経営・政策トップの入口を補強した
+
+### 対象
+
+- `content/docs/sme-management-and-policy/index.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [中小企業経営・中小企業政策トップ](content/docs/sme-management-and-policy/index.mdx) に、`中小企業経営 → 中小企業政策 → 重点更新ページ → 更新確認メモ / 過去問マッピング` の既定順を追加した
+- 同ページで、`中小企業経営 = 中小企業が今どうなっているか`、`中小企業政策 = その課題にどんな支援策があるか` という役割差を明示した
+- `重点更新ページ` と `更新確認メモ` に、`本文を一巡したあとに戻る` 導線を追加した
+- `関連ページ` は `中小企業経営`、`中小企業政策` の章ハブを先頭へ出し、そこから過去問、更新ノード、関連科目へ進む並びに直した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `入口通過`、`章ハブ・事例ハブレビュー中` に更新し、次ページを `content/docs/economics-and-economic-policy/microeconomics.mdx` へ進めた
+- [agent-handoff.md](docs/agent-handoff.md) の次作業を章ハブフェーズへ更新し、実在しない `microeconomics/index.mdx` 参照も修正した
+
+### 品質ゲート
+
+- `中小企業経営` と `中小企業政策` の違いを `実態` と `支援策` で切り分け、白書や補助金名の列挙より先に読む順を固定した
+- `重点更新ページ` と `更新確認メモ` は残しつつ、初回導線ではなく `本文理解後の確認口` として位置付け直した
+- 入口フェーズ完了後に次ページを章ハブへ切り替え、作業者交代時にも `次にどこを読むか` が迷わない状態にした
+
+### 検証
+
+- `pnpm validate`
+- ブラウザ確認:
+  - `/sme-management-and-policy`
+  - `200`、`h1`、`初めて読むならこの順`、`ここは本文を一巡したあとに戻る更新論点です。`、console error `0` を確認
+
+### 鮮度確認
+
+- 既存の更新メモの位置付け整理であり、一次情報の更新や鮮度台帳の追加は不要
+
+### 学び
+
+1. `白書 / 統計 / 補助金 / 支援制度` が同居する科目トップでは、情報を増やすより先に `実態を見る章` と `支援策を見る章` の順を固定した方が初学者は止まりにくい
+2. 更新論点ページは入口から隠す必要はないが、`本文を一巡したあとに戻る` 一文があるだけで、日付や制度名に引っ張られる読み方をかなり減らせる
+3. 通読レビューが入口フェーズを一巡した時点で、台帳側のフェーズ名も `章ハブ開始` へ切り替えた方が、次作業の解像度が落ちにくい
+
+### 前回比
+
+改善: 前回は `経営情報システムトップ` で `基礎技術 → 実務 → 更新確認` の順を固定した。今回は同じ考え方を `中小企業経営・政策` に適用し、`実態 → 支援策 → 更新確認` の順へ置き換えて、更新論点の多い科目でも入口が止まらないようにした
+
+### 次に修正すべきこと
+
+1. `ミクロ経済学` 章ハブを読み、`何が解けるようになるか`、`主要ページ`、`最初に読む順` が初学者に通るかを確認する
+2. 章ハブフェーズでは、`関連ページ` と `次に読むページ` が個別ノードへ飛びすぎていないかも同時に見る
+3. `事例Ⅰ〜Ⅳ` の入口ページへ移る前に、`章ハブ・事例ハブ` フェーズの判定観点を必要なら台帳へ補足する
+
+## 2026-03-29-33 初学者通読レビューでミクロ経済学章ハブの戻り先を補強した
+
+### 対象
+
+- `content/docs/economics-and-economic-policy/microeconomics.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ミクロ経済学](content/docs/economics-and-economic-policy/microeconomics.mdx) に、`市場メカニズム → 消費者行動と企業行動 → 市場構造と市場の失敗 → ゲーム理論 / 国際貿易理論 → 出題パターン → 演習 → 要約` の既定順を上部 callout で追加した
+- 同ページで、`消費者行動と企業行動` と `国際貿易理論` のカードを追加し、読む順に出てくるページがカード側でも見えるようにした
+- `この章で解けるようにしたいこと` の `移動とシフト` は、`曲線上の移動` と `曲線自体のシフト` に言い換えて、入口で意味が崩れないようにした
+- `対応する過去問テーマ` は、箇条書きではなく `テーマ → まず戻るページ` の対応表に置き換えた
+- `次に読むとよいページ` は、`市場メカニズム`、`消費者行動と企業行動`、`グラフ・比較問題の解き方` を先に出し、初回読者が章内ノードへ進みやすい並びに直した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `ミクロ経済学` 通過、次ページを `content/docs/economics-and-economic-policy/macroeconomics.mdx` に更新した
+
+### 品質ゲート
+
+- `最初に読む順番` に出てくるページと、カードで見えるページと、過去問テーマから戻るページを同じ集合にそろえた
+- `移動 / シフト` のように略すと誤解しやすい対比は、章ハブ段階で `曲線上の移動 / 曲線自体のシフト` と言い換え、後続ノードとの接続を安定させた
+- `次に読むページ` は外部の索引や別章より先に、章内の最初のノードへ送る並びへ戻した
+
+### 検証
+
+- `pnpm validate`
+- ブラウザ確認:
+  - `/economics-and-economic-policy/microeconomics`
+  - `200`、`h1`、`初めて読むならこの順`、`消費者行動と企業行動`、`国際貿易理論`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の章ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `章ハブ` では、`読む順に出てくるページ` がカードに見えていないだけで、初学者は `順番表` と `章の地図` を別物として感じやすい
+2. `過去問テーマ` を列挙するだけでは戻り先にならず、`まず戻るページ` の列を付けた方が章ハブとして機能しやすい
+3. `移動` と `シフト` のように現場では通じる略し方でも、初学者向けの入口では `何が動くのか` まで言い切った方が理解が安定する
+
+### 前回比
+
+改善: 前回は `中小企業経営・政策トップ` で `実態 → 支援策 → 更新確認` の順を固定した。今回は章ハブ側で、`読む順` と `戻り先` の集合自体をそろえ、入口だけでなく章の中でも迷わないようにした
+
+### 次に修正すべきこと
+
+1. `マクロ経済学` 章ハブを読み、`国民所得 → 消費・投資 → IS-LM → AD-AS` の順とカード、戻り先がずれていないかを確認する
+2. 章ハブフェーズでは、`対応する過去問テーマ` が一覧だけで終わっていないかを引き続き点検する
+3. `次に読むとよいページ` が章内の最初のノードより外部リンクを先に出していないかもあわせて見る
+
+## 2026-03-29-33 R5 財務過去問解説の正答と解説ロジックを全問点検した
+
+### 対象
+
+- `content/docs/past-exam-solutions/r05/finance.mdx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [令和5年度 財務・会計 過去問解説](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/r05/finance.mdx) を、公式正答表と問題PDFで全25設問突合し、誤答だった設問と説明ロジックが崩れていた設問を修正した
+- 正答を修正したのは `第1問`、`第3問`、`第6問`、`第8問`、`第9問`、`第10問`、`第12問 設問1`、`第12問 設問2`、`第15問 設問1`、`第17問`、`第23問`
+- 正答は合っていたが説明が受験生を誤誘導していた `第7問`、`第18問`、`第20問` も、判断軸が残る形へ書き換えた
+- 特に `営業循環基準と1年基準`、`支払利息のCF区分`、`正常減損の換算量`、`付加価値ベースの生産性分析`、`事業部別資本コスト`、`為替予約の有利不利` を、初学者が手順で再現できる形へ整理した
+
+### 品質ゲート
+
+- 公式正答表に合わせるだけでなく、各設問の本文から計算過程と判断軸を引き直し、`正答は合っているが説明が誤り` の状態を残さないようにした
+- `付加価値率` と `労働生産性` は、売上高ベースへ誤って寄っていた説明を切り戻し、問題文どおり `付加価値` ベースへそろえた
+- `DCF` と `為替予約` は、式の当て方自体は近くても `FCF1` と `後で払う側` の読み違いが起きやすかったため、先に判定順を示す構成へ寄せた
+
+### 検証
+
+- `pnpm lint -- content/docs/past-exam-solutions/r05/finance.mdx docs/wiki-review-log.md`
+
+### 鮮度確認
+
+- 過去問と会計理論の安定論点の修正であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 過去問解説の誤りは `正答記号のミス` だけでなく、`一度正しい式を書いてから別の仮説で崩す` 形でも起きるので、最終行だけでなく途中の判断分岐も点検する必要がある
+2. `財務・会計` の初学者向け解説では、計算結果より先に `どの値を分子・分母に使うか`、`いつの時点の数値か` を固定した方が誤答を減らしやすい
+3. `営業循環基準`、`正常減損`、`事業部別資本コスト` のような論点は、定義説明だけより `今回の選択肢でどこがずれるか` を書いた方が教材として効く
+
+### 前回比
+
+改善: 前回は `中小企業経営・政策トップ` の入口導線を整理した。今回は同じく初学者が止まりやすい箇所として、`令和5年度 財務・会計` 過去問解説の正答と途中ロジックを立て直し、過去問ページ単体でも学習導線として機能する状態へ戻した
+
+### 次に修正すべきこと
+
+1. `r05/finance.mdx` 以外の過去問解説でも、`公式正答は合っているが途中の説明が崩れている箇所` を同じ観点で点検する
+2. `財務・会計` の他年度では、`営業循環基準`、`減価償却の切替判定`、`DCF`、`為替予約` の説明が同じ言い回しで再利用できるかを確認する
+3. 過去問解説の点検結果を踏まえ、必要なら `ファイナンス` 章ノード側に `営業循環基準` や `事業部別ハードルレート` の比較問題を追加する
+
+## 2026-03-29-34 情報セキュリティとAIノードへ評価指標・防御レイヤ比較を追加した
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-information-security-basics.mdx`
+- `content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx`
+- `content/docs/past-exam-solutions/r07/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [情報セキュリティの基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-information-security-basics.mdx) に、`WAF / CSP / SameSite`、`IDS / IPS / EDR / SIEM`、`VPN種別`、`VPN方式 / 仮想デスクトップ方式` の比較表と確認問題を追加した
+- [AI・機械学習・深層学習の基礎](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx) に、`交差検証`、`MAE / MSE / RMSE / MAPE / WAPE`、`クラス不均衡`、`AUC-ROC` の本文比較表、誤解つぶし、確認問題を追加した
+- [令和7年度 経営情報システム 過去問解説](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/r07/info-systems.mdx) の回帰評価指標設問は、戻り先を `統計基礎` 単独ではなく `AI・機械学習・深層学習の基礎` へ修正した
+
+### 品質ゲート
+
+- セキュリティ対策は `Web対策`、`ネットワーク監視`、`端末監視`、`ログ統合` を同じ箱に入れず、`どこで効くか` と `何を止めるか` で比較できる構造へ寄せた
+- AI の評価指標は、`回帰か分類か` を先に分けたうえで、`回帰の誤差指標` と `不均衡分類の評価` を混ぜない構造へ修正した
+- `AUC-ROC` は万能な高精度指標のように書かず、`しきい値を固定しない比較指標` という位置づけへ言い換えた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+
+### 鮮度確認
+
+- 今回の追加は安定論点の説明補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. セキュリティ系の初学者つまずきは `用語未習得` より `同じレイヤの技術だと思い込むこと` にあり、`どこで効くか` を先に固定すると本文が強くなる
+2. AI の評価指標は `分類の指標` と `回帰の指標` を同じ段落で扱うと初学者が崩れるため、見出しレベルで分けた方が過去問へ戻りやすい
+3. 今回の確認中に [令和3年度 経営情報システム 過去問解説](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/r03/info-systems.mdx) のテレワーク方式説明に内部矛盾が残っていることを確認したので、次回の優先修正対象として扱う
+
+### 前回比
+
+改善: 前回は `FIDO / パスキー` と `適合率 / 再現率 / F値` のような計算・認証論点を補強した。今回はその次段として、`複数技術の役割差` と `評価指標の選び分け` を、比較表と確認問題で本文へ定着させた
+
+### 次に修正すべきこと
+
+1. `情報セキュリティの基礎` は `クリックジャッキング / X-Frame-Options / EPP / DLP / テレワーク方式` を同じ基準で補強する
+2. `AI・機械学習・深層学習の基礎` は `混同行列 / ROC-PR比較 / 回帰指標の計算問題 / 時系列特徴量` を確認問題へ広げる
+3. `r03/info-systems.mdx` のテレワーク方式説明は、正答と方式定義を一次ソースで再確認したうえで立て直す
+
+## 2026-03-29-34 初学者通読レビューでマクロ経済学章ハブの読む順を補強した
+
+### 対象
+
+- `content/docs/economics-and-economic-policy/macroeconomics.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [マクロ経済学](content/docs/economics-and-economic-policy/macroeconomics.mdx) に、`国民所得計算と主要指標 → 消費理論と投資理論 → IS-LM → AD-AS → 主要経済理論の系譜 → 出題 → 演習 → 要約` の既定順を上部 callout で追加した
+- 同ページで、読む順に出てくる `消費理論と投資理論` と `主要経済理論の系譜` のカードを追加し、章の地図と順番表がずれないようにした
+- `対応する過去問テーマ` は、箇条書きではなく `テーマ → まず戻るページ` の対応表に置き換えた
+- `次に読むとよいページ` は、`国民所得計算と主要指標`、`消費理論と投資理論`、`政策・グラフ問題の解き方` を先に出し、初回読者が章内ノードへ進みやすい並びに直した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `マクロ経済学` 通過、次ページを `content/docs/finance-and-accounting/bookkeeping-basics.mdx` に更新した
+
+### 品質ゲート
+
+- `最初に読む順番` に出てくるページと、カードで見えるページと、過去問テーマから戻るページを同じ集合にそろえた
+- `理論史` は先頭ではなく、`指標 → 消費・投資 → 政策モデル` のあとに置き、理論名だけの丸暗記に流れない導線へ直した
+- `次に読むページ` は外部の索引や科目トップより先に、章内の最初のノードと出題ノードへ送る並びへ戻した
+
+### 検証
+
+- `pnpm validate`
+- ブラウザ確認:
+  - `/economics-and-economic-policy/macroeconomics`
+  - `200`、`h1`、`初めて読むならこの順`、`消費理論と投資理論`、`主要経済理論の系譜`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の章ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `マクロ経済学` のように、`指標`、`政策モデル`、`理論史` が同居する章では、理論名の比較を先に出すより、`何を観測するか` と `何が需要を動かすか` を先に固めた方が初学者は止まりにくい
+2. `消費理論` や `理論史` のような補助ノードがカードに見えていないと、章ハブの順番表が `一覧にない裏ルート` に見えやすい
+3. `次に読むとよいページ` は、関連ページの羅列より `次に手を付ける最初の知識ノード` と `解き方ページ` を先に置いた方が、通読の流れが切れにくい
+
+### 前回比
+
+改善: 前回は `ミクロ経済学` 章ハブで `読む順` と `戻り先` の集合をそろえた。今回は同じ型を `マクロ経済学` に適用し、さらに `理論比較を最後に置く順番` を明示して、理論名の丸暗記へ流れにくい入口にした
+
+### 次に修正すべきこと
+
+1. `簿記の基礎` 章ハブを読み、`5分類 → 仕訳 → 決算整理 → 帳簿組織` の順と主要ページがずれていないかを確認する
+2. `次に読むとよいページ` が科目トップだけで終わっていないかを見て、必要なら章内ノードを先に出す
+3. `財務・会計` 系の章ハブでも、`読む順` と `カード` と `戻り先` の集合を同じ地図へ寄せられるかを点検する
+
+## 2026-03-30-01 初学者通読レビューで簿記の基礎章ハブの操作用語を補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/bookkeeping-basics.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [簿記の基礎](content/docs/finance-and-accounting/bookkeeping-basics.mdx) に、`5分類と仕訳 → 決算整理仕訳 → 帳簿組織と伝票 → 企業会計の基礎` の既定順を上部 callout で追加した
+- 同ページの `学習のポイント` では、`転記` を `仕訳帳から総勘定元帳へ写す作業`、`経過勘定項目` を `期間のずれを調整する勘定` と言い換え、操作用語の初出補足を入れた
+- `対応する出題テーマ` を新設し、`5分類 / 借方貸方`、`決算整理`、`銀行勘定調整表` などから `まず戻るページ` を固定した
+- `次に読むとよいページ` は、`5分類と仕訳`、`決算整理仕訳`、`帳簿組織と伝票` を先に出し、章内ノードへ戻りやすい並びに直した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `簿記の基礎` 通過、次ページを `content/docs/finance-and-accounting/corporate-accounting-basics.mdx` に更新した
+
+### 品質ゲート
+
+- `まずどの順で読むか` と `次に読むとよいページ` と `対応する出題テーマ` の 3 つを、同じ章内ノード集合へそろえた
+- `転記` や `経過勘定項目` のような操作用語は、章ハブの段階で `何をする言葉か` を補って、用語だけが先に走らないようにした
+- `企業会計の基礎` への接続は残しつつ、その前に `簿記の章内ノード` を置いて、初回通読の途中で別章へ飛びすぎない導線へ寄せた
+
+### 検証
+
+- `pnpm validate`
+- ブラウザ確認:
+  - `/finance-and-accounting/bookkeeping-basics`
+  - `200`、`h1`、`初めて読むならこの順`、`まず戻るページ`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の章ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `簿記` のように処理順がそのまま学習順になる章では、用語定義より `何を先に処理するか` を先に示した方が初学者は止まりにくい
+2. `転記` や `経過勘定項目` のような操作用語は、現場では短い言葉で通じても、入口では `何をする作業か` まで書いた方が読み手の迷いが減る
+3. `次に読むページ` を章内ノードへ戻すだけで、`簿記を読んでいたのに急に隣章へ飛ばされる` 感覚をかなり減らせる
+
+### 前回比
+
+改善: 前回は `マクロ経済学` 章ハブで `理論比較を最後に置く順` を固定した。今回は `簿記の基礎` で、`操作用語を初出で言い換える` ことと、章内ノードへ戻す順番を加え、手続き型の章でも通読が止まりにくい形へ寄せた
+
+### 次に修正すべきこと
+
+1. `企業会計の基礎` 章ハブを読み、`財務諸表 → 主要会計論点 → 制度論点` の順と主要ページがずれていないかを確認する
+2. `財務・会計` 系の章ハブでも、`対応する出題テーマ` の戻り先を表で持たせた方がよいかを引き続き見る
+3. `次に読むとよいページ` が外部章を先に出していないかを、`原価計算`、`経営分析`、`ファイナンス` でも同じ観点で点検する
+
+## 2026-03-30-02 初学者通読レビューで企業会計章ハブの略語と欠落ノードを補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/corporate-accounting-basics.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [企業会計の基礎](content/docs/finance-and-accounting/corporate-accounting-basics.mdx) に、`財務諸表と5段階利益 → 資産会計 / 負債・純資産会計 → 収益認識基準 → 企業会計原則と連結会計` の既定順を上部 callout で追加した
+- 同ページで、`貸借対照表（B/S）`、`損益計算書（P/L）`、`キャッシュ・フロー計算書（CF）`、`金融商品取引法（金商法）` のように、略語の前に正式名が見えるように直した
+- 章内ノードとして存在していた `収益認識基準` をカードと読む順に追加し、`企業会計原則と連結会計` の前に位置付けた
+- `対応する出題テーマ` を新設し、財務諸表、資産、負債・純資産、収益認識、制度論点ごとに `まず戻るページ` を固定した
+- `次に読むとよいページ` は章内ノード先行に直し、次ページを `content/docs/finance-and-accounting/cost-accounting.mdx` へ更新した
+
+### 品質ゲート
+
+- `まずどの順で読むか` とカードと `対応する出題テーマ` の集合に、章内ノード `収益認識基準` をそろえた
+- `B/S` や `金商法` のような略語は、章ハブ段階で正式名を先に出し、後続ノードの前提を落とさない形へ寄せた
+- `次に読むページ` は `簿記の基礎` への逆戻りより先に、今読んでいる章の最初のノード群へ送る並びへ戻した
+
+### 検証
+
+- `pnpm validate`
+- ブラウザ確認:
+  - `/finance-and-accounting/corporate-accounting-basics`
+  - `200`、`h1`、`初めて読むならこの順`、`収益認識基準`、`まず戻るページ`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の章ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `企業会計` のように略語が強い章では、正式名を先に見せるだけで、表や制度を `記号` ではなく `意味` として保持しやすくなる
+2. `収益認識基準` のような独立ノードがカードから抜けていると、章ハブの順番表が裏導線に見えやすい
+3. `財務諸表 → 主要会計論点 → 制度論点` の間に `売上をいつ計上するか` の独立論点を差し込むと、企業会計の地図が `資産と負債だけの章` に見えにくくなる
+
+### 前回比
+
+改善: 前回は `簿記の基礎` で操作用語を初出で言い換えた。今回は `企業会計の基礎` で、略語を正式名とセットにし、抜けていた `収益認識基準` を地図へ戻すことで、会計系の章ハブでも順番表とカードのずれを減らした
+
+### 次に修正すべきこと
+
+1. `原価計算` 章ハブを読み、`分類軸 → 計算方式 → 差異分析 → 利益差` の順と主要ページがずれていないかを確認する
+2. `財務・会計` 系の章ハブでも、略語や独立ノードがカードから抜けていないかを同じ観点で見続ける
+3. `次に読むとよいページ` が章内ノード先行になっているかを、`経営分析` と `ファイナンス` でも引き続き点検する
+
+## 2026-03-30-03 初学者通読レビューで原価計算章ハブの戻り先を補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/cost-accounting.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [原価計算](content/docs/finance-and-accounting/cost-accounting.mdx) に、`目的と分類 → 個別 / 総合 → 標準 / 差異 → 直接 / 全部原価 → 解き方` の既定順を上部 callout で追加した
+- 同ページで、`予定配賦`、`完成品換算量`、`特殊原価概念` をカード内で短く言い換え、計算用語の初出補足を入れた
+- `対応する出題テーマ` を新設し、`分類軸`、`計算方式`、`差異分析`、`利益差`、`勘定連絡 / 解法パターン` ごとに `まず戻るページ` を固定した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `原価計算` 通過、次ページを `content/docs/finance-and-accounting/management-analysis.mdx` に更新した
+
+### 品質ゲート
+
+- `まずどの順で読むか`、カード、`対応する出題テーマ` の 3 つを、`分類軸 → 計算方式 → 差異分析 → 利益差` の同じ順序へそろえた
+- `予定配賦` や `完成品換算量` のような計算用語は、章ハブの段階で一言補って、式だけを先に追う読み方を減らした
+- `次に読むページ` はもともと章内ノード先行だったため維持し、章外リンクは後段の参照口として残した
+
+### 検証
+
+- `pnpm validate`
+  - `check`、`format:check`、`lint` は通過
+  - build は Turbopack panic のあと `pnpm build:check:webpack` でも `.next-check-webpack/server/pages-manifest.json` の `ENOENT` で失敗
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-devcheck pnpm exec next dev --hostname 127.0.0.1 --port 3101`
+  - `/finance-and-accounting/cost-accounting`
+  - `200`、`h1`、`初めて読むならこの順`、`まず戻るページ`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の章ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `原価計算` のように `分類軸` と `計算方式` と `差異分析` が混在する章では、式より先に `どの順で判断するか` を固定した方が初学者は止まりにくい
+2. `予定配賦` や `完成品換算量` は、用語の完全定義まで入れなくても、`何をする計算か` の一言があるだけで次ノードへ入りやすくなる
+3. `勘定連絡` や `解法パターン` の戻り先を表に持たせると、知識ノードと解法ノードを往復しやすくなる
+
+### 前回比
+
+改善: 前回は `企業会計の基礎` で略語と欠落ノードを補った。今回は `原価計算` で `分類軸 → 計算方式 → 差異分析 → 利益差` の戻り先をそろえ、計算章でも順番表と復習導線がずれない形へ寄せた
+
+### 次に修正すべきこと
+
+1. `経営分析` 章ハブを読み、`収益性 / 安全性 / 効率性 → 成長性 / 生産性 → CVP → 事例Ⅳ接続` の順と主要ページがずれていないかを確認する
+2. `財務・会計` 系の章ハブでも、計算用語や戻り先が `章内ノード` で閉じているかを引き続き点検する
+3. `事例Ⅳ` へ接続する導線が早すぎないかを、`経営分析` と `ファイナンス` でも同じ観点で見る
+
+## 2026-03-29-35 過去問解説の正答照合を全年度・全科目で始め、同期可能な13ファイルを先に補正した
+
+### 対象
+
+- `scripts/check-past-exam-answer-keys.mjs`
+- `content/docs/past-exam-solutions/h22/info-systems.mdx`
+- `content/docs/past-exam-solutions/h25/info-systems.mdx`
+- `content/docs/past-exam-solutions/h26/info-systems.mdx`
+- `content/docs/past-exam-solutions/h28/info-systems.mdx`
+- `content/docs/past-exam-solutions/h29/info-systems.mdx`
+- `content/docs/past-exam-solutions/h30/info-systems.mdx`
+- `content/docs/past-exam-solutions/r01/info-systems.mdx`
+- `content/docs/past-exam-solutions/r02/info-systems.mdx`
+- `content/docs/past-exam-solutions/r02/operations.mdx`
+- `content/docs/past-exam-solutions/r03/info-systems.mdx`
+- `content/docs/past-exam-solutions/r04/info-systems.mdx`
+- `content/docs/past-exam-solutions/r05/info-systems.mdx`
+- `content/docs/past-exam-solutions/r07/info-systems.mdx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- 公式正答を `H19 HTML 正答表` と `H20-R07 PDF 正答表` から取得し、`MDX の正解行` と突合するスクリプトを追加した
+- `pdftotext -layout` を使うことで、`2列組`、`設問1/設問2`、`v2` 差し替え、`複数正解`、`全員正解（－）` を同じロジックで読めるようにした
+- `MDX 側の解説数` と `公式正答数` が一致していた 13 ファイルは、`正解` 行を公式値へ同期した
+- 再点検の結果、`正解だけ差し替えれば済むファイル` は先に消化できた一方、残り `120ファイル` は `設問数不足`、`グループ単位の解説しかない`、`公式の設問粒度まで分かれていない` など、構成面の差分が主因だと判明した
+
+### 品質ゲート
+
+- 公式正答ソースは年度ごとに実際の配布形式へ合わせた
+  - `H19`: 協会サイトの HTML 正答表
+  - `H20-R07`: 協会サイトの PDF 正答表と補正版 PDF
+- `正答の訂正通知 PDF` と `補正版の正答表 PDF` が混在していたため、URL 名だけで決めず、実際に `正解・配点` が読める PDF を採用するようにした
+- `MDX` では `**正解**: ア` 形式と、`**正解**` の次行に答えを書く形式の両方を読めるようにし、同期処理でも両方を壊さないようにした
+
+### 検証
+
+- `node scripts/check-past-exam-answer-keys.mjs --json`
+- `node scripts/check-past-exam-answer-keys.mjs --rewrite-aligned`
+- 再実行:
+  - `node scripts/check-past-exam-answer-keys.mjs --json`
+
+### 鮮度確認
+
+- 今回は過去問の公式正答照合であり、制度更新の鮮度台帳追加対象外
+
+### 学び
+
+1. 過去問解説の不整合は `答えが違う` だけでなく、`公式は設問1/設問2まで採点するのに、公開解説は問単位でまとめている` という構造差がかなり大きい
+2. 情報システム系は `正解` 行の同期だけで先に正しさを戻せるファイルが多かったが、`中小企業政策` と `運営管理` は設問粒度の再設計が先に必要な年度が多い
+3. `正解の訂正` を示す PDF は、`訂正文書` と `補正版正答表` の2種類があるため、`_teisei` というファイル名だけでは判定できない
+
+### 前回比
+
+改善: 前回は `r05/finance.mdx` を1科目単位で手修正した。今回は対象を `H19-R07 / 全7科目` に広げ、まず正答照合の自動検査基盤を作り、同期可能なファイルを先に補正した
+
+### 次に修正すべきこと
+
+1. `r05/operations.mdx`、`r06/sme-policy.mdx`、`h23/sme-policy.mdx` など、`公式設問数` と `公開解説数` の差が大きいファイルから、設問粒度まで分解し直す
+2. `count mismatch` が大きいファイルは、答え行だけ直さず、`第◯問/設問◯` の見出しと `正解` を公式表に合わせて増補する
+3. 正答同期済み 13 ファイルも、答えが丸ごと反転していたものは、説明本文が正答と整合しているかを次回優先で再点検する
+
+## 2026-03-30-01 経営情報システムの残り比較軸を補強し、r03 情報システム末尾の崩れを公式問題で立て直した
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-information-security-basics.mdx`
+- `content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx`
+- `content/docs/past-exam-solutions/r03/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [情報セキュリティの基礎](content/docs/management-information-systems/knowledge-information-security-basics.mdx) に、`クリックジャッキング / X-Frame-Options / EPP / EDR / DLP / テレワーク方式` を初学者が判断できる確認問題を追加した
+- [AI・機械学習の基礎](content/docs/management-information-systems/knowledge-ai-and-machine-learning-basics.mdx) に、`混同行列の表の読み方`、`ROC 曲線と PR 曲線の使い分け`、`回帰指標の計算手順`、`時系列特徴量とデータリーク` を本文と確認問題の両方で追加した
+- [令和3年度 経営情報システム](content/docs/past-exam-solutions/r03/info-systems.mdx) の第23問から第25問を、公式問題文と正答に合わせて全面的に差し替えた
+- `r03/info-systems` では、`第23問=LTV計算`、`第24問=統計的検定手法`、`第25問=テレワーク方式分類` へ戻し、分類マップと形式層の分布も合わせて修正した
+
+### 品質ゲート
+
+- `r03/info-systems` の末尾 3 問は、ローカルに保存した協会公式問題 PDF と正答 PDF から再照合した
+- テレワーク方式は、総務省 `テレワークセキュリティガイドライン第5版` の定義に合わせて、`VPN / 仮想デスクトップ / リモートデスクトップ / セキュアコンテナ / セキュアブラウザ` の違いを確認した
+- AI の評価指標は、`何を分母に取るか` と `クラス不均衡時に何が崩れるか` を明示し、計算問題でも同じ軸で答えられる形にそろえた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- 実ブラウザ確認:
+  - `/management-information-systems/knowledge-information-security-basics`
+  - `/management-information-systems/knowledge-ai-and-machine-learning-basics`
+  - `/past-exam-solutions/r03/info-systems`
+
+### 鮮度確認
+
+- テレワーク方式の定義は総務省ガイドラインで確認したが、今回の追記先は安定論点ノードのため、鮮度台帳の追加対象外
+
+### 学び
+
+1. `混同行列` や `ROC / PR` は用語説明だけだと定着しにくく、`分母が何か`、`どの失敗を嫌うか` を同じ表に入れた方が初学者は切りやすい
+2. `回帰指標` は使い分け説明だけでは不十分で、1 問でも手計算問題を置くと `MAE / RMSE / WAPE` の違いがかなり安定する
+3. 過去問解説の末尾が崩れているときは、まず `公式問題文と正答の設問番号` を戻してから本文を直さないと、局所修正だけでは別の矛盾を増やしやすい
+
+### 前回比
+
+改善: 前回は `WAF / CSP / SameSite`、`交差検証 / AUC-ROC` までを本文中心に補強した。今回はそこから一段進めて、`表から答えるための確認問題` と `r03/info-systems` の公式準拠修正まで閉じた
+
+### 次に修正すべきこと
+
+1. `knowledge-it-strategy-and-dx.mdx` に `BPR / DX / ITガバナンス / ERP / SCM / CRM` の比較問題を追加する
+2. `r03/info-systems.mdx` の第22問も、公式問題文と照らして選択肢本文の破綻が残っていないかを再確認する
+3. 経営情報システムの年度別ページで、今回増やした `混同行列 / PR曲線 / テレワーク方式` の比較軸を `誤答の落とし穴` に逆流させる
+
+## 2026-03-30-02 IT戦略ノードに比較問題を追加し、r03 情報システム第22問を公式問題文へ戻した
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-it-strategy-and-dx.mdx`
+- `content/docs/past-exam-solutions/r03/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [IT戦略・BPR・DX・ITガバナンス](content/docs/management-information-systems/knowledge-it-strategy-and-dx.mdx) に、`BPR / デジタライゼーション / DX / ITガバナンス` を目的で切る比較表、`ERP / SCM / CRM / SFA` を主語で切る比較表、`IT戦略 / ITガバナンス` の役割比較を追加した
+- 同ノードの確認問題に `問4: BPR / DX / ITガバナンス`、`問5: ERP / SCM / CRM / SFA` を追加し、年度別の典型的な言い換えから答えにたどり着けるようにした
+- [令和3年度 経営情報システム](content/docs/past-exam-solutions/r03/info-systems.mdx) の第22問を、協会公式問題文の `「情報セキュリティ5か条」に明記されていないもの` という設問に合わせて全面的に差し替えた
+- 第22問では、`脅威や攻撃の手口を知ろう！` は 5 か条に含まれ、`不審なメールを開かないようにしよう！` は具体策ではあっても文言そのものではない、という区別へ戻した
+
+### 品質ゲート
+
+- `r03/info-systems` 第22問は、ローカル保存した `F1ji2021.pdf` から公式問題文を再読し、正答 `オ` と整合するように修正した
+- IT戦略ノードは、既存本文の大枠は維持しつつ、初学者が `何を変える話か` と `誰の何を扱うシステムか` で切れる形へ寄せた
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+- 実ブラウザ確認:
+  - `/management-information-systems/knowledge-it-strategy-and-dx`
+  - `/past-exam-solutions/r03/info-systems`
+
+### 鮮度確認
+
+- 今回の主更新は安定論点ノードと過去問解説の整合修正であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `BPR / DX / ITガバナンス` は同じ「経営寄りIT用語」に見えるが、`変える対象` と `監督の有無` を表に分けると初学者が止まりにくい
+2. `ERP / SCM / CRM / SFA` は機能一覧だけでは弱く、`問題文の主語` を先に見る整理が年度別の誤答に強い
+3. `情報セキュリティ5か条` のような基礎論点では、実務上正しい具体策と `公式文言として書かれているか` を分けて書かないと、過去問解説が不安定になる
+
+### 前回比
+
+改善: 前回は `情報セキュリティ` と `AI` の比較軸、および `r03/info-systems` の末尾3問を立て直した。今回はその続きとして、`IT戦略・BPR・DX` の比較問題を本文へ戻し、`r03/info-systems` に残っていた第22問の崩れも公式問題文ベースで解消した
+
+### 次に修正すべきこと
+
+1. `knowledge-it-strategy-and-dx.mdx` に `RFI / RFP / RFQ / TCO / ROI / NPV / IRR` の計算・判定問題を増やす
+2. `r03/info-systems.mdx` の冒頭 `出題構成` 表が実際のテーマ分類と十分整合しているかを再点検する
+3. IT戦略ノードで増やした比較軸を、`h20 / h21 / h23 / h27 / r01 / r07` の年度別 `誤答の落とし穴` に逆流させる
+
+## 2026-03-30-02 過去問正答照合スクリプトのPDF解析を修正し、件数一致ファイルを再同期した
+
+### 対象
+
+- `scripts/check-past-exam-answer-keys.mjs`
+- `content/docs/past-exam-solutions/r06/finance.mdx`
+- `content/docs/past-exam-solutions/h20/info-systems.mdx`
+- `content/docs/past-exam-solutions/h21/finance.mdx`
+- `content/docs/past-exam-solutions/h21/operations.mdx`
+- `content/docs/past-exam-solutions/h25/economics.mdx`
+- `content/docs/past-exam-solutions/h27/economics.mdx`
+- `content/docs/past-exam-solutions/h27/finance.mdx`
+- `content/docs/past-exam-solutions/h29/economics.mdx`
+- `content/docs/past-exam-solutions/r02/economics.mdx`
+- `content/docs/past-exam-solutions/r03/info-systems.mdx`
+- `content/docs/past-exam-solutions/r04/economics.mdx`
+- `content/docs/past-exam-solutions/r07/business-law.mdx`
+- `content/docs/past-exam-solutions/r07/economics.mdx`
+- `content/docs/past-exam-solutions/r07/finance.mdx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [check-past-exam-answer-keys.mjs](scripts/check-past-exam-answer-keys.mjs) の `parseOfficialAnswersFromPdf` を修正し、`第12問 設問1` のように同一行へ出る設問を二重計上しないようにした
+- その結果、`R05 / R06 / R07` の財務・会計で `公式正答数が2問多い` という誤検知が解消し、`r05/finance.mdx` は照合上 `25/25` 一致に戻った
+- [令和6年度 財務・会計](content/docs/past-exam-solutions/r06/finance.mdx) は、誤っていた `第2問 / 第3問 / 第4問 / 第6問 / 第9問 / 第13問` の `正解` 行と解説本文を、公式正答に合わせて手修正した
+- 件数一致ファイルは `--rewrite-aligned` を再実行して正解行を再同期し、`H20 情報システム`、`H21 財務`、`H21 運営管理`、`H25 経済学`、`H27 経済学`、`H27 財務`、`H29 経済学`、`R02 経済学`、`R03 情報システム`、`R04 経済学`、`R07 経営法務`、`R07 経済学`、`R07 財務` の照合不一致を解消した
+- 再照合後、`答え行だけの不一致` は `0ファイル` となり、残件はすべて `設問数の不足・過多` を含む構造差に整理された
+
+### 品質ゲート
+
+- `node scripts/check-past-exam-answer-keys.mjs --json`
+- `node scripts/check-past-exam-answer-keys.mjs --rewrite-aligned`
+- 再実行:
+  - `node scripts/check-past-exam-answer-keys.mjs --json`
+
+### 検証
+
+- 再照合後の集計:
+  - `problem_files = 107`
+  - `count_mismatch_files = 107`
+  - `answer_only_files = 0`
+- `r06/finance.mdx` は照合上 `25/25` 一致まで戻した
+
+### 鮮度確認
+
+- 今回は過去問の公式正答との照合および教材文の修正であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. 正答PDFは `第◯問 設問1 正解` が同一行に並ぶ年度があり、行単位で `第◯問` と `設問1` を別々に拾うと、公式正答数が水増しされる
+2. `件数一致ファイル` を先に同期すると、残件はすべて `見出し粒度不足` に揃うので、次に手で直す対象がかなり選びやすくなる
+3. `正解` 行の同期だけで照合は通っても、説明本文が旧正答のまま残るファイルがあるため、教材品質の観点では `件数一致で同期済み` と `本文まで再確認済み` を分けて管理する必要がある
+
+### 前回比
+
+改善: 前回は `件数一致 13ファイル` を同期したが、PDF解析の二重計上バグが残っていた。今回はそのバグを潰したうえで再照合し、`答え行だけの不一致` をすべて解消し、`r06/finance.mdx` は本文まで手修正した
+
+### 次に修正すべきこと
+
+1. `h19/finance.mdx` を、公式の `25設問` に合わせて不足 1 設問を補いながら、誤答 14 件の本文を順に修正する
+2. `h30/operations.mdx` と `h30/management.mdx` は mismatch 数が小さいので、設問数の不足箇所を特定して設問単位に分解し直す
+3. 今回 `正解` 行だけ同期した `r07/finance.mdx`、`r07/business-law.mdx`、`h27/finance.mdx` などは、本文が旧正答のまま残っていないかを次回優先で点検する
+
+## 2026-03-30-03 IT戦略ノードに投資評価と調達の比較表を足し、年度別の誤答パターンへ逆流させた
+
+### 対象
+
+- `content/docs/management-information-systems/knowledge-it-strategy-and-dx.mdx`
+- `content/docs/past-exam-solutions/h21/info-systems.mdx`
+- `content/docs/past-exam-solutions/h22/info-systems.mdx`
+- `content/docs/past-exam-solutions/r01/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [knowledge-it-strategy-and-dx.mdx](content/docs/management-information-systems/knowledge-it-strategy-and-dx.mdx) に、`TCO / ROI / NPV / IRR / ペイバック期間` を時間軸と分母で切る比較表と、`RFI / RFP / RFQ` を要件の固まり方で切る比較表を追加した
+- 同ノードに `問6：TCO / ROI / NPV / IRR / ペイバック期間 の切り分け` と `問7：RFI / RFP / RFQ の切り分け` を追加し、年度別の言い換えを確認問題へ戻した
+- [平成21年度 経営情報システム](content/docs/past-exam-solutions/h21/info-systems.mdx) は、`ROI = 投資回収期間` に見える誤った説明を修正し、`ROI / 投資回収期間 / TCO` の違いを本文へ反映した
+- [平成22年度 経営情報システム](content/docs/past-exam-solutions/h22/info-systems.mdx) は、`IT戦略` と `ITガバナンス` の切り分けを `責任体制 / KPI / 監督` ベースで補強した
+- [令和元年度 経営情報システム](content/docs/past-exam-solutions/r01/info-systems.mdx) は、`RFI / RFP / RFQ` の段階差と `TCO / ROI / NPV / IRR` の役割差を、`誤答の落とし穴` と `学習アドバイス` に逆流させた
+
+### 品質ゲート
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+
+### 検証
+
+- `pnpm check` を実行し、リンク整合と構造検証が通ることを確認した
+- `pnpm lint` を実行し、lint が通ることを確認した
+- `NEXT_DIST_DIR=.next-check pnpm build` は Turbopack の既知不安定性があるため、失敗時は `NEXT_DIST_DIR=.next-check pnpm exec next build --webpack` で代替する方針とした
+- 変更したルートはビルド後に headless Chrome で `title`、`h1`、追加見出しの描画を確認する
+
+### 鮮度確認
+
+- 今回は安定論点の教材改善であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `ROI` と `投資回収期間` は、初学者だけでなく既存本文でも混線しやすく、知識ノード側で `率` と `年数` を明示しておかないと年度別へ誤差が伝播する
+2. `RFI / RFP / RFQ` は文書名の日本語訳だけでは弱く、`要件がどこまで固まっているか` を比較軸にすると実戦で切りやすい
+3. `ITガバナンス` は `IT戦略の上位概念` のように曖昧に書くより、`やる内容` と `監督の仕組み` に分けた方が年度別の誤答修正に効く
+
+### 前回比
+
+改善: 前回は `IT戦略・BPR・DX` と `r03/info-systems` 第22問を整えた。今回はその続きとして、投資評価と調達の比較軸を知識ノードへ足し、`h21 / h22 / r01` の年度別解説に逆流させた
+
+### 次に修正すべきこと
+
+1. `r02 / r03 / r06 / r07` の経営情報システムへ、今回追加した `RFI / RFP / RFQ / TCO / ROI / NPV / IRR` の比較軸を `誤答の落とし穴` と `学習アドバイス` に横展開する
+2. `knowledge-it-strategy-and-dx.mdx` に、`定性効果` と `投資回収期間` を絡めた計算付き確認問題をもう 1 問追加する
+3. `r03/info-systems.mdx` の冒頭 `出題構成` 表が、修正済み各設問のテーマ分類とずれていないかを再点検する
+
+## 2026-03-30-04 IT戦略ノードの比較軸を r02 / r03 / r06 / r07 の年度別へ横展開した
+
+### 対象
+
+- `content/docs/past-exam-solutions/r02/info-systems.mdx`
+- `content/docs/past-exam-solutions/r03/info-systems.mdx`
+- `content/docs/past-exam-solutions/r06/info-systems.mdx`
+- `content/docs/past-exam-solutions/r07/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [令和2年度 経営情報システム](content/docs/past-exam-solutions/r02/info-systems.mdx) は、`IT 戦略` と `IT ガバナンス` の違いを `何をやるか` と `どう監督するか` の対比で補強した
+- [令和3年度 経営情報システム](content/docs/past-exam-solutions/r03/info-systems.mdx) は、DX ガイドライン論点に `経営主導 / PoC 止まり回避 / レガシー刷新 / 人材確保` の比較軸を戻し、年度総括にも `TCO / ROI / 投資回収期間` の読み分けを追記した
+- [令和6年度 経営情報システム](content/docs/past-exam-solutions/r06/info-systems.mdx) は、DX 認定制度論点を `個別技術導入` と `ガバナンスを含む DX 推進` に切り分ける説明へ補強した
+- [令和7年度 経営情報システム](content/docs/past-exam-solutions/r07/info-systems.mdx) は、`SFA / CRM / SEO` の主語による切り分けと、`DX 戦略` と `デジタルガバナンス` の役割差を `誤答の落とし穴` と `学習アドバイス` に反映した
+
+### 品質ゲート
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+
+### 検証
+
+- `pnpm check`、`pnpm lint`、`NEXT_DIST_DIR=.next-check pnpm build` を実行する
+- 変更した年度別 4 ルートは headless Chrome で `title`、`h1`、追加した本文文字列の描画を確認する
+
+### 鮮度確認
+
+- 今回は年度別解説への学習支援追記であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `IT ガバナンス` は年度別だと `情報セキュリティ` や `コンプライアンス` に吸われやすく、`責任体制 / KPI / 監督` の語を前に出すと切り分けやすい
+2. `DX` 論点は、個別技術や制度名の暗記より `経営主導 / レガシー刷新 / 人材 / PoC止まり回避` の失敗パターンで整理した方が初学者に効く
+3. `SFA / CRM / SEO` のような近縁語は、機能一覧より `誰の何を最適化するか` の主語で説明した方が誤答を減らせる
+
+### 前回比
+
+改善: 前回は `h21 / h22 / r01` に `投資評価` と `調達` の比較軸を逆流させた。今回はその続きとして、`r02 / r03 / r06 / r07` に同じ思想を横展開し、DX とガバナンスの読み分けも年度別へ戻した
+
+### 次に修正すべきこと
+
+1. `h20 / h23 / h27 / h30` の経営情報システムへ、`RFI / RFP / RFQ / TCO / ROI / NPV / IRR` と `定性効果 / 定量効果` の比較軸を横展開する
+2. `knowledge-it-strategy-and-dx.mdx` に、`定性効果` と `投資回収期間` を絡めた計算付き確認問題をもう 1 問追加する
+3. `r03/info-systems.mdx` の冒頭 `出題構成` 表が、修正済み各設問のテーマ分類とずれていないかを再点検する
+
+## 2026-03-30-05 初学者通読レビューで経営分析章ハブの指標カテゴリを補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/management-analysis.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [経営分析](content/docs/finance-and-accounting/management-analysis.mdx) に、`収益性 / 安全性 / 効率性 → 成長性 / 生産性 → CVP → 事例Ⅳ` の既定順を上部 callout で追加した
+- 同ページで、`ROA`、`ROE`、`デュポン分解`、`労働生産性`、`限界利益率`、`事例Ⅳ` をカード内で短く言い換え、略語と指標の初出補足を入れた
+- `対応する出題テーマ` を新設し、`指標カテゴリ`、`CVP`、`事例Ⅳ 第1問` ごとに `まず戻るページ` を固定した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `経営分析` 通過、次ページを `content/docs/finance-and-accounting/profit-and-cash-management.mdx` に更新した
+
+### 品質ゲート
+
+- `まずどの順で読むか`、カード、`対応する出題テーマ` の 3 つを、`指標カテゴリ → 成長性 / 生産性 → CVP → 事例Ⅳ` の同じ順序へそろえた
+- `ROA` や `ROE` のような略語は、`何を何で見る指標か` の一言を章ハブで添え、式の丸暗記へ流れにくい形にした
+- `事例Ⅳ` は外部章への導線として残しつつ、章内ノードを一巡したあとで接続する順に維持した
+
+### 検証
+
+- `pnpm validate`
+  - `check`、`format:check`、`lint`、build まで通過
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101`
+  - `/finance-and-accounting/management-analysis`
+  - `200`、`h1`、`初めて読むならこの順`、`まず戻るページ`、`ROA / ROE` 補足、`事例Ⅳ` 補足、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の章ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `経営分析` のように `高い / 低い` の評価が出てくる章では、式より前に `儲ける力`、`倒れにくさ`、`資産の回し方` と役割語を置いた方が、カテゴリ取り違えが減る
+2. `ROA` や `ROE` は正式名だけよりも、`総資本で見るか`、`自己資本で見るか` の違いを一言添えた方が初学者が止まりにくい
+3. `事例Ⅳ` への導線は必要でも、章内ノードより前へ出すと 1 次の基礎固めが崩れるため、`最後に接続する出口` として置いた方が安定する
+
+### 前回比
+
+改善: 前回は `原価計算` 章ハブで `切り方 → 集計方法 → ずれ → 利益差` の順と戻り先を補強した。今回はその次の `経営分析` 章ハブで、指標カテゴリを役割語へ言い換え、`CVP` と `事例Ⅳ` まで戻り先を明示した
+
+### 次に修正すべきこと
+
+1. `利益と資金の管理` 章ハブを読み、`利益計画 / 予算管理 → CF / FCF → 基本確認問題` の順と主要ページがずれていないかを確認する
+2. `経営分析` の `次に読むとよいページ` が `ファイナンス` や `利益と資金の管理` を早く出しすぎていないかを、次の `利益と資金の管理` 章ハブと合わせて再確認する
+3. `事例Ⅳ 経営分析` 側で、今回固定した `収益性 / 安全性 / 効率性 / CVP` の戻り先が本文中でも生きているかを後段で点検する
+
+## 2026-03-30-07 初学者通読レビューで利益と資金の管理章ハブの利益と現金の切れ目を補強した
+
+### 対象
+
+- `content/docs/finance-and-accounting/profit-and-cash-management.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [利益と資金の管理](content/docs/finance-and-accounting/profit-and-cash-management.mdx) に、`利益計画 / 予算管理 → CF / FCF → 基本確認問題` の既定順を上部 callout で追加した
+- 同ページで、`FCF`、`利益差異`、`営業 CF`、`運転資本` をカード内で短く言い換え、利益の話と現金の話を切り分ける初出補足を入れた
+- `対応する出題テーマ` を新設し、`予算管理`、`CF 区分`、`FCF`、`判断問題` ごとに `まず戻るページ` を固定した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `利益と資金の管理` 通過、次ページを `content/docs/finance-and-accounting/finance.mdx` に更新した
+
+### 品質ゲート
+
+- `まずどの順で読むか`、カード、`対応する出題テーマ` の 3 つを、`予算管理 → CF 区分 → FCF / 判断問題` の同じ順序へそろえた
+- `利益差異`、`営業 CF`、`運転資本` には `何の差 / 現金 / 資金か` の一言を添え、損益計算と資金繰りを同じ話として読まない形にした
+- `次に読むとよいページ` は章内ノード先行を維持し、章外リンクは `効率性分析` と `ファイナンス` の参照口にとどめた
+
+### 検証
+
+- `pnpm validate`
+  - `check`、`format:check`、`lint` は通過
+  - Turbopack build は `.next-check/required-server-files.json` の `ENOENT` で失敗
+- `rm -rf .next-check-webpack && NEXT_DIST_DIR=.next-check-webpack pnpm exec next build --webpack`
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check-webpack pnpm exec next start --hostname 127.0.0.1 --port 3101`
+  - `/finance-and-accounting/profit-and-cash-management`
+  - `200`、`h1`、`初めて読むならこの順`、`まず戻るページ`、`FCF` 補足、`運転資本` 補足、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の章ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `利益と資金の管理` のように利益差と現金区分が同居する章では、`予算と実績のズレ` と `現金の増減` を最初に分けた方が、`利益が出た = 現金も増えた` という誤解を防ぎやすい
+2. `営業 CF` や `運転資本` は正式な式より前に、`本業の現金`、`営業で寝る資金` のような役割語を添えた方が、間接法や資金繰りの説明へ入りやすい
+3. `FCF` は `DCF` や投資判断の前提と書くだけでなく、章ハブの段階で `自由に使える現金` と言い換えた方が、次の `ファイナンス` 章への橋渡しになる
+
+### 前回比
+
+改善: 前回は `経営分析` 章ハブで `指標カテゴリ → CVP → 事例Ⅳ` の順と戻り先を補強した。今回はその次の `利益と資金の管理` 章ハブで、利益の話と現金の話の切れ目を先に固定し、`CF / FCF` の戻り先まで明示した
+
+### 次に修正すべきこと
+
+1. `ファイナンス` 章ハブを読み、`投資意思決定 → 資本コスト → 企業価値評価 → デリバティブ` の順と主要ページがずれていないかを確認する
+2. `利益と資金の管理` の `次に読むとよいページ` が `事例Ⅳ` や `ファイナンス` へ飛びすぎていないかを、次の `ファイナンス` 章ハブと合わせて再確認する
+3. `事例Ⅳ CVP と利益計画`、`事例Ⅳ CF と運転資本` 側で、今回固定した `予算管理 / CF / FCF` の戻り先が本文中でも生きているかを後段で点検する
+
+## 2026-03-30-08 初学者通読レビューでファイナンス章ハブの主経路と戻り先を前付けした
+
+### 対象
+
+- `content/docs/finance-and-accounting/finance.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [ファイナンス](content/docs/finance-and-accounting/finance.mdx) に、`CAPM / WACC → NPV / IRR → DCF法 → 市場理論 / デリバティブ` の既定順を上部 callout で追加した
+- 同ページに `学習のポイント`、`この章のページマップ`、`まずどの順で読むか` を新設し、長い本文の前に `主経路` と `周辺ノード` を見えるようにした
+- `対応する出題テーマ` を新設し、`投資判定`、`企業価値評価`、`市場理論`、`リスク管理` ごとに `まず戻るページ` を固定した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `ファイナンス` 通過、次ページを `content/docs/second-stage/case-4-finance-and-accounting.mdx` に更新した
+
+### 品質ゲート
+
+- 本文自体の説明順は維持しつつ、冒頭に `最初の1周で通す経路` を追加して、途中の比較表や補足節へ入る前に全体像を固定した
+- `CAPM`、`NPV`、`DCF法` には `何を求める道具か` の短い補足を先に置き、略語だけを追う読み方にならない形にした
+- `次に読むとよいページ` は章内ノード先行のまま維持し、`利益と資金の管理` は最後の戻り先として残した
+
+### 検証
+
+- `pnpm validate`
+  - `check` は通過
+  - `format:check` 実行中に Node 側の abort で停止
+- `rm -rf .next-check-webpack && NEXT_DIST_DIR=.next-check-webpack pnpm exec next build --webpack`
+  - `.next-check-webpack/server/functions-config-manifest.json` の `ENOENT` で失敗
+- ブラウザ確認:
+  - `rm -rf .next-devcheck && NEXT_DIST_DIR=.next-devcheck pnpm exec next dev --hostname 127.0.0.1 --port 3101`
+  - `/finance-and-accounting/finance`
+  - `200`、`h1`、`初めて読むならこの順`、`この章のページマップ`、`まず戻るページ`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の章ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `ファイナンス` のように本文が長い章では、説明本文を削るよりも、冒頭に `主経路` と `周辺ノード` を前付けした方が初学者の読み筋を保ちやすい
+2. `CAPM`、`NPV`、`DCF法` は正式名よりも先に `何を求める道具か` を一言置いた方が、途中の比較表や数式へ入っても位置を見失いにくい
+3. 長い章でも `テーマ → まず戻るページ` を付けると、`企業価値評価` と `効率的市場仮説` と `デリバティブ` のような脇道をあとから復習しやすい
+
+### 前回比
+
+改善: 前回は `利益と資金の管理` 章ハブで `利益差 → CF 区分 → FCF` の順と戻り先を補強した。今回はその次の `ファイナンス` 章で、長い主本文の前に読む地図と戻り先を前付けし、次の `事例Ⅳ 財務・会計` へつなぐ入口を整えた
+
+### 次に修正すべきこと
+
+1. `事例Ⅳ 財務・会計` ハブを読み、`経営分析 → CVP / CF / NPV → 答案骨子` の順と1次への戻り先が初学者に通るかを確認する
+2. `ファイナンス` の `次に読むとよいページ` が、今回足した `主経路` とずれていないかを `事例Ⅳ 財務・会計` 側の戻り先と合わせて再確認する
+3. `事例Ⅳ NPV と投資意思決定` 側で、今回固定した `投資判定 / 企業価値評価 / リスク管理` の戻り先が本文中でも生きているかを後段で点検する
+
+## 2026-03-30-09 平成19年度財務を公式正答どおり25設問へ復元した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h19/finance.mdx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [平成19年度 財務・会計](content/docs/past-exam-solutions/h19/finance.mdx) の第10問設問1、第12問、第13問、第14問、第16問設問2、第17問を公式正答と照合して修正した
+- 第17問は設問構造自体が崩れていたため、`設問2: 自己資本の価値（A/B）` と `設問4: 法人税下での企業価値` を含む4設問構成に戻した
+- 第13問は `当期仕入高` が与えられている以上、在庫増減ではなく `仕入債務の増減` だけを調整することを前面に出し、受験生が出発点を取り違えにくい説明へ差し替えた
+- 第17問は `営業CF 100` と `利益 60` を切り分け、簿価ROE、自己資本価値、時価ROE、税盾効果の順で追えるよう説明順も整理した
+
+### 検証
+
+- `node scripts/check-past-exam-answer-keys.mjs --json > /tmp/past-exam-answer-check-postrewrite.json`
+- `jq '.[] | select(.filePath=="/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h19/finance.mdx")' /tmp/past-exam-answer-check-postrewrite.json`
+- 確認結果: `mdxCount = 25`、`officialAnswers = 25`、`mismatches = []`
+
+### 学び
+
+1. 財務のズレは `正解` 行だけではなく、`設問数不足で以後が1つずつずれる` 形があるため、公式正答の設問粒度を先に固定しないと本文修正が全部ずれる
+2. MM理論の設問では `簿価`、`時価`、`企業価値`、`自己資本価値` を同じ言葉で流すと誤学習が起きやすいので、値と意味を毎回分けて書く必要がある
+3. キャッシュ・フロー問題は `売上高が与えられているのか`、`売上原価や仕入原価が与えられているのか` で調整項目が変わるため、計算式より先に出発点を明示した方が受験生向けに有効だった
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h20/finance.mdx` を対象に、公式26設問とのずれを1問ずつ確認する
+2. とくに第10問の `ア/ウ` 複合正答と、第26問欠落の構造を先に洗い出し、設問単位の見出し不足がないかを点検する
+3. 再照合後の残件数 `106ファイル` を基準に、同様に `設問数は近いが正解ずれが多い` 年度から順に潰していく
+
+## 2026-03-30-12 IT戦略ノードの比較軸を h20 / h23 / h27 / h30 の年度別へ横展開した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h20/info-systems.mdx`
+- `content/docs/past-exam-solutions/h23/info-systems.mdx`
+- `content/docs/past-exam-solutions/h27/info-systems.mdx`
+- `content/docs/past-exam-solutions/h30/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [平成20年度 経営情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h20/info-systems.mdx) では、`システム企画` に `RFI / RFP / RFQ` の段階差を戻し、`情報収集 / 提案比較 / 見積比較` を同じものだと思って外す初学者向けの落とし穴を追加した
+- [平成20年度 経営情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h20/info-systems.mdx) の `情報戦略・デジタル化` では、`デジタイゼーション / デジタライゼーション / DX / ITガバナンス` を `何を変える話か` で切る説明へ補強した
+- [平成23年度 経営情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h23/info-systems.mdx) では、`ROI / ペイバック期間 / TCO` と `定量効果 / 定性効果` の切り分けを追加し、`ROI = 投資回収期間` と誤学習しないように式と判断順を修正した
+- [平成23年度 経営情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h23/info-systems.mdx) では、`SaaS / PaaS / IaaS` を `どこまで自社が管理するか` で切る本文へ寄せ、`クラウド = 常に低コスト`、`クラウドなら責任は全部ベンダー` という誤答パターンを本文に戻した
+- [平成23年度 経営情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h23/info-systems.mdx) と [平成30年度 経営情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h30/info-systems.mdx) では、`DX` と `ITガバナンス` を `変革の中身` と `監督の仕組み` で切る説明を年度ページ側にも戻した
+- [平成27年度 経営情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h27/info-systems.mdx) では、`CRM / ERP / クラウド / クラウドソーシング / インソーシング` を `管理対象 / 配置 / 担い手` の軸で切るように書き換えた
+- [平成27年度 経営情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h27/info-systems.mdx) の第15問は、ローカルの公式問題 PDF（`_book/past-exams/1ji/2015/info-systems-2015.pdf`）を確認し、選択肢 `ウ` の `スケールアップ` を `スケールアウト` へ復元した。あわせて `顧客データ`、`ブレード PC` など OCR 崩れも修正し、根拠説明も `台数が増えるならアウト` に統一した
+- [平成30年度 経営情報システム](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h30/info-systems.mdx) では、`要件定義` を `何を実現したいか` と `どう作るか` で切る説明へ補強し、`ROI目標` と `製品選定` を同じ層で扱わないようにした
+- [wiki-progress-tracker.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-progress-tracker.md) と [wiki-coverage-registry.md](/Users/yhay81/ghq/github.com/haya-inc/shindanshi/docs/wiki-coverage-registry.md) の次アクションは、`h24 / h25 / h26 / h28 / h29` への横展開と、年度ページ内の OCR 崩れ再監査へ更新した
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+- `NEXT_DIST_DIR=.next-check pnpm build`
+  - Turbopack は React Client Manifest の既知エラーで失敗
+- `rm -rf .next-check .next-check-webpack && NEXT_DIST_DIR=.next-check-webpack pnpm exec next build --webpack`
+  - webpack build は通過
+- headless Chrome による確認
+  - `/past-exam-solutions/h20/info-systems` は `title`、`h1`、`RFI` の追加表示を確認
+  - `/past-exam-solutions/h23/info-systems`、`/past-exam-solutions/h27/info-systems`、`/past-exam-solutions/h30/info-systems` は `next start` で欠損チャンク、`next dev` で `.next/dev/pages-manifest.json` 欠落により 500 となり、描画確認は未完了
+
+### 学び
+
+1. `IT戦略` 周辺の年度別解説は、知識ノード側で比較表を作っていても、年度ページ本文に `何を問うているか` の一文がないと初学者は `全部 IT 用語` と一括りにしてしまう
+2. `ROI` は式だけ置くと `投資回収期間` と混同されやすいので、`利益率を見る指標` と `何年で回収するかを見る指標` をセットで置く必要がある
+3. 年度別ページは OCR 崩れが残ると本文の判断軸まで逆転することがある。今回は `h27 第15問` の `スケールアウト` が `スケールアップ` へ崩れており、リンク補強だけでなく問題文そのものの監査が必要だと分かった
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h24/info-systems.mdx`、`h25/info-systems.mdx`、`h26/info-systems.mdx`、`h28/info-systems.mdx`、`h29/info-systems.mdx` に、今回の `投資評価 / 調達文書 / DX-ITガバナンス / クラウド責任共有` の比較軸を横展開する
+2. `IT戦略` 周辺の年度ページで、選択肢本文に OCR 崩れが残っていないかを `公式問題 PDF` とローカル `_book/past-exams` で再監査する
+3. `next start` と `next dev` の欠損ファイル問題を別系統で解消し、年度ページの browser verification を安定して回せるようにする
+
+## 2026-03-30-10 平成20年度財務は答え差し替えではなく設問構造の復元が先と判定した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h20/finance.mdx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- `content/docs/past-exam-solutions/h20/finance.mdx` は未作成であり、平成20年度財務は `答えだけ直す` フェーズではないことを公式一次情報との突き合わせで確認した
+- 公式正答は [訂正版正答 PDF](https://www.jf-cmca.jp/attach/test/H20/h20_1ji_seikai/B2008v2.pdf) を基準にし、第6問が `設問1 / 設問2` の2設問であることを確認した
+- 第9問は [2008-08-19 訂正 PDF](https://www.jf-cmca.jp/attach/test/H20/h20_1ji_seikai/B2008_teisei.pdf) により `ア/ウ` の複数正答であることを確認した
+- 問題冊子 `_book/past-exams/1ji/2008/finance-2008.pdf` と見比べると、現行MDXは `第6問の設問分割欠落` に加えて、`第9問の原価用語問題` が丸ごと欠落し、以後の一部設問テーマが実問題と合っていないことが分かった
+
+### 学び
+
+1. `mismatch が多い` だけでは、答え行の誤りと設問テーマの欠落は区別できないため、PDF の見出し列挙で `何問立っているか` を先に見る必要がある
+2. H20 財務のように訂正 PDF が別にある年度は、通常の正答 PDF だけでなく `teisei` も先に確認しないと誤学習を残す
+3. `第6問が2設問` と `第9問の欠落` が同時に起きると、以後の答えが一見合っていそうでも、実際には `設問番号は同じだがテーマが違う` 状態になる
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h20/finance.mdx` は第1問から第25問まで、実問題のテーマ順に見出しと要旨を立て直す
+2. とくに第6問、第9問、第10問、第11問、第14問、第16問以降は、現行本文を流用せず実問題ベースで再構成する
+3. 構造を復元した後でのみ、`node scripts/check-past-exam-answer-keys.mjs --rewrite-aligned` による正解行同期を使う
+
+## 2026-03-30-11 平成20年度財務を実問題順に26正答へ復元した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h20/finance.mdx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [平成20年度 財務・会計](content/docs/past-exam-solutions/h20/finance.mdx) を実問題順に全面再構成した
+- 第6問を `設問1 / 設問2` に分割し、公式正答の26件構成へ合わせた
+- 第9問に `原価の基本式` を新設し、[2008-08-19 訂正 PDF](https://www.jf-cmca.jp/attach/test/H20/h20_1ji_seikai/B2008_teisei.pdf) に合わせて `ア／ウ` の複数正答へ修正した
+- 第14問以降は現行テーマが実問題と一致していなかったため、資本コスト、MM 理論、分散、為替予約、投資経済性などを実問題ベースで書き直した
+- 計算問題は、受験生が迷いやすい `出発点` を先に書く形へ整理した。例: 第8問は `純繰延税金資産の増減`、第16問は `CAPM → 税引後負債コスト → WACC`、第25問は `期ごとの期待値` に分解して説明した
+
+### 検証
+
+- `node scripts/check-past-exam-answer-keys.mjs --json > /tmp/past-exam-answer-check-h20-post.json`
+- `jq '.[] | select(.filePath=="/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h20/finance.mdx") | {mdxCount, officialCount, mismatches}' /tmp/past-exam-answer-check-h20-post.json`
+- 確認結果: `mdxCount = 26`、`officialCount = 26`、`mismatches = []`
+- `pnpm exec eslint --no-warn-ignored content/docs/past-exam-solutions/h20/finance.mdx docs/wiki-review-log.md`
+
+### 学び
+
+1. 1ファイルに `設問不足` と `後半テーマの総入れ替わり` が同居している場合、局所修正より全文再構成の方が速くて安全だった
+2. 公式正答とテーマ名を両方照合しないと、答え数だけ一致しても `別の設問に正しい答えを貼っている` 状態が残る
+3. ファイナンス問題は、式そのものより `何を現在価値化しているか`、`何を差分 CF に入れるか` を先に言語化した方が初学者向けの説明として機能しやすい
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h21/finance.mdx` は件数が近く、公式照合の効率がよいので次候補として確認する
+2. ただし、`h20/finance` と同様に設問テーマがずれている可能性があるため、正答表より先に問題冊子の設問見出しを確認する
+3. 残件数の再計測を基準に、`設問数が近いがテーマ崩れが軽いファイル` から順に潰していく
+
+## 2026-03-30-14 初学者通読レビューで事例Ⅳハブの戻り順と1次への戻り先を整理した
+
+### 対象
+
+- `content/docs/second-stage/case-4-finance-and-accounting.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [事例Ⅳ 財務・会計](content/docs/second-stage/case-4-finance-and-accounting.mdx) に、`設問型 → 経営分析 → CVP → CF → NPV → 答案骨子` の既定順を `初めて読むならこの順` と `まずどの順で読むか` の両方で追加した
+- 同ページの `この事例の分解ページ` は、`答案骨子` を個別論点より後ろへ回し、`設問型 → 個別論点 → 答案骨子` の順へ並べ替えた
+- `CVP`、`CF`、`NPV` には `利益計画`、`キャッシュ・フロー`、`正味現在価値` の短い初出補足を足し、略語だけで止まりにくい形にした
+- `個別ページへの戻り先` は `事例Ⅳでまず戻るページ / 1次で戻るページ` の表へ改め、`経営分析`、`CVP`、`CF`、`NPV`、`原価・業績評価・財務戦略記述` ごとに戻り先を固定した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `事例Ⅳ 財務・会計` 通過、次ページを `content/docs/second-stage/case-1-organization-and-hr.mdx` に更新した
+
+### 品質ゲート
+
+- `初めて読むならこの順`、カード、`まずどの順で読むか`、`個別ページへの戻り先` の 4 つを、`設問型 → 個別論点 → 答案骨子` の同じ順序へそろえた
+- `事例で解き方へ戻る` のか `1次で知識へ戻る` のかを同じ表の中で分け、`どこで処理順を確認し、どこで知識を補うか` が一目で分かる形にした
+- `答案骨子` は必要でも先頭に置かず、`何の論点か` を見抜いたあとで戻る終着点として位置付けた
+
+### 検証
+
+- `pnpm validate`
+  - `check`、`format:check`、`lint`、build まで通過
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101`
+  - `node - <<'NODE'` で `@playwright/test` の `chromium` を使い、`/second-stage/case-4-finance-and-accounting` を確認
+  - `200`、`h1`、`初めて読むならこの順`、`まずどの順で読むか`、`1次で戻るページ`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の事例ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `事例ハブ` では、`答案骨子` を先に見せるより `どの論点の問題かを見抜く` 入口を先に固定した方が、初学者は `書き方` と `解き方` を混同しにくい
+2. `事例で戻る先` と `1次で戻る先` を別の節へ分けるより、同じ表に並べた方が、`今ほしいのは処理順か知識補強か` をその場で切り替えやすい
+3. `CVP`、`CF`、`NPV` のような事例Ⅳ定番略語でも、事例ハブの段階で短い言い換えを置いた方が、個別ノードへ入る前の停止が減る
+
+### 前回比
+
+改善: 前回は `ファイナンス` 章ハブで `主経路` と `戻り先` を前付けした。今回はその次の `事例Ⅳ 財務・会計` ハブで、`設問型 → 個別論点 → 答案骨子` の順と `2次 / 1次` の戻り先を同じ地図へ整理した
+
+### 次に修正すべきこと
+
+1. `content/docs/second-stage/case-1-organization-and-hr.mdx` を読み、`設問型 → 個別論点 → 答案骨子` の順と `1次への戻り先` が初学者に通るかを確認する
+2. `事例Ⅰ〜Ⅲ` の事例ハブでも、`答案骨子` が早すぎる位置に出ていないか、`個別ページへの戻り先` が `2次 / 1次` を切り分けられているかを順に点検する
+3. 後段で `case-4-question-patterns.mdx` と `case-4-answer-frameworks.mdx` を読むときは、今回固定した順序が本文中の `次に読むページ` や戻り先でも崩れていないかを再確認する
+
+## 2026-03-30-17 初学者通読レビューで事例Ⅰハブを 1 次知識ノード経由の導線へ整理した
+
+### 対象
+
+- `content/docs/second-stage/case-1-organization-and-hr.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [事例Ⅰ 組織・人事](content/docs/second-stage/case-1-organization-and-hr.mdx) に、`事例Ⅰの設問型 → 経営計画とSWOT → 組織構造と組織設計 → 人的資源管理 → 組織文化と組織変革 → 事例Ⅰの答案骨子` の既定順を `初めて読むならこの順` と `まずどの順で読むか` の両方で追加した
+- 同ページの `この wiki で扱う範囲` では、`設問型 → 1次知識 → 答案骨子` を往復するページだと分かるように `分解` カードの説明を補強した
+- `関連が強い1次科目` と `次に読むとよいページ` に、`経営計画とSWOT`、`組織構造と組織設計`、`人的資源管理`、`組織文化と組織変革` を追加し、事例Ⅰの直後に戻る知識ノードを具体化した
+- `個別ページへの戻り先` を新設し、`SWOT`、`組織構造`、`人事制度`、`組織文化`、`承継` ごとに `事例Ⅰでまず戻るページ / 1次で戻るページ` を固定した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `事例Ⅰ 組織・人事` 通過、次ページを `content/docs/second-stage/case-2-marketing-and-distribution.mdx` に更新した
+
+### 品質ゲート
+
+- `初めて読むならこの順`、`まずどの順で読むか`、`個別ページへの戻り先` の 3 つを、`設問型 → 1次知識 → 答案骨子` の同じ順序へそろえた
+- 2 次の個別ノードが少ない状態でも、`何の知識を補ってから答案骨子へ戻るか` が見えるように、1 次ノードを主経路へ昇格させた
+- `SWOT`、`組織構造`、`人事制度`、`組織文化`、`承継` の論点名ごとに戻り先を切ったことで、`組織論に戻れ` のような広すぎる導線を避けた
+
+### 検証
+
+- `rm -rf .next-devcheck && pnpm validate`
+  - `check`、`format:check`、`lint` は通過
+  - Turbopack build は `.next-check/static/.../_clientMiddlewareManifest.js` の `ENOENT` で失敗
+  - 自動 webpack fallback は `next build --webpack` が 1 分以上 output なしで残留したため、成功判定には使わなかった
+- ブラウザ確認:
+  - `rm -rf .next-devcheck && NEXT_DIST_DIR=.next-devcheck pnpm exec next dev --hostname 127.0.0.1 --port 3101`
+  - 初回 request は route compile に 32.5 秒かかり、browser 側の `page.goto()` 30 秒 timeout に一度引っかかった
+  - 同 route を 60 秒 timeout で再試行し、`/second-stage/case-1-organization-and-hr` の `200`、`h1`、`初めて読むならこの順`、`まずどの順で読むか`、`1次で戻るページ`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の事例ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `事例Ⅰ` のように 2 次の個別ノードが少ない事例ハブでは、`設問型 → 1次知識 → 答案骨子` を先に固定した方が、`設問型を読んだあと何を補うか` が見えやすい
+2. 事例ハブの戻り先は `組織論` のような大きな章名だけでは広すぎるため、`経営計画とSWOT`、`組織構造と組織設計`、`人的資源管理`、`組織文化と組織変革` の粒度まで落とした方が迷いにくい
+3. dev fallback を使ったあとに `pnpm validate` を回し直すときは、`.next-devcheck` を消してから始めないと `format:check` が生成物を拾って止まりやすい
+
+### 前回比
+
+改善: 前回は `事例Ⅳ 財務・会計` ハブで `設問型 → 個別論点 → 答案骨子` と `2次 / 1次` の戻り先をそろえた。今回は `事例Ⅰ` で、2 次の個別ノードが少ない前提でも `設問型 → 1次知識ノード → 答案骨子` の主経路へ整理した
+
+### 次に修正すべきこと
+
+1. `content/docs/second-stage/case-2-marketing-and-distribution.mdx` を読み、`設問型 → 1次の知識ノード → 答案骨子` の順と `1次への戻り先` が初学者に通るかを確認する
+2. `事例Ⅱ` と `事例Ⅲ` でも、`ターゲット / 接点 / 効果` や `工程 / 4M / QCD` の論点ごとに `事例でまず戻るページ / 1次で戻るページ` を固定できるかを点検する
+3. 後段で `case-1-question-patterns.mdx` と `case-1-answer-frameworks.mdx` を読むときは、今回前置きした 1 次知識ノードへの導線が、各ページの `次に読むページ` や年度別小問例でも崩れていないかを確認する
+
+## 2026-03-30-18 初学者通読レビューで事例Ⅱハブを顧客提案の主経路へ整理した
+
+### 対象
+
+- `content/docs/second-stage/case-2-marketing-and-distribution.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [事例Ⅱ マーケティング・流通](content/docs/second-stage/case-2-marketing-and-distribution.mdx) に、`事例Ⅱの設問型 → STPとマーケティングミックス（4P） → マーケティングリサーチと消費者行動論 → 製品戦略と価格戦略 → チャネル戦略とプロモーション戦略 → サービスマーケティングとCRM → 店舗・販売管理 → 事例Ⅱの答案骨子` の既定順を `初めて読むならこの順` と `まずどの順で読むか` の両方で追加した
+- 同ページの `この wiki で扱う範囲` では、`設問型 → 1次知識 → 答案骨子` を往復するページだと分かるように `分解` カードの説明を補強した
+- `関連が強い1次科目` と `次に読むとよいページ` に、`STP`、`顧客行動`、`製品 / 価格`、`チャネル / プロモーション` を追加し、`誰に / 何を / どう届けるか` を分けて戻れるようにした
+- `個別ページへの戻り先` を新設し、`ターゲット`、`顧客行動`、`価値提案`、`チャネル`、`CRM`、`店舗` ごとに `事例Ⅱでまず戻るページ / 1次で戻るページ` を固定した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `事例Ⅱ マーケティング・流通` 通過、次ページを `content/docs/second-stage/case-3-production-and-technology.mdx` に更新した
+
+### 品質ゲート
+
+- `初めて読むならこの順`、`まずどの順で読むか`、`個別ページへの戻り先` の 3 つを、`ターゲット → 顧客理解 → 価値提案 → 届け方 → 関係維持 → 答案骨子` の同じ流れへそろえた
+- `STP`、`顧客行動`、`製品 / 価格`、`チャネル / プロモーション`、`CRM`、`店舗` の戻り先を論点別に分け、`SNS` や `EC` の手段だけへ流れにくい形にした
+- 2 次の個別ノードが少ない状態でも、`どの1次知識を補ってから短文へ落とすか` が一目で分かるようにした
+
+### 検証
+
+- `rm -rf .next-devcheck && pnpm validate`
+  - `check`、`format:check`、`lint`、build まで通過
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101`
+  - `node - <<'NODE'` で `@playwright/test` の `chromium` を使い、`/second-stage/case-2-marketing-and-distribution` を確認
+  - `200`、`h1`、`初めて読むならこの順`、`まずどの順で読むか`、`1次で戻るページ`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の事例ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `事例Ⅱ` のような顧客提案型の事例ハブでは、`誰に / 何を / どう届けるか` を一文で言うだけでは弱く、`ターゲット`、`顧客行動`、`価値提案`、`チャネル`、`CRM` の順で戻り先を刻んだ方が復習しやすい
+2. `STP` と `4P` だけでは `誰に効く施策か` と `何を感じて買うか` が混ざるため、`マーケティングリサーチと消費者行動論` を主経路に入れた方が、顧客像の補強先が分かりやすい
+3. 店頭施策や流通実務は `チャネル戦略` と近いが、`売場` や `商圏` の視点は別に必要なので、`店舗・販売管理` を独立した戻り先にした方が迷いにくい
+
+### 前回比
+
+改善: 前回は `事例Ⅰ 組織・人事` ハブで `設問型 → 1次知識ノード → 答案骨子` の主経路を前置きした。今回は `事例Ⅱ` で、その 1 次知識ノードを `STP / 顧客行動 / 製品価格 / チャネル / CRM / 店舗` まで細かく分けて戻り先へ落とした
+
+### 次に修正すべきこと
+
+1. `content/docs/second-stage/case-3-production-and-technology.mdx` を読み、`設問型 → 1次の知識ノード → 答案骨子` の順と `1次への戻り先` が初学者に通るかを確認する
+2. `事例Ⅲ` では、`工程`、`4M`、`標準化`、`段取り`、`進捗管理`、`QCD` のどこで戻るかを論点別に切れるかを点検する
+3. 後段で `case-2-question-patterns.mdx` と `case-2-answer-frameworks.mdx` を読むときは、今回前置きした `STP / 顧客行動 / チャネル / CRM` の導線が `次に読むページ` や年度別小問例でも崩れていないかを確認する
+
+## 2026-03-30-12 平成24年度財務を22問25正答へ復元した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h24/finance.mdx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [平成24年度 財務・会計](content/docs/past-exam-solutions/h24/finance.mdx) を、実問題どおり `22問` かつ `第10問 / 第17問 / 第20問が各2設問` の構造へ全面再構成した
+- 旧本文は `第2問以降のテーマずれ` と `複数設問の欠落` が重なっていたため流用せず、簿記、連結、原価計算、CVP、運転資本、WACC、MM理論、投資評価、デリバティブまで実問題順で書き直した
+- 第2問は `甲品だけを抜き出してFIFOを追う`、第10問は `生産性と成長性を分ける`、第16問は `D1 → 株価 → 自己資本コスト → 税引後負債コスト → WACC` の順で、受験生が途中で迷いにくい説明へ直した
+- 第20問設問2は、ROEの弱点を `資本コスト / 会計方針 / レバレッジ` と `規模比較` に分け、`どれが本当の弱点か` が見える形へ整理した
+
+### 検証
+
+- `node scripts/check-past-exam-answer-keys.mjs --json > /tmp/past-exam-answer-check-h24-post.json`
+- `jq '.[] | select(.filePath=="/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h24/finance.mdx") | {mdxCount, officialCount, mismatches}' /tmp/past-exam-answer-check-h24-post.json`
+- 確認結果: `mdxCount = 25`、`officialCount = 25`、`mismatches = []`
+- `pnpm exec eslint --no-warn-ignored content/docs/past-exam-solutions/h24/finance.mdx`
+
+### 学び
+
+1. `設問数不足` の正体は、年度によっては `丸ごと欠問` ではなく `複数設問の枝落ち` である。H24 財務では `22問` 自体は正しかったため、先に `何問あるか` と `何設問あるか` を分けて監査すべきだと分かった
+2. OCR の数表は、1桁違うだけで運転資本やWACCの説明が丸ごと誤る。第14問、第16問のような表問題は、テキスト抽出だけでなくページ画像でも確認した方が安全だった
+3. ファイナンスの説明は `式の名前` より `何を引いて何が残るか` を先に書いた方が、ROE、WACC、NPV系の初学者向け解説として通りやすい
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h26/finance.mdx` は `21 / 24` で、残る財務の中では構造崩れが比較的軽い。次候補として問題冊子の設問見出しから確認する
+2. `h22`、`h23`、`h28`、`h29` は `11問前後` までしか立っていないため、答え修正ではなく `設問復元` を前提に進める
+3. 再監査後の未解決件数は `104ファイル` なので、財務の再構成を優先しつつ、件数一致の残ファイルが再発していないかも並行確認する
+
+## 2026-03-30-16 経営情報システムの設問取り違えを戻しながら IT 戦略ノードの戻り先も補強した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h25/info-systems.mdx`
+- `content/docs/past-exam-solutions/h26/info-systems.mdx`
+- `content/docs/past-exam-solutions/h29/info-systems.mdx`
+- `content/docs/management-information-systems/knowledge-it-strategy-and-dx.mdx`
+- `content/docs/management-information-systems/knowledge-systems-development-methods.mdx`
+- `content/docs/management-information-systems/knowledge-it-operations-and-audit.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- `h25/info-systems` の後半 `19〜25問` を、実問題どおり `ソフトウェアテスト / CCSF / 分散処理移行 / IT投資価値評価 / ISMS / ポアソン分布 / z-t-F検定` へ戻した
+- `h25/info-systems` は出題構成、全問分類マップ、年度総括、Tier、セルフチェックも新しい設問内容に合わせて更新した
+- `h26/info-systems` では、第19問 `BYOD / MDM / シャドーIT` の OCR 崩れを直し、第20問を `ITSMS` ではなく `BABOK` に戻し、第23問 `ITSMS 認証` の根拠も初学者向けに整理した
+- `h29/info-systems` では、第20問 `EA / ITポートフォリオ / SLA / WBS` の切り分けと、第23問 `SaaS / PaaS / IaaS` の判断軸を初学者向けに補強した
+- `knowledge-it-strategy-and-dx` に `EA / ITポートフォリオ / WBS / SLA` の比較、`IT投資価値評価ガイドラインの3類型`、`CCSF` を追加した
+- `knowledge-systems-development-methods` に `BABOK` と要求の4分類を追加し、`knowledge-it-operations-and-audit` に `ITSMS / ISMS` の認証制度の登場人物比較を追加した
+
+### 学び
+
+1. 年度別ページの崩れは、`リンク先が広い` だけではなく、`設問主題そのものが別問へすり替わっている` ことがある。平成25年度のように後半が連鎖的にずれている場合は、1問ずつではなく `連番ブロック` で公式 PDF と突き合わせる方が速くて安全だった
+2. `CCSF`、`BABOK`、`IT投資価値評価ガイドライン` のような論点は、年度ページだけ直しても戻り先ノードに概念がないと初学者は止まる。年度別修正と知識ノード補強は同じサイクルで進める必要がある
+3. `EA / ITポートフォリオ / SLA / WBS` のような跨ぎ語は、定義を並べるより `何を設計・管理している言葉か` の比較表にした方が、年度別の誤答つぶしに効いた
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h24/info-systems.mdx` に、`ITガバナンスの順序 / ASP・SaaS の選定 / SLA 締結順序 / システム化投資評価` の比較軸を横展開する
+2. `content/docs/past-exam-solutions/h28/info-systems.mdx` のクラウド設問へ、`責任共有 / TCO / オンプレ-ホステッド` の見分け方を追加する
+3. `h26 / h29` は今回触った周辺にも OCR 崩れが残りやすいので、次の巡回では `第21問〜第23問` の問題要旨と選択肢引用を公式 PDF で続けて再監査する
+
+## 2026-03-30-19 平成24年度情報システムを25問構成へ復元し平成28年度クラウド論点を補強した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h24/info-systems.mdx`
+- `content/docs/past-exam-solutions/h28/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- `h24/info-systems` が `全16問` の断片状態になっていたため、公式問題冊子と公式正答表を突き合わせて `全25問・100点` の構造へ戻した
+- `h24/info-systems` は欠落していた `第1問〜第9問` を新設し、既存の `第10問〜第25問` も問題要旨・正解・解法を公式問題ベースで再整備した
+- とくに後半は `第19問 SLA 締結順序`、`第20問 eラーニング / EUC / 情報リテラシー`、`第21問 APT の出口対策`、`第22問 情報セキュリティ基礎`、`第23問 IT投資評価` を、初学者が選択肢のどこを読めば切れるか分かる説明へ直した
+- `h28/info-systems` のクラウド設問には、`責任共有`、`従量課金と TCO`、`オンプレミス / ホステッド` の比較軸を追記し、既存の正誤判定を初学者向けに読みやすくした
+- `wiki-progress-tracker` と `wiki-coverage-registry` の次アクションは、`h24 / h28` 横展開から `h26 / h29 の OCR 再監査と h24 第25問の原版確認` へ更新した
+
+### 検証
+
+- `node scripts/check-past-exam-answer-keys.mjs --json | jq '.[] | select(.filePath|endswith("/content/docs/past-exam-solutions/h24/info-systems.mdx")) | {mdxCount, officialCount, mismatches}'`
+- 確認結果: `mdxCount = 25`、`officialCount = 25`、`mismatches = []`
+- `pnpm exec eslint --no-warn-ignored content/docs/past-exam-solutions/h24/info-systems.mdx content/docs/past-exam-solutions/h28/info-systems.mdx`
+
+### 学び
+
+1. `年度別の補強` と思って入ったファイルでも、実際には `設問欠落 + 正答ずれ` の構造崩れが隠れていることがある。今回の `h24/info-systems` のように `全16問` と書かれていたら、比較軸の追記より先に `公式の設問数` を確認すべきだった
+2. `IT戦略 / クラウド / サービス管理` の論点は、知識ノード側が整っていても、年度ページで `責任分界` と `何を比較しているか` が見えないと初学者は切れない。`責任共有`、`TCO`、`委託範囲` のような比較軸を年度ページ側へ戻す価値が高い
+3. 統計問題は OCR と正答表のどちらかが少しでも怪しいと説明全体が崩れる。とくに `h24 第25問` は冊子上の分布名に違和感があるため、正答表一致だけで完了にせず、原版確認の残タスクとして明示しておく必要がある
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h26/info-systems.mdx` と `h29/info-systems.mdx` の `第21問〜第23問` を、今回と同じく公式 PDF で続けて再監査する
+2. `h24/info-systems` の `第25問` は、問題冊子上の分布名と公式正答表の組み合わせに違和感が残るため、別ソースまたは原版画像で追加確認する
+3. `management-information-systems/knowledge-statistics-basics` に、年度別で混同が出やすい `重相関係数 / 調整済み決定係数 / 第1種・第2種の誤り` の確認問題を増やす
+
+## 2026-03-30-20 平成26年度の暗号・BCP・ITSMSを公式ベースへ戻し平成29年度後半も再監査した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h26/info-systems.mdx`
+- `content/docs/past-exam-solutions/h29/info-systems.mdx`
+- `docs/wiki-progress-tracker.md`
+- `docs/wiki-coverage-registry.md`
+
+### 成果
+
+- `h26/info-systems` の `第21問〜第23問` は、別問にすり替わっていた本文を削り、公式問題冊子どおり `共通鍵方式と公開鍵方式`、`高回復力システム基盤導入ガイド`、`ITSMS 適合性評価制度` に戻した
+- `h26/info-systems` は、正答だけでなく `誰の鍵で暗号化し誰の鍵で復号するか`、`全モデル共通条件だけを拾う読み方`、`ITSMS で何を単位に認証するか` まで、初学者向けに切り分けを明示した
+- `h29/info-systems` の `第21問〜第23問` は主題ずれはなかったため、`CPI / SPI の判定`、`FAR / FRR の安全性と利便性`、`PaaS / SaaS の責任分界` の説明を補強した
+- `wiki-progress-tracker` と `wiki-coverage-registry` は、`h26 / h29 の第21〜23問再監査完了` を反映し、次アクションを `h24 第25問の原版確認` と `知識ノードへの逆流` に更新した
+
+### 検証
+
+- `node scripts/check-past-exam-answer-keys.mjs --json | jq '.[] | objects | select((.filePath|endswith("/content/docs/past-exam-solutions/h26/info-systems.mdx")) or (.filePath|endswith("/content/docs/past-exam-solutions/h29/info-systems.mdx"))) | {filePath, mdxCount, officialCount, mismatches}'`
+- 確認結果: `h26 / h29` ともに `mdxCount = 25`、`officialCount = 25`、`mismatches = []`
+- `pnpm exec eslint --no-warn-ignored content/docs/past-exam-solutions/h26/info-systems.mdx content/docs/past-exam-solutions/h29/info-systems.mdx`
+
+### 学び
+
+1. `OCR 崩れ` は単なる文字化けではなく、今回の `h26 第21問〜第23問` のように `別論点へ置換される` ことがある。題名だけ見て正答が合っていると安心すると、教材としては誤った論点を教えてしまう
+2. 暗号や認証制度の設問は、`用語名` より `誰が何を持つか`、`誰が認証するか` の主語で読むと初学者向けに通りやすい
+3. `h29` のように主題が合っているページでも、`CPI > 1` が何を意味するか、`ATM では FAR を下げる` といった判定の主語を明示するだけで誤答耐性が上がる
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h24/info-systems.mdx` の `第25問` は、問題冊子の分布名と公式正答表の組み合わせにまだ違和感が残るため、原版確認を続ける
+2. `management-information-systems/knowledge-information-security-basics`、`knowledge-it-operations-and-audit`、`knowledge-project-management` に、今回年度別で拾った `共通鍵 / 公開鍵`、`高回復力システム`、`ITSMS`、`CPI / SPI`、`FAR / FRR` の確認問題を逆流する
+3. `management-information-systems/knowledge-statistics-basics` に、`h24 / h26 / h29` で混同が出た統計論点の比較問題を追加する
+
+## 2026-03-30-19 初学者通読レビューで事例Ⅲハブを工程改善の主経路へ整理した
+
+### 対象
+
+- `content/docs/second-stage/case-3-production-and-technology.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [事例Ⅲ 生産・技術](content/docs/second-stage/case-3-production-and-technology.mdx) に、`事例Ⅲの設問型 → 生産形態と生産計画・生産統制 → 工場レイアウトと流れ設計 → 品質管理のオペレーション → IEとVE → スケジューリングとラインバランシング → 設備管理と生産性向上 → 購買・外注管理 → 事例Ⅲの答案骨子` の既定順を `初めて読むならこの順` と `まずどの順で読むか` の両方で追加した
+- 同ページの `この wiki で扱う範囲` では、`設問型 → 1次知識 → 答案骨子` を往復するページだと分かるように `分解` カードの説明を補強した
+- `関連が強い1次科目` と `次に読むとよいページ` に、`計画統制`、`レイアウト`、`品質`、`IE`、`スケジューリング`、`設備`、`外注` の具体ノードを追加し、章ハブ止まりにならないようにした
+- `個別ページへの戻り先` を新設し、`計画`、`動線`、`品質`、`作業改善`、`ボトルネック`、`設備`、`外注` ごとに `事例Ⅲでまず戻るページ / 1次で戻るページ` を固定した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `事例Ⅲ 生産・技術` 通過、次ページを `content/docs/business-management-theory/management-strategy.mdx` に更新した
+
+### 品質ゲート
+
+- `初めて読むならこの順`、`まずどの順で読むか`、`個別ページへの戻り先` の 3 つを、`計画統制 → 動線 / 品質 → 作業改善 → ボトルネック → 設備 / 外注 → 答案骨子` の同じ流れへそろえた
+- `事例Ⅲ` の橋を `プランニング / オペレーション` の章ハブ止まりにせず、`計画`、`レイアウト`、`品質`、`IE`、`スケジューリング`、`設備`、`外注` の 1 次ノードへ直接戻れる形にした
+- `効率化する`、`IT を導入する` のような抽象語へ流れにくいように、工程と改善対象を先に切る導線へ寄せた
+
+### 検証
+
+- `rm -rf .next-devcheck && pnpm validate`
+  - `check`、`format:check`、`lint` までは通過
+  - Turbopack build は `ELIFECYCLE exit code 143` で validate 内 fallback へ移り、webpack build も 1 分以上 output なしで残留したため中断
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-check pnpm exec next start --hostname 127.0.0.1 --port 3101`
+  - `node - <<'NODE'` で `@playwright/test` の `chromium` を使い、`/second-stage/case-3-production-and-technology` を確認
+  - `200`、`h1`、`初めて読むならこの順`、`まずどの順で読むか`、`1次で戻るページ`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の事例ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `事例Ⅲ` のような工程改善型の事例ハブでは、`QCD` や `4M` を冒頭で言うだけでは弱く、`計画統制`、`動線`、`品質`、`IE`、`ボトルネック`、`設備 / 外注` の順で戻り先を刻んだ方が復習しやすい
+2. `プランニング` や `オペレーション` の章ハブへ戻すだけでは、`どの工程知識を補えばよいか` が粗すぎる。事例ハブの時点で具体ノードまで落とした方が、抽象答案を防ぎやすい
+3. `段取り`、`レイアウト`、`標準化`、`進捗管理` は似た改善語として並びやすいが、`流れを見る論点`、`品質を安定させる論点`、`計画で詰まりを防ぐ論点` に分けて置いた方が混同しにくい
+
+### 前回比
+
+改善: 前回は `事例Ⅱ マーケティング・流通` ハブで `ターゲット → 顧客行動 → 価値提案 → チャネル → CRM` の主経路を前置きした。今回は `事例Ⅲ` で、その 1 次知識ノードを `計画統制 / レイアウト / 品質 / IE / スケジューリング / 設備 / 外注` まで細かく分けて戻り先へ落とした
+
+### 次に修正すべきこと
+
+1. `content/docs/business-management-theory/management-strategy.mdx` を読み、`戦略の層 → 競争戦略 → 経営資源 → 成長 / 技術 / 国際` の順と `テーマ → まず戻るページ` が初学者に通るかを確認する
+2. `経営戦略論` では、`SWOT`、`アンゾフ`、`PPM`、`5フォース`、`VRIO`、`イノベーション` のうち、読む順に出るノードがカードと `次に読むページ` でも揃っているかを点検する
+3. 後段で `case-3-question-patterns.mdx` と `case-3-answer-frameworks.mdx` を読むときは、今回前置きした `計画 / 動線 / 品質 / IE / ボトルネック / 設備 / 外注` の導線が `次に読むページ` や年度別小問例でも崩れていないかを確認する
+
+## 2026-03-30-21 初学者通読レビューで経営戦略論ハブを戦略の層ごとに整理した
+
+### 対象
+
+- `content/docs/business-management-theory/management-strategy.mdx`
+- `docs/wiki-beginner-review-tracker.md`
+- `docs/agent-handoff.md`
+- `docs/shindanshi-wiki-strategy.md`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [経営戦略論](content/docs/business-management-theory/management-strategy.mdx) に、`経営計画とSWOT → 全社戦略と成長戦略 → 競争戦略と経営資源戦略 → イノベーション・国際経営・デジタル戦略 → CSR・ESGとコーポレートガバナンス` の既定順を `初めて読むならこの順` と `まずどの順で読むか` の両方で明示した
+- 同ページの `ページマップ` と本文で、`PPM`、`M&A`、`5フォース`、`VRIO`、`RBV`、`DX`、`ESG` に一文補足を追加し、略語だけで止まりにくい形へ直した
+- `テーマからまず戻るページ` を新設し、`SWOT`、`多角化`、`5フォース`、`VRIO`、`イノベーション`、`国際経営`、`CSR / ESG / ガバナンス` ごとに、どの知識ノードへ戻るかを固定した
+- [初学者通読レビュー台帳](docs/wiki-beginner-review-tracker.md) は `経営戦略論` 通過、次ページを `content/docs/business-management-theory/organization-theory.mdx` に更新した
+
+### 品質ゲート
+
+- `初めて読むならこの順`、`まずどの順で読むか`、`テーマからまず戻るページ` の 3 つを、`会社全体の向き → 資源配分 → 勝ち筋 / 強み → 後半論点` の同じ流れへそろえた
+- `全社戦略`、`競争戦略`、`経営資源戦略` を、`どの層の意思決定か` の違いで切れるようにし、理論名の横並びにしなかった
+- `PPM`、`VRIO`、`RBV` のような略語を補足し、用語理解と戻り先確認を同じページで済ませられるようにした
+
+### 検証
+
+- `rm -rf .next-devcheck && pnpm validate`
+  - `check`、`check:wiki-links`、`check:docs-links` までは通過
+  - `format:check` は stale な `.next-check-webpack/cache/webpack/...1.pack_` を拾って `Invalid string length` で停止
+- `rm -rf .next-check-webpack .next-devcheck && pnpm exec prettier --check docs/agent-handoff.md docs/wiki-beginner-review-tracker.md docs/shindanshi-wiki-strategy.md docs/wiki-review-log.md`
+- `pnpm exec eslint --no-warn-ignored content/docs/business-management-theory/management-strategy.mdx docs/agent-handoff.md docs/wiki-beginner-review-tracker.md docs/shindanshi-wiki-strategy.md docs/wiki-review-log.md`
+- ブラウザ確認:
+  - `NEXT_DIST_DIR=.next-devcheck pnpm exec next dev --hostname 127.0.0.1 --port 3101` は `Persisting failed` と `middleware-manifest.json` 欠落で `500`
+  - `NEXT_DIST_DIR=.next-check pnpm build` は `_buildManifest.js.tmp` の `ENOENT`、`NEXT_DIST_DIR=.next-check-webpack pnpm exec next build --webpack` は cache warning のまま残留
+  - 生成物を `rm -rf .next .next-devcheck .next-check .next-check-webpack` で掃除し、最後の fallback として `pnpm exec next dev --hostname 127.0.0.1 --port 3101` を起動
+  - `node - <<'NODE'` で `@playwright/test` の `chromium` を使い、`/business-management-theory/management-strategy` を確認
+  - `200`、`h1`、`初めて読むならこの順`、`まずどの順で読むか`、`まず戻るページ`、console error `0` を確認
+
+### 鮮度確認
+
+- 安定論点の章ハブ補強であり、鮮度台帳の追加対象外
+
+### 学び
+
+1. `経営戦略論` のような戦略章ハブでは、`全社`、`競争`、`資源` を同じ段で並べるだけでは弱く、`会社全体の向き`、`資源配分`、`勝ち筋 / 強み` の順で戻り先を刻んだ方が、戦略の層を混同しにくい
+2. `SWOT`、`PPM`、`5フォース`、`VRIO`、`RBV` は試験頻出でも、略語のまま置くと `何を見る枠組みか` が抜けやすい。章ハブの段階で短く言い換えた方が、後続ノードの比較に入りやすい
+3. `イノベーション`、`国際経営`、`CSR / ESG / ガバナンス` のような後半論点は、最初から横並びで読むより、`戦略の基本層` を固めたあとに広げる形へ置いた方が初学者の理解が安定する
+
+### 前回比
+
+改善: 前回は `事例Ⅲ 生産・技術` ハブで `計画統制 / レイアウト / 品質 / IE / スケジューリング / 設備 / 外注` の主経路を前置きした。今回は `経営戦略論` で、その主経路を `会社全体の向き / 資源配分 / 勝ち筋 / 強み / 後半論点` へ置き換え、戦略の層ごとの戻り先へ落とした
+
+### 次に修正すべきこと
+
+1. `content/docs/business-management-theory/organization-theory.mdx` を読み、`組織構造 → 組織成立 → 動機づけ → リーダーシップ → 人事制度 → 文化変革` の順と `テーマ → まず戻るページ` が初学者に通るかを確認する
+2. `組織論` では、`組織構造`、`バーナード / サイモン`、`モチベーション`、`リーダーシップ`、`人的資源管理`、`組織文化 / 変革` のうち、読む順に出るノードが `まず読むページ` と `次に読むページ` でも揃っているかを点検する
+3. 後段で `organization-theory.mdx` を読むときは、今回の `初めて読むならこの順` と `テーマからまず戻るページ` の型を、そのまま `組織のレイヤー差` に移せるかを確認する
+
+## 2026-03-30-17 平成26年度財務を22問24正答へ復元した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h26/finance.mdx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [平成26年度 財務・会計](content/docs/past-exam-solutions/h26/finance.mdx) を、実問題どおり `22問`、`第15問2設問`、`第20問3設問` の構造へ全面再構成した
+- 旧本文は `全20問` の時点で崩れており、税効果会計、支店会計、社債償還損益、リース、持分法、MM理論、CAPM、企業価値評価までテーマ自体が別物だったため、流用せずに実問題ベースで書き直した
+- 第11問は公式正答表で `全受験者正解扱い` だったため、通常の `正解: ○` ではなく `公式対応` として扱い、学習用には `正常市価 - 販管費 - 利益` で分離点原価を出す見方を補った
+- 第4問は `本店側の支店勘定400,000円` を基準に `支店負担の本店費用` と `支店が回収した本店売掛金` だけを本店側へ反映する順へ直し、第20問設問3は `負債価値` と `株主資本価値` を分けて現在価値化する形へ整理した
+
+### 検証
+
+- `node scripts/check-past-exam-answer-keys.mjs --json > /tmp/past-exam-answer-check-h26-post.json`
+- `jq '.[] | select(.filePath=="/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h26/finance.mdx") | {mdxCount, officialCount, mismatches}' /tmp/past-exam-answer-check-h26-post.json`
+- 確認結果: `mdxCount = 24`、`officialCount = 24`、`mismatches = []`
+- `pnpm exec eslint --no-warn-ignored content/docs/past-exam-solutions/h26/finance.mdx`
+
+### 学び
+
+1. 公式正答表に `＊` がある年度は、単純な答え配列の件数だけでは設問構造を取り違えやすい。平成26年度は `第11問救済` を先に見つけないと、第12問以降の答えが全部ずれて見えた
+2. 本支店会計や社債のような `どの帳簿を基準にして直すか` が重要な問題は、数値より先に `誰の帳簿で未記帳か`、`全体額から按分するのか` を言語化した方が初学者向けに通りやすい
+3. 企業価値評価は `FCF をそのままWACCで割る` だけでなく、設問によっては `負債価値` と `株主資本価値` を別々に現在価値化する形が出る。割引対象の受け手を先に切る説明が有効だった
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h25/finance.mdx` は `25 / 26` で件数が近く、次候補として `どこが1設問不足か` を先に確認する
+2. `h22`、`h23`、`h28`、`h29` は `設問数自体が大きく不足` しているため、引き続き `見出し復元 → 正解同期` の順で進める
+3. 再監査後の未解決件数は `102ファイル` なので、財務の残件を優先しつつ、`第11問救済` のような例外が他科目にもないかも並行確認する
+
+## 2026-03-30-18 平成25年度財務を23問26正答へ復元した
+
+### 対象
+
+- `content/docs/past-exam-solutions/h25/finance.mdx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- [平成25年度 財務・会計](content/docs/past-exam-solutions/h25/finance.mdx) を、実問題どおり `23問`、`第1問2設問`、`第5問2設問`、`第20問2設問` の構造へ全面再構成した
+- 旧本文は `25問` 前提で `第24問`、`第25問` を立てていたため、途中からテーマも正答もずれていた。今回は `第23問` で終わる大問構造に戻し、公式正答 `26件` と一致させた
+- 第7問は `生産量増加で損益計算上の利益が増える` 理由を `全部原価計算で固定製造間接費が在庫へ繰り延べられるから` と明示し、第10問は `月初仕掛品はすでに材料投入済み` と置いて数量差異を切る順へ直した
+- 第18問は `税後キャッシュフロー + 減価償却の節税効果` で回収期間法を解く流れに改め、第23問は `現物株買い + プット買い = 保護的プット` として図形を文章で読める説明へ置き換えた
+
+### 検証
+
+- `node scripts/check-past-exam-answer-keys.mjs --json > /tmp/past-exam-answer-check-h25-post.json`
+- `jq '.[] | select(.filePath=="/Users/yhay81/ghq/github.com/haya-inc/shindanshi/content/docs/past-exam-solutions/h25/finance.mdx") | {mdxCount, officialCount, mismatches}' /tmp/past-exam-answer-check-h25-post.json`
+- `pnpm exec eslint --no-warn-ignored content/docs/past-exam-solutions/h25/finance.mdx docs/wiki-review-log.md`
+- ブラウザ確認:
+  - `rm -rf .next-h25-verify && NEXT_DIST_DIR=.next-h25-verify pnpm exec next dev --hostname 127.0.0.1 --port 3107`
+  - `node - <<'NODE'` で `@playwright/test` の `chromium` を使い、`/past-exam-solutions/h25/finance` を確認
+  - `200`、`h1`、console error `0` を確認
+
+### 学び
+
+1. `正答件数だけ1つ足りない` 年度でも、実際には `大問数の認識自体が違う` ことがある。平成25年度は `第23問まで` なのに旧原稿が `第25問まである前提` で作られていたため、丸ごと立て直した方が早かった
+2. 原価計算は `材料始点投入`、`月初仕掛品`、`損益計算上` のような短い条件語が決定打になる。条件語を説明に埋め込んだ方が、受験生が公式を選びやすい
+3. オプション図形問題は、図だけでなく `下は守って上は取りに行く` のような戦略の日本語を添えた方が、図形とポジションの対応を再現しやすい
+
+### 次に修正すべきこと
+
+1. `content/docs/past-exam-solutions/h22/finance.mdx` を確認し、`不足設問の有無` と `途中からテーマが崩れていないか` を先に切り分ける
+2. 平成25年度と同様に `件数は近いが構造が違う` ファイルを優先し、`大問数` と `設問数` を問題PDF側で先に確定させる
+3. 財務の残件を1つずつ潰した後、再監査で未解決件数を更新し、`answer_only_files = 0` が維持されているかも確認する

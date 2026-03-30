@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 
 export function baseOptions(): BaseLayoutProps {
@@ -18,4 +19,28 @@ export function baseOptions(): BaseLayoutProps {
     },
     githubUrl: "https://github.com/haya-inc/wiki-shindanshi",
   };
+}
+
+export function SidebarFooterLinks() {
+  return (
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pt-2 text-xs text-fd-muted-foreground">
+      <a
+        href="https://www.haya.company/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition-colors hover:text-fd-foreground"
+      >
+        © haya株式会社
+      </a>
+      <span aria-hidden="true" className="text-fd-muted-foreground/60">
+        /
+      </span>
+      <Link
+        href="/privacy"
+        className="transition-colors hover:text-fd-foreground"
+      >
+        プライバシーポリシー
+      </Link>
+    </div>
+  );
 }

@@ -104,11 +104,11 @@
 
 | 細目 | 現在の主な対応ページ | 状態 | 次に必要なこと |
 | --- | --- | --- | --- |
-| 8.1 資金調達と配当政策 | `/docs/finance-and-accounting/finance-mm-and-dividend-policy` | 独立ノードあり | `法人税なし / あり` の比較問題を増やす |
-| 8.2 投資決定 | `/docs/finance-and-accounting/finance-profitability-index` | 独立ノードあり | `PI` と `NPV` の比較演習を増やす |
-| 8.3 証券投資論 | `/docs/finance-and-accounting/finance-efficient-market-hypothesis` | 独立ノードあり | `弱度 / 準強度 / 強度` の比較問題を増やす |
-| 8.4 企業価値評価 | `/docs/finance-and-accounting/finance-multiples-valuation` | 独立ノードあり | `DCF法` と `マルチプル法` の比較問題を増やす |
-| 8.5 デリバティブとリスク管理 | `/docs/finance-and-accounting/finance-derivatives-risk-management` | 独立ノードあり | `先物 / オプション / スワップ` の選択問題を増やす |
+| 8.1 資金調達と配当政策 | `/docs/finance-and-accounting/finance-mm-and-dividend-policy` | 独立ノードあり | `配当割引モデル / 残余配当政策 / 自社株買い` の比較問題を増やす |
+| 8.2 投資決定 | `/docs/finance-and-accounting/finance-profitability-index` | 独立ノードあり | `調査 / 延期 / 拡張 / 撤退` を含むデシジョンツリー応用問題を増やす |
+| 8.3 証券投資論 | `/docs/finance-and-accounting/finance-efficient-market-hypothesis` | 独立ノードあり | `相関係数 / 共分散 / β / 標準偏差` の役割差と `ポートフォリオ理論 / CAPM` との関係を一目で戻れる比較を補う |
+| 8.4 企業価値評価 | `/docs/finance-and-accounting/finance-multiples-valuation` | 独立ノードあり | `割引超過利益モデル / DDM / EV/EBITDA` の使い分けと類似企業選定の判断問題を増やす |
+| 8.5 デリバティブとリスク管理 | `/docs/finance-and-accounting/finance-derivatives-risk-management` | 独立ノードあり | `プット＝コール・パリティ` と `二項モデル` の計算手順、使いどころ、前提の違いを比較問題で補う |
 
 ### 第9章 経営戦略論
 
@@ -117,8 +117,8 @@
 | 9.1 経営計画と経営管理 | `/docs/business-management-theory/knowledge-strategic-planning-and-swot` | 独立ノードあり | 戦略課題と施策への落とし込み例を追加する |
 | 9.2 企業戦略 | `/docs/business-management-theory/knowledge-corporate-and-growth-strategy` | 独立ノードあり | 多角化類型と PPM の比較問題を増やす |
 | 9.3 成長戦略 | `/docs/business-management-theory/knowledge-corporate-and-growth-strategy` | 独立ノードあり | アンゾフと M&A / アライアンスの比較問題を増やす |
-| 9.4 競争戦略 | `/docs/business-management-theory/knowledge-competitive-and-resource-strategy` | 独立ノードあり | 5フォース、基本戦略、バリューチェーンの比較問題を増やす |
-| 9.5 経営資源戦略 | `/docs/business-management-theory/knowledge-competitive-and-resource-strategy` | 独立ノードあり | RBV と VRIO の誤答パターンを追加する |
+| 9.4 競争戦略 | `/docs/business-management-theory/knowledge-competitive-and-resource-strategy` | 独立ノードあり | タイムベース競争、交渉力、アライアンス / アウトソーシングの比較問題を増やす |
+| 9.5 経営資源戦略 | `/docs/business-management-theory/knowledge-competitive-and-resource-strategy` | 独立ノードあり | 情報資源、ドメイン、RBV / VRIO の誤答パターンを追加する |
 | 9.6 技術経営 | `/docs/business-management-theory/knowledge-innovation-international-and-digital-strategy` | 独立ノードあり | イノベーションの比較問題を増やす |
 | 9.7 国際経営 | `/docs/business-management-theory/knowledge-innovation-international-and-digital-strategy` | 独立ノードあり | 海外進出形態の比較表を補強する |
 | 9.8 CSR・ESGとコーポレートガバナンス | `/docs/business-management-theory/knowledge-csr-esg-and-governance` | 独立ノードあり | `CSR / ESG / ガバナンス` の比較問題を増やす |
@@ -132,7 +132,7 @@
 | 10.2 経営組織の理論 | `/docs/business-management-theory/knowledge-barnard-and-simon` | 独立ノードあり | `組織成立` と `限定合理性` の比較問題を増やす |
 | 10.3 モチベーション理論 | `/docs/business-management-theory/knowledge-motivation-theories` | 独立ノードあり | 内容理論 / 過程理論 / 職務設計の比較問題を増やす |
 | 10.4 リーダーシップ論 | `/docs/business-management-theory/knowledge-leadership-theories` | 独立ノードあり | SL理論、パス=ゴール理論、変革型の比較問題を増やす |
-| 10.5 人的資源管理 | `/docs/business-management-theory/knowledge-human-resource-management` | 独立ノードあり | 育成、評価、報酬、ジョブ型 / メンバーシップ型の比較問題を増やす |
+| 10.5 人的資源管理 | `/docs/business-management-theory/knowledge-human-resource-management` | 独立ノードあり | 労働法設問と人事制度設計が混在する問題の確認問題と誤答例を増やす |
 | 10.6 組織文化と組織変革 | `/docs/business-management-theory/knowledge-organizational-culture-and-change` | 独立ノードあり | 文化、変革、SECIモデルの比較問題を増やす |
 
 ### 第11章 マーケティング論
@@ -152,10 +152,10 @@
 
 | 細目 | 現在の主な対応ページ | 状態 | 次に必要なこと |
 | --- | --- | --- | --- |
-| 12.1 生産管理の基礎 | `/docs/operations-management/knowledge-production-systems-and-planning-control` | 独立ノードあり | QCD と計画統制の比較問題を増やす |
-| 12.2 生産方式と生産類型 | `/docs/operations-management/knowledge-production-systems-and-planning-control` | 独立ノードあり | 受注 / 見込、個別 / 連続の比較問題を増やす |
+| 12.1 生産管理の基礎 | `/docs/operations-management/knowledge-production-systems-and-planning-control` | 独立ノードあり | QCD / PQCDSME と計画統制をまたぐ誤答パターンを増やす |
+| 12.2 生産方式と生産類型 | `/docs/operations-management/knowledge-production-systems-and-planning-control` | 独立ノードあり | 受注 / 見込、個別 / 連続、発注方式の対応関係を補強する |
 | 12.3 工場レイアウトと設備管理 | `/docs/operations-management/knowledge-factory-layout-and-flow-design` | 独立ノードあり | SLP とレイアウト類型の比較問題を増やす |
-| 12.4 生産計画と生産統制 | `/docs/operations-management/knowledge-production-systems-and-planning-control` | 独立ノードあり | 大日程 / 中日程 / 小日程と統制の比較問題を増やす |
+| 12.4 生産計画と生産統制 | `/docs/operations-management/knowledge-production-systems-and-planning-control` | 独立ノードあり | MPS / MRP と進捗 / 余力 / 現品管理の判断問題を増やす |
 | 12.5 資材・在庫管理 | `/docs/operations-management/knowledge-materials-and-inventory-management` | 独立ノードあり | MRP、EOQ、安全在庫の比較問題を増やす |
 | 12.6 品質管理 | `/docs/operations-management/knowledge-quality-management` | 独立ノードあり | QC7つ道具と新QC7つ道具の誤答比較を増やす |
 | 12.7 IE | `/docs/operations-management/knowledge-ie-and-ve` | 独立ノードあり | 工程分析、動作分析、時間研究の比較問題を増やす |
@@ -177,9 +177,9 @@
 | 14.1 店舗施設と商業集積 | `/docs/operations-management/knowledge-store-location-and-trading-area` | 独立ノードあり | ハフモデルと立地類型の演習を増やす |
 | 14.2 店舗設計とレイアウト | `/docs/operations-management/knowledge-store-layout-and-merchandising` | 独立ノードあり | ゴールデンゾーンと VMD の比較問題を増やす |
 | 14.3 マーチャンダイジング | `/docs/operations-management/knowledge-store-layout-and-merchandising` | 独立ノードあり | SKU と棚割の比較問題を増やす |
-| 14.4 販売管理指標 | `/docs/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems` | 独立ノードあり | GMROI、交差比率の演習を増やす |
-| 14.5 商品補充と物流 | `/docs/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems` | 独立ノードあり | 補充と物流の流れを比較表で補強する |
-| 14.6 流通情報システム | `/docs/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems` | 独立ノードあり | POS、EOS、EDI の誤答比較を増やす |
+| 14.4 販売管理指標 | `/docs/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems` | 独立ノードあり | 人時指標を含む商品評価の判断問題を増やす |
+| 14.5 商品補充と物流 | `/docs/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems` | 独立ノードあり | ユニットロード、輸送方式、センター機能の比較問題を増やす |
+| 14.6 流通情報システム | `/docs/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems` | 独立ノードあり | GS1、POS分析指標、顧客データ論点の戻り先を強める |
 
 ### 第15章 会社法
 
@@ -223,22 +223,22 @@
 
 | 細目 | 現在の主な対応ページ | 状態 | 次に必要なこと |
 | --- | --- | --- | --- |
-| 18.1 コンピュータの基礎 | `/docs/management-information-systems/knowledge-computer-basics` | 独立ノードあり | `CPU / 記憶装置 / OS / RAID / 処理形態` の比較問題を追加する |
-| 18.2 データベース | `/docs/management-information-systems/knowledge-database-and-sql` | 独立ノードあり | `正規化 / SQL / トランザクション / 排他制御` の比較問題を追加する |
-| 18.3 通信ネットワーク | `/docs/management-information-systems/knowledge-network-basics` | 独立ノードあり | `OSI / TCP-IP / DNS / HTTP / IPアドレス` の比較問題を追加する |
-| 18.4 インターネットとWebテクノロジー | `/docs/management-information-systems/knowledge-web-and-cloud` | 独立ノードあり | `API / クラウド / SaaS / PaaS / IaaS / CDN` の比較問題を追加する |
-| 18.5 情報セキュリティ | `/docs/management-information-systems/knowledge-information-security-basics` | 独立ノードあり | `暗号 / ハッシュ / 電子署名 / PKI / 認証` の比較問題を追加する |
-| 18.6 AI・機械学習の基礎 | `/docs/management-information-systems/knowledge-ai-and-machine-learning-basics` | 独立ノードあり | `教師あり / 教師なし / 強化学習 / 生成AI / IoT` の比較問題を追加する |
+| 18.1 コンピュータの基礎 | `/docs/management-information-systems/knowledge-computer-basics` | 独立ノードあり | `性能指標 / スタック / キュー / ソフトウェア層` の年度別言い換えを確認問題へ横展開する |
+| 18.2 データベース | `/docs/management-information-systems/knowledge-database-and-sql` | 独立ノードあり | `ACID / ロック / バックアップ / 分析基盤` の比較問題を増やす |
+| 18.3 通信ネットワーク | `/docs/management-information-systems/knowledge-network-basics` | 独立ノードあり | `TCP-UDP / SNMP / 標準化組織` の比較問題を増やす |
+| 18.4 インターネットとWebテクノロジー | `/docs/management-information-systems/knowledge-web-and-cloud` | 独立ノードあり | `GraphQL / PWA / DaaS / VDI / コミュニティクラウド` の比較問題を増やす |
+| 18.5 情報セキュリティ | `/docs/management-information-systems/knowledge-information-security-basics` | 独立ノードあり | `WAF / CSP / SameSite / X-Frame-Options / EPP-EDR-DLP / テレワーク方式` の年度別言い換えを確認問題へ横展開する |
+| 18.6 AI・機械学習の基礎 | `/docs/management-information-systems/knowledge-ai-and-machine-learning-basics` | 独立ノードあり | `混同行列 / ROC-PR比較 / 回帰指標計算 / 時系列特徴量 / データリーク` の年度別言い換えを確認問題へ横展開する |
 
 ### 第19章 経営情報管理
 
 | 細目 | 現在の主な対応ページ | 状態 | 次に必要なこと |
 | --- | --- | --- | --- |
-| 19.1 経営戦略と情報システム | `/docs/management-information-systems/knowledge-it-strategy-and-dx` | 独立ノードあり | `BPR / DX / ITガバナンス / ERP / SCM / CRM` の比較問題を増やす |
-| 19.2 システム開発 | `/docs/management-information-systems/knowledge-systems-development-methods` | 独立ノードあり | `要件定義 / 設計 / ウォーターフォール / V字モデル / アジャイル / DevOps` の比較問題を増やす |
-| 19.3 システムの運用管理と評価 | `/docs/management-information-systems/knowledge-it-operations-and-audit` | 独立ノードあり | `ITIL / SLA / システム監査 / 内部統制 / 可用性` の比較問題を増やす |
+| 19.1 経営戦略と情報システム | `/docs/management-information-systems/knowledge-it-strategy-and-dx` | 独立ノードあり | `h24` の 25問復元、`h28` のクラウド比較軸、`h26 / h29` の第21〜23問再監査は完了。次は `h24 第25問` の原版確認と、今回の比較軸を知識ノードの確認問題へ逆流する |
+| 19.2 システム開発 | `/docs/management-information-systems/knowledge-systems-development-methods` | 独立ノードあり | `見積手法 / OSS ライセンス / オブジェクト指向 / 移行用語` の比較問題を増やす |
+| 19.3 システムの運用管理と評価 | `/docs/management-information-systems/knowledge-it-operations-and-audit` | 独立ノードあり | `ITSMS / ISMS / フェールセーフ / 冗長化形態 / RASIS` の比較問題を増やす |
 | 19.4 外部情報システム資源の活用 | `/docs/management-information-systems/knowledge-outsourcing-and-decision-support` | 独立ノードあり | `アウトソーシング / モデル契約 / SaaS / PaaS / IaaS` の比較問題を増やす |
-| 19.5 情報システムと意思決定 | `/docs/management-information-systems/knowledge-outsourcing-and-decision-support` | 独立ノードあり | `BI / DWH / OLAP / データマイニング / IoT` の比較問題を増やす |
+| 19.5 情報システムと意思決定 | `/docs/management-information-systems/knowledge-outsourcing-and-decision-support` | 独立ノードあり | `MOLAP / HOLAP / ROLAP / TPS-MIS-DSS-SIS-EIS / IoT-エッジ` の比較問題を増やす |
 | 19.6 統計学の基礎 | `/docs/management-information-systems/knowledge-statistics-basics` | 独立ノードあり | `代表値 / ばらつき / 相関 / 回帰 / 検定` の比較問題を増やす |
 | 19.7 情報セキュリティガイドラインと関連法規 | `/docs/management-information-systems/security-guidelines-and-related-laws` | 独立ノードあり | `法規 / ガイドライン / 脅威動向` の比較問題と更新確認を続ける |
 

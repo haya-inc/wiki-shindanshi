@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { IBM_Plex_Mono, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import { Banner } from "fumadocs-ui/components/banner";
 import { RootProvider } from "fumadocs-ui/provider/next";
@@ -51,14 +50,9 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col">
         <RootProvider search={{ options: { allowClear: true } }}>
           <Banner id="exam-guide-reminder">
-            制度情報と日程は毎年更新されます。受験前は{" "}
-            <Link
-              href="/reference/exam-guide"
-              className="underline underline-offset-4"
-            >
-              受験ガイド
-            </Link>{" "}
-            で確認日つきの一次情報を確認してください。
+            <span className="block w-full pr-8 text-left leading-snug sm:pr-0 sm:text-center">
+              掲載内容は正確性・最新性の確保に努めていますが、一次情報をご確認ください。
+            </span>
           </Banner>
           {children}
           {isVercelRuntime ? <Analytics /> : null}

@@ -1,6 +1,6 @@
 # wiki 進捗トラッカー
 
-更新日: 2026-03-28
+更新日: 2026-03-30
 
 ## 状態の意味
 
@@ -37,7 +37,7 @@
 | 第5章 原価計算 | `/finance-and-accounting/cost-accounting` | 安定論点 | 公開済み | `G1-G5` | 仕損・減損、配合差異、勘定連絡の応用問題を追加する |
 | 第6章 経営分析 | `/finance-and-accounting/management-analysis` | 安定論点 | 公開済み | `G1-G5` | 新規ノードへ比較問題と事例Ⅳの指標選定例を追加する |
 | 第7章 利益と資金の管理 | `/finance-and-accounting/profit-and-cash-management` | 安定論点 | 公開済み | `G1-G5` | 新規ノードへ予算実績差異と月次資金繰りの例題を追加する |
-| 第8章 ファイナンス | `/finance-and-accounting/finance` | 安定論点 | 公開済み | `G1-G5` | WACC、NPV、DCF のつながりを比較表で補強する |
+| 第8章 ファイナンス | `/finance-and-accounting/finance` | 安定論点 | 公開済み | `G1-G5` | `プット＝コール・パリティ / 二項モデル / オプション価格` の前提、計算手順、使いどころの違いを一目で戻れる比較を補強する |
 | 第9章 経営戦略論 | `/business-management-theory/management-strategy` | 安定論点 | 公開済み | `G1-G5` | SWOT、PPM、5フォース、VRIO、国際経営の比較問題を増やす |
 | 第10章 組織論 | `/business-management-theory/organization-theory` | 安定論点 | 公開済み | `G1-G5` | 新規ノードへ比較問題と事例Ⅰ型の例題を追加する |
 | 第11章 マーケティング論 | `/business-management-theory/marketing` | 安定論点 | 公開済み | `G1-G5` | STP、調査、製品価格、チャネル、CRM の比較問題を増やす |
@@ -86,14 +86,14 @@
 | --- | --- | --- | --- | --- | --- |
 | 経営計画とSWOT | `/business-management-theory/knowledge-strategic-planning-and-swot` | 安定論点 | 公開済み | `G1-G5` | SWOT の結果を戦略課題へ落とす比較問題を増やす |
 | 全社戦略と成長戦略 | `/business-management-theory/knowledge-corporate-and-growth-strategy` | 安定論点 | 公開済み | `G1-G5` | PPM、多角化、アンゾフ、M&A / アライアンスの比較問題を増やす |
-| 競争戦略と経営資源戦略 | `/business-management-theory/knowledge-competitive-and-resource-strategy` | 安定論点 | 公開済み | `G1-G5` | 5フォース、基本戦略、バリューチェーン、VRIO の誤答比較を増やす |
+| 競争戦略と経営資源戦略 | `/business-management-theory/knowledge-competitive-and-resource-strategy` | 安定論点 | 公開済み | `G1-G5` | 情報資源、ドメイン、タイムベース競争、アライアンス論点の年度別誤答例と比較問題を増やす |
 | イノベーション・国際経営・デジタル戦略 | `/business-management-theory/knowledge-innovation-international-and-digital-strategy` | 安定論点 | 公開済み | `G1-G5` | 進出形態と DX / プラットフォームの比較問題を増やす |
 | CSR・ESGとコーポレートガバナンス | `/business-management-theory/knowledge-csr-esg-and-governance` | 安定論点 | 公開済み | `G1-G5` | `CSR / ESG / ガバナンス` の比較問題とステークホルダー論点を補強する |
 | バーナードとサイモン | `/business-management-theory/knowledge-barnard-and-simon` | 安定論点 | 公開済み | `G1-G5` | `組織成立`、`権限受容説`、`限定合理性`、`満足化` の比較問題を補強する |
 | 組織構造と組織設計 | `/business-management-theory/knowledge-organizational-structure-and-design` | 安定論点 | 公開済み | `G1-G5` | 機能別、事業部制、マトリクス、集権 / 分権の比較問題を増やす |
 | モチベーション理論 | `/business-management-theory/knowledge-motivation-theories` | 安定論点 | 公開済み | `G1-G5` | 内容理論、過程理論、職務設計の比較問題を増やす |
 | リーダーシップ論 | `/business-management-theory/knowledge-leadership-theories` | 安定論点 | 公開済み | `G1-G5` | SL理論、パス=ゴール理論、変革型の比較問題を増やす |
-| 人的資源管理 | `/business-management-theory/knowledge-human-resource-management` | 安定論点 | 公開済み | `G1-G5` | 育成、評価、報酬、ジョブ型 / メンバーシップ型の比較問題を増やす |
+| 人的資源管理 | `/business-management-theory/knowledge-human-resource-management` | 安定論点 | 公開済み | `G1-G5` | 労働法設問と人事制度設計をまたぐ確認問題を増やし、年度別の誤答例を追記する |
 | 組織文化と組織変革 | `/business-management-theory/knowledge-organizational-culture-and-change` | 安定論点 | 公開済み | `G1-G5` | レビン、コッター、SECIモデルの比較問題を増やす |
 | STPと4P | `/business-management-theory/knowledge-stp-and-4p` | 安定論点 | 公開済み | `G1-G5` | ポジショニングと 4P の整合を問う比較問題を増やす |
 | マーケティングリサーチと消費者行動 | `/business-management-theory/knowledge-marketing-research-and-consumer-behavior` | 安定論点 | 公開済み | `G1-G5` | 調査手法と購買段階の対応問題を増やす |
@@ -105,7 +105,7 @@
 
 | ページ | 公開導線 | 論点区分 | 状態 | 達成ゲート | 次の作業 |
 | --- | --- | --- | --- | --- | --- |
-| 生産方式と計画統制 | `/operations-management/knowledge-production-systems-and-planning-control` | 安定論点 | 公開済み | `G1-G5` | 生産方式と計画 / 統制の比較問題を増やす |
+| 生産方式と計画統制 | `/operations-management/knowledge-production-systems-and-planning-control` | 安定論点 | 公開済み | `G1-G5` | QCD、MPS / MRP、発注方式の年度別ミスパターンを増やし、周辺ノードへの戻り導線を整える |
 | 工場レイアウトと流れ設計 | `/operations-management/knowledge-factory-layout-and-flow-design` | 安定論点 | 公開済み | `G1-G5` | レイアウト類型と SLP の比較問題を増やす |
 | 資材・在庫管理 | `/operations-management/knowledge-materials-and-inventory-management` | 安定論点 | 公開済み | `G1-G5` | MRP、EOQ、安全在庫の比較問題を増やす |
 | 品質管理 | `/operations-management/knowledge-quality-management` | 安定論点 | 公開済み | `G1-G5` | QC7つ道具と新QC7つ道具の誤答比較を増やす |
@@ -116,7 +116,7 @@
 | 購買・外注管理 | `/operations-management/knowledge-purchasing-and-outsourcing-management` | 安定論点 | 公開済み | `G1-G5` | 購買と外注の比較問題を増やす |
 | 店舗立地と商圏分析 | `/operations-management/knowledge-store-location-and-trading-area` | 安定論点 | 公開済み | `G1-G5` | 立地類型とハフモデルの演習を増やす |
 | 店舗レイアウトとマーチャンダイジング | `/operations-management/knowledge-store-layout-and-merchandising` | 安定論点 | 公開済み | `G1-G5` | VMD、SKU、棚割の比較問題を増やす |
-| 販売管理指標・物流・流通情報システム | `/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems` | 安定論点 | 公開済み | `G1-G5` | GMROI、交差比率、POS、EOS、EDI の比較問題を増やす |
+| 販売管理指標・物流・流通情報システム | `/operations-management/knowledge-sales-indicators-logistics-and-retail-information-systems` | 安定論点 | 公開済み | `G1-G5` | ユニットロード、輸送方式、POS分析指標の確認問題を増やし、顧客データ論点の戻り先を整える |
 
 ### 経営法務のノード
 
@@ -150,17 +150,17 @@
 
 | ページ | 公開導線 | 論点区分 | 状態 | 達成ゲート | 次の作業 |
 | --- | --- | --- | --- | --- | --- |
-| コンピュータの基礎 | `/management-information-systems/knowledge-computer-basics` | 安定論点 | 公開済み | `G1-G5` | `CPU / 記憶装置 / OS / RAID / 処理形態` の比較問題を追加する |
-| データベースとSQL | `/management-information-systems/knowledge-database-and-sql` | 安定論点 | 公開済み | `G1-G5` | `正規化 / SQL / トランザクション / 排他制御` の比較問題を追加する |
-| 通信ネットワーク | `/management-information-systems/knowledge-network-basics` | 安定論点 | 公開済み | `G1-G5` | `OSI / TCP-IP / DNS / HTTP / IPアドレス` の比較問題を追加する |
-| Webテクノロジーとクラウド | `/management-information-systems/knowledge-web-and-cloud` | 安定論点 | 公開済み | `G1-G5` | `Web / API / SaaS / PaaS / IaaS / CDN` の比較問題を追加する |
-| 情報セキュリティの基礎 | `/management-information-systems/knowledge-information-security-basics` | 安定論点 | 公開済み | `G1-G5` | `暗号 / ハッシュ / 電子署名 / PKI / 認証` の比較問題を追加する |
-| AI・機械学習の基礎 | `/management-information-systems/knowledge-ai-and-machine-learning-basics` | 安定論点 | 公開済み | `G1-G5` | `教師あり / 教師なし / 強化学習 / 生成AI / IoT` の比較問題を追加する |
-| IT戦略・BPR・DX | `/management-information-systems/knowledge-it-strategy-and-dx` | 安定論点 | 公開済み | `G1-G5` | `BPR / DX / ITガバナンス / ERP / SCM / CRM` の比較問題を追加する |
-| システム開発手法 | `/management-information-systems/knowledge-systems-development-methods` | 安定論点 | 公開済み | `G1-G5` | `要件定義 / 設計 / ウォーターフォール / V字モデル / アジャイル / DevOps` の比較問題を追加する |
-| プロジェクトマネジメント | `/management-information-systems/knowledge-project-management` | 安定論点 | 公開済み | `G1-G5` | `WBS / PERT / EVM / 見積り / リスク管理` の比較問題を追加する |
-| 運用管理・評価・監査 | `/management-information-systems/knowledge-it-operations-and-audit` | 安定論点 | 公開済み | `G1-G5` | `ITIL / SLA / システム監査 / 内部統制 / MTBF / MTTR` の比較問題を追加する |
-| 外部資源活用と意思決定支援 | `/management-information-systems/knowledge-outsourcing-and-decision-support` | 安定論点 | 公開済み | `G1-G5` | `アウトソーシング / SaaS / PaaS / IaaS / BI / DWH / OLAP / IoT` の比較問題を追加する |
+| コンピュータの基礎 | `/management-information-systems/knowledge-computer-basics` | 安定論点 | 公開済み | `G1-G5` | `性能指標 / スタック / キュー / ソフトウェア層` の確認問題を年度別の言い換えで増やす |
+| データベースとSQL | `/management-information-systems/knowledge-database-and-sql` | 安定論点 | 公開済み | `G1-G5` | `ACID / ロック / バックアップ / 分析基盤` の比較問題と誤答例を追加する |
+| 通信ネットワーク | `/management-information-systems/knowledge-network-basics` | 安定論点 | 公開済み | `G1-G5` | `TCP-UDP / SNMP / 標準化組織` の比較問題を追加する |
+| Webテクノロジーとクラウド | `/management-information-systems/knowledge-web-and-cloud` | 安定論点 | 公開済み | `G1-G5` | `GraphQL / PWA / DaaS / VDI / コミュニティクラウド` の比較問題を増やす |
+| 情報セキュリティの基礎 | `/management-information-systems/knowledge-information-security-basics` | 安定論点 | 公開済み | `G1-G5` | `WAF / CSP / SameSite / X-Frame-Options / EPP-EDR-DLP / テレワーク方式` を年度別の言い換えで継続補強する |
+| AI・機械学習の基礎 | `/management-information-systems/knowledge-ai-and-machine-learning-basics` | 安定論点 | 公開済み | `G1-G5` | `混同行列 / ROC-PR比較 / 回帰指標計算 / 時系列特徴量 / データリーク` を年度別の言い換えで継続補強する |
+| IT戦略・BPR・DX | `/management-information-systems/knowledge-it-strategy-and-dx` | 安定論点 | 公開済み | `G1-G5` | `h24` の 25問復元、`h28` のクラウド比較軸、`h26 / h29` の第21〜23問再監査は完了。次は `h24 第25問` の原版確認と、今回の比較軸を知識ノードの確認問題へ逆流する |
+| システム開発手法 | `/management-information-systems/knowledge-systems-development-methods` | 安定論点 | 公開済み | `G1-G5` | `見積手法 / OSS ライセンス / オブジェクト指向 / 移行用語` を含む比較問題と年度別誤答例を増やす |
+| プロジェクトマネジメント | `/management-information-systems/knowledge-project-management` | 安定論点 | 公開済み | `G1-G5` | `見積手法 / リスク / スクラム役割 / クリティカルパス` の比較問題を追加する |
+| 運用管理・評価・監査 | `/management-information-systems/knowledge-it-operations-and-audit` | 安定論点 | 公開済み | `G1-G5` | `ITSMS / ISMS / フェールセーフ / 冗長化形態 / RASIS` の比較問題を増やす |
+| 外部資源活用と意思決定支援 | `/management-information-systems/knowledge-outsourcing-and-decision-support` | 安定論点 | 公開済み | `G1-G5` | `MOLAP / HOLAP / ROLAP / TPS-MIS-DSS-SIS-EIS / IoT-エッジ` の比較問題を追加する |
 | 統計学の基礎 | `/management-information-systems/knowledge-statistics-basics` | 安定論点 | 公開済み | `G1-G5` | `代表値 / ばらつき / 相関 / 回帰 / 検定` の比較問題を補強する |
 | 更新ノード 情報セキュリティガイドラインと関連法規 | `/management-information-systems/security-guidelines-and-related-laws` | 更新論点 | 公開済み | `G1-G6` | `法規 / ガイドライン / 脅威動向` の比較表を補強し、年次更新を続ける |
 
@@ -210,10 +210,10 @@
 | 利益計画と予算管理 | `/finance-and-accounting/profit-and-cash-management-profit-planning-and-budget-control` | 安定論点 | 公開済み | `G1-G5` | 予算実績差異と利益差異の例題を追加する |
 | キャッシュ・フロー管理 | `/finance-and-accounting/profit-and-cash-management-cash-flow-and-fcf` | 安定論点 | 公開済み | `G1-G5` | 月次資金繰り、`営業 CF`、`FCF` の読み替え例を追加する |
 | 収益性指数法 | `/finance-and-accounting/finance-profitability-index` | 安定論点 | 公開済み | `G1-G5` | `PI` と `NPV`、資本制約、相互排他的比較の演習を増やす |
-| 効率的市場仮説 | `/finance-and-accounting/finance-efficient-market-hypothesis` | 安定論点 | 公開済み | `G1-G5` | `弱度 / 準強度 / 強度` の比較問題と CAPM との関係を補強する |
-| マルチプル法 | `/finance-and-accounting/finance-multiples-valuation` | 安定論点 | 公開済み | `G1-G5` | `PER`、`PBR`、`EV/EBITDA` と `DCF法` の比較問題を補強する |
-| MM理論と配当政策 | `/finance-and-accounting/finance-mm-and-dividend-policy` | 安定論点 | 公開済み | `G1-G5` | `法人税なし / あり` と `配当無関連` の比較問題を補強する |
-| デリバティブとリスク管理 | `/finance-and-accounting/finance-derivatives-risk-management` | 安定論点 | 公開済み | `G1-G5` | `先物 / オプション / スワップ` の選択問題とヘッジ方向の誤答を補強する |
+| 効率的市場仮説 | `/finance-and-accounting/finance-efficient-market-hypothesis` | 安定論点 | 公開済み | `G1-G5` | `相関係数 / 共分散 / β / 標準偏差` の役割差と `ポートフォリオ理論 / CAPM` との関係を一問で横断できる比較を補強する |
+| マルチプル法 | `/finance-and-accounting/finance-multiples-valuation` | 安定論点 | 公開済み | `G1-G5` | `割引超過利益モデル` と `配当割引モデル` の比較、類似企業選定の判断問題を補強する |
+| MM理論と配当政策 | `/finance-and-accounting/finance-mm-and-dividend-policy` | 安定論点 | 公開済み | `G1-G5` | `配当割引モデル`、`残余配当政策`、`自社株買い` の比較問題を補強する |
+| デリバティブとリスク管理 | `/finance-and-accounting/finance-derivatives-risk-management` | 安定論点 | 公開済み | `G1-G5` | `プット＝コール・パリティ` と `二項モデル` の計算手順、使いどころ、前提の違いを比較問題で補強する |
 
 ### 原価計算のノードと出題ノード
 
@@ -233,7 +233,7 @@
 | 原価計算 演習ノード 基本確認問題 | `/finance-and-accounting/cost-accounting-practice-basic-check` | 安定論点 | 公開済み | `G1-G5` | 総合原価計算の仕損・減損と配合差異の応用問題を追加する |
 | 経営分析 演習ノード 基本確認問題 | `/finance-and-accounting/management-analysis-practice-basic-check` | 安定論点 | 公開済み | `G1-G5` | セールスミックス、時系列比較、与件根拠つきの指標選定を追加する |
 | 利益と資金の管理 演習ノード 基本確認問題 | `/finance-and-accounting/profit-and-cash-management-practice-basic-check` | 安定論点 | 公開済み | `G1-G5` | 経常収支比率と短期借入依存度を含む月次資金繰り問題を追加する |
-| ファイナンス 演習ノード 基本確認問題 | `/finance-and-accounting/finance-practice-basic-check` | 安定論点 | 公開済み | `G1-G5` | 調査費と撤退価値を含む多段デシジョンツリー問題を追加する |
+| ファイナンス 演習ノード 基本確認問題 | `/finance-and-accounting/finance-practice-basic-check` | 安定論点 | 公開済み | `G1-G5` | `プット＝コール・パリティ / 二項モデル / オプション価格` の違いを一問でつなぐ総合問題を追加する |
 
 ## 第2次試験
 

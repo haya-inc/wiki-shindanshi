@@ -33,10 +33,10 @@ import Link from 'next/link';
         <Link href="/reference/exam-guide">受験ガイド</Link>で試験の全体像をつかむ
       </li>
       <li>
-        科目ページで出題範囲を確認する
+        `1次` か `2次` か、今読む入口を決める
       </li>
       <li>
-        気になるトピックから読み始める
+        科目トップか事例トップから読み始める
       </li>
     </ol>
   </div>
@@ -123,6 +123,32 @@ import Link from 'next/link';
       <p className="wiki-home-card-copy">白書・統計・施策</p>
       <span className="wiki-home-card-link">科目トップへ</span>
     </Link>
+  </div>
+</section>
+
+<section className="not-prose wiki-home-section">
+  <div className="wiki-home-section-head">
+    <p className="wiki-home-card-kicker">Start</p>
+    <h2 className="wiki-home-section-title">迷ったら最初にここを分ける</h2>
+  </div>
+
+  <div className="wiki-home-principles">
+    <div className="wiki-home-principle">
+      <h3>1次試験</h3>
+      <p className="wiki-home-principle-copy">{'7科目の知識を問う試験です。科目トップから入り、章ハブ、知識ノード、演習へ進みます。'}</p>
+    </div>
+    <div className="wiki-home-principle">
+      <h3>第2次試験</h3>
+      <p className="wiki-home-principle-copy">{'4事例の読解と助言、計算を問う試験です。まず共通プロセスを固め、そのあと事例別ページへ進みます。'}</p>
+    </div>
+    <div className="wiki-home-principle">
+      <h3>迷ったとき</h3>
+      <p className="wiki-home-principle-copy">
+        {'初めてなら '}
+        <code>受験ガイド → 1次の1科目 → 第2次の共通プロセス</code>
+        {' の順で読むと、全体像をつかみやすくなります。'}
+      </p>
+    </div>
   </div>
 </section>
 
