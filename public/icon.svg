@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="shindanshi favicon">
+  <rect width="64" height="64" rx="16" fill="#f6f2ea" />
+  <path
+    d="M20 14H44L50 20V44L44 50H20L14 44V20L20 14Z"
+    fill="none"
+    stroke="#1f6a57"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M22 32L32 22L42 32L32 42L22 32Z"
+    fill="#1f6a57"
+    fill-opacity="0.14"
+    stroke="#154d41"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  <circle cx="44" cy="20" r="4" fill="#9a6a20" />
+</svg>

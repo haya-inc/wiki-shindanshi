@@ -45,7 +45,7 @@ export function AISearchPanelHeader({
   return (
     <div
       className={cn(
-        "sticky top-0 flex items-start gap-2 rounded-xl shadow-sm",
+        "sticky top-0 flex items-start gap-2 rounded-2xl shadow-sm",
         secondarySurfaceClass,
         className,
       )}
@@ -150,7 +150,7 @@ export function AISearchPanel() {
             <AISearchPanelList className="flex-1" />
             <div
               className={cn(
-                "rounded-xl shadow-sm has-focus-visible:shadow-md",
+                "rounded-2xl shadow-sm has-focus-visible:shadow-md",
                 secondarySurfaceClass,
               )}
             >

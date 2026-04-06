@@ -33,7 +33,8 @@ pnpm dev
 - wiki ページ下部に、参照先と被リンクをまとめた `関連マップ` を表示します。
 - `/` トップに、ページ全体の参照関係を俯瞰できる `GraphView` を表示します。
 - `DOCS_FEEDBACK_WEBHOOK_URL` を設定すると、Feedback を任意の Webhook にも転送できます。
-- `OPENROUTER_API_KEY` を設定すると、docs 内検索を使った AI チャットを利用できます。検索ツールの入力不備が出た場合は内部で再試行します。
+- `DOCS_FEEDBACK_GITHUB_TOKEN`（`issues` 書き込みが付いた fine-grained PAT など）と `DOCS_FEEDBACK_GITHUB_REPO`（`owner/repo`）を設定すると、同じ内容で GitHub Issue を自動作成し、送信完了後に「GitHub で見る」へその Issue を表示します。任意で `DOCS_FEEDBACK_GITHUB_LABELS` にカンマ区切りラベル（例: `docs,feedback`）を指定できます（GitHub 側に同名ラベルが無いと作成 API が 422 になるため、先にリポジトリでラベルを用意してください）。Issue 作成に失敗しても、Feedback 本体の記録と送信は継続します。ローカルでは `.env.example` を参考に `.env.local` に書けば `pnpm dev` からそのまま有効です。
+- `OPENROUTER_API_KEY` を設定すると、docs 内検索を使った AI チャットを利用できます。検索ツールの入力不備が出た場合は内部で再試行します。変数名は `.env.example` に記載しています。
 - `lastModified` は Git 履歴から計算します。Vercel では `VERCEL_DEEP_CLONE=true` を設定してください。
 
 ## AI 検索の実装入口

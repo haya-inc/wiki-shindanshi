@@ -32,6 +32,10 @@ export const metadata: Metadata = {
     template: "%s | shindanshi",
   },
   description: "中小企業診断士試験の学習用 wiki",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+  },
 };
 
 const isVercelRuntime = process.env.VERCEL === "1";

@@ -65,7 +65,7 @@ export function AISearchMessage({
           key={call.toolCallId}
           className={cn(
             secondarySurfaceClass,
-            "mt-3 flex flex-row items-center gap-2 rounded-lg p-2 text-xs text-fd-muted-foreground",
+            "mt-3 flex flex-row items-center gap-2 rounded-[0.85rem] p-2 text-xs text-fd-muted-foreground",
           )}
         >
           <SearchIcon className="size-4" />

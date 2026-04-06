@@ -107,7 +107,7 @@ export function GraphView({ graph, className }: GraphViewProps) {
     <div
       ref={containerRef}
       className={cn(
-        "relative h-[640px] overflow-hidden rounded-3xl [&_canvas]:size-full",
+        "relative h-[640px] overflow-hidden rounded-[1.25rem] [&_canvas]:size-full",
         cardSurfaceClass,
         className,
       )}
@@ -320,7 +320,7 @@ function ClientGraph({
       {tooltip ? (
         <div
           className={cn(
-            "pointer-events-none absolute max-w-xs rounded-2xl px-3 py-2 text-sm shadow-xl",
+            "pointer-events-none absolute max-w-xs rounded-[0.85rem] px-3 py-2 text-sm shadow-xl",
             popoverSurfaceClass,
           )}
           style={{ left: tooltip.x, top: tooltip.y }}

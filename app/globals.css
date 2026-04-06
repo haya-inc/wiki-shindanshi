@@ -29,6 +29,10 @@
   --accent-warm: #9a6a20;
   --shadow-soft: 0 24px 72px rgba(24, 33, 29, 0.1);
   --shadow-card: 0 18px 44px rgba(24, 33, 29, 0.08);
+  --radius-card-sm: 0.85rem;
+  --radius-card-md: 0.95rem;
+  --radius-card-lg: 1.1rem;
+  --radius-card-xl: 1.25rem;
 
   --background: var(--color-fd-background);
   --foreground: var(--color-fd-foreground);
@@ -157,7 +161,7 @@ body {
     inset: 0.9rem 0 0;
     z-index: -1;
     border: 1px solid var(--line);
-    border-radius: 1.75rem;
+    border-radius: var(--radius-card-xl);
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 22%),
       var(--surface-strong);
@@ -292,7 +296,7 @@ body {
 }
 
 #nd-page .prose [data-card="true"] {
-  border-radius: 1rem;
+  border-radius: var(--radius-card-md);
   padding: 0.95rem;
 }
 
@@ -305,7 +309,7 @@ body {
   gap: 0.7rem;
   margin-block: 0.9rem 1.05rem;
   padding: 0.85rem 0.95rem 0.85rem 0.6rem;
-  border-radius: 1rem;
+  border-radius: var(--radius-card-md);
 }
 
 #nd-page .prose [style*="--callout-color"] > :last-child {
@@ -421,7 +425,7 @@ body {
   gap: 1.25rem;
   position: relative;
   overflow: hidden;
-  border-radius: 1.75rem;
+  border-radius: var(--radius-card-xl);
   padding: clamp(1.25rem, 2.8vw, 2rem);
 }
 
@@ -493,7 +497,7 @@ body {
 .wiki-card,
 .wiki-step-card,
 .wiki-panel {
-  border-radius: 1.35rem;
+  border-radius: var(--radius-card-lg);
   padding: 1.2rem;
 }
 
@@ -733,7 +737,7 @@ a.wiki-card:hover {
   flex-direction: column;
   gap: 0.35rem;
   border: 1px solid var(--line);
-  border-radius: 1rem;
+  border-radius: var(--radius-card-md);
   background: var(--surface-strong);
   box-shadow: var(--shadow-card);
   padding: 0.95rem 1rem;

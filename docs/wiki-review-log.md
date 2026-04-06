@@ -1,6 +1,6 @@
 # wiki レビュー記録
 
-更新日: 2026-03-29
+更新日: 2026-04-06
 
 ## 記録の見方
 
@@ -5604,3 +5604,45 @@
 1. `knowledge-it-strategy-and-dx.mdx` に `EA / ITポートフォリオ / 投資評価 / SLA` の年度別言い換えを確認問題として追加する
 2. `knowledge-statistics-basics.mdx` の残り論点として、`代表値 / ばらつき / 相関 / 回帰 / 検定` のうち未だ比較問題が薄い箇所を追加する
 3. `content/docs/past-exam-solutions/h24/index.mdx` 以外にも、年度本文更新後の件数が index 側へ反映されていない科目がないか横断確認する
+
+## 2026-04-06-01 カード角丸を一段だけ締めて全体の印象を揃えた
+
+### 対象
+
+- `app/globals.css`
+- `app/styles/docs-home.css`
+- `app/styles/related-map.css`
+- `components/graph-view.tsx`
+- `components/feedback/page-feedback.tsx`
+- `components/feedback/block-feedback.tsx`
+- `components/ai/search-panel.tsx`
+- `components/ai/search-message.tsx`
+- `docs/wiki-review-log.md`
+
+### 成果
+
+- `app/globals.css` にカード用の半径トークン `--radius-card-sm / md / lg / xl` を追加し、docs 共通カード、章ハブ hero、index jump、本文カード、callout の角丸を一段だけ小さくした
+- `docs-home.css` と `related-map.css` でも同じトークンを使い、トップページのカード群、関連マップ本体、ノードカードの丸みを共通基準へ寄せた
+- `graph-view.tsx`、`page-feedback.tsx`、`block-feedback.tsx`、`search-panel.tsx`、`search-message.tsx` の JSX 側で直書きしていたカード面の `rounded-*` も揃え、CSS と React 側で見た目が割れないようにした
+- 入力欄やチップまでは触らず、今回は `カード面だけ` を調整対象に限定した
+- 小さいカードが角ばりすぎず、大きいカードが据え置きに見えすぎないよう、`sm / md / lg / xl` の段差も詰め直した
+
+### 検証
+
+- `pnpm check`
+- `pnpm lint`
+
+### 学び
+
+1. 角丸の印象差は `1.75rem -> 1.5rem` のような軽い調整でも十分に出るため、まずは共通トークン化してから一段だけ下げる方が安全
+2. このリポジトリではカード表現が `CSS` と `JSX` に分散しているため、どちらか片側だけ触るとホームやフィードバックで丸みが不揃いになる
+3. 入力欄まで同時に締めると操作感まで変わるので、見た目の印象調整は `カード面` と `入力面` を分けて扱った方が差分を読みやすい
+
+### 前回比
+
+- 改善
+
+### 次に修正すべきこと
+
+1. 実機で `/`、科目ハブ、関連マップ付きページを見て、`sm` と `md` の差がまだ広ければ `0.05rem` 単位で追加調整する
+2. 今後 `rounded-*` を JSX に追加するときは、カード面なら今回の半径トークンを優先して使う
