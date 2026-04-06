@@ -26,7 +26,7 @@ pnpm dev
 
 - `/llms.txt` と `/llms-full.txt` を公開し、各ページの Markdown を取得できます。
 - `llms` 向け出力は raw MDX を LLM 向け Markdown に整形し、`Cards`、`Tabs`、`Accordion`、`TypeTable` の情報が落ちにくい形にしています。
-- wiki 画面に `AIに質問` を追加しています。`OpenRouter` の `google/gemini-3.1-flash-lite-preview` を利用します。
+- wiki 画面に `AIに質問` を追加しています。`OpenRouter` の `qwen/qwen3.6-plus:free` を利用します。
 - wiki 内検索はページ種別タグで絞り込めます。
 - wiki ページ下部に `Feedback` を追加しています。既定では `data/docs-feedback.jsonl` とサーバーログへ記録します。
 - 本文ブロックごとに `FeedbackBlock` を出し、段落単位でも改善要望を送れます。
