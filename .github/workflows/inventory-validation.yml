@@ -1,5 +1,5 @@
 name: Validate updated wiki tooling
-true:
+'on':
   push:
     branches:
     - codex/validate-inventory-20261128
