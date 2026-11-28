@@ -546,7 +546,7 @@ const desktopRouteGroups = {
   ],
 } satisfies Record<string, readonly DesktopRoute[]>;
 
-const desktopRoutes = Object.values(desktopRouteGroups).flat();
+const desktopRoutes: DesktopRoute[] = Object.values(desktopRouteGroups).flat();
 
 const uiScenarioRoutes = {
   mobileHubs: ["/finance-and-accounting", "/second-stage", "/reference"],
