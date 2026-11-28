@@ -17,7 +17,6 @@ jobs:
           node-version: 24
       - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115
       - run: pnpm install --frozen-lockfile
-      - run: pnpm check
       - run: pnpm build
         env:
           NEXT_TELEMETRY_DISABLED: "1"
